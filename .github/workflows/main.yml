@@ -21,11 +21,14 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      
+      - uses: actions/checkout@v2      
+
+      # Set up Node
+      - uses: actions/setup-node@v2
+
       # Install all necessary dependencies
       #- name: Install necessary dependencies
-      #  run: npm ci
+        run: npm install
       
       # Run the linter
       - name: Run ESLint
