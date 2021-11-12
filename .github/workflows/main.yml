@@ -24,8 +24,8 @@ jobs:
       - uses: actions/checkout@v2
       
       # Install all necessary dependencies
-      - name: Install necessary dependencies
-        run: npm ci
+      #- name: Install necessary dependencies
+      #  run: npm ci
       
       # Run the linter
       - name: Run ESLint
