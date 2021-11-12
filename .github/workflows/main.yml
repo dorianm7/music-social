@@ -27,7 +27,7 @@ jobs:
       - uses: actions/setup-node@v2
 
       # Install all necessary dependencies
-      #- name: Install necessary dependencies
+      - name: Install necessary dependencies
         run: npm install
       
       # Run the linter
