@@ -28,7 +28,7 @@ jobs:
 
       # Install all necessary dependencies
       - name: Install necessary dependencies
-        run: npm ci
+        run: npm install
       
       # Run the linter
       - name: Run ESLint
