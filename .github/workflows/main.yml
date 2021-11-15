@@ -35,6 +35,9 @@ jobs:
       - name: Install necessary dependencies
         run: npm install
 
+      # Explicitly install eslint
+      - run: npm install --save-dev eslint
+
       # Output package.json
       - run: cat package.json
 
