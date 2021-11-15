@@ -34,10 +34,16 @@ jobs:
       # Install all necessary dependencies
       - name: Install necessary dependencies
         run: npm install
+
+      # Output package.json
+      - run: cat package.json
+
+      # Output ESLint rc
+      - run: cat .eslintrc.json
       
       # Run the linter
       - name: Run ESLint
-        run: eslint .
+        run: eslint public/ src/
         
       # Run the tests
       - name: Run tests
