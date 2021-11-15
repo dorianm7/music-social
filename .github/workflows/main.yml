@@ -25,13 +25,15 @@ jobs:
 
       # Set up Node
       - uses: actions/setup-node@v2
-
+        with:
+          node-version: '12'
+        
       # Output all files
       - run: ls -a
 
       # Install all necessary dependencies
       #- name: Install necessary dependencies
-      #  run: npm install
+        run: npm install
       
       # Run the linter
       - name: Run ESLint
