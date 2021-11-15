@@ -28,26 +28,18 @@ jobs:
         with:
           node-version: '12'
         
-      # Output all files
-      - run: ls -a
-
       # Install all necessary dependencies
       - name: Install necessary dependencies
         run: npm install
 
       # Explicitly install eslint
-      - run: npm install --save-dev eslint
+      #- run: npm install --save-dev eslint
 
-      # Output package.json
-      - run: cat package.json
-
-      # Output ESLint rc
-      - run: cat .eslintrc.json
+      # Run the tests
+      - name: Run tests
+        run: npm test
       
       # Run the linter
       - name: Run ESLint
         run: ./node_modules/.bin/eslint .
         
-      # Run the tests
-      - name: Run tests
-        run: npm test
