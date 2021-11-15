@@ -46,7 +46,7 @@ jobs:
       
       # Run the linter
       - name: Run ESLint
-        run: ./node_modules/.bin/eslint src public/ src/
+        run: ./node_modules/.bin/eslint ./src/ ./public/
         
       # Run the tests
       - name: Run tests
