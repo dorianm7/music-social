@@ -1,9 +1,9 @@
 .basic-button {
-  text-align: center;
   background-color: hsl(0, 0%, 70%);
   border-radius: .2em;
-  display: inline;
+  display: inline-block;
   padding: .4em .8em;
+  margin: 0;
 }
 
 .basic-button:hover {
