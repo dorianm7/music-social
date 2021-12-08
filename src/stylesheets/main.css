@@ -1,6 +1,12 @@
-.unselectable {
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+button {
+  background-color: hsl(0, 0%, 70%);
+  border-style: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.round-corners {
+  border-radius: .2em;
 }

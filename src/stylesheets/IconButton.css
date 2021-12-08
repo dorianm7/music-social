@@ -1,7 +1,4 @@
 .icon-button {
-  background-color: hsl(0, 0%, 70%);
-}
-
-.icon-button:hover {
-  cursor: pointer;
+  line-height: 0;
+  padding: 0;
 }
