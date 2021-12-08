@@ -8,7 +8,6 @@ import close from '../../images/close.svg';
 class ExpandableButton extends React.Component {
   constructor(props) {
     super(props);
-    // this.myRef = React.createRef();
     this.state = {
       isOpen: false,
     };
@@ -16,11 +15,9 @@ class ExpandableButton extends React.Component {
   }
 
   componentDidMount() {
-    // console.log(this.myRef.current);
   }
 
   componentWillUnmount() {
-    //
   }
 
   handleClick() {
@@ -29,13 +26,21 @@ class ExpandableButton extends React.Component {
         isOpen: !prevState.isOpen,
       }
     ));
-    window.alert('handleClick Clicked!');
   }
 
   render() {
     const { isOpen } = this.state;
     const { src } = this.props;
-    const closeIconButton = <IconButton src={close} alt="Close Icon" onClick={this.handleClick} onKeyUp={this.handleClick} />;
+
+    const closeIconButton = (
+      <IconButton
+        src={close}
+        alt="Close Icon"
+        onClick={this.handleClick}
+        onKeyUp={this.handleClick}
+      />
+    );
+
     const initialIconButton = (
       <IconButton
         src={src}
@@ -43,8 +48,8 @@ class ExpandableButton extends React.Component {
         onKeyUp={this.handleClick}
       />
     );
-    const iconButton = isOpen ? closeIconButton
-      : initialIconButton;
+
+    const iconButton = isOpen ? closeIconButton : initialIconButton;
 
     return iconButton;
   }
