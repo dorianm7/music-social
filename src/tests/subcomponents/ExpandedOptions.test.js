@@ -43,7 +43,3 @@ it('renders correct number of options', () => {
   expect(expandedOptionsAr[1].children.length).toBe(1);
   expect(expandedOptionsAr[2].children.length).toBe(2);
 });
-
-it('renders the correct curved corners', () => {
-
-});
