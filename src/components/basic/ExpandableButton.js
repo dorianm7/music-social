@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import IconButton from './IconButton';
+import ExpandedOptions from '../subcomponents/ExpandedOptions';
 import '../../stylesheets/ExpandableButton.css';
 import defaultIcon from '../../images/help-rhombus-outline.svg';
 import close from '../../images/close.svg';
+
+let getCorner;
 
 class ExpandableButton extends React.Component {
   constructor(props) {
@@ -30,7 +33,13 @@ class ExpandableButton extends React.Component {
 
   render() {
     const { isOpen } = this.state;
-    const { initialIconSrc, subsequentIconSrc } = this.props;
+    const {
+      initialIconSrc,
+      subsequentIconSrc,
+      expand,
+      direction,
+      options,
+    } = this.props;
 
     const closeIconButton = (
       <IconButton
@@ -50,19 +59,58 @@ class ExpandableButton extends React.Component {
     );
 
     const iconButton = isOpen ? closeIconButton : initialIconButton;
+    const corner = getCorner(expand, direction);
 
+    if (isOpen) {
+      return (
+        <>
+          {iconButton}
+          <ExpandedOptions options={options} corner={corner} />
+        </>
+      );
+    }
     return iconButton;
   }
 }
 
+getCorner = (expand, direction) => {
+  const isTopLeft = (expand === 'right' && direction === 'down')
+    || (expand === 'bottom' && direction === 'right');
+
+  const isTopRight = (expand === 'left' && direction === 'down')
+    || (expand === 'bottom' && direction === 'left');
+
+  const isBottomRight = (expand === 'left' && direction === 'up')
+  || (expand === 'top' && direction === 'left');
+
+  let corner;
+  if (isTopLeft) {
+    corner = 'top-left';
+  } else if (isTopRight) {
+    corner = 'top-right';
+  } else if (isBottomRight) {
+    corner = 'bottom-right';
+  } else {
+    corner = 'bottom-left';
+  }
+
+  return corner;
+};
+
 ExpandableButton.propTypes = {
   initialIconSrc: PropTypes.string,
   subsequentIconSrc: PropTypes.string,
+  expand: PropTypes.string,
+  direction: PropTypes.string,
+  options: PropTypes.instanceOf(ExpandedOptions),
 };
 
 ExpandableButton.defaultProps = {
   initialIconSrc: defaultIcon,
   subsequentIconSrc: close,
+  expand: 'top',
+  direction: 'left',
+  options: <ExpandedOptions corner="bottom-right" />,
 };
 
 export default ExpandableButton;
