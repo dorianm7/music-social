@@ -1,0 +1,32 @@
+.top-left-corner {
+  border-radius: .2em;
+  border-top-left-radius: 0;
+}
+
+.top-right-corner {
+  border-radius: .2em;
+  border-top-right-radius: 0;
+}
+
+.bottom-right-corner {
+  border-radius: .2em;
+  border-bottom-right-radius: 0;
+}
+
+.bottom-left-corner {
+  border-radius: .2em;
+  border-bottom-left-radius: 0;
+}
+
+.expanded-options {
+  display: inline-block;
+  background-color: hsl(0, 0%, 70%);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.expanded-options li *:first-child{
+  display: inline;
+  width: 100%;
+}
