@@ -1,11 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { nanoid } from 'nanoid';
 import '../../stylesheets/ExpandedOptions.css';
+
+function createListElements(options) {
+  const listItems = [];
+
+  for (let i = 0; i < options.length; i += 1) {
+    listItems.push(<li key={nanoid()}>{options[i]}</li>);
+  }
+
+  return listItems;
+}
 
 function ExpandedOptions(props) {
   const { options, corner } = props;
-  const listItems = options.map((el) => <li>{el}</li>);
   const cornerClassName = `${corner}-corner`;
+  const listItems = createListElements(options);
 
   return (
     <ul className={`${cornerClassName} expanded-options`}>
