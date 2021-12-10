@@ -30,11 +30,11 @@ class ExpandableButton extends React.Component {
 
   render() {
     const { isOpen } = this.state;
-    const { src } = this.props;
+    const { initialIconSrc, subsequentIconSrc } = this.props;
 
     const closeIconButton = (
       <IconButton
-        src={close}
+        src={subsequentIconSrc}
         alt="Close Icon"
         onClick={this.handleClick}
         onKeyUp={this.handleClick}
@@ -43,7 +43,7 @@ class ExpandableButton extends React.Component {
 
     const initialIconButton = (
       <IconButton
-        src={src}
+        src={initialIconSrc}
         onClick={this.handleClick}
         onKeyUp={this.handleClick}
       />
@@ -56,11 +56,13 @@ class ExpandableButton extends React.Component {
 }
 
 ExpandableButton.propTypes = {
-  src: PropTypes.string,
+  initialIconSrc: PropTypes.string,
+  subsequentIconSrc: PropTypes.string,
 };
 
 ExpandableButton.defaultProps = {
-  src: defaultIcon,
+  initialIconSrc: defaultIcon,
+  subsequentIconSrc: close,
 };
 
 export default ExpandableButton;
