@@ -61,15 +61,22 @@ class ExpandableButton extends React.Component {
     const iconButton = isOpen ? closeIconButton : initialIconButton;
     const corner = getCorner(expand, direction);
 
-    if (isOpen) {
-      return (
+    const expandedOptionsEl = <ExpandedOptions options={options} corner={corner} />;
+
+    const contents = isOpen
+      ? (
         <>
           {iconButton}
-          <ExpandedOptions options={options} corner={corner} />
+          {expandedOptionsEl}
         </>
-      );
-    }
-    return iconButton;
+      )
+      : iconButton;
+
+    return (
+      <div className={`expandable-button expand-${expand} direction-${direction}`}>
+        {contents}
+      </div>
+    );
   }
 }
 
