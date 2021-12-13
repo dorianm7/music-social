@@ -117,7 +117,7 @@ ExpandableButton.defaultProps = {
   subsequentIconSrc: close,
   expand: 'top',
   direction: 'left',
-  options: <ExpandedOptions corner="bottom-right" />,
+  options: ['One', 'Two', 'Three', 'Four'],
 };
 
 export default ExpandableButton;
