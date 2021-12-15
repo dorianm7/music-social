@@ -12,9 +12,10 @@ class ExpandableButton extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isOpen: false,
+      isOpen: true,
     };
     this.handleClick = this.handleClick.bind(this);
+    this.expandedOptionsRef = React.createRef();
   }
 
   componentDidMount() {
@@ -61,13 +62,15 @@ class ExpandableButton extends React.Component {
     const iconButton = isOpen ? closeIconButton : initialIconButton;
     const corner = getCorner(expand, direction);
 
-    const expandedOptionsEl = <ExpandedOptions options={options} corner={corner} />;
+    const RefExpandedOptions = React.forwardRef((props, ref) => (
+      <ExpandedOptions forwardedRef={ref} options={options} corner={corner} />
+    ));
 
     const contents = isOpen
       ? (
         <>
           {iconButton}
-          {expandedOptionsEl}
+          <RefExpandedOptions ref={this.expandedOptionsRef} />
         </>
       )
       : iconButton;
@@ -109,7 +112,7 @@ ExpandableButton.propTypes = {
   subsequentIconSrc: PropTypes.string,
   expand: PropTypes.string,
   direction: PropTypes.string,
-  options: PropTypes.instanceOf(ExpandedOptions),
+  options: PropTypes.arrayOf(PropTypes.node),
 };
 
 ExpandableButton.defaultProps = {

@@ -14,23 +14,26 @@ function createListElements(options) {
 }
 
 function ExpandedOptions(props) {
-  const { options, corner } = props;
+  const { forwardedRef, options, corner } = props;
   const cornerClassName = `${corner}-corner`;
   const listItems = createListElements(options);
 
   return (
-    <ul className={`${cornerClassName} expanded-options`}>
+    <ul ref={forwardedRef} className={`${cornerClassName} expanded-options`}>
       {listItems}
     </ul>
   );
 }
 
 ExpandedOptions.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  forwardedRef: PropTypes.object,
   options: PropTypes.arrayOf(PropTypes.node),
   corner: PropTypes.string,
 };
 
 ExpandedOptions.defaultProps = {
+  forwardedRef: null,
   options: ['Default', 'expanded', 'options'],
   corner: 'top-left',
 };
