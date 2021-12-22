@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import '../../stylesheets/subcomponents/ExpandedOptions.css';
+import '../../stylesheets/main.css';
 
 function createListElements(options) {
   const listItems = [];
@@ -14,28 +15,53 @@ function createListElements(options) {
 }
 
 function ExpandedOptions(props) {
-  const { forwardedRef, options, corner } = props;
+  const {
+    options,
+    corner,
+  } = props;
   const cornerClassName = `${corner}-corner`;
   const listItems = createListElements(options);
 
   return (
-    <ul ref={forwardedRef} className={`${cornerClassName} expanded-options`}>
+    <ul className={`${cornerClassName} expanded-options `}>
       {listItems}
     </ul>
   );
 }
 
 ExpandedOptions.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  forwardedRef: PropTypes.object,
   options: PropTypes.arrayOf(PropTypes.node),
   corner: PropTypes.string,
 };
 
 ExpandedOptions.defaultProps = {
-  forwardedRef: null,
   options: ['Default', 'expanded', 'options'],
   corner: 'top-left',
 };
 
-export default ExpandedOptions;
+const RefExpandedOptions = React.forwardRef((props, ref) => {
+  const { options, corner } = props;
+  const cornerClassName = `${corner}-corner`;
+  const listItems = createListElements(options);
+
+  return (
+    <ul ref={ref} className={`${cornerClassName} expanded-options `}>
+      {listItems}
+    </ul>
+  );
+});
+
+RefExpandedOptions.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.node),
+  corner: PropTypes.string,
+};
+
+RefExpandedOptions.defaultProps = {
+  options: ['Default', 'expanded', 'ref', 'options'],
+  corner: 'top-left',
+};
+
+export {
+  ExpandedOptions,
+  RefExpandedOptions,
+};
