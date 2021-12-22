@@ -78,7 +78,9 @@ class ExpandableButton extends React.Component {
   getIconButton() {
     const {
       initialIconSrc,
+      initialIconAlt,
       subsequentIconSrc,
+      subsequentIconAlt,
       iconWidth,
       iconHeight,
     } = this.props;
@@ -89,11 +91,11 @@ class ExpandableButton extends React.Component {
 
     if (isOpen) {
       iconSrc = subsequentIconSrc;
-      alt = 'Close Expandable Button';
+      alt = subsequentIconAlt;
       iconRounded = this.getIconRoundedProp();
     } else {
       iconSrc = initialIconSrc;
-      alt = 'Open Expandable Button';
+      alt = initialIconAlt;
       iconRounded = 'all';
     }
 
@@ -182,7 +184,9 @@ getCorner = (expand, direction) => {
 
 ExpandableButton.propTypes = {
   initialIconSrc: PropTypes.string,
+  initialIconAlt: PropTypes.string,
   subsequentIconSrc: PropTypes.string,
+  subsequentIconAlt: PropTypes.string,
   iconWidth: PropTypes.string,
   iconHeight: PropTypes.string,
   expand: PropTypes.string,
@@ -192,7 +196,9 @@ ExpandableButton.propTypes = {
 
 ExpandableButton.defaultProps = {
   initialIconSrc: defaultIcon,
+  initialIconAlt: 'Open Expandable Button',
   subsequentIconSrc: close,
+  subsequentIconAlt: 'Close Expandable Button',
   iconWidth: '20px',
   iconHeight: '20px',
   expand: 'top',
