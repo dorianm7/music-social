@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import IconButton from './IconButton';
-import ExpandedOptions from '../subcomponents/ExpandedOptions';
+import { RefExpandedOptions } from '../subcomponents/ExpandedOptions';
 import '../../stylesheets/ExpandableButton.css';
 import defaultIcon from '../../images/help-rhombus-outline.svg';
 import close from '../../images/close.svg';
@@ -12,13 +12,25 @@ class ExpandableButton extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isOpen: true,
+      isOpen: false,
     };
     this.handleClick = this.handleClick.bind(this);
     this.expandedOptionsRef = React.createRef();
+    this.expandedOptionsEl = null;
+    this.setExpandedOptionsEl();
+    this.expandedOptionsHeight = '0px';
+    this.expandedOptionsHeight = '0px';
   }
 
   componentDidMount() {
+  }
+
+  componentDidUpdate() {
+    const { isOpen } = this.state;
+
+    if (isOpen) {
+      this.setStyle();
+    }
   }
 
   componentWillUnmount() {
@@ -32,48 +44,81 @@ class ExpandableButton extends React.Component {
     ));
   }
 
+  setStyle() {
+    const {
+      iconWidth,
+      iconHeight,
+    } = this.props;
+
+    this.expandedOptionsHeight = this.expandedOptionsRef.current.offsetHeight;
+    this.expandedOptionsWidth = this.expandedOptionsRef.current.offsetWidth;
+
+    this.expandedOptionsRef.current.style.setProperty('--expanded-options-height', `${this.expandedOptionsHeight}px`);
+    this.expandedOptionsRef.current.style.setProperty('--expanded-options-width', `${this.expandedOptionsWidth}px`);
+    this.expandedOptionsRef.current.style.setProperty('--icon-height', iconHeight);
+    this.expandedOptionsRef.current.style.setProperty('--icon-width', iconWidth);
+  }
+
+  getIconButton() {
+    const { initialIconSrc, subsequentIconSrc } = this.props;
+    const { isOpen } = this.state;
+    if (isOpen) {
+      return (
+        <IconButton
+          src={subsequentIconSrc}
+          alt="Close Expandable Button"
+          onClick={this.handleClick}
+          onKeyUp={this.handleClick}
+        />
+      );
+    }
+    return (
+      <IconButton
+        src={initialIconSrc}
+        alt="Open Expandable Button"
+        onClick={this.handleClick}
+        onKeyUp={this.handleClick}
+      />
+    );
+  }
+
+  setExpandedOptionsEl() {
+    const { expand, direction, options } = this.props;
+    const corner = getCorner(expand, direction);
+
+    this.expandedOptionsEl = (
+      <RefExpandedOptions
+        options={options}
+        corner={corner}
+        ref={this.expandedOptionsRef}
+      />
+    );
+  }
+
+  renderExpandedOptions() {
+    return this.expandedOptionsEl;
+  }
+
   render() {
     const { isOpen } = this.state;
     const {
-      initialIconSrc,
-      subsequentIconSrc,
       expand,
       direction,
-      options,
     } = this.props;
 
-    const closeIconButton = (
-      <IconButton
-        src={subsequentIconSrc}
-        alt="Close Icon"
-        onClick={this.handleClick}
-        onKeyUp={this.handleClick}
-      />
-    );
+    const iconButton = this.getIconButton();
+    let contents;
 
-    const initialIconButton = (
-      <IconButton
-        src={initialIconSrc}
-        onClick={this.handleClick}
-        onKeyUp={this.handleClick}
-      />
-    );
-
-    const iconButton = isOpen ? closeIconButton : initialIconButton;
-    const corner = getCorner(expand, direction);
-
-    const RefExpandedOptions = React.forwardRef((props, ref) => (
-      <ExpandedOptions forwardedRef={ref} options={options} corner={corner} />
-    ));
-
-    const contents = isOpen
-      ? (
+    if (isOpen) {
+      contents = (
         <>
           {iconButton}
-          <RefExpandedOptions ref={this.expandedOptionsRef} />
+          {this.renderExpandedOptions()}
         </>
-      )
-      : iconButton;
+      );
+    } else {
+      contents = iconButton;
+    }
 
     return (
       <div className={`expandable-button expand-${expand} direction-${direction}`}>
@@ -110,6 +155,8 @@ getCorner = (expand, direction) => {
 ExpandableButton.propTypes = {
   initialIconSrc: PropTypes.string,
   subsequentIconSrc: PropTypes.string,
+  iconWidth: PropTypes.string,
+  iconHeight: PropTypes.string,
   expand: PropTypes.string,
   direction: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.node),
@@ -118,6 +165,8 @@ ExpandableButton.propTypes = {
 ExpandableButton.defaultProps = {
   initialIconSrc: defaultIcon,
   subsequentIconSrc: close,
+  iconWidth: '1.5rem',
+  iconHeight: '1.5rem',
   expand: 'top',
   direction: 'left',
   options: ['One', 'Two', 'Three', 'Four'],
