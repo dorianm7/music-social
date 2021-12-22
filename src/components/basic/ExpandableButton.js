@@ -60,13 +60,20 @@ class ExpandableButton extends React.Component {
   }
 
   getIconButton() {
-    const { initialIconSrc, subsequentIconSrc } = this.props;
+    const {
+      initialIconSrc,
+      subsequentIconSrc,
+      iconWidth,
+      iconHeight,
+    } = this.props;
     const { isOpen } = this.state;
     if (isOpen) {
       return (
         <IconButton
           src={subsequentIconSrc}
           alt="Close Expandable Button"
+          iconWidth={iconWidth}
+          iconHeight={iconHeight}
           onClick={this.handleClick}
           onKeyUp={this.handleClick}
         />
@@ -76,6 +83,8 @@ class ExpandableButton extends React.Component {
       <IconButton
         src={initialIconSrc}
         alt="Open Expandable Button"
+        iconWidth={iconWidth}
+        iconHeight={iconHeight}
         onClick={this.handleClick}
         onKeyUp={this.handleClick}
       />
@@ -165,8 +174,8 @@ ExpandableButton.propTypes = {
 ExpandableButton.defaultProps = {
   initialIconSrc: defaultIcon,
   subsequentIconSrc: close,
-  iconWidth: '1.5rem',
-  iconHeight: '1.5rem',
+  iconWidth: '20px',
+  iconHeight: '20px',
   expand: 'top',
   direction: 'left',
   options: ['One', 'Two', 'Three', 'Four'],
