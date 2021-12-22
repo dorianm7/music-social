@@ -18,7 +18,7 @@ class ExpandableButton extends React.Component {
     this.expandedOptionsRef = React.createRef();
     this.expandedOptionsEl = null;
     this.setExpandedOptionsEl();
-    this.expandedOptionsHeight = '0px';
+    this.expandedOptionsWidth = '0px';
     this.expandedOptionsHeight = '0px';
   }
 
