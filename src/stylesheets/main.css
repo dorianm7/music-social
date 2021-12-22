@@ -10,3 +10,27 @@ button:hover {
 .round-corners {
   border-radius: .2em;
 }
+
+.rounded-none {
+  border-radius: 0;
+}
+
+.rounded-all {
+  border-radius: .2em;
+}
+
+.rounded-top {
+  border-radius: .2em .2em 0 0;
+}
+
+.rounded-right {
+  border-radius: 0 .2em .2em 0;
+}
+
+.rounded-bottom { 
+  border-radius: 0 0 .2em .2em; 
+}
+
+.rounded-left {
+  border-radius: .2em 0 0 .2em;
+}
