@@ -59,6 +59,22 @@ class ExpandableButton extends React.Component {
     this.expandedOptionsRef.current.style.setProperty('--icon-width', iconWidth);
   }
 
+  getIconRoundedProp() {
+    const { expand } = this.props;
+    let rounded;
+    if (expand === 'top') {
+      rounded = 'bottom';
+    } else if (expand === 'right') {
+      rounded = 'left';
+    } else if (expand === 'bottom') {
+      rounded = 'top';
+    } else {
+      rounded = 'right';
+    }
+
+    return rounded;
+  }
+
   getIconButton() {
     const {
       initialIconSrc,
@@ -67,6 +83,7 @@ class ExpandableButton extends React.Component {
       iconHeight,
     } = this.props;
     const { isOpen } = this.state;
+    const iconRoundedProp = this.getIconRoundedProp();
     if (isOpen) {
       return (
         <IconButton
@@ -74,6 +91,7 @@ class ExpandableButton extends React.Component {
           alt="Close Expandable Button"
           iconWidth={iconWidth}
           iconHeight={iconHeight}
+          rounded={iconRoundedProp}
           onClick={this.handleClick}
           onKeyUp={this.handleClick}
         />
@@ -85,6 +103,7 @@ class ExpandableButton extends React.Component {
         alt="Open Expandable Button"
         iconWidth={iconWidth}
         iconHeight={iconHeight}
+        rounded="all"
         onClick={this.handleClick}
         onKeyUp={this.handleClick}
       />
