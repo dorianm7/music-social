@@ -83,27 +83,27 @@ class ExpandableButton extends React.Component {
       iconHeight,
     } = this.props;
     const { isOpen } = this.state;
-    const iconRoundedProp = this.getIconRoundedProp();
+    let iconRounded;
+    let iconSrc;
+    let alt;
+
     if (isOpen) {
-      return (
-        <IconButton
-          src={subsequentIconSrc}
-          alt="Close Expandable Button"
-          iconWidth={iconWidth}
-          iconHeight={iconHeight}
-          rounded={iconRoundedProp}
-          onClick={this.handleClick}
-          onKeyUp={this.handleClick}
-        />
-      );
+      iconSrc = subsequentIconSrc;
+      alt = 'Close Expandable Button';
+      iconRounded = this.getIconRoundedProp();
+    } else {
+      iconSrc = initialIconSrc;
+      alt = 'Open Expandable Button';
+      iconRounded = 'all';
     }
+
     return (
       <IconButton
-        src={initialIconSrc}
-        alt="Open Expandable Button"
+        src={iconSrc}
+        alt={alt}
         iconWidth={iconWidth}
         iconHeight={iconHeight}
-        rounded="all"
+        rounded={iconRounded}
         onClick={this.handleClick}
         onKeyUp={this.handleClick}
       />
@@ -127,30 +127,30 @@ class ExpandableButton extends React.Component {
     return this.expandedOptionsEl;
   }
 
-  render() {
+  renderContents() {
     const { isOpen } = this.state;
-    const {
-      expand,
-      direction,
-    } = this.props;
-
     const iconButton = this.getIconButton();
-    let contents;
 
     if (isOpen) {
-      contents = (
+      return (
         <>
           {iconButton}
           {this.renderExpandedOptions()}
         </>
       );
-    } else {
-      contents = iconButton;
     }
+    return iconButton;
+  }
+
+  render() {
+    const {
+      expand,
+      direction,
+    } = this.props;
 
     return (
       <div className={`expandable-button expand-${expand} direction-${direction}`}>
-        {contents}
+        {this.renderContents()}
       </div>
     );
   }
