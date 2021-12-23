@@ -1,0 +1,35 @@
+.expandable-button .expanded-options{
+  position: absolute;
+}
+
+.expandable-button.expand-top .expanded-options {
+  margin-top: calc((-1) * var(--expanded-options-height));
+}
+
+.expandable-button.expand-right .expanded-options {
+  margin-left: 0;
+}
+
+.expandable-button.expand-bottom .expanded-options {
+  margin-top: var(--icon-height);
+}
+
+.expandable-button.expand-left .expanded-options {
+  margin-left: calc((-1) * (var(--expanded-options-width) + var(--icon-width)));
+}
+
+.expandable-button.direction-left .expanded-options {
+  margin-left: calc((-1) * var(--expanded-options-width));
+}
+
+.expandable-button.direction-right .expanded-options {
+  margin-left: calc((-1) * var(--icon-width));
+}
+
+.expandable-button.direction-up .expanded-options {
+  margin-top: calc((-1) * (var(--expanded-options-height) - var(--icon-height)));
+}
+
+.expandable-button.direction-down .expanded-options {
+  margin-top: 0;
+}
