@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import '../../stylesheets/subcomponents/ExpandedOptions.css';
-// import '../../stylesheets/main.css';
 
 function createListElements(title, alignTitle, options, alignOptions) {
   const listItems = [];
