@@ -113,12 +113,22 @@ class ExpandableButton extends React.Component {
   }
 
   setExpandedOptionsEl() {
-    const { expand, direction, options } = this.props;
+    const {
+      expand,
+      direction,
+      optionsTitle,
+      alignOptionsTitle,
+      options,
+      alignOptions,
+    } = this.props;
     const corner = getCorner(expand, direction);
 
     this.expandedOptionsEl = (
       <RefExpandedOptions
+        title={optionsTitle}
+        alignTitle={alignOptionsTitle}
         options={options}
+        alignOptions={alignOptions}
         corner={corner}
         ref={this.expandedOptionsRef}
       />
@@ -191,7 +201,10 @@ ExpandableButton.propTypes = {
   iconHeight: PropTypes.string,
   expand: PropTypes.string,
   direction: PropTypes.string,
+  optionsTitle: PropTypes.string,
+  alignOptionsTitle: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.node),
+  alignOptions: PropTypes.string,
 };
 
 ExpandableButton.defaultProps = {
@@ -203,7 +216,10 @@ ExpandableButton.defaultProps = {
   iconHeight: '20px',
   expand: 'top',
   direction: 'left',
+  optionsTitle: 'Title',
+  alignOptionsTitle: 'center',
   options: ['One', 'Two', 'Three', 'Four'],
+  alignOptions: 'center',
 };
 
 export default ExpandableButton;
