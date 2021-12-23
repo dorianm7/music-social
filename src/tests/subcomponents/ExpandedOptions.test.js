@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
-import ExpandedOptions from '../../components/subcomponents/ExpandedOptions';
+import { ExpandedOptions } from '../../components/subcomponents/ExpandedOptions';
 
 let container = null;
 
@@ -32,6 +32,7 @@ it('renders correct number of options', () => {
             <li>i</li>
           </ul>]}
         />
+        <ExpandedOptions title="My Title" />
       </>,
       container,
     );
@@ -39,7 +40,8 @@ it('renders correct number of options', () => {
 
   const expandedOptionsAr = container.querySelectorAll('.expanded-options');
 
-  expect(expandedOptionsAr[0].children.length).toBe(3);
-  expect(expandedOptionsAr[1].children.length).toBe(1);
-  expect(expandedOptionsAr[2].children.length).toBe(2);
+  expect(expandedOptionsAr[0].querySelectorAll('.options').length).toBe(3);
+  expect(expandedOptionsAr[1].querySelectorAll('.options').length).toBe(1);
+  expect(expandedOptionsAr[2].querySelectorAll('.options').length).toBe(2);
+  expect(expandedOptionsAr[3].querySelectorAll('.options').length).toBe(3);
 });
