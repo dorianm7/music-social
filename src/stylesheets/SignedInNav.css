@@ -2,16 +2,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.signed-in-nav > .icon-button {
-  margin: 0 0 0 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .signed-in-nav > .signed-in-nav-text{
   display: inline;
-}
-
-.signed-in-nav > .indicator-icon {
-  margin: 0 1rem 0 0;
 }
