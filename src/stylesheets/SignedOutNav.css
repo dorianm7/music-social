@@ -1,0 +1,23 @@
+.signed-out-nav {
+  --nav-font-color: black;
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.signed-out-nav .nav-menu {
+  display: flex;
+  align-items: center;
+  margin: 0 0 0 auto;
+  list-style: none;
+}
+
+.nav-menu li {
+  margin-left: 1rem;
+}
+
+.nav-menu a {
+  color: var(--nav-font-color);
+  text-decoration: none;
+}
