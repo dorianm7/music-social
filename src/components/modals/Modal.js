@@ -8,7 +8,7 @@ function Modal(props) {
     contents,
   } = props;
   return (
-    <div className="modal rounded-all">
+    <div className="modal">
       <h1 className="modal-heading">{heading}</h1>
       <div className="modal-content">
         {contents}
