@@ -83,20 +83,25 @@ class ExpandableButton extends React.Component {
       subsequentIconAlt,
       iconWidth,
       iconHeight,
+      initialIconTransparent,
     } = this.props;
     const { isOpen } = this.state;
     let iconRounded;
     let iconSrc;
     let alt;
+    let transparentIcon;
 
+    console.log(`initialIconTransparent ${initialIconTransparent}`);
     if (isOpen) {
       iconSrc = subsequentIconSrc;
       alt = subsequentIconAlt;
       iconRounded = this.getIconRoundedProp();
+      transparentIcon = false;
     } else {
       iconSrc = initialIconSrc;
       alt = initialIconAlt;
       iconRounded = 'all';
+      transparentIcon = initialIconTransparent;
     }
 
     return (
@@ -106,6 +111,7 @@ class ExpandableButton extends React.Component {
         iconWidth={iconWidth}
         iconHeight={iconHeight}
         rounded={iconRounded}
+        transparentBackground={transparentIcon}
         onClick={this.handleClick}
         onKeyUp={this.handleClick}
       />
@@ -199,6 +205,7 @@ ExpandableButton.propTypes = {
   subsequentIconAlt: PropTypes.string,
   iconWidth: PropTypes.string,
   iconHeight: PropTypes.string,
+  initialIconTransparent: PropTypes.bool,
   expand: PropTypes.string,
   direction: PropTypes.string,
   optionsTitle: PropTypes.string,
@@ -214,6 +221,7 @@ ExpandableButton.defaultProps = {
   subsequentIconAlt: 'Close Expandable Button',
   iconWidth: '20px',
   iconHeight: '20px',
+  initialIconTransparent: false,
   expand: 'top',
   direction: 'left',
   optionsTitle: 'Title',
