@@ -23,12 +23,14 @@ function IconButton(props) {
     iconHeight,
     onClick,
     rounded,
+    transparentBackground,
   } = props;
 
   const validRounded = validateRoundedProp(rounded);
+  const transparentBackgroundClass = transparentBackground ? ' transparent-background' : '';
 
   return (
-    <button type="button" onClick={onClick} onKeyUp={onClick} className={`icon-button rounded-${validRounded}`}>
+    <button type="button" onClick={onClick} onKeyUp={onClick} className={`icon-button rounded-${validRounded}${transparentBackgroundClass}`}>
       <img src={src} alt={alt} width={iconWidth} height={iconHeight} />
     </button>
   );
@@ -40,6 +42,7 @@ IconButton.propTypes = {
   iconWidth: PropTypes.string,
   iconHeight: PropTypes.string,
   rounded: PropTypes.string,
+  transparentBackground: PropTypes.bool,
   onClick: PropTypes.func,
 };
 
@@ -49,6 +52,7 @@ IconButton.defaultProps = {
   iconWidth: '20px',
   iconHeight: '20px',
   rounded: 'none',
+  transparentBackground: false,
   onClick: () => { window.alert('Button clicked'); },
 };
 
