@@ -62,16 +62,20 @@ class ExpandableButton extends React.Component {
   getIconRoundedProp() {
     const { expand } = this.props;
     let rounded;
-    if (expand === 'top') {
-      rounded = 'bottom';
-    } else if (expand === 'right') {
-      rounded = 'left';
-    } else if (expand === 'bottom') {
-      rounded = 'top';
-    } else {
-      rounded = 'right';
+    switch (expand) {
+      case 'top':
+        rounded = 'bottom';
+        break;
+      case 'right':
+        rounded = 'left';
+        break;
+      case 'bottom':
+        rounded = 'top';
+        break;
+      default:
+        rounded = 'right';
+        break;
     }
-
     return rounded;
   }
 
@@ -91,7 +95,6 @@ class ExpandableButton extends React.Component {
     let alt;
     let transparentIcon;
 
-    console.log(`initialIconTransparent ${initialIconTransparent}`);
     if (isOpen) {
       iconSrc = subsequentIconSrc;
       alt = subsequentIconAlt;
