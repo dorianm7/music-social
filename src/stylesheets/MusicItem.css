@@ -1,0 +1,28 @@
+.music-item {
+  display: flex;
+  align-items: center;
+  padding: 1em;
+}
+
+.music-item .picture {
+  margin-right: 1em;
+}
+
+.info {
+  display: block;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: auto;
+}
+
+.info .title {
+  margin-bottom: 0;
+}
+
+.info .creator {
+  margin-top: 0;
+}
+
+.music-item .expandable-button {
+  margin-right: 0;
+}
