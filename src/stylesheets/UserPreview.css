@@ -1,0 +1,23 @@
+.user-preview {
+  display: flex;
+  align-items: center;
+}
+
+.user-preview .user-picture {
+  border-radius: 50%;
+}
+
+.user-info {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: auto;
+  margin-left: 1em;
+}
+
+.user-info .user-name {
+  margin-bottom: 0;
+}
+
+.user-info .user-follow-info {
+  margin-top: 0;
+}
