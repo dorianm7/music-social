@@ -1,0 +1,9 @@
+.tabs .tab {
+  border-radius: .4em .4em 0 0;
+  width: 11em;
+  height: 2.5em;
+}
+
+.tabs .tab.selected {
+  background-color: hsl(0, 0%, 60%);
+}
