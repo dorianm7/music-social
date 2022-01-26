@@ -1,0 +1,12 @@
+.comparison-user img {
+  border-radius: 50%;
+}
+
+.comparison-user p {
+  margin: 0;
+}
+
+.summary-title {
+  font-size: 1.25em;
+  margin-bottom: .25em;
+}
