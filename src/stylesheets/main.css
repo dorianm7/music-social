@@ -50,3 +50,8 @@ button:hover {
   flex-direction: row;
   justify-content: space-evenly;
 }
+
+.top-right {
+  position: absolute;
+  right: 0;
+}
