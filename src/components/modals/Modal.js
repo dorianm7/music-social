@@ -1,14 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import '../../stylesheets/Modal.css';
+import IconButton from '../basic/IconButton';
+import close from '../../images/close.svg';
 
 function Modal(props) {
   const {
     heading,
     contents,
+    closeHandler,
   } = props;
+
   return (
     <div className="modal">
+      <IconButton
+        className="modal-close-btn top-right"
+        src={close}
+        alt="Close"
+        iconWidth="40px"
+        iconHeight="40px"
+        rounded="all"
+        onClick={closeHandler}
+      />
       <h1 className="modal-heading">{heading}</h1>
       <div className="modal-content">
         {contents}
@@ -20,6 +33,7 @@ function Modal(props) {
 Modal.propTypes = {
   heading: PropTypes.string,
   contents: PropTypes.node,
+  closeHandler: PropTypes.func,
 };
 
 Modal.defaultProps = {
@@ -31,6 +45,7 @@ Modal.defaultProps = {
       Here is some text
     </>
   ),
+  closeHandler: () => console.log('Close button clicked'),
 };
 
 export default Modal;
