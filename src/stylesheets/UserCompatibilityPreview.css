@@ -1,0 +1,19 @@
+.user-compatibility-preview {
+  display: flex;
+  align-items: center;
+}
+
+.user-info {
+  margin-left: 1em;
+}
+
+.user-info .user-name {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 1.25em;
+}
+
+.user-info .user-compatibility {
+  margin-top: 0;
+  margin-bottom: 0;
+}

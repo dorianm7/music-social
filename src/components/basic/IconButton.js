@@ -17,6 +17,7 @@ function validateRoundedProp(rounded) {
 
 function IconButton(props) {
   const {
+    className,
     src,
     alt,
     iconWidth,
@@ -30,13 +31,14 @@ function IconButton(props) {
   const transparentBackgroundClass = transparentBackground ? ' transparent-background' : '';
 
   return (
-    <button type="button" onClick={onClick} onKeyUp={onClick} className={`icon-button rounded-${validRounded}${transparentBackgroundClass}`}>
+    <button type="button" onClick={onClick} onKeyUp={onClick} className={`icon-button rounded-${validRounded}${transparentBackgroundClass} ${className}`}>
       <img src={src} alt={alt} width={iconWidth} height={iconHeight} />
     </button>
   );
 }
 
 IconButton.propTypes = {
+  className: PropTypes.string,
   src: PropTypes.string,
   alt: PropTypes.string,
   iconWidth: PropTypes.string,
@@ -47,6 +49,7 @@ IconButton.propTypes = {
 };
 
 IconButton.defaultProps = {
+  className: '',
   src: defaultIcon,
   alt: 'Default question mark icon',
   iconWidth: '20px',
