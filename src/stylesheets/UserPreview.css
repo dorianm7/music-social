@@ -21,3 +21,11 @@
 .user-info .user-follow-info {
   margin-top: 0;
 }
+
+.icon-button.following {
+  background-color: rgb(149,42,199);
+}
+
+.icon-button.not-following {
+  background-color: hsl(0, 0%, 70%);
+}

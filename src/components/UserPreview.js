@@ -1,27 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import '../stylesheets/UserPreview.css';
-import IconButton from './basic/IconButton';
+import ToggleIconButton from './basic/ToggleIconButton';
 import plusIcon from '../images/plus.svg';
 import checkIcon from '../images/check.svg';
 import defaultImg from '../images/help-rhombus-outline.svg';
-
-function renderIconButton(isFollowing, addButtonOnClick, removeButtonOnClick) {
-  const iconSrc = isFollowing ? checkIcon : plusIcon;
-  const onClick = isFollowing ? removeButtonOnClick : addButtonOnClick;
-  const followingClass = isFollowing ? 'following' : 'initial';
-
-  return (
-    <IconButton
-      className={followingClass}
-      src={iconSrc}
-      rounded="all"
-      iconWidth="25px"
-      iconHeight="25px"
-      onClick={onClick}
-    />
-  );
-}
 
 function UserPreview(props) {
   const {
@@ -31,11 +14,9 @@ function UserPreview(props) {
     numFollowers,
     numFollowing,
     isFollowing,
-    addButtonOnClick,
-    removeButtonOnClick,
+    followButtonOnClick,
+    unfollowButtonOnClick,
   } = props;
-
-  const iconButton = renderIconButton(isFollowing, addButtonOnClick, removeButtonOnClick);
 
   return (
     <div className="user-preview">
@@ -52,7 +33,17 @@ function UserPreview(props) {
           {`${numFollowers} Followers, ${numFollowing} Following`}
         </p>
       </div>
-      {iconButton}
+      <ToggleIconButton
+        toggle={isFollowing}
+        initialClassName="not-following"
+        initialSrc={plusIcon}
+        initialAlt="Follow User"
+        initialOnClick={followButtonOnClick}
+        subsequentClassName="following"
+        subsequentSrc={checkIcon}
+        subseqentAlt="Unfollow User"
+        subsequentOnClick={unfollowButtonOnClick}
+      />
     </div>
   );
 }
@@ -64,8 +55,8 @@ UserPreview.propTypes = {
   numFollowers: PropTypes.string,
   numFollowing: PropTypes.string,
   isFollowing: PropTypes.bool,
-  addButtonOnClick: PropTypes.func,
-  removeButtonOnClick: PropTypes.func,
+  followButtonOnClick: PropTypes.func,
+  unfollowButtonOnClick: PropTypes.func,
 };
 
 UserPreview.defaultProps = {
@@ -75,8 +66,8 @@ UserPreview.defaultProps = {
   numFollowers: '2',
   numFollowing: '3',
   isFollowing: false,
-  addButtonOnClick: () => { window.alert('Add Button Clicked'); },
-  removeButtonOnClick: () => { window.alert('Remove Button Clicked'); },
+  followButtonOnClick: () => { window.alert('Follow Button Clicked'); },
+  unfollowButtonOnClick: () => { window.alert('Unfollow Button Clicked'); },
 };
 
 export default UserPreview;
