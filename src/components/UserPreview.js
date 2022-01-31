@@ -6,73 +6,55 @@ import plusIcon from '../images/plus.svg';
 import checkIcon from '../images/check.svg';
 import defaultImg from '../images/help-rhombus-outline.svg';
 
-class UserPreview extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isFollowing: false,
-    };
-  }
+function renderIconButton(isFollowing, addButtonOnClick, removeButtonOnClick) {
+  const iconSrc = isFollowing ? checkIcon : plusIcon;
+  const onClick = isFollowing ? removeButtonOnClick : addButtonOnClick;
+  const followingClass = isFollowing ? 'following' : 'initial';
 
-  componentDidMount() {
+  return (
+    <IconButton
+      className={followingClass}
+      src={iconSrc}
+      rounded="all"
+      iconWidth="25px"
+      iconHeight="25px"
+      onClick={onClick}
+    />
+  );
+}
 
-  }
+function UserPreview(props) {
+  const {
+    imgSrc,
+    imgAlt,
+    name,
+    numFollowers,
+    numFollowing,
+    isFollowing,
+    addButtonOnClick,
+    removeButtonOnClick,
+  } = props;
 
-  // MIGHT NEED TO HAVE TWO DIFFERENT ONCLICKS
-  renderIconButton(addButtonOnClick) {
-    const { isFollowing } = this.state;
-    let iconSrc;
-    if (isFollowing) {
-      iconSrc = checkIcon;
-    } else {
-      iconSrc = plusIcon;
-    }
+  const iconButton = renderIconButton(isFollowing, addButtonOnClick, removeButtonOnClick);
 
-    return (
-      <IconButton
-        src={iconSrc}
-        rounded="all"
-        iconWidth="25px"
-        iconHeight="25px"
-        onClick={addButtonOnClick}
+  return (
+    <div className="user-preview">
+      <img
+        className="user-picture"
+        src={imgSrc}
+        alt={imgAlt}
+        width="60px"
+        height="60px"
       />
-    );
-  }
-
-  render() {
-    const {
-      imgSrc,
-      imgAlt,
-      name,
-      numFollowers,
-      numFollowing,
-      addButtonOnClick,
-    } = this.props;
-
-    const iconButton = this.renderIconButton(addButtonOnClick);
-
-    return (
-      <div className="user-preview">
-        <img
-          className="user-picture"
-          src={imgSrc}
-          alt={imgAlt}
-          width="60px"
-          height="60px"
-        />
-        <div className="user-info">
-          <p className="user-name">{name}</p>
-          <p className="user-follow-info">
-            {numFollowers}
-            &nbsp;Followers,&nbsp;
-            {numFollowing}
-            &nbsp;Following
-          </p>
-        </div>
-        {iconButton}
+      <div className="user-info">
+        <p className="user-name">{name}</p>
+        <p className="user-follow-info">
+          {`${numFollowers} Followers, ${numFollowing} Following`}
+        </p>
       </div>
-    );
-  }
+      {iconButton}
+    </div>
+  );
 }
 
 UserPreview.propTypes = {
@@ -81,7 +63,9 @@ UserPreview.propTypes = {
   name: PropTypes.string,
   numFollowers: PropTypes.string,
   numFollowing: PropTypes.string,
+  isFollowing: PropTypes.bool,
   addButtonOnClick: PropTypes.func,
+  removeButtonOnClick: PropTypes.func,
 };
 
 UserPreview.defaultProps = {
@@ -90,7 +74,9 @@ UserPreview.defaultProps = {
   name: 'Name L',
   numFollowers: '2',
   numFollowing: '3',
+  isFollowing: false,
   addButtonOnClick: () => { window.alert('Add Button Clicked'); },
+  removeButtonOnClick: () => { window.alert('Remove Button Clicked'); },
 };
 
 export default UserPreview;
