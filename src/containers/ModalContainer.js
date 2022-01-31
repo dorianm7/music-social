@@ -1,65 +1,51 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import '../stylesheets/main.css';
-import Modal from '../components/modals/Modal';
+import React, { useEffect, useState } from 'react';
+import propTypes from 'prop-types';
 
 // Need modalOpenstate, sideMenuOpenState
-class ModalContainer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      modalOpen: false,
-    };
-    this.handleClick = this.handleClick.bind(this);
-  }
+function ModalContainer(WrappedComponent) {
+  function Wrapped(props) {
+    const { heading, contents } = props;
+    const [modalOpen, setModalOpen] = useState(false);
+    const MODAL_CONTAINER_CLASS_NAME = 'modal-container';
 
-  handleClick() {
-    this.setState((prevState) => ({ modalOpen: !prevState.modalOpen }));
-  }
-
-  render() {
-    const { modalOpen } = this.state;
-    const { content, modal } = this.props;
-
-    const contentStyle = modalOpen
-      ? {
-        filter: 'brightness(.4) blur(3px)',
-        backgroundColor: 'rgba(0,0,0,.2)',
+    useEffect(() => {
+      if (modalOpen) {
+        document.querySelector(`.${MODAL_CONTAINER_CLASS_NAME}`).style.filter = 'brightness(.4) blur(3px)';
+        document.querySelector(`.${MODAL_CONTAINER_CLASS_NAME}`).backgroundColor = 'rgba(0,0,0,.2)';
       }
-      : {
-        filter: 'brightness(1) blur(0)',
-        backgroundColor: 'rgba(0,0,0,0)',
+
+      return () => {
+        document.querySelector(`.${MODAL_CONTAINER_CLASS_NAME}`).style.filter = 'brightness(1) blur(0)';
+        document.querySelector(`.${MODAL_CONTAINER_CLASS_NAME}`).backgroundColor = 'rgba(0,0,0,0)';
       };
-    const selectableClass = modalOpen ? ' unselectable' : '';
+    },
+    [modalOpen]);
+
+    function handleClick() {
+      setModalOpen(!modalOpen);
+    }
 
     return (
-      <>
-        <div
-          className={`modal-container${selectableClass}`}
-          style={contentStyle}
-        >
-          {content}
-          <button
-            type="button"
-            onClick={this.handleClick}
-          >
-            Open Modal
-          </button>
-        </div>
-        {modalOpen && modal}
-      </>
+      <WrappedComponent
+        modalContainerClassName={MODAL_CONTAINER_CLASS_NAME}
+        modalOpen={modalOpen}
+        toggleHandler={() => handleClick}
+        heading={heading}
+        contents={contents}
+      />
     );
   }
+
+  Wrapped.propTypes = {
+    heading: propTypes.string,
+    contents: propTypes.node,
+  };
+
+  Wrapped.defaultProps = {
+    heading: 'Modal',
+    contents: <p>The contents for the modal</p>,
+  };
+  return Wrapped;
 }
-
-ModalContainer.propTypes = {
-  content: PropTypes.node,
-  modal: PropTypes.node,
-};
-
-ModalContainer.defaultProps = {
-  content: <p>Content Here</p>,
-  modal: <Modal />,
-};
 
 export default ModalContainer;
