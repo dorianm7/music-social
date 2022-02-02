@@ -1,13 +1,33 @@
+.expandable-button {
+  display: inline-flex;
+}
+
+.expandable-button.expand-top {
+  flex-direction: column-reverse;
+}
+
+.expandable-button.expand-right {
+  flex-direction: row;
+}
+
+.expandable-button.expand-down {
+  flex-direction: column;
+}
+
+.expandable-button.expand-left {
+  flex-direction: row-reverse;
+}
+
 .expandable-button .expanded-options{
   position: absolute;
 }
 
 .expandable-button.expand-top .expanded-options {
-  margin-top: calc((-1) * var(--expanded-options-height));
+  margin-bottom: var(--icon-height);
 }
 
 .expandable-button.expand-right .expanded-options {
-  margin-left: 0;
+  margin-left: var(--icon-width);
 }
 
 .expandable-button.expand-bottom .expanded-options {
@@ -15,15 +35,15 @@
 }
 
 .expandable-button.expand-left .expanded-options {
-  margin-left: calc((-1) * (var(--expanded-options-width) + var(--icon-width)));
+  margin-right: var(--icon-width);
 }
 
 .expandable-button.direction-left .expanded-options {
-  margin-left: calc((-1) * var(--expanded-options-width));
+  margin-left: calc((-1) * (var(--expanded-options-width) - var(--icon-width)));
 }
 
 .expandable-button.direction-right .expanded-options {
-  margin-left: calc((-1) * var(--icon-width));
+  margin-left: 0;
 }
 
 .expandable-button.direction-up .expanded-options {

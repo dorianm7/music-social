@@ -184,18 +184,18 @@ getCorner = (expand, direction) => {
   const isTopRight = (expand === 'left' && direction === 'down')
     || (expand === 'bottom' && direction === 'left');
 
-  const isBottomRight = (expand === 'left' && direction === 'up')
-  || (expand === 'top' && direction === 'left');
+  const isBottomLeft = (expand === 'right' && direction === 'up')
+    || (expand === 'top' && direction === 'right');
 
   let corner;
   if (isTopLeft) {
     corner = 'top-left';
   } else if (isTopRight) {
     corner = 'top-right';
-  } else if (isBottomRight) {
-    corner = 'bottom-right';
-  } else {
+  } else if (isBottomLeft) {
     corner = 'bottom-left';
+  } else {
+    corner = 'bottom-right';
   }
 
   return corner;
