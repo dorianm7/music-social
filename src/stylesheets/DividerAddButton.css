@@ -1,0 +1,13 @@
+.divider-add-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.divider-add-button .icon-button {
+  margin: 0 1em;
+}
+
+.divider-add-button hr {
+  width: 50%;
+}
