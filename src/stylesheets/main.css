@@ -45,6 +45,12 @@ button:hover {
   align-items: center;
 }
 
+.center-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .space-evenly-row {
   display: flex;
   flex-direction: row;

@@ -1,0 +1,20 @@
+.drop-down {
+  width: 100%;
+}
+
+.drop-down .title-bar {
+  width: inherit;
+  height: 1.5em;
+  padding: 0 .5em;
+}
+
+.drop-down .expand-collapse-icon {
+  margin-left: .5em;
+  margin-right: auto;
+  width: 10px;
+  height: 10px;
+}
+
+.drop-down .down {
+  transform: rotate(180deg);
+}
