@@ -22,6 +22,9 @@ function TextInput(props) {
   const inputOnChange = (e) => {
     onChange(e);
     setValue(e.target.value);
+    if (!e.target.value) {
+      setShowDropDown(true);
+    }
   };
 
   const handleFocus = () => {
@@ -33,10 +36,6 @@ function TextInput(props) {
   };
 
   const handleBlur = () => {
-    if (!value) {
-      setShowDropDown(true);
-    }
-
     if (!requirementValidities.includes(false)) {
       setShowDropDown(false);
     }
