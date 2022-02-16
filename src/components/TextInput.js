@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import InputRequirements from './subcomponents/InputRequirements';
+import '../stylesheets/TextInput.css';
 
 function TextInput(props) {
   const [value, setValue] = useState('');
   const [hasOpened, setHasOpened] = useState(false);
   const [showDropDown, setShowDropDown] = useState(true);
+  const [showRequirements, setShowRequirements] = useState(false);
   const {
     type,
     requirementTexts,
@@ -20,15 +22,21 @@ function TextInput(props) {
   const inputOnChange = (e) => {
     onChange(e);
     setValue(e.target.value);
-    if (value.length === 0) {
+  };
+
+  const handleFocus = () => {
+    if (!value) {
+      setShowRequirements(true);
       setShowDropDown(true);
-      setHasOpened(false);
-    } else {
       setHasOpened(true);
     }
   };
 
   const handleBlur = () => {
+    if (!value) {
+      setShowDropDown(true);
+    }
+
     if (!requirementValidities.includes(false)) {
       setShowDropDown(false);
     }
@@ -40,14 +48,15 @@ function TextInput(props) {
         type={type}
         onChange={inputOnChange}
         onBlur={handleBlur}
+        onFocus={handleFocus}
       />
-      {value.length > 0 && (
+      {showRequirements && (
         <InputRequirements
           openDropDown={showDropDown}
           hasOpened={hasOpened}
           requirementTexts={requirementTexts}
           requirementValidities={requirementValidities}
-          showRequirements={value.length > 0}
+          showRequirements={showRequirements}
           onTitleBarClick={handleClick}
         />
       )}
