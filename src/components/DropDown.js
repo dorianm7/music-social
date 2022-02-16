@@ -1,28 +1,31 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import '../stylesheets/DropDown.css';
 import { renderIcon } from '../Icons';
 
 function DropDown(props) {
-  const [open, setOpen] = useState(false);
   const {
+    className,
     title,
     titleBarIconName,
+    titleBarIconClassName,
+    onTitleBarClick,
     showTitleBarIcon,
     content,
+    open,
   } = props;
   const triangleOrientation = open ? 'down' : 'up';
 
   return (
-    <div className="drop-down">
+    <div className={`drop-down ${className}`}>
       <button
         type="button"
         className="title-bar center-row"
-        onClick={() => setOpen(!open)}
+        onClick={onTitleBarClick}
       >
         <p className="title">{title}</p>
         {renderIcon('triangle', `expand-collapse-icon ${triangleOrientation}`)}
-        {showTitleBarIcon && renderIcon(titleBarIconName, 'title-bar-icon')}
+        {showTitleBarIcon && !open && renderIcon(titleBarIconName, `title-bar-icon ${titleBarIconClassName}`)}
       </button>
       {open && (
         <div className="content">
@@ -34,16 +37,24 @@ function DropDown(props) {
 }
 
 DropDown.propTypes = {
+  className: PropTypes.string,
   title: PropTypes.string,
   titleBarIconName: PropTypes.string,
+  titleBarIconClassName: PropTypes.string,
+  onTitleBarClick: PropTypes.func,
   showTitleBarIcon: PropTypes.bool,
+  open: PropTypes.bool,
   content: PropTypes.node,
 };
 
 DropDown.defaultProps = {
+  className: '',
   title: 'Drop Down',
   titleBarIconName: 'none',
+  titleBarIconClassName: '',
+  onTitleBarClick: () => { window.alert('Title Bar Clicked'); },
   showTitleBarIcon: false,
+  open: false,
   content: 'Content',
 };
 
