@@ -69,10 +69,12 @@ function nameToPathData(iconName) {
   return pathData;
 }
 
-function renderIcon(iconName, className = '') {
+function renderIcon(iconName, iconWidth = '20px', iconHeight = '20px', className = '') {
   return React.createElement(
     'svg',
     {
+      width: iconWidth,
+      height: iconHeight,
       viewBox: '0 0 24 24',
       className: `icon ${className}`,
     },
