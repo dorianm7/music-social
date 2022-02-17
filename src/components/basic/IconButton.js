@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../../stylesheets/IconButton.css';
 import '../../stylesheets/main.css';
-import defaultIcon from '../../images/help-rhombus-outline.svg';
+import { renderIcon, DEFAULT_NAME } from '../../Icons';
 
 function validateRoundedProp(rounded) {
   if (rounded !== 'all'
@@ -18,10 +18,7 @@ function validateRoundedProp(rounded) {
 function IconButton(props) {
   const {
     className,
-    src,
-    alt,
-    iconWidth,
-    iconHeight,
+    icon,
     onClick,
     rounded,
     transparentBackground,
@@ -32,17 +29,14 @@ function IconButton(props) {
 
   return (
     <button type="button" onClick={onClick} onKeyUp={onClick} className={`icon-button rounded-${validRounded}${transparentBackgroundClass} ${className}`}>
-      <img src={src} alt={alt} width={iconWidth} height={iconHeight} />
+      {renderIcon(icon)}
     </button>
   );
 }
 
 IconButton.propTypes = {
   className: PropTypes.string,
-  src: PropTypes.string,
-  alt: PropTypes.string,
-  iconWidth: PropTypes.string,
-  iconHeight: PropTypes.string,
+  icon: PropTypes.string,
   rounded: PropTypes.string,
   transparentBackground: PropTypes.bool,
   onClick: PropTypes.func,
@@ -50,10 +44,7 @@ IconButton.propTypes = {
 
 IconButton.defaultProps = {
   className: '',
-  src: defaultIcon,
-  alt: 'Default question mark icon',
-  iconWidth: '20px',
-  iconHeight: '20px',
+  icon: DEFAULT_NAME,
   rounded: 'none',
   transparentBackground: false,
   onClick: () => { window.alert('Button clicked'); },
