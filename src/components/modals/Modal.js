@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../../stylesheets/Modal.css';
 import IconButton from '../basic/IconButton';
-import close from '../../images/close.svg';
+import { X_NAME } from '../../Icons';
 
 function Modal(props) {
   const {
@@ -15,8 +15,7 @@ function Modal(props) {
     <div className="modal">
       <IconButton
         className="modal-close-btn top-right"
-        src={close}
-        alt="Close"
+        icon={X_NAME}
         iconWidth="40px"
         iconHeight="40px"
         rounded="all"
