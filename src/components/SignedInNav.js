@@ -2,16 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import IconButton from './basic/IconButton';
 import IndicatorIcon from './IndicatorIcon';
-import menu from '../images/menu.svg';
-import exclamation from '../images/exclamation.svg';
 import '../stylesheets/SignedInNav.css';
-
-function getNotificationsAlt(indicatorOn) {
-  if (indicatorOn) {
-    return 'Nav New Notifications Button';
-  }
-  return 'Nav Notifications Button';
-}
+import { HAMBURGER_MENU_NAME, EXCLAMATION_NAME } from '../Icons';
 
 function SignedInNav(props) {
   const {
@@ -26,8 +18,7 @@ function SignedInNav(props) {
   return (
     <nav className="signed-in-nav">
       <IconButton
-        src={menu}
-        alt="Nav Menu Button"
+        icon={HAMBURGER_MENU_NAME}
         iconWidth={menuButtonSize}
         iconHeight={menuButtonSize}
         onClick={menuButtonOnClick}
@@ -35,8 +26,7 @@ function SignedInNav(props) {
       />
       <p className="signed-in-nav-text">{navText}</p>
       <IndicatorIcon
-        src={exclamation}
-        alt={getNotificationsAlt(notificationsIndicatorOn)}
+        icon={EXCLAMATION_NAME}
         iconWidth={notificationsButtonSize}
         iconHeight={notificationsButtonSize}
         rounded="all"

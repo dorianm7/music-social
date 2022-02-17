@@ -6,9 +6,7 @@ import ToggleIconButton from './basic/ToggleIconButton';
 import ExpandableIconButton from './basic/ExpandableButton';
 import BasicButton from './basic/BasicButton';
 import defaultImg from '../images/help-rhombus-outline.svg';
-import plusIcon from '../images/plus.svg';
-import checkIcon from '../images/check.svg';
-import options from '../images/dots-vertical.svg';
+import { PLUS_NAME, CHECK_NAME, VERTICAL_DOTS_NAME } from '../Icons';
 
 function UserProfileHeader(props) {
   const {
@@ -38,18 +36,14 @@ function UserProfileHeader(props) {
           <ToggleIconButton
             toggle={isFollowing}
             initialClassName="not-following"
-            initialSrc={plusIcon}
-            initialAlt="Follow"
+            initialIcon={PLUS_NAME}
             subsequentClassName="following"
-            subsequentSrc={checkIcon}
-            subsequentAlt="Following"
+            subsequentIcon={CHECK_NAME}
             iconWidth="20px"
             iconHeight="20px"
           />
           <ExpandableIconButton
-            initialIconSrc={options}
-            initialIconAlt="Profile Options"
-            subsequentIconAlt="Close Profile Options"
+            initialIcon={VERTICAL_DOTS_NAME}
             iconWidth="10px"
             iconHeight="20px"
             expand="right"

@@ -14,6 +14,8 @@ function ToggleIconButton(props) {
     subsequentIcon,
     subsequentOnClick,
     subsequentTransparent,
+    iconWidth,
+    iconHeight,
     rounded,
   } = props;
 
@@ -22,6 +24,8 @@ function ToggleIconButton(props) {
       <IconButton
         className={subsequentClassName}
         icon={subsequentIcon}
+        iconWidth={iconWidth}
+        iconHeight={iconHeight}
         onClick={subsequentOnClick}
         rounded={rounded}
         transparentBackground={subsequentTransparent}
@@ -31,6 +35,8 @@ function ToggleIconButton(props) {
       <IconButton
         className={initialClassName}
         icon={initialIcon}
+        iconWidth={iconWidth}
+        iconHeight={iconHeight}
         onClick={initialOnClick}
         rounded={rounded}
         transparentBackground={initialTransparent}
@@ -52,6 +58,8 @@ ToggleIconButton.propTypes = {
   subsquentIcon: PropTypes.string,
   subsequentOnClick: PropTypes.func,
   subsequentTransparent: PropTypes.bool,
+  iconWidth: PropTypes.string,
+  iconHeight: PropTypes.string,
   rounded: PropTypes.string,
 };
 
@@ -65,6 +73,8 @@ ToggleIconButton.defaultProps = {
   subsequentIcon: X_NAME,
   subsequentOnClick: () => { window.alert('Subsequent Icon Clicked'); },
   subsequentTransparent: false,
+  iconWidth: '20px',
+  iconHeight: '20px',
   rounded: 'all',
 };
 

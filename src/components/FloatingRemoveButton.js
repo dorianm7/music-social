@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import '../stylesheets/FloatingRemoveButton.css';
-import cancelIcon from '../images/close.svg';
+import { renderIcon, X_NAME } from '../Icons';
 
 function FloatingRemoveButton(props) {
   const { onClick } = props;
@@ -11,11 +11,7 @@ function FloatingRemoveButton(props) {
       className="floating-remove-button rounded-all"
       onClick={onClick}
     >
-      <img
-        src={cancelIcon}
-        alt="X Icon"
-        className="remove-icon"
-      />
+      {renderIcon(X_NAME, '20px', '20px', 'remove-icon')}
       <p className="remove-text">Remove</p>
     </button>
   );

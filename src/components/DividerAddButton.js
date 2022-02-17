@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../stylesheets/DividerAddButton.css';
 import IconButton from './basic/IconButton';
-import plusIcon from '../images/plus.svg';
+import { PLUS_NAME } from '../Icons';
 
 function DividerAddButton(props) {
   const { onClick } = props;
@@ -10,8 +10,7 @@ function DividerAddButton(props) {
     <div className="divider-add-button">
       <hr />
       <IconButton
-        src={plusIcon}
-        alt="Add"
+        icon={PLUS_NAME}
         rounded="all"
         onClick={onClick}
       />

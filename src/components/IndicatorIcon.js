@@ -1,18 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import IconButton from './basic/IconButton';
-import defaultIcon from '../images/exclamation.svg';
+import { EXCLAMATION_NAME } from '../Icons';
 
 const defaultIconAlt = 'Default Indicator Icon';
 const defaultIconWidth = '20px';
 const defaultIconHeight = '20px';
 const defaultOnClick = () => { window.alert(`${defaultIconAlt} clicked!`); };
 
-function renderIconButton(src, alt, iconWidth, iconHeight, rounded, onClick) {
+function renderIconButton(icon, iconWidth, iconHeight, rounded, onClick) {
   return (
     <IconButton
-      src={src}
-      alt={alt}
+      icon={icon}
       iconWidth={iconWidth}
       iconHeight={iconHeight}
       rounded={rounded}
@@ -43,8 +42,8 @@ function getIndicatorStyle(iconWidth, iconHeight) {
   };
 }
 
-function renderContent(on, src, alt, iconWidth, iconHeight, rounded, onClick) {
-  const iconButton = renderIconButton(src, alt, iconWidth, iconHeight, rounded, onClick);
+function renderContent(on, icon, iconWidth, iconHeight, rounded, onClick) {
+  const iconButton = renderIconButton(icon, iconWidth, iconHeight, rounded, onClick);
   if (on) {
     return (
       <>
@@ -61,8 +60,7 @@ function renderContent(on, src, alt, iconWidth, iconHeight, rounded, onClick) {
 
 function IndicatorIcon(props) {
   const {
-    src,
-    alt,
+    icon,
     iconWidth,
     iconHeight,
     rounded,
@@ -75,14 +73,13 @@ function IndicatorIcon(props) {
       className="indicator-icon"
       style={getIconStyle(iconWidth, iconHeight)}
     >
-      {renderContent(on, src, alt, iconWidth, iconHeight, rounded, onClick)}
+      {renderContent(on, icon, iconWidth, iconHeight, rounded, onClick)}
     </div>
   );
 }
 
 IndicatorIcon.propTypes = {
-  src: PropTypes.string,
-  alt: PropTypes.string,
+  icon: PropTypes.string,
   iconWidth: PropTypes.string,
   iconHeight: PropTypes.string,
   rounded: PropTypes.string,
@@ -91,8 +88,7 @@ IndicatorIcon.propTypes = {
 };
 
 IndicatorIcon.defaultProps = {
-  src: defaultIcon,
-  alt: defaultIconAlt,
+  icon: EXCLAMATION_NAME,
   iconWidth: defaultIconWidth,
   iconHeight: defaultIconHeight,
   rounded: 'all',

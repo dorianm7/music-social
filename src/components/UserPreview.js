@@ -2,9 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../stylesheets/UserPreview.css';
 import ToggleIconButton from './basic/ToggleIconButton';
-import plusIcon from '../images/plus.svg';
-import checkIcon from '../images/check.svg';
 import defaultImg from '../images/help-rhombus-outline.svg';
+import { PLUS_NAME, CHECK_NAME } from '../Icons';
 
 function UserPreview(props) {
   const {
@@ -36,12 +35,10 @@ function UserPreview(props) {
       <ToggleIconButton
         toggle={isFollowing}
         initialClassName="not-following"
-        initialSrc={plusIcon}
-        initialAlt="Follow User"
+        initialIcon={PLUS_NAME}
         initialOnClick={followButtonOnClick}
         subsequentClassName="following"
-        subsequentSrc={checkIcon}
-        subseqentAlt="Unfollow User"
+        subsequentIcon={CHECK_NAME}
         subsequentOnClick={unfollowButtonOnClick}
       />
     </div>

@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import '../../stylesheets/subcomponents/RequirementsDropDown.css';
 import DropDown from '../DropDown';
-import { renderIcon } from '../../Icons';
+import { renderIcon, CHECK_NAME, X_NAME } from '../../Icons';
 
 function renderRequirement(text, valid) {
   const validityClassName = valid ? 'valid' : 'invalid';
-  const iconName = valid ? 'check' : 'x';
+  const iconName = valid ? CHECK_NAME : X_NAME;
   return (
     <>
       <p className="requirement-text">{text}</p>
-      {renderIcon(iconName, validityClassName)}
+      {renderIcon(iconName, '20px', '20px', validityClassName)}
     </>
   );
 }
@@ -50,7 +50,7 @@ function RequirementsDropDown(props) {
   } = props;
 
   const allValid = !requirementValidities.includes(false);
-  const titleBarValidityIcon = allValid ? 'check' : 'x';
+  const titleBarValidityIcon = allValid ? CHECK_NAME : X_NAME;
   const titleBarValidityClassName = allValid ? 'valid' : 'invalid';
 
   return (

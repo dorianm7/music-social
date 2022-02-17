@@ -19,6 +19,8 @@ function IconButton(props) {
   const {
     className,
     icon,
+    iconWidth,
+    iconHeight,
     onClick,
     rounded,
     transparentBackground,
@@ -29,7 +31,7 @@ function IconButton(props) {
 
   return (
     <button type="button" onClick={onClick} onKeyUp={onClick} className={`icon-button rounded-${validRounded}${transparentBackgroundClass} ${className}`}>
-      {renderIcon(icon)}
+      {renderIcon(icon, iconWidth, iconHeight)}
     </button>
   );
 }
@@ -37,6 +39,8 @@ function IconButton(props) {
 IconButton.propTypes = {
   className: PropTypes.string,
   icon: PropTypes.string,
+  iconWidth: PropTypes.string,
+  iconHeight: PropTypes.string,
   rounded: PropTypes.string,
   transparentBackground: PropTypes.bool,
   onClick: PropTypes.func,
@@ -45,6 +49,8 @@ IconButton.propTypes = {
 IconButton.defaultProps = {
   className: '',
   icon: DEFAULT_NAME,
+  iconWidth: '20px',
+  iconHeight: '20px',
   rounded: 'none',
   transparentBackground: false,
   onClick: () => { window.alert('Button clicked'); },

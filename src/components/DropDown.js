@@ -24,8 +24,8 @@ function DropDown(props) {
         onClick={onTitleBarClick}
       >
         <p className="title">{title}</p>
-        {renderIcon('triangle', `expand-collapse-icon ${triangleOrientation}`)}
-        {showTitleBarIcon && !open && renderIcon(titleBarIconName, `title-bar-icon ${titleBarIconClassName}`)}
+        {renderIcon('triangle', '10px', '10px', `expand-collapse-icon ${triangleOrientation}`)}
+        {showTitleBarIcon && !open && renderIcon(titleBarIconName, '20px', '20px', `title-bar-icon ${titleBarIconClassName}`)}
       </button>
       {open && (
         <div className="content">

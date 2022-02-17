@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import IconButton from './IconButton';
 import { RefExpandedOptions } from '../subcomponents/ExpandedOptions';
 import '../../stylesheets/ExpandableButton.css';
-import defaultIcon from '../../images/help-rhombus-outline.svg';
-import close from '../../images/close.svg';
+import { DEFAULT_NAME, X_NAME } from '../../Icons';
 
 let getCorner;
 
@@ -81,36 +80,30 @@ class ExpandableButton extends React.Component {
 
   getIconButton() {
     const {
-      initialIconSrc,
-      initialIconAlt,
-      subsequentIconSrc,
-      subsequentIconAlt,
+      initialIcon,
+      subsequentIcon,
       iconWidth,
       iconHeight,
       initialIconTransparent,
     } = this.props;
     const { isOpen } = this.state;
     let iconRounded;
-    let iconSrc;
-    let alt;
+    let icon;
     let transparentIcon;
 
     if (isOpen) {
-      iconSrc = subsequentIconSrc;
-      alt = subsequentIconAlt;
+      icon = subsequentIcon;
       iconRounded = this.getIconRoundedProp();
       transparentIcon = false;
     } else {
-      iconSrc = initialIconSrc;
-      alt = initialIconAlt;
+      icon = initialIcon;
       iconRounded = 'all';
       transparentIcon = initialIconTransparent;
     }
 
     return (
       <IconButton
-        src={iconSrc}
-        alt={alt}
+        icon={icon}
         iconWidth={iconWidth}
         iconHeight={iconHeight}
         rounded={iconRounded}
@@ -202,10 +195,8 @@ getCorner = (expand, direction) => {
 };
 
 ExpandableButton.propTypes = {
-  initialIconSrc: PropTypes.string,
-  initialIconAlt: PropTypes.string,
-  subsequentIconSrc: PropTypes.string,
-  subsequentIconAlt: PropTypes.string,
+  initialIcon: PropTypes.string,
+  subsequentIcon: PropTypes.string,
   iconWidth: PropTypes.string,
   iconHeight: PropTypes.string,
   initialIconTransparent: PropTypes.bool,
@@ -218,10 +209,8 @@ ExpandableButton.propTypes = {
 };
 
 ExpandableButton.defaultProps = {
-  initialIconSrc: defaultIcon,
-  initialIconAlt: 'Open Expandable Button',
-  subsequentIconSrc: close,
-  subsequentIconAlt: 'Close Expandable Button',
+  initialIcon: DEFAULT_NAME,
+  subsequentIcon: X_NAME,
   iconWidth: '20px',
   iconHeight: '20px',
   initialIconTransparent: false,

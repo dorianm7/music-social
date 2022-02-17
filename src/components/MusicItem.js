@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import '../stylesheets/MusicItem.css';
-import dotsVertical from '../images/dots-vertical.svg';
 import defaultImg from '../images/help-rhombus-outline.svg';
 import ExpandableButton from './basic/ExpandableButton';
+import { VERTICAL_DOTS_NAME } from '../Icons';
 
 function MusicItem(props) {
   const {
@@ -22,10 +22,8 @@ function MusicItem(props) {
         <p className="creator">{creator}</p>
       </div>
       <ExpandableButton
-        initialIconSrc={dotsVertical}
-        initialIconAlt="Expand Options"
-        subsequentIconSrc={dotsVertical}
-        subsequentIconAlt="Close Options"
+        initialIcon={VERTICAL_DOTS_NAME}
+        subsequentIcon={VERTICAL_DOTS_NAME}
         iconWidth="20px"
         iconHeight="40px"
         initialIconTransparent
