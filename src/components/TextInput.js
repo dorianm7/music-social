@@ -11,6 +11,7 @@ function TextInput(props) {
   const [showRequirements, setShowRequirements] = useState(false);
   const {
     type,
+    name,
     requirementTexts,
     requirementValidities,
     onChange,
@@ -52,6 +53,7 @@ function TextInput(props) {
     <div className="text-input">
       <input
         type={type}
+        name={name}
         onChange={inputOnChange}
         onBlur={handleBlur}
         onFocus={handleFocus}
@@ -76,6 +78,7 @@ function TextInput(props) {
 
 TextInput.propTypes = {
   type: PropTypes.string,
+  name: PropTypes.string,
   requirementTexts: PropTypes.arrayOf(PropTypes.string),
   requirementValidities: PropTypes.arrayOf(PropTypes.bool),
   onChange: PropTypes.func,
@@ -87,6 +90,7 @@ TextInput.propTypes = {
 
 TextInput.defaultProps = {
   type: 'text',
+  name: '',
   requirementTexts: ['Requirement 1', 'Requirement 2'],
   requirementValidities: [true, false],
   onChange: () => { window.alert('Input onChanged'); },
