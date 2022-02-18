@@ -1,0 +1,28 @@
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form > * {
+  margin-bottom: 10px;
+}
+
+.label-bar {
+  margin: 0 0 4px 0;
+  display: inline-flex;
+  flex-direction: row;
+}
+
+.label-bar > .label-text {
+  margin: 0 .4em 0 0;
+}
+
+.requirement {
+  font-size: .8em;
+}
+
+.sign-up-button {
+  padding: 5px 10px;
+  width: 50%;
+  margin: 0 auto;
+}
