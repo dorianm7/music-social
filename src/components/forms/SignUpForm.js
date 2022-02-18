@@ -11,7 +11,6 @@ function SignUpForm(props) {
   } = props;
   const [emailValidities, setEmailValidities] = useState([false]);
   const [passwordValidities, setPasswordValidities] = useState([false, false, false]);
-  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordMatches, setPasswordMatches] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -21,7 +20,6 @@ function SignUpForm(props) {
   const regExpr = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*)@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)/g;
 
   const handleEmailChange = (e) => {
-    setEmail(e.target.value);
     const matchArray = e.target.value.match(regExpr);
 
     if (!matchArray || matchArray.length > 1) {
@@ -54,7 +52,7 @@ function SignUpForm(props) {
     e.preventDefault();
     signUpButtonHandler(e);
     // Placeholder until proper submit handler
-    console.log(`${email} ${password}`);
+    console.log(`${e.target.email.value} ${e.target.password.value}`);
   };
 
   const handlePasswordToggleIcon = () => {
@@ -79,6 +77,7 @@ function SignUpForm(props) {
         </div>
         <TextInput
           type="email"
+          name="email"
           onChange={handleEmailChange}
           requirementTexts={['Enter a valid email address']}
           requirementValidities={emailValidities}
@@ -102,6 +101,7 @@ function SignUpForm(props) {
         </div>
         <TextInput
           type={passwordInputType}
+          name="password"
           onChange={handlePasswordChange}
           requirementTexts={[
             'Must be at least 10 characters',
