@@ -6,6 +6,7 @@ import '../stylesheets/TextInput.css';
 function TextInput(props) {
   const [value, setValue] = useState('');
   const [hasOpened, setHasOpened] = useState(false);
+  const [hasClosed, setHasClosed] = useState(false);
   const [showDropDown, setShowDropDown] = useState(true);
   const [showRequirements, setShowRequirements] = useState(false);
   const {
@@ -13,6 +14,10 @@ function TextInput(props) {
     requirementTexts,
     requirementValidities,
     onChange,
+    pattern,
+    minLength,
+    maxLength,
+    required,
   } = props;
 
   const handleClick = () => {
@@ -32,12 +37,14 @@ function TextInput(props) {
       setShowRequirements(true);
       setShowDropDown(true);
       setHasOpened(true);
+      setHasClosed(false);
     }
   };
 
   const handleBlur = () => {
-    if (!requirementValidities.includes(false)) {
+    if (!requirementValidities.includes(false) && !hasClosed) {
       setShowDropDown(false);
+      setHasClosed(true);
     }
   };
 
@@ -48,6 +55,10 @@ function TextInput(props) {
         onChange={inputOnChange}
         onBlur={handleBlur}
         onFocus={handleFocus}
+        pattern={pattern}
+        minLength={minLength}
+        maxLength={maxLength}
+        required={required}
       />
       {showRequirements && (
         <InputRequirements
@@ -68,6 +79,10 @@ TextInput.propTypes = {
   requirementTexts: PropTypes.arrayOf(PropTypes.string),
   requirementValidities: PropTypes.arrayOf(PropTypes.bool),
   onChange: PropTypes.func,
+  pattern: PropTypes.string,
+  minLength: PropTypes.string,
+  maxLength: PropTypes.string,
+  required: PropTypes.bool,
 };
 
 TextInput.defaultProps = {
@@ -75,6 +90,10 @@ TextInput.defaultProps = {
   requirementTexts: ['Requirement 1', 'Requirement 2'],
   requirementValidities: [true, false],
   onChange: () => { window.alert('Input onChanged'); },
+  pattern: null,
+  minLength: null,
+  maxLength: null,
+  required: false,
 };
 
 export default TextInput;
