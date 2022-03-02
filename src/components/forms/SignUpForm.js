@@ -23,13 +23,12 @@ function SignUpForm(props) {
 
   const handleEmailChange = (e) => {
     const email = e.target.value;
-    const matchArray = email.match(VALID_EMAIL_REGEXP);
+    const matches = email.match(VALID_EMAIL_REGEXP);
 
-    if (!matchArray || matchArray.length > 1) {
+    if (!matches || matches.length > 1) {
       setEmailValidities([false]);
-    } else if (matchArray.length === 1) {
-      const validEmail = matchArray[0] === email;
-      setEmailValidities([validEmail]);
+    } else if (matches.length === 1) {
+      setEmailValidities([matches[0] === email]);
     } else {
       setEmailValidities([false]);
     }
@@ -153,7 +152,7 @@ SignUpForm.propTypes = {
 };
 
 SignUpForm.defaultProps = {
-  onSubmit: () => { window.alert('Submit Handled 1'); },
+  onSubmit: () => { window.alert('Submit Handled'); },
 };
 
 export default SignUpForm;
