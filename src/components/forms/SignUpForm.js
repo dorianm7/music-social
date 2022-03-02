@@ -7,7 +7,7 @@ import { OPEN_EYE_NAME, CLOSED_EYE_NAME } from '../../Icons';
 
 function SignUpForm(props) {
   const {
-    signUpButtonHandler,
+    onSubmit,
   } = props;
   const [emailValidities, setEmailValidities] = useState([false]);
   const [passwordValidities, setPasswordValidities] = useState([false, false, false]);
@@ -50,9 +50,7 @@ function SignUpForm(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    signUpButtonHandler(e);
-    // Placeholder until proper submit handler
-    console.log(`${e.target.email.value} ${e.target.password.value}`);
+    onSubmit(e.target.email.value, e.target.password.value);
   };
 
   const handlePasswordToggleIcon = () => {
@@ -148,11 +146,11 @@ function SignUpForm(props) {
 }
 
 SignUpForm.propTypes = {
-  signUpButtonHandler: PropTypes.func,
+  onSubmit: PropTypes.func,
 };
 
 SignUpForm.defaultProps = {
-  signUpButtonHandler: () => { window.alert('Submit Handled'); },
+  onSubmit: () => { window.alert('Submit Handled 1'); },
 };
 
 export default SignUpForm;
