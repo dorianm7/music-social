@@ -4,6 +4,11 @@ import '../../stylesheets/forms/SignUpForm.css';
 import TextInput from '../TextInput';
 import ToggleIconButton from '../basic/ToggleIconButton';
 import { OPEN_EYE_NAME, CLOSED_EYE_NAME } from '../../Icons';
+import {
+  VALID_EMAIL_REGEXP,
+  HAS_NUM_REGEXP,
+  HAS_SPECIAL_CHAR_REGEXP,
+} from '../../RegExps';
 
 function SignUpForm(props) {
   const {
@@ -16,16 +21,14 @@ function SignUpForm(props) {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  // RFC 5322 Compliant RegExpr
-  const regExpr = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*)@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)/g;
-
   const handleEmailChange = (e) => {
-    const matchArray = e.target.value.match(regExpr);
+    const email = e.target.value;
+    const matchArray = email.match(VALID_EMAIL_REGEXP);
 
     if (!matchArray || matchArray.length > 1) {
       setEmailValidities([false]);
     } else if (matchArray.length === 1) {
-      const validEmail = matchArray[0] === e.target.value;
+      const validEmail = matchArray[0] === email;
       setEmailValidities([validEmail]);
     } else {
       setEmailValidities([false]);
@@ -33,11 +36,11 @@ function SignUpForm(props) {
   };
 
   const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
     const validLength = e.target.value.length >= 10;
-    const includesNum = /[0-9]/.test(e.target.value);
-    const includesSpecialChar = /[ !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/.test(e.target.value);
+    const includesNum = HAS_NUM_REGEXP.test(e.target.value);
+    const includesSpecialChar = HAS_SPECIAL_CHAR_REGEXP.test(e.target.value);
     setPasswordValidities([validLength, includesNum, includesSpecialChar]);
+    setPassword(e.target.value);
   };
 
   const handleConfirmPassword = (e) => {
