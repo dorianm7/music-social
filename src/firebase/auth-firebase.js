@@ -5,7 +5,7 @@ import {
   // confirmPasswordReset,  // Completes Password Reset.
   //                          Needs oobcode from sendPasswordResetEmail email
   createUserWithEmailAndPassword,
-  // deleteUser,            // Might need to authenticate again,
+  deleteUser,            // Might need to authenticate again,
   //                          then call reauthenticateWithCredential first
   getAuth,
   // getRedirectResult,     // If using signInWithRedirect
@@ -42,6 +42,8 @@ const createUser = (
   successCallback = () => {},
   errorCallback = () => {},
 ) => {
+  // Check email is valid
+  // check password is valid
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => userCredential.user)
     .then((user) => {
@@ -50,6 +52,25 @@ const createUser = (
     .catch((err) => {
       errorCallback(err);
     });
+};
+
+// Initial implementation ONLY used for testing
+// errorCallback should take an error argument
+const deleteUserAccount = (
+  successCallback = () => {},
+  errorCallback = () => {},
+) => {
+  if (!auth.currentUser) {
+    errorCallback(new Error('Can\'t delete user because no user is signed in'));
+  } else {
+    deleteUser(auth.currentUser)
+      .then(() => {
+        successCallback();
+      })
+      .catch((err) => {
+        errorCallback(err);
+      });
+  }
 };
 
 // successCallback should take a user argument
@@ -124,6 +145,7 @@ const googleSignIn = (
 export {
   auth,
   createUser,
+  deleteUserAccount,
   emailPasswordSignIn,
   googleSignIn,
   userSignOut,
