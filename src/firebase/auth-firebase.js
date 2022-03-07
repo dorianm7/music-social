@@ -42,6 +42,10 @@ const HAS_SPECIAL_CHAR_REGEXP = /[ !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/;
 
 const emailValid = (email) => {
   const emailMatches = email.match(VALID_EMAIL_REGEXP);
+  if (!emailMatches) {
+    return false;
+  }
+
   if (emailMatches.length === 1) {
     return emailMatches[0] === email;
   }
