@@ -77,7 +77,7 @@ const passwordValid = (password) => passwordValidityMessage(password) === 'valid
 
 // successCallback should take a user argument
 // errorCallback should take an error argument
-const createUser = (
+const createUser = async (
   email,
   password,
   successCallback = () => {},
@@ -88,7 +88,7 @@ const createUser = (
   } else if (!passwordValid(password)) {
     errorCallback(new Error(passwordValidityMessage(password)));
   } else {
-    createUserWithEmailAndPassword(auth, email, password)
+    await createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => userCredential.user)
       .then((user) => successCallback(user))
       .catch((err) => errorCallback(err));
@@ -112,7 +112,7 @@ const deleteUserAccount = (
 
 // successCallback should take a user argument
 // errorCallback should take an error argument
-const emailPasswordSignIn = (
+const emailPasswordSignIn = async (
   email,
   password,
   successCallback = () => {},
@@ -123,7 +123,7 @@ const emailPasswordSignIn = (
   } else if (!passwordValid(password)) {
     errorCallback(new Error(passwordValidityMessage(password)));
   } else {
-    signInWithEmailAndPassword(auth, email, password)
+    await signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => userCredential.user)
       .then((user) => successCallback(user))
       .catch((err) => errorCallback(err));
@@ -148,14 +148,14 @@ const handleAuthStateChange = (
 
 // successCallback should take no arguments
 // errorCallback should take an error argument
-const userSignOut = (
+const userSignOut = async (
   successCallback = () => {},
   errorCallback = () => {},
 ) => {
   if (!auth.currentUser) {
     errorCallback(new Error('No user is signed in'));
   } else {
-    signOut(auth)
+    await signOut(auth)
       .then(() => successCallback())
       .catch((err) => errorCallback(err));
   }
@@ -183,4 +183,6 @@ export {
   googleSignIn,
   userSignOut,
   handleAuthStateChange,
+  emailValid,
+  passwordValid,
 };
