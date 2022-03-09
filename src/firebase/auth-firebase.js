@@ -34,24 +34,65 @@ import app from './init-firebase';
 
 const auth = getAuth(app);
 
+const VALID_PASSWORD_LENGTH = 10;
+// create regexps constants that will get replaced by importing regexps file imports
+const VALID_EMAIL_REGEXP = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*)@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)/g;
+const HAS_NUM_REGEXP = /[0-9]/;
+const HAS_SPECIAL_CHAR_REGEXP = /[ !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/;
+
+const emailValid = (email) => {
+  const emailMatches = email.match(VALID_EMAIL_REGEXP);
+  if (!emailMatches) {
+    return false;
+  }
+
+  if (emailMatches.length === 1) {
+    return emailMatches[0] === email;
+  }
+  return false;
+};
+
+// Returns the first invalid message for the password
+const passwordValidityMessage = (password) => {
+  const validLength = password.length >= VALID_PASSWORD_LENGTH;
+  const includesNum = HAS_NUM_REGEXP.test(password);
+  const includesSpecialChar = HAS_SPECIAL_CHAR_REGEXP.test(password);
+
+  let message;
+
+  if (!validLength) {
+    message = `Password must be at least ${VALID_PASSWORD_LENGTH} characters`;
+  } else if (!includesNum) {
+    message = 'Password must include 1 number';
+  } else if (!includesSpecialChar) {
+    message = 'Password must include 1 special character';
+  } else {
+    message = 'valid';
+  }
+
+  return message;
+};
+
+const passwordValid = (password) => passwordValidityMessage(password) === 'valid';
+
 // successCallback should take a user argument
 // errorCallback should take an error argument
-const createUser = (
+const createUser = async (
   email,
   password,
   successCallback = () => {},
   errorCallback = () => {},
 ) => {
-  // Check email is valid
-  // check password is valid
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => userCredential.user)
-    .then((user) => {
-      successCallback(user);
-    })
-    .catch((err) => {
-      errorCallback(err);
-    });
+  if (!emailValid(email)) {
+    errorCallback(new Error('Invalid email format'));
+  } else if (!passwordValid(password)) {
+    errorCallback(new Error(passwordValidityMessage(password)));
+  } else {
+    await createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => userCredential.user)
+      .then((user) => successCallback(user))
+      .catch((err) => errorCallback(err));
+  }
 };
 
 // Initial implementation ONLY used for testing
@@ -64,31 +105,29 @@ const deleteUserAccount = (
     errorCallback(new Error('Can\'t delete user because no user is signed in'));
   } else {
     deleteUser(auth.currentUser)
-      .then(() => {
-        successCallback();
-      })
-      .catch((err) => {
-        errorCallback(err);
-      });
+      .then(() => successCallback())
+      .catch((err) => errorCallback(err));
   }
 };
 
 // successCallback should take a user argument
 // errorCallback should take an error argument
-const emailPasswordSignIn = (
+const emailPasswordSignIn = async (
   email,
   password,
   successCallback = () => {},
   errorCallback = () => {},
 ) => {
-  signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => userCredential.user)
-    .then((user) => {
-      successCallback(user);
-    })
-    .catch((err) => {
-      errorCallback(err);
-    });
+  if (!emailValid(email)) {
+    errorCallback(new Error('Invalid email format'));
+  } else if (!passwordValid(password)) {
+    errorCallback(new Error(passwordValidityMessage(password)));
+  } else {
+    await signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => userCredential.user)
+      .then((user) => successCallback(user))
+      .catch((err) => errorCallback(err));
+  }
 };
 
 // onChangeCallback should take a user argument
@@ -100,9 +139,7 @@ const handleAuthStateChange = (
 ) => {
   const unsub = onAuthStateChanged(
     auth,
-    (user) => {
-      onChangeCallback(user);
-    },
+    (user) => onChangeCallback(user),
     errorCallback,
     completedCallback,
   );
@@ -111,17 +148,17 @@ const handleAuthStateChange = (
 
 // successCallback should take no arguments
 // errorCallback should take an error argument
-const userSignOut = (
+const userSignOut = async (
   successCallback = () => {},
   errorCallback = () => {},
 ) => {
-  signOut(auth)
-    .then(() => {
-      successCallback();
-    })
-    .catch((err) => {
-      errorCallback(err);
-    });
+  if (!auth.currentUser) {
+    errorCallback(new Error('No user is signed in'));
+  } else {
+    await signOut(auth)
+      .then(() => successCallback())
+      .catch((err) => errorCallback(err));
+  }
 };
 
 // successCallback should take a user argument
@@ -134,12 +171,8 @@ const googleSignIn = (
   const authProvider = new GoogleAuthProvider();
   signInWithPopup(auth, authProvider, browserPopupRedirectResolver)
     .then((userCredential) => userCredential.user)
-    .then((user) => {
-      successCallback(user);
-    })
-    .catch((err) => {
-      errorCallback(err);
-    });
+    .then((user) => successCallback(user))
+    .catch((err) => errorCallback(err));
 };
 
 export {
@@ -150,4 +183,6 @@ export {
   googleSignIn,
   userSignOut,
   handleAuthStateChange,
+  emailValid,
+  passwordValid,
 };
