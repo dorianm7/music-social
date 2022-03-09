@@ -38,11 +38,11 @@ jobs:
           node-version: '12'
         
       # Install all necessary dependencies
-      - run: npm install
+      - run: yarn install
 
       # Run the tests
       - name: Run tests
-        run: npm test
+        run: yarn test
       
       # Run the linter
       - name: Run ESLint
