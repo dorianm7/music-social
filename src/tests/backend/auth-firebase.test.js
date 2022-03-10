@@ -14,9 +14,6 @@ const passwordInvalidLength = '123abc-';
 const passwordInvalidNum = 'abcdefghi-';
 const passwordInvalidChar = '123456789a';
 
-const TEST_USER_EMAIL = 'test@test.com';
-const TEST_USER_PASSWORD = 'myTestPassword!0';
-
 // Mock Callbacks
 const successCallback = jest.fn(() => {});
 const errorCallback = jest.fn(() => {});
@@ -98,8 +95,8 @@ describe('User Sign In, Sign Out', () => {
 
   it('Sign\'s the user in', async () => {
     await emailPasswordSignIn(
-      TEST_USER_EMAIL,
-      TEST_USER_PASSWORD,
+      process.env.REACT_APP_TEST_USER_EMAIL,
+      process.env.REACT_APP_TEST_USER_PASSWORD,
       successCallback,
       errorCallback,
     );
