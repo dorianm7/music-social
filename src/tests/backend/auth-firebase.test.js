@@ -95,8 +95,8 @@ describe('User Sign In, Sign Out', () => {
 
   it('Sign\'s the user in', async () => {
     await emailPasswordSignIn(
-      process.env.TEST_USER_EMAIL,
-      process.env.TEST_USER_PASSWORD,
+      process.env.REACT_APP_TEST_USER_EMAIL,
+      process.env.REACT_APP_TEST_USER_PASSWORD,
       successCallback,
       errorCallback,
     );
