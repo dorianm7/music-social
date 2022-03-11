@@ -11,6 +11,17 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+# Set environment variables
+env:
+  REACT_APP_FIREBASE_API_KEY: ${{ secrets.REACT_APP_FIREBASE_API_KEY }}
+  REACT_APP_FIREBASE_AUTH_DOMAIN: ${{ secrets.REACT_APP_FIREBASE_AUTH_DOMAIN }}
+  REACT_APP_FIREBASE_PROJECT_ID: ${{ secrets.REACT_APP_FIREBASE_PROJECT_ID }}
+  REACT_APP_FIREBASE_STORAGE_BUCKET: ${{ secrets.REACT_APP_FIREBASE_STORAGE_BUCKET }}
+  REACT_APP_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.REACT_APP_FIREBASE_MESSAGING_SENDER_ID }}
+  REACT_APP_FIREBASE_APP_ID: ${{ secrets.REACT_APP_FIREBASE_APP_ID }}
+  REACT_APP_TEST_USER_EMAIL: ${{ secrets.REACT_APP_TEST_USER_EMAIL }}
+  REACT_APP_TEST_USER_PASSWORD: ${{ secrets.REACT_APP_TEST_USER_PASSWORD }}
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -29,11 +40,11 @@ jobs:
           node-version: '12'
         
       # Install all necessary dependencies
-      - run: npm install
+      - run: yarn install
 
       # Run the tests
       - name: Run tests
-        run: npm test
+        run: yarn test
       
       # Run the linter
       - name: Run ESLint
