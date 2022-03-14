@@ -10,9 +10,12 @@ import {
   HAS_SPECIAL_CHAR_REGEXP,
 } from '../../RegExps';
 
+// import createUser when connecting to backend
+
 function SignUpForm(props) {
   const {
     onSubmit,
+    submitSuccess, // Used to run success/error callbacks. Remove after backend connected
   } = props;
   const [emailValidities, setEmailValidities] = useState([false]);
   const [passwordValidities, setPasswordValidities] = useState([false, false, false]);
@@ -20,6 +23,7 @@ function SignUpForm(props) {
   const [passwordMatches, setPasswordMatches] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleEmailChange = (e) => {
     const email = e.target.value;
@@ -52,7 +56,35 @@ function SignUpForm(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(e.target.email.value, e.target.password.value);
+    // Used to mimic backend createUser()
+    const mockCreateUser = (
+      userEmail,
+      userPassword,
+      successCallback,
+      errorCallback,
+    ) => {
+      if (submitSuccess) {
+        const mockUser = {
+          email: userEmail,
+          password: userPassword,
+        };
+        successCallback(mockUser);
+      } else {
+        const submittingError = new Error('An error occured. Please try again');
+        errorCallback(submittingError);
+        setError(submittingError);
+      }
+    };
+
+    // Replace with createUser call
+    mockCreateUser(
+      e.target.email.value,
+      e.target.password.value,
+      (user) => {
+        onSubmit(user); // Move to next step
+      },
+      () => {},
+    );
   };
 
   const handlePasswordToggleIcon = () => {
@@ -70,89 +102,96 @@ function SignUpForm(props) {
     && passwordMatches;
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        <div className="label-bar">
-          <p className="label-text">Email</p>
-        </div>
-        <TextInput
-          type="email"
-          name="email"
-          onChange={handleEmailChange}
-          requirementTexts={['Enter a valid email address']}
-          requirementValidities={emailValidities}
-          required
-        />
-      </label>
-      <label>
-        <div className="label-bar">
-          <p className="label-text">Password</p>
-          <ToggleIconButton
-            toggle={showPassword}
-            initialIcon={CLOSED_EYE_NAME}
-            subsequentIcon={OPEN_EYE_NAME}
-            iconWidth="15px"
-            iconHeight="15px"
-            initialOnClick={handlePasswordToggleIcon}
-            subsequentOnClick={handlePasswordToggleIcon}
-            initialTransparent
-            subsequentTransparent
-          />
-        </div>
-        <TextInput
-          type={passwordInputType}
-          name="password"
-          onChange={handlePasswordChange}
-          requirementTexts={[
-            'Must be at least 10 characters',
-            'Must include 1 number',
-            'Must include 1 special character',
-          ]}
-          requirementValidities={passwordValidities}
-          required
-        />
-      </label>
-      {showConfirmPasswordInput && (
+    <div className="sign-up-form">
+      <form onSubmit={handleSubmit}>
         <label>
           <div className="label-bar">
-            <p className="label-text">Confirm Password</p>
+            <p className="label-text">Email</p>
+          </div>
+          <TextInput
+            type="email"
+            name="email"
+            onChange={handleEmailChange}
+            requirementTexts={['Enter a valid email address']}
+            requirementValidities={emailValidities}
+            required
+          />
+        </label>
+        <label>
+          <div className="label-bar">
+            <p className="label-text">Password</p>
             <ToggleIconButton
-              toggle={showConfirmPassword}
+              toggle={showPassword}
               initialIcon={CLOSED_EYE_NAME}
               subsequentIcon={OPEN_EYE_NAME}
               iconWidth="15px"
               iconHeight="15px"
-              initialOnClick={handleConfirmPasswordToggleIcon}
-              subsequentOnClick={handleConfirmPasswordToggleIcon}
+              initialOnClick={handlePasswordToggleIcon}
+              subsequentOnClick={handlePasswordToggleIcon}
               initialTransparent
               subsequentTransparent
             />
           </div>
           <TextInput
-            type={confirmPasswordInputType}
-            onChange={handleConfirmPassword}
-            requirementTexts={['Passwords must match']}
-            requirementValidities={[passwordMatches]}
+            type={passwordInputType}
+            name="password"
+            onChange={handlePasswordChange}
+            requirementTexts={[
+              'Must be at least 10 characters',
+              'Must include 1 number',
+              'Must include 1 special character',
+            ]}
+            requirementValidities={passwordValidities}
             required
           />
         </label>
-      )}
-      <input
-        className="sign-up-button"
-        type="submit"
-        value="Sign Up"
-        disabled={!canSubmit}
-      />
-    </form>
+        {showConfirmPasswordInput && (
+          <label>
+            <div className="label-bar">
+              <p className="label-text">Confirm Password</p>
+              <ToggleIconButton
+                toggle={showConfirmPassword}
+                initialIcon={CLOSED_EYE_NAME}
+                subsequentIcon={OPEN_EYE_NAME}
+                iconWidth="15px"
+                iconHeight="15px"
+                initialOnClick={handleConfirmPasswordToggleIcon}
+                subsequentOnClick={handleConfirmPasswordToggleIcon}
+                initialTransparent
+                subsequentTransparent
+              />
+            </div>
+            <TextInput
+              type={confirmPasswordInputType}
+              onChange={handleConfirmPassword}
+              requirementTexts={['Passwords must match']}
+              requirementValidities={[passwordMatches]}
+              required
+            />
+          </label>
+        )}
+        <input
+          className="sign-up-button basic-button"
+          type="submit"
+          value="Sign Up"
+          disabled={!canSubmit}
+        />
+        {error && (
+          <span className="error-message">{error.message}</span>
+        )}
+      </form>
+    </div>
   );
 }
 
 SignUpForm.propTypes = {
   onSubmit: PropTypes.func,
+  submitSuccess: PropTypes.bool,
 };
 
 SignUpForm.defaultProps = {
-  onSubmit: () => { window.alert('Submit Handled'); },
+  onSubmit: () => { window.alert('Successfully submitted'); },
+  submitSuccess: true,
 };
 
 export default SignUpForm;

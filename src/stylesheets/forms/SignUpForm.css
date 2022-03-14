@@ -1,14 +1,14 @@
-form {
+.sign-up-form > form {
   display: flex;
   flex-direction: column;
 }
 
-form > * {
+.sign-up-form > form > * {
   margin-bottom: 10px;
 }
 
 .label-bar {
-  margin: 0 0 4px 0;
+  margin: 0 0 .2em 0;
   display: inline-flex;
   flex-direction: row;
 }
@@ -22,7 +22,11 @@ form > * {
 }
 
 .sign-up-button {
-  padding: 5px 10px;
-  width: 50%;
   margin: 0 auto;
+}
+
+.error-message {
+  color: red;
+  font-size: .4em;
+  text-align: center;
 }
