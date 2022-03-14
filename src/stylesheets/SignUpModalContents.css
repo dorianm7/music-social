@@ -1,0 +1,11 @@
+.modal-content hr {
+  margin: 1em auto;
+  width: 80%;
+}
+
+.modal-content .move-to-log-in {
+  display: block;
+  font-size: .8em;
+  text-align: center;
+  color: black;
+}
