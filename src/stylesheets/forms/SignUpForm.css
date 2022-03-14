@@ -3,7 +3,7 @@
   flex-direction: column;
 }
 
-.sign-up-form > form > * {
+.sign-up-form > form > *:not(:last-child) {
   margin-bottom: 10px;
 }
 
