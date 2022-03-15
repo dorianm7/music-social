@@ -23,7 +23,9 @@ function SignedOutNav(props) {
           <a href={contactHref} className="nav-contacts">Contact</a>
         </li>
         <li key={nanoid()} className="nav-log-in">
-          <BasicButton text="Log In" onClick={logInOnClick} />
+          <BasicButton onClick={logInOnClick}>
+            Sign&nbsp;In
+          </BasicButton>
         </li>
       </ul>
     </nav>

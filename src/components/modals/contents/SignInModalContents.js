@@ -10,13 +10,7 @@ import '../../../stylesheets/modal-contents/SignInModalContents.css';
 
 function SignInModalContents(props) {
   const { formOnSubmit } = props;
-  const googleIcon = renderIcon(GOOGLE_COLOR_ICON_NAME, '15px', '15px');
-  const googleSignInButtonContent = (
-    <>
-      {googleIcon}
-      <span className="text">Google&nbsp;Sign&nbsp;In</span>
-    </>
-  );
+
   return (
     <>
       <SignInForm
@@ -28,8 +22,10 @@ function SignInModalContents(props) {
         onClick={() => {
           window.alert('Google Button Clicked'); // TODO use Google SignIn function call
         }}
-        text={googleSignInButtonContent}
-      />
+      >
+        {renderIcon(GOOGLE_COLOR_ICON_NAME, '15px', '15px')}
+        <span className="text">Google&nbsp;Sign&nbsp;In</span>
+      </BasicButton>
       <span className="move-to-sign-up">
         Dont have an account?&nbsp;
         <a href="#placeholder">Sign Up</a>

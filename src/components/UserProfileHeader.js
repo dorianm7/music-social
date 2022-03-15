@@ -67,10 +67,9 @@ function UserProfileHeader(props) {
           />
         </div>
         <p className="user-info">{infoText}</p>
-        <BasicButton
-          text="Check Compatibility"
-          onClick={checkCompatOnClick}
-        />
+        <BasicButton onClick={checkCompatOnClick}>
+          Check&nbsp;Compatibility
+        </BasicButton>
       </div>
       <p className="follow-info">{`${numFollowers} Followers, ${numFollowing} Following`}</p>
     </div>
