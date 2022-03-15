@@ -1,0 +1,28 @@
+.sign-in-form > form {
+  display: flex;
+  flex-direction: column;
+}
+
+.sign-in-form > form > *:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.label > * {
+  display: block;
+}
+
+.label-bar {
+  margin: 0 0 .2em 0;
+  display: inline-flex;
+  flex-direction: row;
+}
+
+.label-bar > .label-text {
+  margin: 0 .4em 0 0;
+}
+
+.sign-in-button {
+  width: 50%;
+  margin: 0 auto;
+  border-radius: .2em;
+}
