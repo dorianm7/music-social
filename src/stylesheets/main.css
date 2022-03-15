@@ -57,6 +57,11 @@ button:hover {
   justify-content: space-evenly;
 }
 
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
 .unselectable {
   -moz-user-select: none;
   -webkit-user-select: none;
@@ -79,4 +84,19 @@ button:hover {
 
 .icon-button.not-following {
   background-color: hsl(0, 0%, 70%);
+}
+
+.error-message {
+  color:red;
+  font-size: .4em;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.full-width-input {
+  display: block;
+  width: 97%;
+  padding: 1%;
 }
