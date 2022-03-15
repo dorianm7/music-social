@@ -4,21 +4,32 @@ import '../../stylesheets/main.css';
 import '../../stylesheets/BasicButton.css';
 
 function BasicButton(props) {
-  const { text, onClick } = props;
+  const {
+    className,
+    children,
+    onClick,
+  } = props;
   return (
-    <button type="button" onClick={onClick} onKeyUp={onClick} className="basic-button round-corners">
-      {text}
+    <button
+      type="button"
+      onClick={onClick}
+      onKeyUp={onClick}
+      className={`basic-button round-corners ${className}`}
+    >
+      {children}
     </button>
   );
 }
 
 BasicButton.propTypes = {
-  text: PropTypes.string,
+  className: PropTypes.string,
+  children: PropTypes.node,
   onClick: PropTypes.func,
 };
 
 BasicButton.defaultProps = {
-  text: 'Text',
+  className: '',
+  children: <p>Children</p>,
   onClick: (e) => { window.alert(`'${e.target.innerText}' button clicked`); },
 };
 

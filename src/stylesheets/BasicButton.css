@@ -1,3 +1,7 @@
 .basic-button {
   padding: .4em .8em;
 }
+
+.basic-button:hover {
+  cursor: pointer;
+}
