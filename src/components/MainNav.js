@@ -1,20 +1,20 @@
 import React from 'react';
-import propTypes from 'prop-types';
-import '../stylesheets/SignedOutNav.css';
+import PropTypes from 'prop-types';
+import '../stylesheets/MainNav.css';
 import { nanoid } from 'nanoid';
 import BasicButton from './basic/BasicButton';
 
-function SignedOutNav(props) {
+function MainNav(props) {
   const {
     navText,
     featuresHref,
     contactHref,
-    logInOnClick,
+    signInOnClick,
   } = props;
 
   return (
-    <nav className="signed-out-nav">
-      <p className="signed-out-nav-text">{navText}</p>
+    <nav className="main-nav">
+      <p className="main-nav-text">{navText}</p>
       <ul className="nav-menu">
         <li key={nanoid()}>
           <a href={featuresHref} className="nav-features">Features</a>
@@ -22,8 +22,8 @@ function SignedOutNav(props) {
         <li key={nanoid()}>
           <a href={contactHref} className="nav-contacts">Contact</a>
         </li>
-        <li key={nanoid()} className="nav-log-in">
-          <BasicButton onClick={logInOnClick}>
+        <li key={nanoid()} className="nav-sign-in">
+          <BasicButton onClick={signInOnClick}>
             Sign&nbsp;In
           </BasicButton>
         </li>
@@ -32,18 +32,18 @@ function SignedOutNav(props) {
   );
 }
 
-SignedOutNav.propTypes = {
-  navText: propTypes.string,
-  featuresHref: propTypes.string,
-  contactHref: propTypes.string,
-  logInOnClick: propTypes.func,
+MainNav.propTypes = {
+  navText: PropTypes.string,
+  featuresHref: PropTypes.string,
+  contactHref: PropTypes.string,
+  signInOnClick: PropTypes.func,
 };
 
-SignedOutNav.defaultProps = {
+MainNav.defaultProps = {
   navText: 'Nav Text',
   featuresHref: '#',
   contactHref: '#',
-  logInOnClick: () => { window.alert('Log In Button Clicked'); },
+  signInOnClick: () => { window.alert('Sign In Button Clicked'); },
 };
 
-export default SignedOutNav;
+export default MainNav;

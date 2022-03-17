@@ -1,4 +1,4 @@
-.signed-out-nav {
+.main-nav {
   --nav-font-color: black;
   display: flex;
   align-items: center;
@@ -6,7 +6,7 @@
   padding-right: 1rem;
 }
 
-.signed-out-nav .nav-menu {
+.main-nav .nav-menu {
   display: flex;
   align-items: center;
   margin: 0 0 0 auto;
