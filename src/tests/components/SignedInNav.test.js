@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
-import SignedInNav from '../../components/SignedInNav';
+import AppNav from '../../components/AppNav';
 
 let container = null;
 
@@ -20,15 +20,15 @@ it('renders correct nav text', () => {
   act(() => {
     render(
       <>
-        <SignedInNav />
-        <SignedInNav navText="Test" />
+        <AppNav />
+        <AppNav navText="Test" />
       </>,
       container,
     );
   });
 
-  const navs = container.querySelectorAll('.signed-in-nav');
+  const navs = container.querySelectorAll('.app-nav');
 
-  expect(navs[0].querySelector('.signed-in-nav-text').innerHTML).toBe('Nav Text');
-  expect(navs[1].querySelector('.signed-in-nav-text').innerHTML).toBe('Test');
+  expect(navs[0].querySelector('.app-nav-text').innerHTML).toBe('Nav Text');
+  expect(navs[1].querySelector('.app-nav-text').innerHTML).toBe('Test');
 });

@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import IconButton from './basic/IconButton';
 import IndicatorIcon from './IndicatorIcon';
-import '../stylesheets/SignedInNav.css';
+import '../stylesheets/AppNav.css';
 import { HAMBURGER_MENU_NAME, EXCLAMATION_NAME } from '../Icons';
 
-function SignedInNav(props) {
+function AppNav(props) {
   const {
     menuButtonSize,
     menuButtonOnClick,
@@ -16,7 +16,7 @@ function SignedInNav(props) {
   } = props;
 
   return (
-    <nav className="signed-in-nav">
+    <nav className="app-nav">
       <IconButton
         icon={HAMBURGER_MENU_NAME}
         iconWidth={menuButtonSize}
@@ -24,7 +24,7 @@ function SignedInNav(props) {
         onClick={menuButtonOnClick}
         rounded="none"
       />
-      <p className="signed-in-nav-text">{navText}</p>
+      <p className="app-nav-text">{navText}</p>
       <IndicatorIcon
         icon={EXCLAMATION_NAME}
         iconWidth={notificationsButtonSize}
@@ -37,7 +37,7 @@ function SignedInNav(props) {
   );
 }
 
-SignedInNav.propTypes = {
+AppNav.propTypes = {
   menuButtonSize: PropTypes.string,
   menuButtonOnClick: PropTypes.func,
   navText: PropTypes.string,
@@ -46,7 +46,7 @@ SignedInNav.propTypes = {
   notificationsIndicatorOn: PropTypes.bool,
 };
 
-SignedInNav.defaultProps = {
+AppNav.defaultProps = {
   menuButtonSize: '20px',
   menuButtonOnClick: () => { window.alert('Nav Menu Button Clicked'); },
   navText: 'Nav Text',
@@ -55,4 +55,4 @@ SignedInNav.defaultProps = {
   notificationsIndicatorOn: false,
 };
 
-export default SignedInNav;
+export default AppNav;

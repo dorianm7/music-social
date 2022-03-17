@@ -1,4 +1,4 @@
-.signed-in-nav {
+.app-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -6,6 +6,6 @@
   padding-right: 1rem;
 }
 
-.signed-in-nav > .signed-in-nav-text{
+.app-nav > .app-nav-text{
   display: inline;
 }
