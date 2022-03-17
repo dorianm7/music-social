@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../stylesheets/MainNav.css';
 import { nanoid } from 'nanoid';
+import { useUserContext } from '../contexts/UserContext';
 import BasicButton from './basic/BasicButton';
 
 function MainNav(props) {
@@ -10,7 +11,13 @@ function MainNav(props) {
     featuresHref,
     contactHref,
     signInOnClick,
+    openAppOnClick,
   } = props;
+
+  const user = useUserContext();
+
+  const openAppOrSignInText = user ? 'Open App' : 'Sign In';
+  const openAppOrSignInOnClick = user ? openAppOnClick : signInOnClick;
 
   return (
     <nav className="main-nav">
@@ -22,9 +29,9 @@ function MainNav(props) {
         <li key={nanoid()}>
           <a href={contactHref} className="nav-contacts">Contact</a>
         </li>
-        <li key={nanoid()} className="nav-sign-in">
-          <BasicButton onClick={signInOnClick}>
-            Sign&nbsp;In
+        <li key={nanoid()} className="nav-move-or-sign-in">
+          <BasicButton onClick={openAppOrSignInOnClick}>
+            {openAppOrSignInText}
           </BasicButton>
         </li>
       </ul>
@@ -37,6 +44,7 @@ MainNav.propTypes = {
   featuresHref: PropTypes.string,
   contactHref: PropTypes.string,
   signInOnClick: PropTypes.func,
+  openAppOnClick: PropTypes.func,
 };
 
 MainNav.defaultProps = {
@@ -44,6 +52,7 @@ MainNav.defaultProps = {
   featuresHref: '#',
   contactHref: '#',
   signInOnClick: () => { window.alert('Sign In Button Clicked'); },
+  openAppOnClick: () => { window.alert('Open App Button Clicked'); },
 };
 
 export default MainNav;
