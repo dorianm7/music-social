@@ -1,0 +1,75 @@
+.side-menu {
+  width: 35%;
+  height: 100%;
+}
+
+.side-menu-user-preview {
+  margin-top: 1em;
+}
+
+.basic-button {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1em;
+}
+
+.side-menu .nav-bottom {
+  margin-top: auto;
+}
+
+nav {
+  height: inherit;
+}
+
+.nav-top > li:first-child,
+.nav-bottom > li:first-child {
+  border-radius: .2em .2em 0 0;
+}
+
+.nav-top > li:last-child,
+.nav-bottom > li:last-child{
+  border-radius: 0 0 .2em .2em;
+}
+
+.nav-top > li,
+.nav-bottom > li{
+  background-color: hsl(0, 0%, 70%);
+}
+
+li {
+  transition: 80ms ease;
+  transition-property: filter;
+}
+
+li:hover {
+  filter: brightness(85%);
+}
+
+ul {
+  height: inherit;
+  padding: 0;
+}
+
+li a, li button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: .5em 10%;
+  text-decoration: none;
+  color: black;
+}
+
+
+li .icon {
+  margin-right: 1em;
+  height: 25px;
+  width: 25px;
+}
+
+hr {
+  margin: 0 auto;
+  height: 2px;
+  border: 0;
+  background: linear-gradient(90deg, hsl(0, 0%, 70%) 0% 10%, hsl(0, 0%, 60%) 10% 90%, hsl(0, 0%, 70%) 90% 100%);
+}
