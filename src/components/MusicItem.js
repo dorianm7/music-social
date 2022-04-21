@@ -26,7 +26,7 @@ function MusicItem(props) {
         <p className="title">{title}</p>
         <p className="creator">{creator}</p>
       </div>
-      {rightComponent}
+      {rightComponent !== 'none' && rightComponent}
     </div>
   );
 }
@@ -46,7 +46,7 @@ MusicItem.defaultProps = {
   imgAlt: 'Default Image',
   creator: 'Creator',
   title: 'Title of the Music Item',
-  rightComponent: <p>Right component</p>,
+  rightComponent: 'none',
 };
 
 export default MusicItem;
