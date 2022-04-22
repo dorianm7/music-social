@@ -1,0 +1,52 @@
+.select {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.select button { 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  border: 0;
+  text-align: left;
+}
+
+.select button:hover {
+  cursor: pointer;
+}
+
+.select .selected-choice-button {
+  border-radius: .2em;
+  height: 2em;
+}
+
+.selected-choice-button.open {
+  border-radius: .2em .2em 0 0;
+}
+
+.selected-choice-button .icon {
+  margin-left: .5em;
+}
+
+.selected-choice-button.open .icon {
+  transform: rotate(.5turn);
+}
+
+.select ul {
+  padding: 0;
+  margin-top: auto;
+  list-style: none;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+}
+
+.select ul.closed {
+  display: none;
+}
+
+.select ul button:last-child {
+  border-radius: 0 0 .2em .2em;
+}
