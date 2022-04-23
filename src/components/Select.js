@@ -5,6 +5,8 @@ import { nanoid } from 'nanoid';
 import '../stylesheets/Select.css';
 import { renderIcon, CHEVRON_DOWN_NAME } from '../Icons';
 
+const NBSP_UNICODE = '\u00A0';
+
 function Select(props) {
   const {
     choices,
@@ -26,7 +28,7 @@ function Select(props) {
         }}
       >
         <li key={nanoid()}>
-          {choices[i]}
+          {choices[i].replaceAll(' ', NBSP_UNICODE)}
         </li>
       </button>
     ));
