@@ -17,20 +17,20 @@
   cursor: pointer;
 }
 
-.select .selected-choice-button {
+.select .selected-option-button {
   border-radius: .2em;
   height: 2em;
 }
 
-.selected-choice-button.open {
+.selected-option-button.open {
   border-radius: .2em .2em 0 0;
 }
 
-.selected-choice-button .icon {
+.selected-option-button .icon {
   margin-left: .5em;
 }
 
-.selected-choice-button.open .icon {
+.selected-option-button.open .icon {
   transform: rotate(.5turn);
 }
 

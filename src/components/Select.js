@@ -9,26 +9,26 @@ const NBSP_UNICODE = '\u00A0';
 
 function Select(props) {
   const {
-    choices,
-    choiceOnClick,
+    options,
+    optionOnClick,
   } = props;
 
-  const [selected, setSelected] = useState(choices[0]);
+  const [selected, setSelected] = useState(options[0]);
   const [open, setOpen] = useState(false);
   const listItemButtonElements = [];
-  for (let i = 0; i < choices.length; i += 1) {
+  for (let i = 0; i < options.length; i += 1) {
     listItemButtonElements.push((
       <button
         type="button"
         className="list-item-button"
         onClick={() => {
-          setSelected(choices[i]);
+          setSelected(options[i]);
           setOpen(!open);
-          choiceOnClick();
+          optionOnClick();
         }}
       >
         <li key={nanoid()}>
-          {choices[i].replaceAll(' ', NBSP_UNICODE)}
+          {options[i].replaceAll(' ', NBSP_UNICODE)}
         </li>
       </button>
     ));
@@ -39,7 +39,7 @@ function Select(props) {
     <div className="select">
       <button
         type="button"
-        className={`selected-choice-button ${stateString}`}
+        className={`selected-option-button ${stateString}`}
         onClick={() => { setOpen(!open); }}
       >
         {selected}
@@ -53,13 +53,13 @@ function Select(props) {
 }
 
 Select.propTypes = {
-  choices: PropTypes.arrayOf(PropTypes.string),
-  choiceOnClick: PropTypes.func,
+  options: PropTypes.arrayOf(PropTypes.string),
+  optionOnClick: PropTypes.func,
 };
 
 Select.defaultProps = {
-  choices: ['One', 'Two', 'Three'],
-  choiceOnClick: () => { window.alert('Choice clicked'); },
+  options: ['One', 'Two', 'Three'],
+  optionOnClick: () => { window.alert('Option clicked'); },
 };
 
 export default Select;
