@@ -1,6 +1,9 @@
 .side-menu {
-  width: 35%;
+  position: fixed;
+  width: 15em;
   height: 100%;
+  z-index: 5;
+  background-color: hsl(0, 0%, 95%);
 }
 
 .side-menu-user-preview {
@@ -8,9 +11,7 @@
 }
 
 .basic-button {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 1em;
+  margin: 1em auto;
 }
 
 .side-menu .nav-bottom {
@@ -19,6 +20,10 @@
 
 nav {
   height: inherit;
+}
+
+nav ul {
+  margin: 0;
 }
 
 .nav-top > li:first-child,
