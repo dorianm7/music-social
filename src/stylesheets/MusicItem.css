@@ -1,7 +1,6 @@
 .music-item {
   display: flex;
   align-items: center;
-  padding: 1em;
 }
 
 .label {
@@ -18,9 +17,9 @@
 }
 
 .info {
-  display: block;
-  margin-top: auto;
-  margin-bottom: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin-right: auto;
 }
 

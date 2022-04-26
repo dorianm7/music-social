@@ -23,8 +23,8 @@ function MusicItem(props) {
       )}
       <img className="picture" src={imgSrc} alt={imgAlt} width="60px" height="60px" />
       <div className="info">
-        <p className="title">{title}</p>
-        <p className="creator">{creator}</p>
+        <span className="title">{title}</span>
+        <span className="creator">{creator}</span>
       </div>
       {rightComponent !== 'none' && rightComponent}
     </div>
