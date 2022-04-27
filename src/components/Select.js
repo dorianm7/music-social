@@ -24,7 +24,7 @@ function Select(props) {
         onClick={() => {
           setSelected(options[i]);
           setOpen(!open);
-          optionOnClick();
+          optionOnClick(options[i]);
         }}
       >
         <li key={nanoid()}>
