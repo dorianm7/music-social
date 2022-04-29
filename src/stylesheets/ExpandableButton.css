@@ -1,8 +1,9 @@
 .expandable-button {
   display: inline-flex;
+  position: relative;
 }
 
-.expandable-button.expand-top {
+.expandable-button.expand-up {
   flex-direction: column-reverse;
 }
 
@@ -22,34 +23,34 @@
   position: absolute;
 }
 
-.expandable-button.expand-top .expanded-options {
-  margin-bottom: var(--icon-height);
+.expandable-button.expand-up .expanded-options {
+  bottom: 100%;
 }
 
 .expandable-button.expand-right .expanded-options {
-  margin-left: var(--icon-width);
+  left: 100%; 
 }
 
-.expandable-button.expand-bottom .expanded-options {
-  margin-top: var(--icon-height);
+.expandable-button.expand-down .expanded-options {
+  top: 100%;
 }
 
 .expandable-button.expand-left .expanded-options {
-  margin-right: var(--icon-width);
+  right: 100%;
 }
 
 .expandable-button.direction-left .expanded-options {
-  margin-left: calc((-1) * (var(--expanded-options-width) - var(--icon-width)));
+  right: calc(100% - var(--icon-width));
 }
 
 .expandable-button.direction-right .expanded-options {
-  margin-left: 0;
+  left: 0;
 }
 
 .expandable-button.direction-up .expanded-options {
-  margin-top: calc((-1) * (var(--expanded-options-height) - var(--icon-height)));
+  bottom: calc(100% - var(--icon-height));
 }
 
 .expandable-button.direction-down .expanded-options {
-  margin-top: 0;
+  top: calc(100% - var(--icon-height));
 }
