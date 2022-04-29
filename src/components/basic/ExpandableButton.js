@@ -62,13 +62,13 @@ class ExpandableButton extends React.Component {
     const { expand } = this.props;
     let rounded;
     switch (expand) {
-      case 'top':
+      case 'up':
         rounded = 'bottom';
         break;
       case 'right':
         rounded = 'left';
         break;
-      case 'bottom':
+      case 'down':
         rounded = 'top';
         break;
       default:
@@ -172,13 +172,13 @@ class ExpandableButton extends React.Component {
 
 getCorner = (expand, direction) => {
   const isTopLeft = (expand === 'right' && direction === 'down')
-    || (expand === 'bottom' && direction === 'right');
+    || (expand === 'down' && direction === 'right');
 
   const isTopRight = (expand === 'left' && direction === 'down')
-    || (expand === 'bottom' && direction === 'left');
+    || (expand === 'down' && direction === 'left');
 
   const isBottomLeft = (expand === 'right' && direction === 'up')
-    || (expand === 'top' && direction === 'right');
+    || (expand === 'up' && direction === 'right');
 
   let corner;
   if (isTopLeft) {
@@ -214,7 +214,7 @@ ExpandableButton.defaultProps = {
   iconWidth: '20px',
   iconHeight: '20px',
   initialIconTransparent: false,
-  expand: 'top',
+  expand: 'up',
   direction: 'left',
   optionsTitle: 'Title',
   alignOptionsTitle: 'center',
