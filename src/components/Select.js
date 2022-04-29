@@ -15,25 +15,36 @@ function Select(props) {
 
   const [selected, setSelected] = useState(options[0]);
   const [open, setOpen] = useState(false);
-  const listItemButtonElements = [];
-  for (let i = 0; i < options.length; i += 1) {
-    listItemButtonElements.push((
-      <button
-        type="button"
-        className="list-item-button"
-        onClick={() => {
-          setSelected(options[i]);
-          setOpen(!open);
-          optionOnClick(options[i]);
-        }}
-      >
-        <li key={nanoid()}>
-          {options[i].replaceAll(' ', NBSP_UNICODE)}
-        </li>
-      </button>
-    ));
+
+  function renderListItemButton(option) {
+    return (
+      <li key={nanoid()}>
+        <button
+          type="button"
+          className="list-item-button"
+          onClick={() => {
+            setSelected(option);
+            setOpen(!open);
+            optionOnClick(option);
+          }}
+        >
+          {option.replaceAll(' ', NBSP_UNICODE)}
+        </button>
+      </li>
+    );
   }
-  const stateString = open ? 'open' : 'closed';
+
+  const listItemButtonElements = [];
+  let stateString;
+  if (options.length > 1) {
+    for (let i = 1; i < options.length; i += 1) {
+      listItemButtonElements.push(renderListItemButton(options[i]));
+    }
+    stateString = open ? 'open' : 'closed';
+  } else {
+    listItemButtonElements.push(renderListItemButton(options[0]));
+    stateString = 'closed';
+  }
 
   return (
     <div className="select">
@@ -42,12 +53,16 @@ function Select(props) {
         className={`selected-option-button ${stateString}`}
         onClick={() => { setOpen(!open); }}
       >
-        {selected}
-        {renderIcon(CHEVRON_DOWN_NAME, '15px', '15px', stateString)}
+        {selected.replace(' ', NBSP_UNICODE)}
+        {options.length > 1
+          && renderIcon(CHEVRON_DOWN_NAME, '15px', '15px', stateString)}
       </button>
-      <ul className={stateString}>
-        {listItemButtonElements}
-      </ul>
+      {options.length > 1
+        && (
+          <ul className={stateString}>
+            {listItemButtonElements}
+          </ul>
+        )}
     </div>
   );
 }

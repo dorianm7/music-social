@@ -22,12 +22,12 @@
   height: 2em;
 }
 
-.selected-option-button.open {
-  border-radius: .2em .2em 0 0;
-}
-
 .selected-option-button .icon {
   margin-left: .5em;
+}
+
+.selected-option-button.open {
+  border-radius: .2em .2em 0 0;
 }
 
 .selected-option-button.open .icon {
@@ -36,7 +36,7 @@
 
 .select ul {
   padding: 0;
-  margin-top: auto;
+  margin: 0;
   list-style: none;
   position: absolute;
   top: 100%;
@@ -47,6 +47,6 @@
   display: none;
 }
 
-.select ul button:last-child {
+.select ul > li:last-child > button {
   border-radius: 0 0 .2em .2em;
 }
