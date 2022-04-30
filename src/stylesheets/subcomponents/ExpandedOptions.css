@@ -61,3 +61,7 @@
 .expanded-options li:last-child {
   padding-bottom: .2em;
 }
+
+.hide {
+  display: none;
+}
