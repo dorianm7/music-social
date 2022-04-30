@@ -52,6 +52,7 @@ ExpandedOptions.defaultProps = {
 
 const RefExpandedOptions = React.forwardRef((props, ref) => {
   const {
+    className,
     title,
     alignTitle,
     options,
@@ -62,13 +63,14 @@ const RefExpandedOptions = React.forwardRef((props, ref) => {
   const listItems = createListElements(title, alignTitle, options, alignOptions);
 
   return (
-    <ul ref={ref} className={`${cornerClassName} expanded-options `}>
+    <ul ref={ref} className={`${cornerClassName} expanded-options ${className}`}>
       {listItems}
     </ul>
   );
 });
 
 RefExpandedOptions.propTypes = {
+  className: PropTypes.string,
   title: PropTypes.string,
   alignTitle: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.node),
@@ -77,6 +79,7 @@ RefExpandedOptions.propTypes = {
 };
 
 RefExpandedOptions.defaultProps = {
+  className: '',
   title: 'Title',
   alignTitle: 'center',
   options: ['Default', 'expanded', 'ref', 'options'],
