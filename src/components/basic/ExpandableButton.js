@@ -134,14 +134,9 @@ ExpandableButton.defaultProps = {
   direction: 'left',
   optionsTitle: 'Title',
   alignOptionsTitle: 'center',
-  options: ['One', 'Two', 'Three', 'Four'],
+  options: ['Default Option'],
   alignOptions: 'center',
-  optionsOnClicks: [
-    DEFAULT_ONCLICK,
-    DEFAULT_ONCLICK,
-    DEFAULT_ONCLICK,
-    DEFAULT_ONCLICK,
-  ],
+  optionsOnClicks: [DEFAULT_ONCLICK],
 };
 
 export default ExpandableButton;
