@@ -61,7 +61,7 @@ function ExpandedOptions(props) {
   );
 
   return (
-    <ul className={`${cornerClassName} expanded-options ${className}`}>
+    <ul className={`expanded-options ${cornerClassName} ${className}`}>
       {listItems}
     </ul>
   );
@@ -102,7 +102,7 @@ const RefExpandedOptions = React.forwardRef((props, ref) => {
     optionsOnClicks,
   );
   return (
-    <ul ref={ref} className={`${cornerClassName} expanded-options ${className}`}>
+    <ul ref={ref} className={`expanded-options ${cornerClassName} ${className}`}>
       {listItems}
     </ul>
   );
