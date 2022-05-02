@@ -6,14 +6,33 @@ import { nanoid } from 'nanoid';
 
 import { spaceToNbsp } from '../../utility/StringUtilities';
 
-function createListElements(title, alignTitle, options, alignOptions) {
+function createListElements(title, alignTitle, options, optionsOnClicks) {
   const listItems = [];
 
   if (title !== 'Title') {
     listItems.push(<li key={nanoid()} className={`options-title align-${alignTitle}`}>{title}</li>);
   }
-  for (let i = 0; i < options.length; i += 1) {
-    listItems.push(<li key={nanoid()} className={`options align-${alignOptions}`}>{options[i]}</li>);
+
+  const biggerLength = (options.length > optionsOnClicks.length)
+    ? options.length
+    : optionsOnClicks.length;
+
+  const defaultOnClick = () => console.log('Default onClick');
+
+  for (let i = 0; i < biggerLength; i += 1) {
+    listItems.push(
+      <li
+        key={nanoid()}
+        className="options"
+      >
+        <button
+          type="button"
+          onClick={(i < optionsOnClicks.length) ? optionsOnClicks[i] : defaultOnClick}
+        >
+          {(i < options.length) ? options[i] : `Default Option ${i + 1}`}
+        </button>
+      </li>,
+    );
   }
 
   return listItems;
@@ -24,7 +43,7 @@ function ExpandedOptions(props) {
     title,
     alignTitle,
     options,
-    alignOptions,
+    optionsOnClicks,
     corner,
   } = props;
   const cornerClassName = `${corner}-corner`;
@@ -32,7 +51,7 @@ function ExpandedOptions(props) {
     spaceToNbsp(title),
     alignTitle,
     options.map((option) => spaceToNbsp(option)),
-    alignOptions,
+    optionsOnClicks,
   );
 
   return (
@@ -46,15 +65,15 @@ ExpandedOptions.propTypes = {
   title: PropTypes.string,
   alignTitle: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.node),
-  alignOptions: PropTypes.string,
+  optionsOnClicks: PropTypes.arrayOf(PropTypes.func),
   corner: PropTypes.string,
 };
 
 ExpandedOptions.defaultProps = {
   title: 'Title',
   alignTitle: 'center',
-  options: ['Default', 'expanded', 'options'],
-  alignOptions: 'center',
+  options: ['Default Option 1'],
+  optionsOnClicks: [() => console.log('Default onClick')],
   corner: 'top-left',
 };
 
@@ -64,7 +83,7 @@ const RefExpandedOptions = React.forwardRef((props, ref) => {
     title,
     alignTitle,
     options,
-    alignOptions,
+    optionsOnClicks,
     corner,
   } = props;
   const cornerClassName = `${corner}-corner`;
@@ -72,7 +91,7 @@ const RefExpandedOptions = React.forwardRef((props, ref) => {
     spaceToNbsp(title),
     alignTitle,
     options.map((option) => spaceToNbsp(option)),
-    alignOptions,
+    optionsOnClicks,
   );
   return (
     <ul ref={ref} className={`${cornerClassName} expanded-options ${className}`}>
@@ -86,7 +105,7 @@ RefExpandedOptions.propTypes = {
   title: PropTypes.string,
   alignTitle: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.node),
-  alignOptions: PropTypes.string,
+  optionsOnClicks: PropTypes.arrayOf(PropTypes.func),
   corner: PropTypes.string,
 };
 
@@ -94,8 +113,8 @@ RefExpandedOptions.defaultProps = {
   className: '',
   title: 'Title',
   alignTitle: 'center',
-  options: ['Default', 'expanded', 'ref', 'options'],
-  alignOptions: 'center',
+  options: ['Default Option 1'],
+  optionsOnClicks: [() => console.log('Default onClick')],
   corner: 'top-left',
 };
 
