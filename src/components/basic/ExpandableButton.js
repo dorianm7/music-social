@@ -11,8 +11,6 @@ import IconButton from './IconButton';
 import { RefExpandedOptions } from '../subcomponents/ExpandedOptions';
 import { DEFAULT_NAME, X_NAME } from '../../Icons';
 
-import { spaceToNbsp } from '../../utility/StringUtilities';
-
 function getIconRoundedProp(expand) {
   let rounded;
   switch (expand) {
@@ -96,9 +94,9 @@ function ExpandableButton(props) {
       />
       <RefExpandedOptions
         className={isOpen ? '' : 'hide'}
-        title={spaceToNbsp(optionsTitle)}
+        title={optionsTitle}
         alignTitle={alignOptionsTitle}
-        options={options.map((option) => spaceToNbsp(option))}
+        options={options}
         alignOptions={alignOptions}
         corner={getCorner(expand, direction)}
         ref={expandedOptionsRef}
