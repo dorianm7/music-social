@@ -10,10 +10,17 @@ const DEFAULT_CLASSNAME = '';
 const DEFAULT_TITLE = 'Title';
 const DEFAULT_ALIGN_TITLE = 'center';
 const DEFAULT_OPTIONS = ['Default Option 1'];
+const DEFAULT_ALIGN_OPTIONS = 'center';
 const DEFAULT_OPTIONS_ONCLICKS = [() => console.log('Default onClick')];
 const DEFAULT_CORNER = 'top-left';
 
-function createListElements(title, alignTitle, options, optionsOnClicks) {
+function createListElements(
+  title,
+  alignTitle,
+  options,
+  alignOptions,
+  optionsOnClicks,
+) {
   const listItems = [];
 
   if (title !== DEFAULT_TITLE) {
@@ -33,6 +40,7 @@ function createListElements(title, alignTitle, options, optionsOnClicks) {
         <button
           type="button"
           onClick={(i < optionsOnClicks.length) ? optionsOnClicks[i] : DEFAULT_OPTIONS_ONCLICKS[0]}
+          className={`align-${alignOptions}`}
         >
           {(i < options.length) ? options[i] : `Default Option ${i + 1}`}
         </button>
@@ -49,6 +57,7 @@ function ExpandedOptions(props) {
     title,
     alignTitle,
     options,
+    alignOptions,
     optionsOnClicks,
     corner,
   } = props;
@@ -57,6 +66,7 @@ function ExpandedOptions(props) {
     spaceToNbsp(title),
     alignTitle,
     options.map((option) => spaceToNbsp(option)),
+    alignOptions,
     optionsOnClicks,
   );
 
@@ -72,6 +82,7 @@ ExpandedOptions.propTypes = {
   title: PropTypes.string,
   alignTitle: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.node),
+  alignOptions: PropTypes.string,
   optionsOnClicks: PropTypes.arrayOf(PropTypes.func),
   corner: PropTypes.string,
 };
@@ -81,6 +92,7 @@ ExpandedOptions.defaultProps = {
   title: DEFAULT_TITLE,
   alignTitle: DEFAULT_ALIGN_TITLE,
   options: DEFAULT_OPTIONS,
+  alignOptions: DEFAULT_ALIGN_OPTIONS,
   optionsOnClicks: DEFAULT_OPTIONS_ONCLICKS,
   corner: DEFAULT_CORNER,
 };
@@ -91,6 +103,7 @@ const RefExpandedOptions = React.forwardRef((props, ref) => {
     title,
     alignTitle,
     options,
+    alignOptions,
     optionsOnClicks,
     corner,
   } = props;
@@ -99,6 +112,7 @@ const RefExpandedOptions = React.forwardRef((props, ref) => {
     spaceToNbsp(title),
     alignTitle,
     options.map((option) => spaceToNbsp(option)),
+    alignOptions,
     optionsOnClicks,
   );
   return (
@@ -113,6 +127,7 @@ RefExpandedOptions.propTypes = {
   title: PropTypes.string,
   alignTitle: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.node),
+  alignOptions: PropTypes.string,
   optionsOnClicks: PropTypes.arrayOf(PropTypes.func),
   corner: PropTypes.string,
 };
@@ -122,6 +137,7 @@ RefExpandedOptions.defaultProps = {
   title: DEFAULT_TITLE,
   alignTitle: DEFAULT_ALIGN_TITLE,
   options: DEFAULT_OPTIONS,
+  alignOptions: DEFAULT_ALIGN_OPTIONS,
   optionsOnClicks: DEFAULT_OPTIONS_ONCLICKS,
   corner: DEFAULT_CORNER,
 };
