@@ -11,6 +11,8 @@ import IconButton from './IconButton';
 import { RefExpandedOptions } from '../subcomponents/ExpandedOptions';
 import { DEFAULT_NAME, X_NAME } from '../../Icons';
 
+const DEFAULT_ONCLICK = () => console.log('Default onClick');
+
 function getIconRoundedProp(expand) {
   let rounded;
   switch (expand) {
@@ -67,6 +69,7 @@ function ExpandableButton(props) {
     alignOptionsTitle,
     options,
     alignOptions,
+    optionsOnClicks,
   } = props;
   const [isOpen, setIsOpen] = useState(false);
   const [hasOpened, setHasOpened] = useState(false); // Used to set style once
@@ -98,6 +101,7 @@ function ExpandableButton(props) {
         alignTitle={alignOptionsTitle}
         options={options}
         alignOptions={alignOptions}
+        optionsOnClicks={optionsOnClicks}
         corner={getCorner(expand, direction)}
         ref={expandedOptionsRef}
       />
@@ -117,6 +121,7 @@ ExpandableButton.propTypes = {
   alignOptionsTitle: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.node),
   alignOptions: PropTypes.string,
+  optionsOnClicks: PropTypes.arrayOf(PropTypes.func),
 };
 
 ExpandableButton.defaultProps = {
@@ -131,6 +136,12 @@ ExpandableButton.defaultProps = {
   alignOptionsTitle: 'center',
   options: ['One', 'Two', 'Three', 'Four'],
   alignOptions: 'center',
+  optionsOnClicks: [
+    DEFAULT_ONCLICK,
+    DEFAULT_ONCLICK,
+    DEFAULT_ONCLICK,
+    DEFAULT_ONCLICK,
+  ],
 };
 
 export default ExpandableButton;
