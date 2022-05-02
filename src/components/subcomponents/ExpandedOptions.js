@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { nanoid } from 'nanoid';
 import '../../stylesheets/subcomponents/ExpandedOptions.css';
+
+import { nanoid } from 'nanoid';
+
+import { spaceToNbsp } from '../../utility/StringUtilities';
 
 function createListElements(title, alignTitle, options, alignOptions) {
   const listItems = [];
@@ -25,7 +28,12 @@ function ExpandedOptions(props) {
     corner,
   } = props;
   const cornerClassName = `${corner}-corner`;
-  const listItems = createListElements(title, alignTitle, options, alignOptions);
+  const listItems = createListElements(
+    spaceToNbsp(title),
+    alignTitle,
+    options.map((option) => spaceToNbsp(option)),
+    alignOptions,
+  );
 
   return (
     <ul className={`${cornerClassName} expanded-options `}>
@@ -60,8 +68,12 @@ const RefExpandedOptions = React.forwardRef((props, ref) => {
     corner,
   } = props;
   const cornerClassName = `${corner}-corner`;
-  const listItems = createListElements(title, alignTitle, options, alignOptions);
-
+  const listItems = createListElements(
+    spaceToNbsp(title),
+    alignTitle,
+    options.map((option) => spaceToNbsp(option)),
+    alignOptions,
+  );
   return (
     <ul ref={ref} className={`${cornerClassName} expanded-options ${className}`}>
       {listItems}
