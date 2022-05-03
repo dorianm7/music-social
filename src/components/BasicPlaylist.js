@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { nanoid } from 'nanoid';
 
@@ -9,6 +10,15 @@ import Select from './Select';
 import MusicItem from './MusicItem';
 import { VERTICAL_DOTS_NAME } from '../Icons';
 import ListSearch from './ListSearch';
+
+function getArtistString(artists) {
+  const artistNames = [];
+  artists.forEach((artistObj) => {
+    artistNames.push(artistObj.name);
+  });
+
+  return artistNames.toString();
+}
 
 // musicItem is and object of form:
 // {
@@ -51,11 +61,13 @@ function renderListItems(musicItems) {
     listItems.push(
       <li key={nanoid()}>
         {renderMusicItem(
-          musicItems[i].imgSrc,
-          musicItems[i].creator,
-          musicItems[i].title,
-          musicItems[i].options,
-          musicItems[i].optionsOnClicks,
+          musicItems[i].track.album.images[1].url,
+          getArtistString(musicItems[i].track.artists),
+          musicItems[i].track.name,
+          ['Spotify Link'],
+          [
+            () => { window.open(musicItems[i].track.external_urls.spotify, '_blank'); },
+          ],
         )}
       </li>,
     );
@@ -65,28 +77,8 @@ function renderListItems(musicItems) {
 }
 
 function BasicPlaylist(props) {
-  console.log(props);
   const playlistHeader = <h2>Playlist</h2>;
-  // const { musicItems } = props
-  const musicItems = [];
-  const options = [
-    'Option 1',
-    'Option 2',
-  ];
-  const optionsOnClicks = [
-    () => console.log('New option 1 click'),
-    () => console.log('New option 2 clicked'),
-  ];
-  const musicItem = {
-    imgSrc: 'https://f4.bcbits.com/img/a2067063391_16.jpg',
-    creator: 'U2',
-    title: 'Song',
-    options,
-    optionsOnClicks,
-  };
-  for (let i = 0; i < 8; i += 1) {
-    musicItems.push(musicItem);
-  }
+  const { items } = props;
   const showSearch = true;
 
   return (
@@ -101,11 +93,452 @@ function BasicPlaylist(props) {
           {showSearch && <ListSearch />}
         </div>
         <ul className="list">
-          {renderListItems(musicItems)}
+          {renderListItems(items)}
         </ul>
       </div>
     </>
   );
 }
+
+BasicPlaylist.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.object),
+};
+
+BasicPlaylist.defaultProps = {
+  // Default items holds 2 tracks
+  items:
+  [
+    {
+      added_at: '2020-10-19T08:28:40Z',
+      added_by: {
+        external_urls: {
+          spotify: 'https://open.spotify.com/user/moriand',
+        },
+        href: 'https://api.spotify.com/v1/users/moriand',
+        id: 'moriand',
+        type: 'user',
+        uri: 'spotify:user:moriand',
+      },
+      is_local: false,
+      primary_color: null,
+      track: {
+        album: {
+          album_type: 'single',
+          artists: [
+            {
+              external_urls: {
+                spotify: 'https://open.spotify.com/artist/4T1sY4aibm24hxfz9JnI7c',
+              },
+              href: 'https://api.spotify.com/v1/artists/4T1sY4aibm24hxfz9JnI7c',
+              id: '4T1sY4aibm24hxfz9JnI7c',
+              name: 'DJ Taye',
+              type: 'artist',
+              uri: 'spotify:artist:4T1sY4aibm24hxfz9JnI7c',
+            },
+          ],
+          available_markets: [
+            'AG',
+            'AR',
+            'AU',
+            'BB',
+            'BN',
+            'BO',
+            'BR',
+            'BS',
+            'BT',
+            'BZ',
+            'CA',
+            'CL',
+            'CO',
+            'CR',
+            'CW',
+            'DM',
+            'DO',
+            'EC',
+            'GD',
+            'GT',
+            'GY',
+            'HK',
+            'HN',
+            'HT',
+            'ID',
+            'JM',
+            'KH',
+            'KN',
+            'KR',
+            'LA',
+            'LC',
+            'MO',
+            'MX',
+            'MY',
+            'NI',
+            'NZ',
+            'PA',
+            'PE',
+            'PH',
+            'PY',
+            'SG',
+            'SR',
+            'SV',
+            'TH',
+            'TT',
+            'TW',
+            'US',
+            'UY',
+            'VC',
+            'VE',
+            'VN',
+          ],
+          external_urls: {
+            spotify: 'https://open.spotify.com/album/1hk2CB4Z5gCyxBtSZfYYB3',
+          },
+          href: 'https://api.spotify.com/v1/albums/1hk2CB4Z5gCyxBtSZfYYB3',
+          id: '1hk2CB4Z5gCyxBtSZfYYB3',
+          images: [
+            {
+              height: 640,
+              url: 'https://i.scdn.co/image/ab67616d0000b273255d4809d0a2a884ce818f0e',
+              width: 640,
+            },
+            {
+              height: 300,
+              url: 'https://i.scdn.co/image/ab67616d00001e02255d4809d0a2a884ce818f0e',
+              width: 300,
+            },
+            {
+              height: 64,
+              url: 'https://i.scdn.co/image/ab67616d00004851255d4809d0a2a884ce818f0e',
+              width: 64,
+            },
+          ],
+          name: 'Break It Down EP',
+          release_date: '2015-10-16',
+          release_date_precision: 'day',
+          total_tracks: 4,
+          type: 'album',
+          uri: 'spotify:album:1hk2CB4Z5gCyxBtSZfYYB3',
+        },
+        artists: [
+          {
+            external_urls: {
+              spotify: 'https://open.spotify.com/artist/4T1sY4aibm24hxfz9JnI7c',
+            },
+            href: 'https://api.spotify.com/v1/artists/4T1sY4aibm24hxfz9JnI7c',
+            id: '4T1sY4aibm24hxfz9JnI7c',
+            name: 'DJ Taye',
+            type: 'artist',
+            uri: 'spotify:artist:4T1sY4aibm24hxfz9JnI7c',
+          },
+          {
+            external_urls: {
+              spotify: 'https://open.spotify.com/artist/4hH4fEXPg3qpTDlmdNOO01',
+            },
+            href: 'https://api.spotify.com/v1/artists/4hH4fEXPg3qpTDlmdNOO01',
+            id: '4hH4fEXPg3qpTDlmdNOO01',
+            name: 'DJ Paypal',
+            type: 'artist',
+            uri: 'spotify:artist:4hH4fEXPg3qpTDlmdNOO01',
+          },
+        ],
+        available_markets: [
+          'AG',
+          'AR',
+          'AU',
+          'BB',
+          'BN',
+          'BO',
+          'BR',
+          'BS',
+          'BT',
+          'BZ',
+          'CA',
+          'CL',
+          'CO',
+          'CR',
+          'CW',
+          'DM',
+          'DO',
+          'EC',
+          'GD',
+          'GT',
+          'GY',
+          'HK',
+          'HN',
+          'HT',
+          'ID',
+          'JM',
+          'KH',
+          'KN',
+          'KR',
+          'LA',
+          'LC',
+          'MO',
+          'MX',
+          'MY',
+          'NI',
+          'NZ',
+          'PA',
+          'PE',
+          'PH',
+          'PY',
+          'SG',
+          'SR',
+          'SV',
+          'TH',
+          'TT',
+          'TW',
+          'US',
+          'UY',
+          'VC',
+          'VE',
+          'VN',
+        ],
+        disc_number: 1,
+        duration_ms: 270897,
+        episode: false,
+        explicit: false,
+        external_ids: {
+          isrc: 'GBLZC1500043',
+        },
+        external_urls: {
+          spotify: 'https://open.spotify.com/track/1elb8D50eWLGJrr9M8nU2w',
+        },
+        href: 'https://api.spotify.com/v1/tracks/1elb8D50eWLGJrr9M8nU2w',
+        id: '1elb8D50eWLGJrr9M8nU2w',
+        is_local: false,
+        name: 'Go Away (feat. DJ Paypal)',
+        popularity: 2,
+        preview_url: 'https://p.scdn.co/mp3-preview/654171555450fbd3ddb91ecb91fd7de20a1d73a5?cid=774b29d4f13844c495f206cafdad9c86',
+        track: true,
+        track_number: 1,
+        type: 'track',
+        uri: 'spotify:track:1elb8D50eWLGJrr9M8nU2w',
+      },
+      video_thumbnail: {
+        url: null,
+      },
+    },
+    {
+      added_at: '2020-10-19T08:29:59Z',
+      added_by: {
+        external_urls: {
+          spotify: 'https://open.spotify.com/user/moriand',
+        },
+        href: 'https://api.spotify.com/v1/users/moriand',
+        id: 'moriand',
+        type: 'user',
+        uri: 'spotify:user:moriand',
+      },
+      is_local: false,
+      primary_color: null,
+      track: {
+        album: {
+          album_type: 'single',
+          artists: [
+            {
+              external_urls: {
+                spotify: 'https://open.spotify.com/artist/4T1sY4aibm24hxfz9JnI7c',
+              },
+              href: 'https://api.spotify.com/v1/artists/4T1sY4aibm24hxfz9JnI7c',
+              id: '4T1sY4aibm24hxfz9JnI7c',
+              name: 'DJ Taye',
+              type: 'artist',
+              uri: 'spotify:artist:4T1sY4aibm24hxfz9JnI7c',
+            },
+          ],
+          available_markets: [
+            'AG',
+            'AR',
+            'AU',
+            'BB',
+            'BN',
+            'BO',
+            'BR',
+            'BS',
+            'BT',
+            'BZ',
+            'CA',
+            'CL',
+            'CO',
+            'CR',
+            'CW',
+            'DM',
+            'DO',
+            'EC',
+            'GD',
+            'GT',
+            'GY',
+            'HK',
+            'HN',
+            'HT',
+            'ID',
+            'JM',
+            'KH',
+            'KN',
+            'KR',
+            'LA',
+            'LC',
+            'MO',
+            'MX',
+            'MY',
+            'NI',
+            'NZ',
+            'PA',
+            'PE',
+            'PH',
+            'PY',
+            'SG',
+            'SR',
+            'SV',
+            'TH',
+            'TT',
+            'TW',
+            'US',
+            'UY',
+            'VC',
+            'VE',
+            'VN',
+          ],
+          external_urls: {
+            spotify: 'https://open.spotify.com/album/1hk2CB4Z5gCyxBtSZfYYB3',
+          },
+          href: 'https://api.spotify.com/v1/albums/1hk2CB4Z5gCyxBtSZfYYB3',
+          id: '1hk2CB4Z5gCyxBtSZfYYB3',
+          images: [
+            {
+              height: 640,
+              url: 'https://i.scdn.co/image/ab67616d0000b273255d4809d0a2a884ce818f0e',
+              width: 640,
+            },
+            {
+              height: 300,
+              url: 'https://i.scdn.co/image/ab67616d00001e02255d4809d0a2a884ce818f0e',
+              width: 300,
+            },
+            {
+              height: 64,
+              url: 'https://i.scdn.co/image/ab67616d00004851255d4809d0a2a884ce818f0e',
+              width: 64,
+            },
+          ],
+          name: 'Break It Down EP',
+          release_date: '2015-10-16',
+          release_date_precision: 'day',
+          total_tracks: 4,
+          type: 'album',
+          uri: 'spotify:album:1hk2CB4Z5gCyxBtSZfYYB3',
+        },
+        artists: [
+          {
+            external_urls: {
+              spotify: 'https://open.spotify.com/artist/4T1sY4aibm24hxfz9JnI7c',
+            },
+            href: 'https://api.spotify.com/v1/artists/4T1sY4aibm24hxfz9JnI7c',
+            id: '4T1sY4aibm24hxfz9JnI7c',
+            name: 'DJ Taye',
+            type: 'artist',
+            uri: 'spotify:artist:4T1sY4aibm24hxfz9JnI7c',
+          },
+          {
+            external_urls: {
+              spotify: 'https://open.spotify.com/artist/47UATnEOiiEMa2OFvZjv6i',
+            },
+            href: 'https://api.spotify.com/v1/artists/47UATnEOiiEMa2OFvZjv6i',
+            id: '47UATnEOiiEMa2OFvZjv6i',
+            name: 'Tripletrain',
+            type: 'artist',
+            uri: 'spotify:artist:47UATnEOiiEMa2OFvZjv6i',
+          },
+          {
+            external_urls: {
+              spotify: 'https://open.spotify.com/artist/5whJkWAzwCYfeetVpUJKn7',
+            },
+            href: 'https://api.spotify.com/v1/artists/5whJkWAzwCYfeetVpUJKn7',
+            id: '5whJkWAzwCYfeetVpUJKn7',
+            name: 'DJ Manny',
+            type: 'artist',
+            uri: 'spotify:artist:5whJkWAzwCYfeetVpUJKn7',
+          },
+        ],
+        available_markets: [
+          'AG',
+          'AR',
+          'AU',
+          'BB',
+          'BN',
+          'BO',
+          'BR',
+          'BS',
+          'BT',
+          'BZ',
+          'CA',
+          'CL',
+          'CO',
+          'CR',
+          'CW',
+          'DM',
+          'DO',
+          'EC',
+          'GD',
+          'GT',
+          'GY',
+          'HK',
+          'HN',
+          'HT',
+          'ID',
+          'JM',
+          'KH',
+          'KN',
+          'KR',
+          'LA',
+          'LC',
+          'MO',
+          'MX',
+          'MY',
+          'NI',
+          'NZ',
+          'PA',
+          'PE',
+          'PH',
+          'PY',
+          'SG',
+          'SR',
+          'SV',
+          'TH',
+          'TT',
+          'TW',
+          'US',
+          'UY',
+          'VC',
+          'VE',
+          'VN',
+        ],
+        disc_number: 1,
+        duration_ms: 264334,
+        episode: false,
+        explicit: false,
+        external_ids: {
+          isrc: 'GBLZC1500044',
+        },
+        external_urls: {
+          spotify: 'https://open.spotify.com/track/6JhIAErBNmOAa2kfYfhHLF',
+        },
+        href: 'https://api.spotify.com/v1/tracks/6JhIAErBNmOAa2kfYfhHLF',
+        id: '6JhIAErBNmOAa2kfYfhHLF',
+        is_local: false,
+        name: 'That Love (feat. Tripletrain & DJ Manny)',
+        popularity: 1,
+        preview_url: 'https://p.scdn.co/mp3-preview/d0f5a91271f4118eb04e18b97590e1a3d7fdb930?cid=774b29d4f13844c495f206cafdad9c86',
+        track: true,
+        track_number: 2,
+        type: 'track',
+        uri: 'spotify:track:6JhIAErBNmOAa2kfYfhHLF',
+      },
+      video_thumbnail: {
+        url: null,
+      },
+    },
+  ],
+};
 
 export default BasicPlaylist;
