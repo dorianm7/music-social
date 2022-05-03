@@ -1,0 +1,50 @@
+.basic-playlist {
+  margin: 1em;
+  /* To view outline */
+  border: 1px solid black;
+}
+
+.heading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: .5em;
+}
+
+.heading > * {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.heading .select {
+  margin-left: .5em;
+}
+
+.heading .list-search {
+  margin-left: auto;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 350px;
+  overflow-y: auto;
+}
+
+.list > li {
+  /* To view Music Items */
+  background-color: grey;
+}
+
+.list > li:not(:first-child) {
+  margin-top: .5em;
+}
+
+.music-item .expandable-button li {
+  padding: 0;
+}
+
+.music-item .expandable-button li button {
+  padding: .2em .6em;
+}
