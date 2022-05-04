@@ -36,14 +36,14 @@ function Select(props) {
 
   const listItemButtonElements = [];
   let stateString;
-  if (options.length > 1) {
-    for (let i = 1; i < options.length; i += 1) {
+  if (options.length === 0) {
+    listItemButtonElements.push(renderListItemButton(options[0]));
+    stateString = 'closed';
+  } else {
+    for (let i = 0; i < options.length; i += 1) {
       listItemButtonElements.push(renderListItemButton(options[i]));
     }
     stateString = open ? 'open' : 'closed';
-  } else {
-    listItemButtonElements.push(renderListItemButton(options[0]));
-    stateString = 'closed';
   }
 
   return (
