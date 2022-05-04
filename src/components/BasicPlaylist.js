@@ -57,13 +57,14 @@ function renderMusicItem(
   );
 }
 
-// Given the musicItems object, returns those fitting the search string
+// Given the musicItems object, returns those including both search strings
 // as a list of list items
-function renderListItems(musicItems, searchString) {
+function renderListItems(musicItems, searchString1, searchString2) {
   const listItems = [];
   for (let i = 0; i < musicItems.length; i += 1) {
     const searchableString = getSearchableString(musicItems[i]);
-    if (searchableString.includes(searchString.toLowerCase())) {
+    if (searchableString.includes(searchString1.toLowerCase())
+      && searchableString.includes(searchString2.toLowerCase())) {
       listItems.push(
         <li key={nanoid()}>
           {renderMusicItem(
@@ -84,9 +85,11 @@ function renderListItems(musicItems, searchString) {
 function BasicPlaylist(props) {
   const playlistHeader = <h2>Playlist</h2>;
   const [searchString, setSearchString] = useState('');
-  const { items } = props;
+  const {
+    items,
+    searchVal,
+  } = props;
   const showSearch = true;
-
   return (
     <>
       <div className="basic-playlist">
@@ -99,7 +102,7 @@ function BasicPlaylist(props) {
           {showSearch && <ListSearch onInputChange={setSearchString} />}
         </div>
         <ul className="list">
-          {renderListItems(items, searchString)}
+          {renderListItems(items, searchString, searchVal)}
         </ul>
       </div>
     </>
@@ -108,9 +111,11 @@ function BasicPlaylist(props) {
 
 BasicPlaylist.propTypes = {
   items: PropTypes.arrayOf(PropTypes.object),
+  searchVal: PropTypes.string,
 };
 
 BasicPlaylist.defaultProps = {
+  searchVal: '',
   // Default items holds 2 tracks
   items:
   [
