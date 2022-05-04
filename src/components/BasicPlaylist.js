@@ -86,6 +86,8 @@ function BasicPlaylist(props) {
   const {
     playlistHeader,
     items,
+    selectOptions,
+    onSelectOptionClick,
     searchVal,
     showSearch,
   } = props;
@@ -97,8 +99,8 @@ function BasicPlaylist(props) {
         <div className="heading">
           {playlistHeader}
           <Select
-            options={['Recent']}
-            optionOnClick={(string) => console.log(string)}
+            options={selectOptions}
+            optionOnClick={(string) => onSelectOptionClick(string)}
           />
           {showSearch && <ListSearch onInputChange={setSearchString} />}
         </div>
@@ -113,12 +115,16 @@ function BasicPlaylist(props) {
 BasicPlaylist.propTypes = {
   playlistHeader: PropTypes.node,
   items: PropTypes.arrayOf(PropTypes.object),
+  selectOptions: PropTypes.arrayOf(PropTypes.string),
+  onSelectOptionClick: PropTypes.func,
   searchVal: PropTypes.string,
   showSearch: PropTypes.bool,
 };
 
 BasicPlaylist.defaultProps = {
   playlistHeader: <h2>Playlist</h2>,
+  selectOptions: ['Recent', 'Latest'],
+  onSelectOptionClick: (option) => { console.log(`${option} clicked`); },
   searchVal: '',
   showSearch: false,
   // Default items holds 2 tracks
