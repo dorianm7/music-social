@@ -83,13 +83,14 @@ function renderListItems(musicItems, searchString1, searchString2) {
 }
 
 function BasicPlaylist(props) {
-  const playlistHeader = <h2>Playlist</h2>;
-  const [searchString, setSearchString] = useState('');
   const {
+    playlistHeader,
     items,
     searchVal,
+    showSearch,
   } = props;
-  const showSearch = true;
+  const [searchString, setSearchString] = useState('');
+
   return (
     <>
       <div className="basic-playlist">
@@ -110,12 +111,16 @@ function BasicPlaylist(props) {
 }
 
 BasicPlaylist.propTypes = {
+  playlistHeader: PropTypes.node,
   items: PropTypes.arrayOf(PropTypes.object),
   searchVal: PropTypes.string,
+  showSearch: PropTypes.bool,
 };
 
 BasicPlaylist.defaultProps = {
+  playlistHeader: <h2>Playlist</h2>,
   searchVal: '',
+  showSearch: false,
   // Default items holds 2 tracks
   items:
   [
