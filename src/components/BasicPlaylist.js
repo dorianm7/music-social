@@ -97,7 +97,9 @@ function BasicPlaylist(props) {
     <>
       <div className="basic-playlist">
         <div className="heading">
-          {playlistHeader}
+          {(typeof playlistHeader === 'string')
+            ? <h2>{playlistHeader}</h2>
+            : playlistHeader}
           <Select
             options={selectOptions}
             optionOnClick={(string) => onSelectOptionClick(string)}
