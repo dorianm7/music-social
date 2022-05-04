@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { nanoid } from 'nanoid';
@@ -11,6 +11,7 @@ import MusicItem from './MusicItem';
 import { VERTICAL_DOTS_NAME } from '../Icons';
 import ListSearch from './ListSearch';
 
+// Returns a string of all the artist names in the artists array
 function getArtistString(artists) {
   const artistNames = [];
   artists.forEach((artistObj) => {
@@ -20,13 +21,15 @@ function getArtistString(artists) {
   return artistNames.toString();
 }
 
-// musicItem is and object of form:
-// {
-//    imgSrc: URL to cover art
-//    creator: Creator of Music Item
-//    title: Music Item title
-//    options: An array of options for options button
-// }
+// Returns a string containing all the searchable values of the item
+function getSearchableString(item) {
+  return `${item.track.name}\
+    ${getArtistString(item.track.artists)}\
+    ${item.track.album.name}\
+    ${item.track.album.release_date}`.toLowerCase();
+}
+
+// Renders a MusicItem containing all of the parameters listed
 function renderMusicItem(
   imgSrc,
   creator,
@@ -54,23 +57,25 @@ function renderMusicItem(
   );
 }
 
-// musicItems is an array of objects
-function renderListItems(musicItems) {
+// Given the musicItems object, returns those fitting the search string
+// as a list of list items
+function renderListItems(musicItems, searchString) {
   const listItems = [];
   for (let i = 0; i < musicItems.length; i += 1) {
-    listItems.push(
-      <li key={nanoid()}>
-        {renderMusicItem(
-          musicItems[i].track.album.images[1].url,
-          getArtistString(musicItems[i].track.artists),
-          musicItems[i].track.name,
-          ['Spotify Link'],
-          [
-            () => { window.open(musicItems[i].track.external_urls.spotify, '_blank'); },
-          ],
-        )}
-      </li>,
-    );
+    const searchableString = getSearchableString(musicItems[i]);
+    if (searchableString.includes(searchString.toLowerCase())) {
+      listItems.push(
+        <li key={nanoid()}>
+          {renderMusicItem(
+            musicItems[i].track.album.images[1].url,
+            getArtistString(musicItems[i].track.artists),
+            musicItems[i].track.name,
+            ['Spotify Link'],
+            [() => { window.open(musicItems[i].track.external_urls.spotify, '_blank'); }],
+          )}
+        </li>,
+      );
+    }
   }
 
   return listItems;
@@ -78,6 +83,7 @@ function renderListItems(musicItems) {
 
 function BasicPlaylist(props) {
   const playlistHeader = <h2>Playlist</h2>;
+  const [searchString, setSearchString] = useState('');
   const { items } = props;
   const showSearch = true;
 
@@ -90,10 +96,10 @@ function BasicPlaylist(props) {
             options={['Recent']}
             optionOnClick={(string) => console.log(string)}
           />
-          {showSearch && <ListSearch />}
+          {showSearch && <ListSearch onInputChange={setSearchString} />}
         </div>
         <ul className="list">
-          {renderListItems(items)}
+          {renderListItems(items, searchString)}
         </ul>
       </div>
     </>
