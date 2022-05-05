@@ -50,18 +50,14 @@ function UserProfileHeader(props) {
             direction="up"
             options={
               [
-                <button
-                  type="button"
-                  onClick={reportOptionOnClick}
-                >
-                  Report
-                </button>,
-                <button
-                  type="button"
-                  onClick={shareOptionOnClick}
-                >
-                  Share
-                </button>,
+                'Report',
+                'Share',
+              ]
+            }
+            optionsOnClicks={
+              [
+                reportOptionOnClick,
+                shareOptionOnClick,
               ]
             }
           />
