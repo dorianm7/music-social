@@ -1,0 +1,18 @@
+.user-images {
+  display: flex;
+  flex-direction: row;
+  overflow: auto;
+  text-align: center;
+}
+
+.user-images.space-around {
+  justify-content: space-around;
+}
+
+.user-images.margin > .user:not(:last-child) {
+  margin-right: .5em;
+}
+
+.user-images span {
+  display: block;
+}
