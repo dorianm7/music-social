@@ -2,8 +2,6 @@
   --nav-font-color: black;
   display: flex;
   align-items: center;
-  padding-left: 1rem;
-  padding-right: 1rem;
 }
 
 .main-nav .nav-menu {

@@ -1,9 +1,3 @@
-.basic-playlist {
-  margin: 1em;
-  /* To view outline */
-  border: 1px solid black;
-}
-
 .heading {
   display: flex;
   flex-direction: row;
