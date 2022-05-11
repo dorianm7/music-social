@@ -89,9 +89,15 @@ function BasicPlaylist(props) {
     selectOptions,
     onSelectOptionClick,
     searchVal,
+    onSearchStringChange,
     showSearch,
   } = props;
   const [searchString, setSearchString] = useState('');
+
+  const onInputChange = (string) => {
+    setSearchString(string);
+    onSearchStringChange(string);
+  };
 
   return (
     <>
@@ -104,7 +110,11 @@ function BasicPlaylist(props) {
             options={selectOptions}
             optionOnClick={(string) => onSelectOptionClick(string)}
           />
-          {showSearch && <ListSearch onInputChange={setSearchString} />}
+          {showSearch && (
+            <ListSearch
+              onInputChange={onInputChange}
+            />
+          )}
         </div>
         <ul className="list">
           {renderListItems(items, searchString, searchVal)}
@@ -120,6 +130,7 @@ BasicPlaylist.propTypes = {
   selectOptions: PropTypes.arrayOf(PropTypes.string),
   onSelectOptionClick: PropTypes.func,
   searchVal: PropTypes.string,
+  onSearchStringChange: PropTypes.func,
   showSearch: PropTypes.bool,
 };
 
@@ -128,6 +139,7 @@ BasicPlaylist.defaultProps = {
   selectOptions: ['Recent', 'Latest'],
   onSelectOptionClick: (option) => { console.log(`${option} clicked`); },
   searchVal: '',
+  onSearchStringChange: () => {},
   showSearch: false,
   // Default items holds 2 tracks
   items:
