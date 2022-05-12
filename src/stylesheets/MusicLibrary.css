@@ -1,0 +1,3 @@
+.music-library > .basic-playlist:not(:last-child) {
+  padding-bottom: 1rem;
+}
