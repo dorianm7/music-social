@@ -27,7 +27,7 @@ function Comparison(props) {
             width={CIRCLE_SIZE}
             height={CIRCLE_SIZE}
           />
-          <p className="comparison-user-name">{firstUserName}</p>
+          <span className="comparison-user-name">{firstUserName}</span>
         </div>
         <div className="comparison-user center-column">
           <img
@@ -36,12 +36,12 @@ function Comparison(props) {
             width={CIRCLE_SIZE}
             height={CIRCLE_SIZE}
           />
-          <p className="comparison-user-name">{secondUserName}</p>
+          <span className="comparison-user-name">{secondUserName}</span>
         </div>
       </div>
       <div className="comparison-summary space-evenly-row">
         <div className="summary-item center-column">
-          <p className="summary-title">Artists</p>
+          <span className="summary-title">Artists</span>
           <PercentageGauge
             size={CIRCLE_SIZE}
             percentFilled={artistPercent}
@@ -49,7 +49,7 @@ function Comparison(props) {
           />
         </div>
         <div className="summary-item center-column">
-          <p className="summary-title">Albums</p>
+          <span className="summary-title">Albums</span>
           <PercentageGauge
             size={CIRCLE_SIZE}
             percentFilled={albumPercent}
@@ -57,7 +57,7 @@ function Comparison(props) {
           />
         </div>
         <div className="summary-item center-column">
-          <p className="summary-title">Songs</p>
+          <span className="summary-title">Songs</span>
           <PercentageGauge
             size={CIRCLE_SIZE}
             percentFilled={songPercent}

@@ -10,7 +10,7 @@ function renderRequirement(text, valid) {
   const iconName = valid ? CHECK_NAME : X_NAME;
   return (
     <>
-      <p className="requirement-text">{text}</p>
+      <span className="requirement-text">{text}</span>
       {renderIcon(iconName, '20px', '20px', validityClassName)}
     </>
   );

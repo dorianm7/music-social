@@ -32,7 +32,7 @@ function UserProfileHeader(props) {
           height="60px"
         />
         <div className="name-follow-option">
-          <p className="user-name">{name}</p>
+          <span className="user-name">{name}</span>
           <ToggleIconButton
             toggle={isFollowing}
             initialClassName="not-following"
@@ -62,12 +62,12 @@ function UserProfileHeader(props) {
             }
           />
         </div>
-        <p className="user-info">{infoText}</p>
+        <span className="user-info">{infoText}</span>
         <BasicButton onClick={checkCompatOnClick}>
           Check&nbsp;Compatibility
         </BasicButton>
       </div>
-      <p className="follow-info">{`${numFollowers} Followers, ${numFollowing} Following`}</p>
+      <span className="follow-info">{`${numFollowers} Followers, ${numFollowing} Following`}</span>
     </div>
   );
 }

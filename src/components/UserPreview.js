@@ -27,10 +27,10 @@ function UserPreview(props) {
         height="60px"
       />
       <div className="user-info">
-        <p className="user-name">{name}</p>
-        <p className="user-follow-info">
+        <span className="user-name">{name}</span>
+        <span className="user-follow-info">
           {`${numFollowers} Followers, ${numFollowing} Following`}
-        </p>
+        </span>
       </div>
       <ToggleIconButton
         toggle={isFollowing}

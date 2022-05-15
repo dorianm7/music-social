@@ -12,7 +12,7 @@ function FloatingRemoveButton(props) {
       onClick={onClick}
     >
       {renderIcon(X_NAME, '20px', '20px', 'remove-icon')}
-      <p className="remove-text">Remove</p>
+      <span className="remove-text">Remove</span>
     </button>
   );
 }

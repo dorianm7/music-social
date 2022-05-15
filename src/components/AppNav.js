@@ -24,7 +24,7 @@ function AppNav(props) {
         onClick={menuButtonOnClick}
         rounded="none"
       />
-      <p className="app-nav-text">{navText}</p>
+      <span className="app-nav-text">{navText}</span>
       <IndicatorIcon
         icon={EXCLAMATION_NAME}
         iconWidth={notificationsButtonSize}

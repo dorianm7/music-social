@@ -20,8 +20,8 @@ function SideMenuUserPreview(props) {
         width="60px"
         height="60px"
       />
-      <p className="user-name">{name}</p>
-      <p className="follower-info">{`${followers} Followers, ${following} Following`}</p>
+      <span className="user-name">{name}</span>
+      <span className="follower-info">{`${followers} Followers, ${following} Following`}</span>
     </div>
   );
 }

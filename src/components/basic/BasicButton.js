@@ -29,7 +29,7 @@ BasicButton.propTypes = {
 
 BasicButton.defaultProps = {
   className: '',
-  children: <p>Children</p>,
+  children: <span>Children</span>,
   onClick: (e) => { window.alert(`'${e.target.innerText}' button clicked`); },
 };
 

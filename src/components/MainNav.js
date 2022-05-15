@@ -21,7 +21,7 @@ function MainNav(props) {
 
   return (
     <nav className="main-nav">
-      <p className="main-nav-text">{navText}</p>
+      <span className="main-nav-text">{navText}</span>
       <ul className="nav-menu">
         <li key={nanoid()}>
           <a href={featuresHref} className="nav-features">Features</a>

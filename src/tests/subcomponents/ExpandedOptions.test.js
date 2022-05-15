@@ -27,7 +27,7 @@ it('renders correct number of options', () => {
           <ul>
             <li>
               Two
-              <p>i</p>
+              <span>i</span>
             </li>
             <li>i</li>
           </ul>]}

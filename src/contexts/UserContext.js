@@ -33,7 +33,7 @@ UserContextProvider.propTypes = {
 };
 
 UserContextProvider.defaultProps = {
-  children: <p>Children</p>,
+  children: <span>Children</span>,
 };
 
 export {

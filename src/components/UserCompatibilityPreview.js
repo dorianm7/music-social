@@ -15,8 +15,8 @@ function UserCompatibilityPreview(props) {
         imageAlt={`Picture of ${name}`}
       />
       <div className="user-info">
-        <p className="user-name">{name}</p>
-        <p className="user-compatibility">{`${percentCompatible}% Compatible`}</p>
+        <span className="user-name">{name}</span>
+        <span className="user-compatibility">{`${percentCompatible}% Compatible`}</span>
       </div>
     </div>
   );

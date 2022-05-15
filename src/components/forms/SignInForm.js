@@ -54,7 +54,7 @@ function SignInForm(props) {
       <form onSubmit={handleSubmit}>
         <label>
           <div className="label-bar">
-            <p className="label-text">Email</p>
+            <span className="label-text">Email</span>
           </div>
           <input
             className="full-width-input"
@@ -65,7 +65,7 @@ function SignInForm(props) {
         </label>
         <label>
           <div className="label-bar">
-            <p className="label-text">Password</p>
+            <span className="label-text">Password</span>
             <ToggleIconButton
               toggle={showPassword}
               initialIcon={CLOSED_EYE_NAME}

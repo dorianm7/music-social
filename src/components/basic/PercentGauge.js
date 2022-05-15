@@ -6,7 +6,7 @@ function percentToDegrees(percent) {
 }
 
 function renderContents(text, textColor, textFontSize, imgSrc, imgAlt) {
-  const pStyle = {
+  const spanStyle = {
     position: 'absolute',
     margin: 'auto',
     top: '50%',
@@ -17,7 +17,7 @@ function renderContents(text, textColor, textFontSize, imgSrc, imgAlt) {
   };
 
   const textContent = text === 'none' ? <></> : (
-    <p style={pStyle}>{text}</p>
+    <span style={spanStyle}>{text}</span>
   );
 
   const imgContent = imgSrc === 'none' ? <></> : (

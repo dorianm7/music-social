@@ -54,7 +54,7 @@ TabbedContainer.propTypes = {
 
 TabbedContainer.defaultProps = {
   tabTitles: ['Tab 0', 'Tab 1'],
-  tabContents: [<p>Tab 0 contents</p>, <p>Tab 1 Contents</p>],
+  tabContents: [<span>Tab 0 contents</span>, <span>Tab 1 Contents</span>],
 };
 
 export default TabbedContainer;

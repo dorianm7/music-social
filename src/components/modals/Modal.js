@@ -40,7 +40,7 @@ Modal.defaultProps = {
   contents: (
     <>
       Here is some text
-      <p>Here is a paragraph element</p>
+      <span>Here is a paragraph element</span>
       Here is some text
     </>
   ),

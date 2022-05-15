@@ -106,7 +106,7 @@ function SignUpForm(props) {
       <form onSubmit={handleSubmit}>
         <label>
           <div className="label-bar">
-            <p className="label-text">Email</p>
+            <span className="label-text">Email</span>
           </div>
           <TextInput
             type="email"
@@ -119,7 +119,7 @@ function SignUpForm(props) {
         </label>
         <label>
           <div className="label-bar">
-            <p className="label-text">Password</p>
+            <span className="label-text">Password</span>
             <ToggleIconButton
               toggle={showPassword}
               initialIcon={CLOSED_EYE_NAME}
@@ -148,7 +148,7 @@ function SignUpForm(props) {
         {showConfirmPasswordInput && (
           <label>
             <div className="label-bar">
-              <p className="label-text">Confirm Password</p>
+              <span className="label-text">Confirm Password</span>
               <ToggleIconButton
                 toggle={showConfirmPassword}
                 initialIcon={CLOSED_EYE_NAME}
