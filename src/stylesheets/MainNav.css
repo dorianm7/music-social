@@ -2,6 +2,7 @@
   --nav-font-color: black;
   display: flex;
   align-items: center;
+  height: 2.5rem;
 }
 
 .main-nav .nav-menu {
