@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { nanoid } from 'nanoid';
+import stc from 'string-to-color';
 
 import '../stylesheets/BasicPlaylist.css';
 
@@ -31,6 +32,7 @@ function getSearchableString(item) {
 
 // Renders a MusicItem containing all of the parameters listed
 function renderMusicItem(
+  labelColor,
   imgSrc,
   creator,
   title,
@@ -39,6 +41,7 @@ function renderMusicItem(
 ) {
   return (
     <MusicItem
+      labelColor={labelColor}
       imgSrc={imgSrc}
       imgAlt={`${creator} ${title} cover art`}
       creator={creator}
@@ -59,15 +62,17 @@ function renderMusicItem(
 
 // Given the musicItems object, returns those including both search strings
 // as a list of list items
-function renderListItems(musicItems, searchString1, searchString2) {
+function renderListItems(musicItems, searchString1, searchString2, isCollaborative) {
   const listItems = [];
   for (let i = 0; i < musicItems.length; i += 1) {
     const searchableString = getSearchableString(musicItems[i]);
+    const labelColor = isCollaborative ? stc(musicItems[i].added_by.id) : 'none';
     if (searchableString.includes(searchString1.toLowerCase())
       && searchableString.includes(searchString2.toLowerCase())) {
       listItems.push(
         <li key={nanoid()}>
           {renderMusicItem(
+            labelColor,
             musicItems[i].track.album.images[1].url,
             getArtistString(musicItems[i].track.artists),
             musicItems[i].track.name,
@@ -91,6 +96,7 @@ function BasicPlaylist(props) {
     searchVal,
     onSearchStringChange,
     showSearch,
+    isCollaborative,
   } = props;
   const [searchString, setSearchString] = useState('');
 
@@ -98,6 +104,8 @@ function BasicPlaylist(props) {
     setSearchString(string);
     onSearchStringChange(string);
   };
+
+  const collaborativeClass = isCollaborative ? ' collaborative' : '';
 
   return (
     <>
@@ -116,8 +124,8 @@ function BasicPlaylist(props) {
             />
           )}
         </div>
-        <ul className="list">
-          {renderListItems(items, searchString, searchVal)}
+        <ul className={`list${collaborativeClass}`}>
+          {renderListItems(items, searchString, searchVal, isCollaborative)}
         </ul>
       </div>
     </>
@@ -132,6 +140,7 @@ BasicPlaylist.propTypes = {
   searchVal: PropTypes.string,
   onSearchStringChange: PropTypes.func,
   showSearch: PropTypes.bool,
+  isCollaborative: PropTypes.bool,
 };
 
 BasicPlaylist.defaultProps = {
@@ -141,6 +150,7 @@ BasicPlaylist.defaultProps = {
   searchVal: '',
   onSearchStringChange: () => {},
   showSearch: false,
+  isCollaborative: false,
   // Default items holds 2 tracks
   items:
   [

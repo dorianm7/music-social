@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-bottom: .5em;
 }
 
 .heading > * {
@@ -22,13 +21,16 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  height: 350px;
   overflow-y: auto;
 }
 
 .list > li {
   /* To view Music Items */
   background-color: grey;
+}
+
+.list.collaborative > li{
+  padding-left: .5rem;
 }
 
 .list > li:not(:first-child) {
