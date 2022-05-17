@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../stylesheets/UserImages.css';
 
+import { nanoid } from 'nanoid';
 import stc from 'string-to-color';
 
 import PercentGauge from './basic/PercentGauge';
@@ -16,7 +17,7 @@ function UserImages(props) {
   const users = [];
   for (let i = 0; i < imgSrcs.length; i += 1) {
     users.push(
-      <div className="user">
+      <li key={nanoid()} className="user">
         <PercentGauge
           percentFilled="100"
           filledGaugeColor={stc(userIds[i])}
@@ -24,16 +25,16 @@ function UserImages(props) {
           imageAlt={names[i]}
         />
         <span>{names[i]}</span>
-      </div>,
+      </li>,
     );
   }
 
   const styleClass = imgSrcs.length <= 3 ? ' space-around' : ' margin';
 
   return (
-    <div className={`user-images${styleClass}`}>
+    <ul className={`user-images${styleClass}`}>
       {users}
-    </div>
+    </ul>
   );
 }
 
