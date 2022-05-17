@@ -9,6 +9,10 @@
   justify-content: space-around;
 }
 
+.user-images.margin {
+  justify-content: space-between;
+}
+
 .user-images.margin > .user:not(:last-child) {
   margin-right: .5em;
 }
