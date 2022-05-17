@@ -1,0 +1,17 @@
+.user-images {
+  padding-bottom: .5rem;
+}
+
+.basic-playlist {
+  box-sizing: border-box;
+  margin-top: .5rem;
+  padding: 0 .5rem .5rem;
+  border-radius: .2rem;
+  box-shadow: 0 2px 19px 3px rgba(0,0,0,.1);
+  /* Color-Light-2 */
+  background-color: rgba(255,255,255, .6);
+}
+
+.basic-playlist > .heading {
+  padding: 1rem 0;
+}
