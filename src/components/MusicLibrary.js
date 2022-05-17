@@ -22,7 +22,7 @@ function renderPlaylistHeader(headingType, playlistName, totalSongs, totalRunnin
 function MusicLibrary(props) {
   const {
     playlistsHeadingType,
-    playlistsItems,
+    playlists,
   } = props;
 
   const [searchText, setSearchText] = useState('');
@@ -31,24 +31,39 @@ function MusicLibrary(props) {
     <div className="music-library">
       <BasicPlaylist
         playlistHeader={(
-          renderPlaylistHeader(playlistsHeadingType, 'Artists', -2, -1)
+          renderPlaylistHeader(
+            playlistsHeadingType,
+            'Artists',
+            playlists[0].total,
+            -1, // Default Value
+          )
         )}
-        items={playlistsItems[0]}
+        items={playlists[0].items}
         onSearchStringChange={setSearchText}
         showSearch
       />
       <BasicPlaylist
         playlistHeader={(
-          renderPlaylistHeader(playlistsHeadingType, 'Albums', -2, -1)
+          renderPlaylistHeader(
+            playlistsHeadingType,
+            'Albums',
+            playlists[1].total,
+            -1, // Default Value
+          )
         )}
-        items={playlistsItems[1]}
+        items={playlists[1].items}
         searchVal={searchText}
       />
       <BasicPlaylist
         playlistHeader={(
-          renderPlaylistHeader(playlistsHeadingType, 'Songs', -2, -1)
+          renderPlaylistHeader(
+            playlistsHeadingType,
+            'Songs',
+            playlists[2].total,
+            -1, // Default Value
+          )
         )}
-        items={playlistsItems[2]}
+        items={playlists[2].items}
         searchVal={searchText}
       />
     </div>
@@ -57,25 +72,25 @@ function MusicLibrary(props) {
 
 MusicLibrary.propTypes = {
   playlistsHeadingType: PropTypes.string,
-  playlistsItems: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.object)),
+  playlists: PropTypes.arrayOf(PropTypes.shape({
+    __comment: PropTypes.string,
+    href: PropTypes.string,
+    items: PropTypes.arrayOf(PropTypes.object),
+    limit: PropTypes.number,
+    next: PropTypes.string,
+    offset: PropTypes.number,
+    previous: PropTypes.string,
+    total: PropTypes.number,
+  })),
 };
 
 MusicLibrary.defaultProps = {
   playlistsHeadingType: 'h2',
-  playlistsItems:
+  playlists:
   [
-    [
-      playlist.items[0],
-      playlist.items[1],
-    ],
-    [
-      playlist.items[0],
-      playlist.items[1],
-    ],
-    [
-      playlist.items[0],
-      playlist.items[1],
-    ],
+    playlist,
+    playlist,
+    playlist,
   ],
 };
 
