@@ -21,12 +21,15 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  max-height: 350px;
   overflow-y: auto;
 }
 
 .list > li {
   /* To view Music Items */
-  background-color: grey;
+  /* Color-Light-3 */
+  background-color: rgba(255,255,255, .8);
+  padding-right: .5rem;
 }
 
 .list.collaborative > li{
