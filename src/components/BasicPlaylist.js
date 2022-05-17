@@ -144,7 +144,7 @@ BasicPlaylist.propTypes = {
 };
 
 BasicPlaylist.defaultProps = {
-  playlistHeader: <h2>Playlist</h2>,
+  playlistHeader: 'Playlist',
   selectOptions: ['Recent', 'Latest'],
   onSelectOptionClick: (option) => { console.log(`${option} clicked`); },
   searchVal: '',

@@ -6,15 +6,27 @@ import '../../stylesheets/page-contents/CollaborativePlaylistPageContents.css';
 import UserImages from '../../components/UserImages';
 import BasicPlaylist from '../../components/BasicPlaylist';
 import localPlaylist from '../../local_data/Playlist_0.json';
+import PlaylistHeader from '../../components/PlaylistHeader';
 
 function CollaborativePlaylistPageContents(props) {
   const {
     userImages,
     userNames,
     userIds,
+    playlistHeadingType,
     playlistName,
+    playlistRunningTime,
     playlist,
   } = props;
+
+  const playlistHeader = (
+    <PlaylistHeader
+      headingType={playlistHeadingType}
+      playlistName={playlistName}
+      totalSongs={playlist.total}
+      totalRunningTime={playlistRunningTime}
+    />
+  );
 
   return (
     <>
@@ -24,7 +36,7 @@ function CollaborativePlaylistPageContents(props) {
         userIds={userIds}
       />
       <BasicPlaylist
-        playlistHeader={playlistName}
+        playlistHeader={playlistHeader}
         isCollaborative
         showSearch
         items={playlist.items}
@@ -37,7 +49,9 @@ CollaborativePlaylistPageContents.propTypes = {
   userImages: PropTypes.arrayOf(PropTypes.string),
   userNames: PropTypes.arrayOf(PropTypes.string),
   userIds: PropTypes.arrayOf(PropTypes.string),
+  playlistHeadingType: PropTypes.string,
   playlistName: PropTypes.string,
+  playlistRunningTime: PropTypes.string,
   playlist: PropTypes.shape({
     __comment: PropTypes.string,
     href: PropTypes.string,
@@ -63,7 +77,9 @@ CollaborativePlaylistPageContents.defaultProps = {
     'id0',
     'id1',
   ],
+  playlistHeadingType: 'h2',
   playlistName: 'Playlist Name',
+  playlistRunningTime: '-1',
   playlist: localPlaylist,
 };
 
