@@ -1,3 +1,3 @@
-.playlist-header h2 {
+.playlist-header > *:first-child{
   margin: 0;
 }
