@@ -4,14 +4,14 @@
   align-items: center;
 }
 
-.text {
+.list-search > .text {
   margin-right: .5em;
 }
 
-input {
+.list-search > input {
   width: 7em;
 }
 
-input:focus {
+.list-search > input:focus {
   width: 10em;
 }
