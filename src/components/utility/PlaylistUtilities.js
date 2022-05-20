@@ -203,7 +203,7 @@ function renderAlbumPlaylistMusicItem(item) {
     <MusicItem
       type="album"
       imgSrc={item.images[1].url}
-      imgAlt={`${item.name} artist cover`}
+      imgAlt={`${item.name} album cover`}
       creator={getAlbumPlaylistArtistString(item)}
       title={item.name}
       rightComponent={(
@@ -235,9 +235,53 @@ function basicAlbumPlaylistToListItems(
   );
 }
 
+// Returns lowercase string containing all searchable values of item
+function getPlaylistPlaylistItemSearchableString(item) {
+  return `${item.name} ${item.owner.display_name}`.toLowerCase();
+}
+
+// Render Playlist MusicItem for a Playlist Playlist item
+function renderPlaylistPlaylistMusicItem(item) {
+  return (
+    <MusicItem
+      type="playlist"
+      imgSrc={item.images[1].url}
+      imgAlt={`${item.name} playlist cover`}
+      creator={item.owner.display_name}
+      title={item.name}
+      rightComponent={(
+        <ExpandableButton
+          options={['Spotify Link']}
+          optionsOnClicks={[() => { window.open(item.external_urls.spotify); }]}
+          expand="left"
+          direction="down"
+          initialIcon={VERTICAL_DOTS_NAME}
+          initialIconTransparent
+        />
+      )}
+    />
+  );
+}
+
+// Render ListItems for the given PlaylistList object
+function basicPlaylistPlaylistToListItems(
+  searchString1,
+  searchString2,
+  playlistListObj,
+) {
+  return renderPlaylistItems(
+    getPlaylistPlaylistItemSearchableString,
+    renderPlaylistPlaylistMusicItem,
+    searchString1,
+    searchString2,
+    playlistListObj.items,
+  );
+}
+
 export {
   basicTrackPlaylistToListItems,
   basicTrackCollaborativePlaylistToListItems,
   basicArtistPlaylistToListItems,
   basicAlbumPlaylistToListItems,
+  basicPlaylistPlaylistToListItems,
 };

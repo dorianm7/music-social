@@ -11,6 +11,7 @@ import {
   basicTrackCollaborativePlaylistToListItems,
   basicArtistPlaylistToListItems,
   basicAlbumPlaylistToListItems,
+  basicPlaylistPlaylistToListItems,
 } from './utility/PlaylistUtilities';
 import playlist from '../local_data/Playlist_0.json';
 
@@ -41,6 +42,10 @@ function BasicPlaylist(props) {
     case 'album':
       toListItems = basicAlbumPlaylistToListItems;
       typeClassName = ' album';
+      break;
+    case 'playlist':
+      toListItems = basicPlaylistPlaylistToListItems;
+      typeClassName = ' playlist';
       break;
     default:
       toListItems = basicArtistPlaylistToListItems;
@@ -120,6 +125,16 @@ BasicPlaylist.propTypes = {
         }),
         total: PropTypes.number,
       }),
+    }),
+    // Playlist List
+    PropTypes.shape({
+      href: PropTypes.string,
+      items: PropTypes.arrayOf(PropTypes.object),
+      limit: PropTypes.number,
+      next: PropTypes.string,
+      offset: PropTypes.number,
+      previous: PropTypes.string,
+      total: PropTypes.number,
     }),
   ),
 };
