@@ -10,6 +10,7 @@ import {
   basicTrackPlaylistToListItems,
   basicTrackCollaborativePlaylistToListItems,
   basicArtistPlaylistToListItems,
+  basicAlbumPlaylistToListItems,
 } from './utility/PlaylistUtilities';
 
 function BasicPlaylist(props) {
@@ -35,6 +36,10 @@ function BasicPlaylist(props) {
     case 'collaborative':
       toListItems = basicTrackCollaborativePlaylistToListItems;
       typeClassName = ' collaborative';
+      break;
+    case 'album':
+      toListItems = basicAlbumPlaylistToListItems;
+      typeClassName = ' album';
       break;
     default:
       toListItems = basicArtistPlaylistToListItems;
