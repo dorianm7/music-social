@@ -16,7 +16,7 @@ function MusicItem(props) {
 
   return (
     <div className={`music-item ${type}`}>
-      {type === 'collaborative' && (
+      {labelColor === 'none' && (
         <div
           className="label"
           style={{ backgroundColor: labelColor }}
