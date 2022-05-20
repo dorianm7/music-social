@@ -5,6 +5,7 @@ import defaultImg from '../images/help-rhombus-outline.svg';
 
 function MusicItem(props) {
   const {
+    type, // track, album, artist
     labelColor,
     imgSrc,
     imgAlt,
@@ -14,8 +15,8 @@ function MusicItem(props) {
   } = props;
 
   return (
-    <div className="music-item">
-      {labelColor !== 'none' && (
+    <div className={`music-item ${type}`}>
+      {type === 'collaborative' && (
         <div
           className="label"
           style={{ backgroundColor: labelColor }}
@@ -23,7 +24,9 @@ function MusicItem(props) {
       )}
       <img className="picture" src={imgSrc} alt={imgAlt} width="60px" height="60px" />
       <div className="info">
-        <span className="title">{title}</span>
+        {type !== 'artist' && (
+          <span className="title">{title}</span>
+        )}
         <span className="creator">{creator}</span>
       </div>
       {rightComponent !== 'none' && rightComponent}
@@ -32,6 +35,7 @@ function MusicItem(props) {
 }
 
 MusicItem.propTypes = {
+  type: PropTypes.string,
   labelColor: PropTypes.string,
   imgSrc: PropTypes.string,
   imgAlt: PropTypes.string,
@@ -41,6 +45,7 @@ MusicItem.propTypes = {
 };
 
 MusicItem.defaultProps = {
+  type: 'track',
   labelColor: 'none',
   imgSrc: defaultImg,
   imgAlt: 'Default Image',
