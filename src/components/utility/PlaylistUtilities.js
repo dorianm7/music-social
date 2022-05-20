@@ -181,8 +181,63 @@ function basicArtistPlaylistToListItems(
   );
 }
 
+// Returns a string of all artists names in the item
+function getAlbumPlaylistArtistString(item) {
+  const artistsNames = [];
+  item.artists.forEach((artist) => {
+    artistsNames.push(artist.name);
+  });
+
+  return artistsNames.toString();
+}
+
+// Returns lowercase string containing all searchable values of item
+function getAlbumPlaylistItemSearchableString(item) {
+  return `${getAlbumPlaylistArtistString(item)}\
+          ${item.name}`.toLowerCase();
+}
+
+// Render Artist MusicItem for an Artist Playlist item
+function renderAlbumPlaylistMusicItem(item) {
+  return (
+    <MusicItem
+      type="album"
+      imgSrc={item.images[1].url}
+      imgAlt={`${item.name} artist cover`}
+      creator={getAlbumPlaylistArtistString(item)}
+      title={item.name}
+      rightComponent={(
+        <ExpandableButton
+          options={['Spotify Link']}
+          optionsOnClicks={[() => { window.open(item.external_urls.spotify); }]}
+          expand="left"
+          direction="down"
+          initialIcon={VERTICAL_DOTS_NAME}
+          initialIconTransparent
+        />
+      )}
+    />
+  );
+}
+
+// Render ListItems for the given AlbumList Object
+function basicAlbumPlaylistToListItems(
+  searchString1,
+  searchString2,
+  albumListObj,
+) {
+  return renderPlaylistItems(
+    getAlbumPlaylistItemSearchableString,
+    renderAlbumPlaylistMusicItem,
+    searchString1,
+    searchString2,
+    albumListObj.items,
+  );
+}
+
 export {
   basicTrackPlaylistToListItems,
   basicTrackCollaborativePlaylistToListItems,
   basicArtistPlaylistToListItems,
+  basicAlbumPlaylistToListItems,
 };
