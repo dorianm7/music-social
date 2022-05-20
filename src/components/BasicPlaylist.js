@@ -12,6 +12,7 @@ import {
   basicArtistPlaylistToListItems,
   basicAlbumPlaylistToListItems,
 } from './utility/PlaylistUtilities';
+import playlist from '../local_data/Playlist_0.json';
 
 function BasicPlaylist(props) {
   const {
@@ -80,13 +81,47 @@ function BasicPlaylist(props) {
 BasicPlaylist.propTypes = {
   type: PropTypes.string,
   playlistHeader: PropTypes.node,
-  // eslint-disable-next-line react/forbid-prop-types
-  items: PropTypes.object,
   selectOptions: PropTypes.arrayOf(PropTypes.string),
   onSelectOptionClick: PropTypes.func,
   searchVal: PropTypes.string,
   onSearchStringChange: PropTypes.func,
   showSearch: PropTypes.bool,
+  items: PropTypes.oneOfType(
+    // Track Playlist
+    PropTypes.shape({
+      __comment: PropTypes.string,
+      href: PropTypes.string,
+      items: PropTypes.arrayOf(PropTypes.object),
+      limit: PropTypes.number,
+      next: PropTypes.string,
+      offset: PropTypes.number,
+      previous: PropTypes.string,
+      total: PropTypes.number,
+    }),
+    // Albums List
+    PropTypes.shape({
+      href: PropTypes.string,
+      items: PropTypes.arrayOf(PropTypes.object),
+      limit: PropTypes.number,
+      next: PropTypes.string,
+      offset: PropTypes.number,
+      previous: PropTypes.string,
+      total: PropTypes.number,
+    }),
+    // Artist List
+    PropTypes.shape({
+      artists: PropTypes.shape({
+        href: PropTypes.string,
+        items: PropTypes.arrayOf(PropTypes.object),
+        limit: PropTypes.number,
+        next: PropTypes.string,
+        cursors: PropTypes.shape({
+          after: PropTypes.string,
+        }),
+        total: PropTypes.number,
+      }),
+    }),
+  ),
 };
 
 BasicPlaylist.defaultProps = {
@@ -97,8 +132,7 @@ BasicPlaylist.defaultProps = {
   searchVal: '',
   onSearchStringChange: () => {},
   showSearch: false,
-  // Default items holds 2 tracks
-  items: {},
+  items: playlist,
 };
 
 export default BasicPlaylist;
