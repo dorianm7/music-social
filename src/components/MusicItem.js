@@ -16,7 +16,7 @@ function MusicItem(props) {
 
   return (
     <div className={`music-item ${type}`}>
-      {labelColor === 'none' && (
+      {labelColor !== 'none' && (
         <div
           className="label"
           style={{ backgroundColor: labelColor }}
