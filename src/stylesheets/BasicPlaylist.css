@@ -36,6 +36,10 @@
   padding-left: .5rem;
 }
 
+.list.artist > li {
+  padding: .2rem;
+}
+
 .list > li:not(:first-child) {
   margin-top: .5em;
 }
