@@ -1,3 +1,15 @@
-.music-library > .basic-playlist:not(:last-child) {
-  padding-bottom: 1rem;
+.music-library > .basic-playlist {
+  box-sizing: border-box;
+  padding: 0 .5rem .5rem;
+  border-radius: .2rem;
+  /* Color-Light-3 */
+  background-color: rgba(255, 255, 255, .6);
+}
+
+.music-library >.basic-playlist:not(:first-child) {
+  margin-top: .5rem;
+}
+
+.music-library .basic-playlist >.heading {
+  padding: .5rem 0;
 }
