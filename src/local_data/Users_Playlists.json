@@ -1,0 +1,838 @@
+{
+  "href": "https://api.spotify.com/v1/me/shows?offset=0&limit=20\n",
+  "items": [
+    {
+          "collaborative": false,
+          "description": "",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/playlist/6KYKzfMbdKwl9NbNYs4Plm"
+          },
+          "href": "https://api.spotify.com/v1/playlists/6KYKzfMbdKwl9NbNYs4Plm",
+          "id": "6KYKzfMbdKwl9NbNYs4Plm",
+          "images": [
+            {
+              "height": 640,
+              "url": "https://mosaic.scdn.co/640/ab67616d0000b2730cd942c1a864afa4e92d04f2ab67616d0000b27328b8850c1940ef6dbbb019f8ab67616d0000b27338ce3df3a9415427051e7fb7ab67616d0000b2736bc4b0abc90292b207799266",
+              "width": 640
+            },
+            {
+              "height": 300,
+              "url": "https://mosaic.scdn.co/300/ab67616d0000b2730cd942c1a864afa4e92d04f2ab67616d0000b27328b8850c1940ef6dbbb019f8ab67616d0000b27338ce3df3a9415427051e7fb7ab67616d0000b2736bc4b0abc90292b207799266",
+              "width": 300
+            },
+            {
+              "height": 60,
+              "url": "https://mosaic.scdn.co/60/ab67616d0000b2730cd942c1a864afa4e92d04f2ab67616d0000b27328b8850c1940ef6dbbb019f8ab67616d0000b27338ce3df3a9415427051e7fb7ab67616d0000b2736bc4b0abc90292b207799266",
+              "width": 60
+            }
+          ],
+          "name": "🔥Flame🔥",
+          "owner": {
+            "display_name": "dorianm_",
+            "external_urls": {
+              "spotify": "https://open.spotify.com/user/moriand"
+            },
+            "href": "https://api.spotify.com/v1/users/moriand",
+            "id": "moriand",
+            "type": "user",
+            "uri": "spotify:user:moriand"
+          },
+          "primary_color": null,
+          "public": true,
+          "snapshot_id": "MzgxLDg0N2M0YjdlMjczY2U2YjMwYjYxN2I1ZmU0M2M2NGQ5MGZlZmM0YTY=",
+          "tracks": {
+            "href": "https://api.spotify.com/v1/playlists/6KYKzfMbdKwl9NbNYs4Plm/tracks",
+            "total": 249
+          },
+          "type": "playlist",
+          "uri": "spotify:playlist:6KYKzfMbdKwl9NbNYs4Plm"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/5m2yNgIc5vsUoNoCT7QQmP"
+      },
+      "href": "https://api.spotify.com/v1/playlists/5m2yNgIc5vsUoNoCT7QQmP",
+      "id": "5m2yNgIc5vsUoNoCT7QQmP",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b27320cac893b7a494f729128dacab67616d0000b2734bb13f7847252cc829e05aa6ab67616d0000b273c30d59775ce5ef3f59138f59ab67616d0000b273d9194aa18fa4c9362b47464f",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b27320cac893b7a494f729128dacab67616d0000b2734bb13f7847252cc829e05aa6ab67616d0000b273c30d59775ce5ef3f59138f59ab67616d0000b273d9194aa18fa4c9362b47464f",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b27320cac893b7a494f729128dacab67616d0000b2734bb13f7847252cc829e05aa6ab67616d0000b273c30d59775ce5ef3f59138f59ab67616d0000b273d9194aa18fa4c9362b47464f",
+          "width": 60
+        }
+      ],
+      "name": "Hip-Hop / Rap",
+      "owner": {
+        "display_name": "dorianm_",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/moriand"
+        },
+        "href": "https://api.spotify.com/v1/users/moriand",
+        "id": "moriand",
+        "type": "user",
+        "uri": "spotify:user:moriand"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "MjAyOCw5YTE5NzNjY2NkZjBlZmU2YTU5NzRhMzIzZTY5NzE5ZTA4MTUxZTQx",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/5m2yNgIc5vsUoNoCT7QQmP/tracks",
+        "total": 1903
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:5m2yNgIc5vsUoNoCT7QQmP"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/2GIrf55eiYbdyOC803KutK"
+      },
+      "href": "https://api.spotify.com/v1/playlists/2GIrf55eiYbdyOC803KutK",
+      "id": "2GIrf55eiYbdyOC803KutK",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b273255d4809d0a2a884ce818f0eab67616d0000b2736fdc1b9be183d1667e9fa36eab67616d0000b273898f5a4950700ec027aba3efab67616d0000b273d37550f01842bd0160387d33",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b273255d4809d0a2a884ce818f0eab67616d0000b2736fdc1b9be183d1667e9fa36eab67616d0000b273898f5a4950700ec027aba3efab67616d0000b273d37550f01842bd0160387d33",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b273255d4809d0a2a884ce818f0eab67616d0000b2736fdc1b9be183d1667e9fa36eab67616d0000b273898f5a4950700ec027aba3efab67616d0000b273d37550f01842bd0160387d33",
+          "width": 60
+        }
+      ],
+      "name": "Juke / Footwork",
+      "owner": {
+        "display_name": "dorianm_",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/moriand"
+        },
+        "href": "https://api.spotify.com/v1/users/moriand",
+        "id": "moriand",
+        "type": "user",
+        "uri": "spotify:user:moriand"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "NDY1LDBjNWQ4OGI5ZjlhNjIyMGFjZTA5Zjk1NjA0OWU5NjIxODYwYTFiNGY=",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/2GIrf55eiYbdyOC803KutK/tracks",
+        "total": 374
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:2GIrf55eiYbdyOC803KutK"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/0WBLZ9c91AXLlH4pZFeYoy"
+      },
+      "href": "https://api.spotify.com/v1/playlists/0WBLZ9c91AXLlH4pZFeYoy",
+      "id": "0WBLZ9c91AXLlH4pZFeYoy",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b273088d99c85e6de4f30b39679cab67616d0000b273103f201624a024cbf1580ff3ab67616d0000b27356807c508cc56931a93053f1ab67616d0000b27365592a6386e6d6460ffff778",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b273088d99c85e6de4f30b39679cab67616d0000b273103f201624a024cbf1580ff3ab67616d0000b27356807c508cc56931a93053f1ab67616d0000b27365592a6386e6d6460ffff778",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b273088d99c85e6de4f30b39679cab67616d0000b273103f201624a024cbf1580ff3ab67616d0000b27356807c508cc56931a93053f1ab67616d0000b27365592a6386e6d6460ffff778",
+          "width": 60
+        }
+      ],
+      "name": "Dance",
+      "owner": {
+        "display_name": "dorianm_",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/moriand"
+        },
+        "href": "https://api.spotify.com/v1/users/moriand",
+        "id": "moriand",
+        "type": "user",
+        "uri": "spotify:user:moriand"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "MTUyLGQyZWY0NjA4YjkzYjhjMzRkOGM5YjdiNzM3NmViZTE4NzQ3MzFlYTA=",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/0WBLZ9c91AXLlH4pZFeYoy/tracks",
+        "total": 125
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:0WBLZ9c91AXLlH4pZFeYoy"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/4jVYhe88ye4nXJHgBzftyS"
+      },
+      "href": "https://api.spotify.com/v1/playlists/4jVYhe88ye4nXJHgBzftyS",
+      "id": "4jVYhe88ye4nXJHgBzftyS",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b2735cbc246a708352f6cd8e6baeab67616d0000b273699da7fe16923709d6adaf1dab67616d0000b273af73615ee6257956d799ed79ab67616d0000b273c473db807ae083fe92f2d9fc",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b2735cbc246a708352f6cd8e6baeab67616d0000b273699da7fe16923709d6adaf1dab67616d0000b273af73615ee6257956d799ed79ab67616d0000b273c473db807ae083fe92f2d9fc",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b2735cbc246a708352f6cd8e6baeab67616d0000b273699da7fe16923709d6adaf1dab67616d0000b273af73615ee6257956d799ed79ab67616d0000b273c473db807ae083fe92f2d9fc",
+          "width": 60
+        }
+      ],
+      "name": "🌏 Global Trap 🍚",
+      "owner": {
+        "display_name": "dorianm_",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/moriand"
+        },
+        "href": "https://api.spotify.com/v1/users/moriand",
+        "id": "moriand",
+        "type": "user",
+        "uri": "spotify:user:moriand"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "MTAyLDQzYjk1NDRhZjczYjE0NWE3NjkzMWQzYTZlZjgxNzllZDg0ZTcyYmM=",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/4jVYhe88ye4nXJHgBzftyS/tracks",
+        "total": 89
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:4jVYhe88ye4nXJHgBzftyS"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/3vWgod1APRxMEfXbzWqzNx"
+      },
+      "href": "https://api.spotify.com/v1/playlists/3vWgod1APRxMEfXbzWqzNx",
+      "id": "3vWgod1APRxMEfXbzWqzNx",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b2734b805d1aa891baf3b0ca057eab67616d0000b2737422396722aa0db7b53dbbecab67616d0000b273daa9f238e1a7666faf0bc8d2ab67616d0000b273fcd057bd0fe911a5f0ea3322",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b2734b805d1aa891baf3b0ca057eab67616d0000b2737422396722aa0db7b53dbbecab67616d0000b273daa9f238e1a7666faf0bc8d2ab67616d0000b273fcd057bd0fe911a5f0ea3322",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b2734b805d1aa891baf3b0ca057eab67616d0000b2737422396722aa0db7b53dbbecab67616d0000b273daa9f238e1a7666faf0bc8d2ab67616d0000b273fcd057bd0fe911a5f0ea3322",
+          "width": 60
+        }
+      ],
+      "name": "Grime",
+      "owner": {
+        "display_name": "dorianm_",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/moriand"
+        },
+        "href": "https://api.spotify.com/v1/users/moriand",
+        "id": "moriand",
+        "type": "user",
+        "uri": "spotify:user:moriand"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "MTQzLDIzOGNmNzlhMGVjYzA4ZDNiYThhZWFmYTIzMjExNzNkY2NkYTkzMTI=",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/3vWgod1APRxMEfXbzWqzNx/tracks",
+        "total": 149
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:3vWgod1APRxMEfXbzWqzNx"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/5JGwRP3yEYKnBlQSISvabL"
+      },
+      "href": "https://api.spotify.com/v1/playlists/5JGwRP3yEYKnBlQSISvabL",
+      "id": "5JGwRP3yEYKnBlQSISvabL",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b273036b3bf566707ad0390c88b6ab67616d0000b2735369b5d406bcf6e30caa4685ab67616d0000b273a2333dd8d84834b0dad95608ab67616d0000b273acf3ee1a248f003ee3c4fbf0",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b273036b3bf566707ad0390c88b6ab67616d0000b2735369b5d406bcf6e30caa4685ab67616d0000b273a2333dd8d84834b0dad95608ab67616d0000b273acf3ee1a248f003ee3c4fbf0",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b273036b3bf566707ad0390c88b6ab67616d0000b2735369b5d406bcf6e30caa4685ab67616d0000b273a2333dd8d84834b0dad95608ab67616d0000b273acf3ee1a248f003ee3c4fbf0",
+          "width": 60
+        }
+      ],
+      "name": "Trappy",
+      "owner": {
+        "display_name": "dorianm_",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/moriand"
+        },
+        "href": "https://api.spotify.com/v1/users/moriand",
+        "id": "moriand",
+        "type": "user",
+        "uri": "spotify:user:moriand"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "NjgsNTAxOGNhODcxMTUyZWFkNGU1MmYyMGI0ODU0NTA4YWJiNzM4NzVlOA==",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/5JGwRP3yEYKnBlQSISvabL/tracks",
+        "total": 48
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:5JGwRP3yEYKnBlQSISvabL"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/0LCgcU2LXBRINsFFfIGMFP"
+      },
+      "href": "https://api.spotify.com/v1/playlists/0LCgcU2LXBRINsFFfIGMFP",
+      "id": "0LCgcU2LXBRINsFFfIGMFP",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b27319678bf35d86fd2187659944ab67616d0000b2731d4c3eeaf93cf985000126bbab67616d0000b273549d5b72ef5aeadd7687c62eab67616d0000b2735e86e8139c8d68987c304be3",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b27319678bf35d86fd2187659944ab67616d0000b2731d4c3eeaf93cf985000126bbab67616d0000b273549d5b72ef5aeadd7687c62eab67616d0000b2735e86e8139c8d68987c304be3",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b27319678bf35d86fd2187659944ab67616d0000b2731d4c3eeaf93cf985000126bbab67616d0000b273549d5b72ef5aeadd7687c62eab67616d0000b2735e86e8139c8d68987c304be3",
+          "width": 60
+        }
+      ],
+      "name": "Dancy",
+      "owner": {
+        "display_name": "dorianm_",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/moriand"
+        },
+        "href": "https://api.spotify.com/v1/users/moriand",
+        "id": "moriand",
+        "type": "user",
+        "uri": "spotify:user:moriand"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "MTI4LDZiYzE2OGRjMGYyZDA5ODcyZTJiYzUyNzFlMzNmNDkzZTFiZWE5OGM=",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/0LCgcU2LXBRINsFFfIGMFP/tracks",
+        "total": 115
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:0LCgcU2LXBRINsFFfIGMFP"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/3PJ2M9F9cwMD5452sQNXZZ"
+      },
+      "href": "https://api.spotify.com/v1/playlists/3PJ2M9F9cwMD5452sQNXZZ",
+      "id": "3PJ2M9F9cwMD5452sQNXZZ",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b273554ee8f11e8e7c9d2bae51c2ab67616d0000b2737927b797a71722d1976c7553ab67616d0000b273dfce5ec6a5fc00f3169e0977ab67616d0000b273f7db43292a6a99b21b51d5b4",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b273554ee8f11e8e7c9d2bae51c2ab67616d0000b2737927b797a71722d1976c7553ab67616d0000b273dfce5ec6a5fc00f3169e0977ab67616d0000b273f7db43292a6a99b21b51d5b4",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b273554ee8f11e8e7c9d2bae51c2ab67616d0000b2737927b797a71722d1976c7553ab67616d0000b273dfce5ec6a5fc00f3169e0977ab67616d0000b273f7db43292a6a99b21b51d5b4",
+          "width": 60
+        }
+      ],
+      "name": "Soundcloud Rap",
+      "owner": {
+        "display_name": "dorianm_",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/moriand"
+        },
+        "href": "https://api.spotify.com/v1/users/moriand",
+        "id": "moriand",
+        "type": "user",
+        "uri": "spotify:user:moriand"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "MTQ1LGI3MGI1MDJiN2JhMTVmMTc5Y2NlMzFmYWYwOGQwOTcxMWFlNzU4Yjc=",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/3PJ2M9F9cwMD5452sQNXZZ/tracks",
+        "total": 139
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:3PJ2M9F9cwMD5452sQNXZZ"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/1cKgcnflpglxgvVSfQdWIr"
+      },
+      "href": "https://api.spotify.com/v1/playlists/1cKgcnflpglxgvVSfQdWIr",
+      "id": "1cKgcnflpglxgvVSfQdWIr",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b2731c40418d1c37d727e8e91b04ab67616d0000b273569c9bd53261cc7313fbc7bdab67616d0000b2735c15cf8bfc892d27aecf2f6dab67616d0000b27394d3ad951795b20e200cfb1e",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b2731c40418d1c37d727e8e91b04ab67616d0000b273569c9bd53261cc7313fbc7bdab67616d0000b2735c15cf8bfc892d27aecf2f6dab67616d0000b27394d3ad951795b20e200cfb1e",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b2731c40418d1c37d727e8e91b04ab67616d0000b273569c9bd53261cc7313fbc7bdab67616d0000b2735c15cf8bfc892d27aecf2f6dab67616d0000b27394d3ad951795b20e200cfb1e",
+          "width": 60
+        }
+      ],
+      "name": "Reggae",
+      "owner": {
+        "display_name": "dorianm_",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/moriand"
+        },
+        "href": "https://api.spotify.com/v1/users/moriand",
+        "id": "moriand",
+        "type": "user",
+        "uri": "spotify:user:moriand"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "NjIsMWU2ZTVkZTAzYWY2ZjA3NGZmZWVlMDViNDYwMjRhY2U4NmRlNDlhYQ==",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/1cKgcnflpglxgvVSfQdWIr/tracks",
+        "total": 111
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:1cKgcnflpglxgvVSfQdWIr"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/4VzxXckUKZo2qfTXJAdJaT"
+      },
+      "href": "https://api.spotify.com/v1/playlists/4VzxXckUKZo2qfTXJAdJaT",
+      "id": "4VzxXckUKZo2qfTXJAdJaT",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b2734873462acfd342888ea57d04ab67616d0000b2736ae8c7413af245808e3e5ebdab67616d0000b27382387a2950de6c60a068f9cfab67616d0000b273af0da2905f75c2a30825602b",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b2734873462acfd342888ea57d04ab67616d0000b2736ae8c7413af245808e3e5ebdab67616d0000b27382387a2950de6c60a068f9cfab67616d0000b273af0da2905f75c2a30825602b",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b2734873462acfd342888ea57d04ab67616d0000b2736ae8c7413af245808e3e5ebdab67616d0000b27382387a2950de6c60a068f9cfab67616d0000b273af0da2905f75c2a30825602b",
+          "width": 60
+        }
+      ],
+      "name": "D n' B",
+      "owner": {
+        "display_name": "dorianm_",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/moriand"
+        },
+        "href": "https://api.spotify.com/v1/users/moriand",
+        "id": "moriand",
+        "type": "user",
+        "uri": "spotify:user:moriand"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "ODAsYWVjN2ViY2Y3NmUyMmQ4NDdkNGY2Zjk0NTU1ZWM4NDM1ZmY0MWU3ZA==",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/4VzxXckUKZo2qfTXJAdJaT/tracks",
+        "total": 85
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:4VzxXckUKZo2qfTXJAdJaT"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/6irXXwroUJMTxKaxOMrfFq"
+      },
+      "href": "https://api.spotify.com/v1/playlists/6irXXwroUJMTxKaxOMrfFq",
+      "id": "6irXXwroUJMTxKaxOMrfFq",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b2731b1e60c31427c0e845a70df9ab67616d0000b273cba9fedac68d90b9af071788ab67616d0000b273e93c10153ae51579059116f0ab67616d0000b273f58bf9841a26e5d8cbab1ab0",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b2731b1e60c31427c0e845a70df9ab67616d0000b273cba9fedac68d90b9af071788ab67616d0000b273e93c10153ae51579059116f0ab67616d0000b273f58bf9841a26e5d8cbab1ab0",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b2731b1e60c31427c0e845a70df9ab67616d0000b273cba9fedac68d90b9af071788ab67616d0000b273e93c10153ae51579059116f0ab67616d0000b273f58bf9841a26e5d8cbab1ab0",
+          "width": 60
+        }
+      ],
+      "name": "Heavy",
+      "owner": {
+        "display_name": "dorianm_",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/moriand"
+        },
+        "href": "https://api.spotify.com/v1/users/moriand",
+        "id": "moriand",
+        "type": "user",
+        "uri": "spotify:user:moriand"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "MTEsYjYzYTc0MDc0YjQ3MDE0NmQzYTMyNTY1ODE1MmUyZTI2NDVhMzc0ZQ==",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/6irXXwroUJMTxKaxOMrfFq/tracks",
+        "total": 89
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:6irXXwroUJMTxKaxOMrfFq"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/3GeeyZCFmZo00GExDpsaoN"
+      },
+      "href": "https://api.spotify.com/v1/playlists/3GeeyZCFmZo00GExDpsaoN",
+      "id": "3GeeyZCFmZo00GExDpsaoN",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b27383cfd225127926fc85be4691ab67616d0000b273992e2d1c9211cea9b6e0fe6bab67616d0000b273ac1d47b73344281d6de3ea6fab67616d0000b273fc4d8adbbae5be280e0cb43a",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b27383cfd225127926fc85be4691ab67616d0000b273992e2d1c9211cea9b6e0fe6bab67616d0000b273ac1d47b73344281d6de3ea6fab67616d0000b273fc4d8adbbae5be280e0cb43a",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b27383cfd225127926fc85be4691ab67616d0000b273992e2d1c9211cea9b6e0fe6bab67616d0000b273ac1d47b73344281d6de3ea6fab67616d0000b273fc4d8adbbae5be280e0cb43a",
+          "width": 60
+        }
+      ],
+      "name": "Jazzy",
+      "owner": {
+        "display_name": "dorianm_",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/moriand"
+        },
+        "href": "https://api.spotify.com/v1/users/moriand",
+        "id": "moriand",
+        "type": "user",
+        "uri": "spotify:user:moriand"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "ODgsZDk4YzZlYzJjYTU0MTMzOTE0NjE0MDlkYWMyMDExYTAxZmZjZjQyMg==",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/3GeeyZCFmZo00GExDpsaoN/tracks",
+        "total": 115
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:3GeeyZCFmZo00GExDpsaoN"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/73rKKU3HSyLYHHNbTrzmRR"
+      },
+      "href": "https://api.spotify.com/v1/playlists/73rKKU3HSyLYHHNbTrzmRR",
+      "id": "73rKKU3HSyLYHHNbTrzmRR",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b27343309d357703a1ddd10e65a2ab67616d0000b2736fdc1b9be183d1667e9fa36eab67616d0000b273898f5a4950700ec027aba3efab67616d0000b273d37550f01842bd0160387d33",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b27343309d357703a1ddd10e65a2ab67616d0000b2736fdc1b9be183d1667e9fa36eab67616d0000b273898f5a4950700ec027aba3efab67616d0000b273d37550f01842bd0160387d33",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b27343309d357703a1ddd10e65a2ab67616d0000b2736fdc1b9be183d1667e9fa36eab67616d0000b273898f5a4950700ec027aba3efab67616d0000b273d37550f01842bd0160387d33",
+          "width": 60
+        }
+      ],
+      "name": "Best Juke / Footwork",
+      "owner": {
+        "display_name": "dorianm_",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/moriand"
+        },
+        "href": "https://api.spotify.com/v1/users/moriand",
+        "id": "moriand",
+        "type": "user",
+        "uri": "spotify:user:moriand"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "MTk0LDYzYmY3OWM2MGYyODlkZjk0ZDYzYmMzOGVkN2Q1ZmQ0MTk4NDQxMzg=",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/73rKKU3HSyLYHHNbTrzmRR/tracks",
+        "total": 153
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:73rKKU3HSyLYHHNbTrzmRR"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/7D0iVMA8qoujLIldORoy6U"
+      },
+      "href": "https://api.spotify.com/v1/playlists/7D0iVMA8qoujLIldORoy6U",
+      "id": "7D0iVMA8qoujLIldORoy6U",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b27319678bf35d86fd2187659944ab67616d0000b273214a1d619a7bc1e9529c9c64ab67616d0000b2736237b6af47e46d65db2a0d04ab67616d0000b273b2f4fcd2f7dd49c4f06de10f",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b27319678bf35d86fd2187659944ab67616d0000b273214a1d619a7bc1e9529c9c64ab67616d0000b2736237b6af47e46d65db2a0d04ab67616d0000b273b2f4fcd2f7dd49c4f06de10f",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b27319678bf35d86fd2187659944ab67616d0000b273214a1d619a7bc1e9529c9c64ab67616d0000b2736237b6af47e46d65db2a0d04ab67616d0000b273b2f4fcd2f7dd49c4f06de10f",
+          "width": 60
+        }
+      ],
+      "name": "Best Electronic",
+      "owner": {
+        "display_name": "dorianm_",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/moriand"
+        },
+        "href": "https://api.spotify.com/v1/users/moriand",
+        "id": "moriand",
+        "type": "user",
+        "uri": "spotify:user:moriand"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "MTA4LGI0MmE5NDczYTBmN2ZkODExY2U1MzUzNjc5ODE5YzBlZmIyMzViNmI=",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/7D0iVMA8qoujLIldORoy6U/tracks",
+        "total": 101
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:7D0iVMA8qoujLIldORoy6U"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/6BbvlcnwgLLtPNwATCcdmF"
+      },
+      "href": "https://api.spotify.com/v1/playlists/6BbvlcnwgLLtPNwATCcdmF",
+      "id": "6BbvlcnwgLLtPNwATCcdmF",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b2737532bf6da3186628a1c6a082ab67616d0000b27398da950cf11528b788c9ac83ab67616d0000b2739a1b1a2813bbc5fde8ba91c5ab67616d0000b2739b07268f0b4f472d50c873df",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b2737532bf6da3186628a1c6a082ab67616d0000b27398da950cf11528b788c9ac83ab67616d0000b2739a1b1a2813bbc5fde8ba91c5ab67616d0000b2739b07268f0b4f472d50c873df",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b2737532bf6da3186628a1c6a082ab67616d0000b27398da950cf11528b788c9ac83ab67616d0000b2739a1b1a2813bbc5fde8ba91c5ab67616d0000b2739b07268f0b4f472d50c873df",
+          "width": 60
+        }
+      ],
+      "name": "Best Grime",
+      "owner": {
+        "display_name": "dorianm_",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/moriand"
+        },
+        "href": "https://api.spotify.com/v1/users/moriand",
+        "id": "moriand",
+        "type": "user",
+        "uri": "spotify:user:moriand"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "OSxhYTU5ZWE1MWJlNTI1OGJmZjlhOWIwMDE2NDY5MWFiMjUyYTUxOTEx",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/6BbvlcnwgLLtPNwATCcdmF/tracks",
+        "total": 6
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:6BbvlcnwgLLtPNwATCcdmF"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/4GS7uFStblvmKzpNlWRsE6"
+      },
+      "href": "https://api.spotify.com/v1/playlists/4GS7uFStblvmKzpNlWRsE6",
+      "id": "4GS7uFStblvmKzpNlWRsE6",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b27338fd3270a82866a1de4c0ee1ab67616d0000b273686560007fa1703b22cb68c1ab67616d0000b273b28e082b9eeb23ffef0487ceab67616d0000b273f08a844a7caafdc2531ca602",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b27338fd3270a82866a1de4c0ee1ab67616d0000b273686560007fa1703b22cb68c1ab67616d0000b273b28e082b9eeb23ffef0487ceab67616d0000b273f08a844a7caafdc2531ca602",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b27338fd3270a82866a1de4c0ee1ab67616d0000b273686560007fa1703b22cb68c1ab67616d0000b273b28e082b9eeb23ffef0487ceab67616d0000b273f08a844a7caafdc2531ca602",
+          "width": 60
+        }
+      ],
+      "name": "Ambient / Downtempo",
+      "owner": {
+        "display_name": "dorianm_",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/moriand"
+        },
+        "href": "https://api.spotify.com/v1/users/moriand",
+        "id": "moriand",
+        "type": "user",
+        "uri": "spotify:user:moriand"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "MTEsNzUzNTM4ODJjODY5YTFhNzcwMjdmYmQ2OTQzODkyMTRkMmUyYmRiYg==",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/4GS7uFStblvmKzpNlWRsE6/tracks",
+        "total": 16
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:4GS7uFStblvmKzpNlWRsE6"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/5z6mU2QQIS3yuVMLIkFjpf"
+      },
+      "href": "https://api.spotify.com/v1/playlists/5z6mU2QQIS3yuVMLIkFjpf",
+      "id": "5z6mU2QQIS3yuVMLIkFjpf",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b27307dd5d124693bcf7e903dc2cab67616d0000b2735bdd0df019deb41d21f094d5ab67616d0000b2735fbc1160deea4445f94e9cc1ab67616d0000b273b8e4585c8d8250a4e4887a1d",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b27307dd5d124693bcf7e903dc2cab67616d0000b2735bdd0df019deb41d21f094d5ab67616d0000b2735fbc1160deea4445f94e9cc1ab67616d0000b273b8e4585c8d8250a4e4887a1d",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b27307dd5d124693bcf7e903dc2cab67616d0000b2735bdd0df019deb41d21f094d5ab67616d0000b2735fbc1160deea4445f94e9cc1ab67616d0000b273b8e4585c8d8250a4e4887a1d",
+          "width": 60
+        }
+      ],
+      "name": "Club Grime",
+      "owner": {
+        "display_name": "dorianm_",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/moriand"
+        },
+        "href": "https://api.spotify.com/v1/users/moriand",
+        "id": "moriand",
+        "type": "user",
+        "uri": "spotify:user:moriand"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "MTcsZDViMTRjMzQ4M2IyZmU2MzI1MmI3ZWFiNGE2MTA0NGI1NzVkYjZiYw==",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/5z6mU2QQIS3yuVMLIkFjpf/tracks",
+        "total": 14
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:5z6mU2QQIS3yuVMLIkFjpf"
+    }
+  ],
+  "limit": 18,
+  "next": null,
+  "offset": 0,
+  "previous": null,
+  "total": 18
+}
