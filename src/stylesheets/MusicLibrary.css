@@ -1,3 +1,11 @@
+.music-library > .list-search > input {
+  width: 10rem;
+}
+
+.music-library > .list-search > input:focus {
+  width: 10rem;
+}
+
 .music-library > .basic-playlist {
   box-sizing: border-box;
   padding: 0 .5rem .5rem;
