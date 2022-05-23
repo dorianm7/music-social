@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import '../../stylesheets/page-contents/CompareLibraryPageContents.css';
@@ -27,7 +27,6 @@ function CompareLibraryPageContents(props) {
     playlistList,
   } = props;
 
-  const [searchText, setSearchText] = useState('');
   const playlistsHeadingType = 'h2';
 
   return (
@@ -53,8 +52,6 @@ function CompareLibraryPageContents(props) {
             />
           )}
           items={artistList}
-          onSearchStringChange={setSearchText}
-          showSearch
         />
         <BasicPlaylist
           type="album"
@@ -67,7 +64,6 @@ function CompareLibraryPageContents(props) {
             />
           )}
           items={albumList}
-          searchVal={searchText}
         />
         <BasicPlaylist
           type="playlist"
@@ -80,7 +76,6 @@ function CompareLibraryPageContents(props) {
             />
           )}
           items={userPlaylists}
-          searchVal={searchText}
         />
       </MusicLibrary>
     </>
