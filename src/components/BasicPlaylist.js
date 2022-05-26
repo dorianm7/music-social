@@ -31,9 +31,9 @@ function BasicPlaylist(props) {
   let toListItems;
   let typeClassName;
   switch (type) {
-    case 'track':
-      toListItems = basicTrackPlaylistToListItems;
-      typeClassName = '';
+    case 'artist':
+      toListItems = basicArtistPlaylistToListItems;
+      typeClassName = ' artist';
       break;
     case 'collaborative':
       toListItems = basicTrackCollaborativePlaylistToListItems;
@@ -48,8 +48,8 @@ function BasicPlaylist(props) {
       typeClassName = ' playlist';
       break;
     default:
-      toListItems = basicArtistPlaylistToListItems;
-      typeClassName = ' artist';
+      toListItems = basicTrackPlaylistToListItems;
+      typeClassName = '';
       break;
   }
 
