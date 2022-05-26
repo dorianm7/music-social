@@ -39,7 +39,8 @@ function CollaborativePlaylistPageContents(props) {
         playlistHeader={playlistHeader}
         isCollaborative
         showSearch
-        items={playlist.items}
+        type="collaborative"
+        playlist={playlist}
       />
     </>
   );
@@ -51,7 +52,7 @@ CollaborativePlaylistPageContents.propTypes = {
   userIds: PropTypes.arrayOf(PropTypes.string),
   playlistHeadingType: PropTypes.string,
   playlistName: PropTypes.string,
-  playlistRunningTime: PropTypes.string,
+  playlistRunningTime: PropTypes.number,
   playlist: PropTypes.shape({
     __comment: PropTypes.string,
     href: PropTypes.string,
@@ -79,7 +80,7 @@ CollaborativePlaylistPageContents.defaultProps = {
   ],
   playlistHeadingType: 'h2',
   playlistName: 'Playlist Name',
-  playlistRunningTime: '-1',
+  playlistRunningTime: -1,
   playlist: localPlaylist,
 };
 

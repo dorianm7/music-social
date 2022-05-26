@@ -29,7 +29,7 @@ function renderHeadingElement(headingType, playlistName) {
 }
 
 function getReadableTime(timeMS) {
-  const hrs = Math.floor(Number(timeMS) / (1000 * 60 * 60));
+  const hrs = Math.floor(timeMS / (1000 * 60 * 60));
   const mins = Math.floor((timeMS - (hrs * 1000 * 60 * 60)) / (1000 * 60));
   return `${hrs}hrs ${mins}m`;
 }
@@ -63,15 +63,15 @@ function PlaylistHeader(props) {
 PlaylistHeader.propTypes = {
   headingType: PropTypes.string,
   playlistName: PropTypes.string,
-  totalSongs: PropTypes.string,
-  totalRunningTime: PropTypes.string,
+  totalSongs: PropTypes.number,
+  totalRunningTime: PropTypes.number,
 };
 
 PlaylistHeader.defaultProps = {
   headingType: 'h2',
   playlistName: 'Playlist',
-  totalSongs: '50',
-  totalRunningTime: '-1',
+  totalSongs: 50,
+  totalRunningTime: -1,
 };
 
 export default PlaylistHeader;
