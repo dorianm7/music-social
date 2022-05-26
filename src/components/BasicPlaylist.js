@@ -13,13 +13,13 @@ import {
   basicAlbumPlaylistToListItems,
   basicPlaylistPlaylistToListItems,
 } from './utility/PlaylistUtilities';
-import playlist from '../local_data/Playlist_0.json';
+import localPlaylist from '../local_data/Playlist_0.json';
 
 function BasicPlaylist(props) {
   const {
     type,
     playlistHeader,
-    items,
+    playlist,
     selectOptions,
     onSelectOptionClick,
     searchVal,
@@ -76,7 +76,7 @@ function BasicPlaylist(props) {
           )}
         </div>
         <ul className={`list${typeClassName}`}>
-          {toListItems(searchString, searchVal, items)}
+          {toListItems(searchString, searchVal, playlist)}
         </ul>
       </div>
     </>
@@ -147,7 +147,7 @@ BasicPlaylist.defaultProps = {
   searchVal: '',
   onSearchStringChange: () => {},
   showSearch: false,
-  items: playlist,
+  playlist: localPlaylist,
 };
 
 export default BasicPlaylist;
