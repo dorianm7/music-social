@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import '../../stylesheets/page-contents/CompareLibraryPageContents.css';
-
 import Comparison from '../../components/Comparison';
 import MusicLibrary from '../../components/MusicLibrary';
 import BasicPlaylist from '../../components/BasicPlaylist';
