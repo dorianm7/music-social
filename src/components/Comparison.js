@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import '../stylesheets/Comparison.css';
-import '../stylesheets/main.css';
+
 import PercentageGauge from './basic/PercentGauge';
 import defaultImg from '../images/help-rhombus-outline.svg';
 
@@ -13,7 +14,7 @@ function Comparison(props) {
     secondUserImg,
     artistPercent,
     albumPercent,
-    songPercent,
+    playlistPercent,
   } = props;
   const CIRCLE_SIZE = '80px';
 
@@ -57,11 +58,11 @@ function Comparison(props) {
           />
         </div>
         <div className="summary-item center-column">
-          <span className="summary-title">Songs</span>
+          <span className="summary-title">Playlists</span>
           <PercentageGauge
             size={CIRCLE_SIZE}
-            percentFilled={songPercent}
-            text={`${songPercent}%`}
+            percentFilled={playlistPercent}
+            text={`${playlistPercent}%`}
           />
         </div>
       </div>
@@ -76,7 +77,7 @@ Comparison.propTypes = {
   secondUserImg: PropTypes.string,
   artistPercent: PropTypes.string,
   albumPercent: PropTypes.string,
-  songPercent: PropTypes.string,
+  playlistPercent: PropTypes.string,
 };
 
 Comparison.defaultProps = {
@@ -86,7 +87,7 @@ Comparison.defaultProps = {
   secondUserImg: defaultImg,
   artistPercent: '50',
   albumPercent: '50',
-  songPercent: '50',
+  playlistPercent: '50',
 };
 
 export default Comparison;
