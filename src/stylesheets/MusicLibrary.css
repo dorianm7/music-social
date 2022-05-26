@@ -1,3 +1,13 @@
+.music-library {
+  box-sizing: border-box;
+  margin-top: 1.5rem;
+  padding: .5rem;
+  border-radius: .2rem;
+  /* Color-Light-2 */
+  background-color: rgba(255,255,255,.4);
+  box-shadow: 0 2px 19px 3px rgba(0, 0, 0, .1);
+}
+
 .music-library > .list-search > input {
   width: 10rem;
 }
