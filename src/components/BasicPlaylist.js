@@ -91,7 +91,7 @@ BasicPlaylist.propTypes = {
   searchVal: PropTypes.string,
   onSearchStringChange: PropTypes.func,
   showSearch: PropTypes.bool,
-  items: PropTypes.oneOfType(
+  playlist: PropTypes.oneOfType([
     // Track Playlist
     PropTypes.shape({
       __comment: PropTypes.string,
@@ -136,7 +136,7 @@ BasicPlaylist.propTypes = {
       previous: PropTypes.string,
       total: PropTypes.number,
     }),
-  ),
+  ]),
 };
 
 BasicPlaylist.defaultProps = {
