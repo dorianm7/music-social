@@ -49,7 +49,7 @@ function CompareLibraryPageContents(props) {
               totalSongs={artistList.artists.total}
             />
           )}
-          items={artistList}
+          playlist={artistList}
         />
         <BasicPlaylist
           type="album"
@@ -61,7 +61,7 @@ function CompareLibraryPageContents(props) {
               totalRunningTime="-1" // Default Value
             />
           )}
-          items={albumList}
+          playlist={albumList}
         />
         <BasicPlaylist
           type="playlist"
@@ -73,7 +73,7 @@ function CompareLibraryPageContents(props) {
               totalRunningTime="-1" // Default Value
             />
           )}
-          items={userPlaylists}
+          playlist={userPlaylists}
         />
       </MusicLibrary>
     </>
