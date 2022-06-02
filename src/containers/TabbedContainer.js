@@ -18,7 +18,7 @@ class TabbedContainer extends React.Component {
   }
 
   tabsClickHandler(e) {
-    this.setState({ tabSelected: this.getTabIndex(e) });
+    this.setState({ tabSelected: this.getTabIndex(e.target.innerText) });
   }
 
   renderTab() {
@@ -32,13 +32,24 @@ class TabbedContainer extends React.Component {
     const { tabSelected } = this.state;
     const { tabTitles } = this.props;
 
+    const buttons = tabTitles.map(
+      (title) => (
+        <button
+          type="button"
+          onClick={this.tabsClickHandler}
+        >
+          {title}
+        </button>
+      ),
+    );
+
     return (
       <div className="tabbed-container">
         <Tabs
-          tabTitles={tabTitles}
           tabSelected={tabSelected}
-          clickHandler={this.tabsClickHandler}
-        />
+        >
+          {buttons}
+        </Tabs>
         <div className="tab-content">
           {this.renderTab()}
         </div>
