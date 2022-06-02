@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+import { nanoid } from 'nanoid';
+
 import '../../stylesheets/subcomponents/Tabs.css';
 
 // children are preferably buttons or strings
@@ -18,7 +21,10 @@ class Tabs extends React.Component {
     for (let i = 0; i < children.length; i += 1) {
       const selectedClass = i === tabSelected ? ' selected' : '';
       tabs.push(
-        <li className={`tab${selectedClass}`}>
+        <li
+          key={nanoid()}
+          className={`tab${selectedClass}`}
+        >
           {children[i]}
         </li>,
       );
