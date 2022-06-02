@@ -1,9 +1,29 @@
+.tabs {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+
 .tabs .tab {
   border-radius: .4em .4em 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 11em;
   height: 2.5em;
+  /* Color-Dark-1 */
+  background-color: rgba(0, 0, 0, .2);
+  font-size: .85rem;
 }
 
 .tabs .tab.selected {
-  background-color: hsl(0, 0%, 60%);
+  /* Color-Dark-2 */
+  background-color: rgba(0, 0, 0, .5);
+  color: white;
+}
+
+.tab > *:first-child {
+  border-radius: inherit;
+  width: inherit;
+  height: inherit;
 }
