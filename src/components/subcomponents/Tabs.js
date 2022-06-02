@@ -2,24 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../../stylesheets/subcomponents/Tabs.css';
 
+// children are preferably buttons or strings
 class Tabs extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick(e) {
-    const { clickHandler } = this.props;
-    clickHandler(e.target.innerText);
-  }
-
   renderTabs() {
-    const { tabTitles, tabSelected } = this.props;
+    const { children, tabSelected } = this.props;
+    if (!children.length) {
+      return (
+        <li className="tab selected">
+          {children}
+        </li>
+      );
+    }
+
     const tabs = [];
-    for (let i = 0; i < tabTitles.length; i += 1) {
+    for (let i = 0; i < children.length; i += 1) {
       const selectedClass = i === tabSelected ? ' selected' : '';
       tabs.push(
-        <button type="button" className={`tab${selectedClass}`} onClick={this.handleClick}>{tabTitles[i]}</button>,
+        <li className={`tab${selectedClass}`}>
+          {children[i]}
+        </li>,
       );
     }
 
@@ -28,23 +29,27 @@ class Tabs extends React.Component {
 
   render() {
     return (
-      <div className="tabs">
+      <ul className="tabs">
         {this.renderTabs()}
-      </div>
+      </ul>
     );
   }
 }
 
 Tabs.propTypes = {
-  tabTitles: PropTypes.arrayOf(PropTypes.string),
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]),
   tabSelected: PropTypes.number,
-  clickHandler: PropTypes.func,
 };
 
 Tabs.defaultProps = {
-  tabTitles: ['Tab 0', 'Tab 1'],
+  children: [
+    'Tab 1',
+    'Tab 2',
+  ],
   tabSelected: 0,
-  clickHandler: (e) => { console.log(e); },
 };
 
 export default Tabs;
