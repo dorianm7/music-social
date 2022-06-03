@@ -28,8 +28,8 @@ function UserProfileHeader(props) {
           className="user-picture"
           src={imageSrc}
           alt={name}
-          width="60px"
-          height="60px"
+          width="80px"
+          height="80px"
         />
         <div className="name-follow-option">
           <span className="user-name">{name}</span>
@@ -44,7 +44,7 @@ function UserProfileHeader(props) {
           />
           <ExpandableIconButton
             initialIcon={VERTICAL_DOTS_NAME}
-            iconWidth="10px"
+            iconWidth="15px"
             iconHeight="20px"
             expand="right"
             direction="up"
