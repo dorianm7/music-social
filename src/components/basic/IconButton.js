@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import '../../stylesheets/IconButton.css';
 import '../../stylesheets/main.css';
 import { renderIcon, DEFAULT_NAME } from '../../Icons';
+import BasicButton from './BasicButton';
 
 function validateRoundedProp(rounded) {
   if (rounded !== 'all'
@@ -24,15 +25,20 @@ function IconButton(props) {
     onClick,
     rounded,
     transparentBackground,
+    hasOutline,
   } = props;
 
   const validRounded = validateRoundedProp(rounded);
   const transparentBackgroundClass = transparentBackground ? ' transparent-background' : '';
 
   return (
-    <button type="button" onClick={onClick} onKeyUp={onClick} className={`icon-button rounded-${validRounded}${transparentBackgroundClass} ${className}`}>
+    <BasicButton
+      onClick={onClick}
+      className={`icon-button rounded-${validRounded}${transparentBackgroundClass} ${className}`}
+      hasOutline={hasOutline}
+    >
       {renderIcon(icon, iconWidth, iconHeight)}
-    </button>
+    </BasicButton>
   );
 }
 
@@ -43,6 +49,7 @@ IconButton.propTypes = {
   iconHeight: PropTypes.string,
   rounded: PropTypes.string,
   transparentBackground: PropTypes.bool,
+  hasOutline: PropTypes.bool,
   onClick: PropTypes.func,
 };
 
@@ -53,6 +60,7 @@ IconButton.defaultProps = {
   iconHeight: '20px',
   rounded: 'none',
   transparentBackground: false,
+  hasOutline: false,
   onClick: () => { window.alert('Button clicked'); },
 };
 
