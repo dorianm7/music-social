@@ -3,9 +3,7 @@
   width: 80%;
 }
 
-.modal-content .move-to-log-in {
-  display: block;
-  font-size: .8em;
-  text-align: center;
-  color: black;
+.modal-content > *:last-child.anchor-like {
+  width: fit-content;
+  margin: 0 auto;
 }
