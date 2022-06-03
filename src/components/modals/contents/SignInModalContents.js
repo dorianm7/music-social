@@ -9,7 +9,10 @@ import {
 import '../../../stylesheets/modal-contents/SignInModalContents.css';
 
 function SignInModalContents(props) {
-  const { formOnSubmit } = props;
+  const {
+    formOnSubmit,
+    signUpOnClick,
+  } = props;
 
   return (
     <>
@@ -28,7 +31,13 @@ function SignInModalContents(props) {
       </BasicButton>
       <span className="move-to-sign-up">
         Dont have an account?&nbsp;
-        <a href="#placeholder">Sign Up</a>
+        <button
+          type="button"
+          className="anchor-like"
+          onClick={signUpOnClick}
+        >
+          Sign Up
+        </button>
       </span>
     </>
   );
@@ -36,10 +45,12 @@ function SignInModalContents(props) {
 
 SignInModalContents.propTypes = {
   formOnSubmit: PropTypes.func,
+  signUpOnClick: PropTypes.func,
 };
 
 SignInModalContents.defaultProps = {
   formOnSubmit: () => { console.log('Submit success'); },
+  signUpOnClick: () => { console.log('Sign Up button clicked'); },
 };
 
 export default SignInModalContents;
