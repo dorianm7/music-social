@@ -58,6 +58,9 @@ function BasicPlaylist(props) {
     onSearchStringChange(string);
   };
 
+  const listItems = toListItems(searchString, searchVal, playlist);
+  const listItemsToRender = listItems.length === 0 ? <p>No results found</p> : listItems;
+
   return (
     <>
       <div className="basic-playlist">
@@ -76,7 +79,7 @@ function BasicPlaylist(props) {
           )}
         </div>
         <ul className={`list${typeClassName}`}>
-          {toListItems(searchString, searchVal, playlist)}
+          {listItemsToRender}
         </ul>
       </div>
     </>

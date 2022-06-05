@@ -25,6 +25,10 @@
   overflow-y: auto;
 }
 
+.list > p {
+  text-align: center;
+}
+
 .list > li {
   /* To view Music Items */
   /* Color-Light-3 */
