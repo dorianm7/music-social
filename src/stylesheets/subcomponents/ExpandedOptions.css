@@ -32,7 +32,6 @@
 
 .expanded-options {
   display: inline-block;
-  background-color: hsl(0, 0%, 70%);
   list-style: none;
   margin: 0;
   padding: 0;
@@ -42,24 +41,12 @@
 .expanded-options li *:first-child{
   display: inline;
   width: 100%;
+  padding: .2em;
 }
 
 .options-title {
   padding-bottom: .2em;
   background-color: hsl(0, 0%, 60%);
-}
-
-.expanded-options li:first-child {
-  padding-top: .2em;
-}
-
-.expanded-options li{
-  padding-left: .2em;
-  padding-right: .2em;
-}
-
-.expanded-options li:last-child {
-  padding-bottom: .2em;
 }
 
 .hide {
