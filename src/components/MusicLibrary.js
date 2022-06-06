@@ -6,6 +6,7 @@ import '../stylesheets/MusicLibrary.css';
 import BasicPlaylist from './BasicPlaylist';
 import ListSearch from './ListSearch';
 
+// Music Library should hold more than one Basic Playlist
 function MusicLibrary(props) {
   const {
     children,
@@ -41,7 +42,12 @@ MusicLibrary.propTypes = {
 };
 
 MusicLibrary.defaultProps = {
-  children: <BasicPlaylist />,
+  children: (
+    <>
+      <BasicPlaylist />
+      <BasicPlaylist />
+    </>
+  ),
 };
 
 export default MusicLibrary;
