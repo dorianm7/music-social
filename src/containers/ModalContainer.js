@@ -1,7 +1,8 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React, { useEffect, useState } from 'react';
 
 function ModalContainer(WrappedComponent) {
-  const Wrapped = () => {
+  const Wrapped = (props) => {
     const [modalOpen, setModalOpen] = useState(false);
     const MODAL_CONTAINER_CLASS_NAME = 'modal-container';
     const MODAL_CONTAINER_NO_CLICK_CLASS_NAME = 'no-clicks';
@@ -33,6 +34,7 @@ function ModalContainer(WrappedComponent) {
         modalContainerClassName={modalContainerClassName}
         modalOpen={modalOpen}
         toggleHandler={handleClick}
+        {...props}
       />
     );
   };
