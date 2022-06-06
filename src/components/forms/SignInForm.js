@@ -5,7 +5,6 @@ import {
   CLOSED_EYE_NAME,
   OPEN_EYE_NAME,
 } from '../../Icons';
-import '../../stylesheets/main.css';
 import '../../stylesheets/forms/SignInForm.css';
 
 function SignInForm(props) {
