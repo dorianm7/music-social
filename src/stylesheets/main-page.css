@@ -1,0 +1,94 @@
+.app-intro .hero-image {
+  width: 100%;
+  height: 300px;
+}
+
+.app-intro > h1 {
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.app-intro br,
+.app-conclusion br {
+  display: block;
+  margin-top: .5rem;
+}
+
+.app-intro p {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.app-intro > .basic-button,
+.app-conclusion > .basic-button {
+  display: block;
+  margin: 1rem auto 2rem auto;
+  /* Color-Light-1 */
+  background-color: rgba(255, 255, 255, .8);
+}
+
+section:not(:first-of-type) {
+  margin-top: 2rem;
+}
+
+section > :last-child {
+  padding-bottom: .5rem;
+}
+
+section .tabs {
+  position: sticky;
+  top: 2.5rem;
+  z-index: 7;
+  /* Main-Color */
+  background-color: rgba(58, 129, 211, 1);
+}
+
+section .tabs a {
+  text-decoration: none;
+}
+
+.feature {
+  /* Color-Light-1 */
+  background-color: rgba(255, 255, 255, .8);
+}
+
+.feature > *:not(:first-child) {
+  overflow: hidden;
+  padding-top: .5rem;
+  padding-right: .5rem;
+  padding-left: .5rem;
+}
+
+.feature h2 {
+  margin-top: 0;
+  margin-bottom: .5rem;
+}
+
+.compare-feature .basic-playlist {
+  box-shadow: none;
+}
+
+.compare-feature .basic-playlist .list {
+  max-height: 200px;
+}
+
+.collaborative-feature > .user-images {
+  margin-bottom: .5rem;
+}
+
+.collaborative-feature .basic-playlist .list,
+.follow-feature .basic-playlist .list {
+  max-height: 300px;
+}
+
+.app-conclusion > h2 {
+  margin-top: 0;
+  margin-bottom: .5rem;
+}
+
+#compare-libraries-section,
+#collab-playlists-section,
+#follow-users-section {
+  scroll-margin-top: 2.5rem;
+}
