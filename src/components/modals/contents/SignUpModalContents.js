@@ -13,7 +13,6 @@ function SignUpModalContents(props) {
     <>
       <SignUpForm
         onSubmit={formOnSubmit}
-        submitSuccess // TODO remove when SignUpForm backend connected
       />
       <hr />
       <button
