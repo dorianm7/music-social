@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../../stylesheets/main.css';
 import '../../stylesheets/BasicButton.css';
 
 function BasicButton(props) {

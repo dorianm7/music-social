@@ -17,9 +17,9 @@
 }
 
 .tabs .tab.selected {
-  /* Color-Dark-2 */
-  background-color: rgba(0, 0, 0, .5);
-  color: white;
+  /* Color-Light-1 */
+  background-color: #B0CDED;
+  text-decoration: underline;
 }
 
 .tab > *:first-child {

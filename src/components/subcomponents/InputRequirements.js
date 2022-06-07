@@ -56,7 +56,7 @@ InputRequirements.defaultProps = {
   openDropDown: false,
   hasOpened: false,
   requirementTexts: ['Requirement 1', 'Requirement 2'],
-  requirementValities: [false, true],
+  requirementValidities: [false, true],
   showRequirements: false,
   onTitleBarClick: () => { window.alert('Input Requirements Title Bar Clicked'); },
 };
