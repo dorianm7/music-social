@@ -10,7 +10,6 @@ import '../../stylesheets/forms/SignInForm.css';
 function SignInForm(props) {
   const {
     onSubmit,
-    submitSuccess,
   } = props;
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(false);
@@ -23,27 +22,11 @@ function SignInForm(props) {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    const mockSignIn = (
-      userEmail = '',
-      userPassword = '',
-      successCallback = () => {},
-      errorCallback = () => {},
-    ) => {
-      if (submitSuccess) {
-        console.log(`${userEmail} ${userPassword}`); // Just to use arguments
-        successCallback();
-      } else {
-        const submittingError = new Error('Email or password not valid');
-        errorCallback(submittingError);
-        setError(submittingError);
-      }
-    };
-    mockSignIn(
-      email,
-      password,
-      () => { onSubmit(); },
-      () => {},
-    );
+
+    onSubmit(email, password)
+      .catch((err) => {
+        setError(err);
+      });
   };
 
   const passwordInputType = showPassword ? 'text' : 'password';
@@ -100,12 +83,10 @@ function SignInForm(props) {
 
 SignInForm.propTypes = {
   onSubmit: PropTypes.func,
-  submitSuccess: PropTypes.bool,
 };
 
 SignInForm.defaultProps = {
   onSubmit: () => { window.alert('Successfully submitted'); },
-  submitSuccess: false,
 };
 
 export default SignInForm;

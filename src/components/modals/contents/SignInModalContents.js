@@ -18,7 +18,6 @@ function SignInModalContents(props) {
     <>
       <SignInForm
         onSubmit={formOnSubmit}
-        submitSuccess
       />
       <hr />
       <BasicButton

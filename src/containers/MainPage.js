@@ -51,21 +51,23 @@ function Main(props) {
   );
 
   // TODO Move to App after sign in
-  const successSignIn = () => {
-    console.log('Successful sign in');
-    toggleHandler();
-  };
-
-  const signInHandler = async () => {
-    console.log('in signInHandler');
+  const signInHandler = async (email, password) => {
+    let error = null;
     await emailPasswordSignIn(
-      // TODO Get data from modal
-      process.env.REACT_APP_TEST_USER_EMAIL,
-      process.env.REACT_APP_TEST_USER_PASSWORD,
-      successSignIn, // Success
-      // TODO Show error on SignIn Modal
-      () => { console.log('Failed sign in'); }, // Error
+      email,
+      password,
+      (user) => { //  Success
+        // Move to App
+        console.log(user);
+      },
+      (err) => { // Error
+        error = err;
+      },
     );
+
+    if (error) {
+      throw new Error(error);
+    }
   };
 
   signInModalContents = (
