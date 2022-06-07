@@ -16,7 +16,11 @@ import SignUpModalContents from '../components/modals/contents/SignUpModalConten
 import Tabs from '../components/subcomponents/Tabs';
 import UserProfileHeader from '../components/UserProfileHeader';
 
-import { emailPasswordSignIn } from '../firebase/auth-firebase';
+import {
+  createUser,
+  emailPasswordSignIn,
+} from '../firebase/auth-firebase';
+
 import albumList from '../local_data/Users_Albums_0.json';
 import artistList from '../local_data/Users_Artists_0.json';
 import playlistList from '../local_data/Users_Playlists.json';
@@ -44,8 +48,29 @@ function Main(props) {
     setModalContents(signUpModalContents);
   };
 
+  // TODO Show account created
+  const signUpHandler = async (email, password) => {
+    let error = null;
+    await createUser(
+      email,
+      password,
+      (user) => { // Success
+        // Show account created
+        console.log(user);
+      },
+      (err) => { // Error
+        error = err;
+      },
+    );
+
+    if (error) {
+      throw new Error(error);
+    }
+  };
+
   signUpModalContents = (
     <SignUpModalContents
+      formOnSubmit={signUpHandler}
       signInOnClick={() => moveToSignIn()}
     />
   );

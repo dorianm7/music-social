@@ -10,12 +10,9 @@ import {
   HAS_SPECIAL_CHAR_REGEXP,
 } from '../../RegExps';
 
-// import createUser when connecting to backend
-
 function SignUpForm(props) {
   const {
     onSubmit,
-    submitSuccess, // Used to run success/error callbacks. Remove after backend connected
   } = props;
   const [emailValidities, setEmailValidities] = useState([false]);
   const [passwordValidities, setPasswordValidities] = useState([false, false, false]);
@@ -56,35 +53,14 @@ function SignUpForm(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Used to mimic backend createUser()
-    const mockCreateUser = (
-      userEmail,
-      userPassword,
-      successCallback,
-      errorCallback,
-    ) => {
-      if (submitSuccess) {
-        const mockUser = {
-          email: userEmail,
-          password: userPassword,
-        };
-        successCallback(mockUser);
-      } else {
-        const submittingError = new Error('An error occured. Please try again');
-        errorCallback(submittingError);
-        setError(submittingError);
-      }
-    };
 
-    // Replace with createUser call
-    mockCreateUser(
-      e.target.email.value,
-      e.target.password.value,
-      (user) => {
-        onSubmit(user); // Move to next step
-      },
-      () => {},
-    );
+    const userEmail = e.target.email.value;
+    const userPassword = e.target.password.value;
+
+    onSubmit(userEmail, userPassword)
+      .catch((err) => {
+        setError(err);
+      });
   };
 
   const handlePasswordToggleIcon = () => {
@@ -186,12 +162,10 @@ function SignUpForm(props) {
 
 SignUpForm.propTypes = {
   onSubmit: PropTypes.func,
-  submitSuccess: PropTypes.bool,
 };
 
 SignUpForm.defaultProps = {
   onSubmit: () => { window.alert('Successfully submitted'); },
-  submitSuccess: true,
 };
 
 export default SignUpForm;
