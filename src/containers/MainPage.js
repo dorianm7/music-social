@@ -7,6 +7,7 @@ import BasicButton from '../components/basic/BasicButton';
 import BasicPlaylist from '../components/BasicPlaylist';
 import CollaborativePlaylistPageContent from './page-contents/CollaborativePlaylistPageContents';
 import Comparison from '../components/Comparison';
+import Footer from '../components/Footer';
 import MainNav from '../components/MainNav';
 import Modal from '../components/modals/Modal';
 import MusicLibrary from '../components/MusicLibrary';
@@ -314,11 +315,20 @@ function Main(props) {
               Try it today
             </BasicButton>
           </section>
+          <section id="contact" className="contact">
+            <h2>Contact</h2>
+            <div className="contact-content">
+              <div className="creator-info">
+                <pre className="name">
+                  {'Dorian A\nMaldonado'}
+                </pre>
+                <span className="location">SD, CA</span>
+              </div>
+              <hr />
+            </div>
+          </section>
         </main>
-        <footer id="contact">
-          Contact info
-          Links etc
-        </footer>
+        <Footer />
       </div>
       {modalOpen && (
         <Modal
