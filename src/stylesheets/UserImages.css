@@ -1,17 +1,10 @@
-ul {
-  margin: 0;
-  padding: 0;
-}
-
-li {
-  list-style: none;
-}
-
 .user-images {
   display: flex;
   flex-direction: row;
   overflow: auto;
   text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
 .user-images.space-around {
@@ -26,6 +19,10 @@ li {
   margin-right: .5em;
 }
 
-.user-images span {
+.user-images > li {
+  list-style: none;
+}
+
+.user-images > li > span {
   display: block;
 }
