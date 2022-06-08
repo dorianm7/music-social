@@ -1,0 +1,58 @@
+footer {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+  background-color: #0F2035;
+  color: white;
+}
+
+footer .left .app-name {
+  display: block;
+  font-size: 1.5rem;
+}
+
+footer > hr {
+  display: inline;
+  width: 3px;
+  height: inherit;
+  margin: 0 1rem;
+  background-color: white;
+}
+
+footer ul {
+  padding: 0;
+  margin: 0;
+}
+
+footer > .right {
+  display: flex;
+  flex-direction: row;
+}
+
+footer > .right li {
+  list-style: none;
+}
+
+footer > .right > li:not(:first-of-type) {
+  margin-left: 2rem;
+}
+
+footer > .right > li > span {
+  text-decoration: underline;
+}
+
+footer > .right ul {
+  margin-top: .5rem;
+}
+
+footer > .right ul a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-decoration: none;
+  color: grey;
+}
+
+footer > .right ul a > .icon {
+  margin-right: .5rem;
+}
