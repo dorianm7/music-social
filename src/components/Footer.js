@@ -26,7 +26,7 @@ function Footer() {
                 rel="noreferrer"
               >
                 {Icons.GITHUB}
-                Project Github
+                Github
               </a>
             </li>
           </ul>
@@ -41,7 +41,7 @@ function Footer() {
                 rel="noreferrer"
               >
                 {Icons.GITHUB}
-                Personal Github
+                Github
               </a>
             </li>
             <li key={nanoid()}>
@@ -51,7 +51,7 @@ function Footer() {
                 rel="noreferrer"
               >
                 {Icons.WEB}
-                Personal Website
+                Website
               </a>
             </li>
             <li key={nanoid()}>
