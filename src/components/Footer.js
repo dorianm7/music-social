@@ -54,6 +54,16 @@ function Footer() {
                 Personal Website
               </a>
             </li>
+            <li key={nanoid()}>
+              <a
+                href="#d"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {Icons.LINKEDIN}
+                LinkedIn
+              </a>
+            </li>
           </ul>
         </li>
       </ul>
