@@ -25,6 +25,7 @@ import {
 import albumList from '../local_data/Users_Albums_0.json';
 import artistList from '../local_data/Users_Artists_0.json';
 import playlistList from '../local_data/Users_Playlists.json';
+import { Icons } from '../Icons';
 
 function Main(props) {
   const {
@@ -317,15 +318,21 @@ function Main(props) {
           </section>
           <section id="contact" className="contact">
             <h2>Contact</h2>
-            <div className="contact-content">
-              <div className="creator-info">
-                <pre className="name">
-                  {'Dorian A\nMaldonado'}
-                </pre>
-                <span className="location">SD, CA</span>
-              </div>
-              <hr />
-            </div>
+            <address className="contact-content">
+              {Icons.EMAIL}
+              <span className="contact-info">
+                Have any questions?
+                <br />
+                Contact the author on&nbsp;
+                <a
+                  href="https://www.linkedin.com/in/dorian-maldonado/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  LinkedIn
+                </a>
+              </span>
+            </address>
           </section>
         </main>
         <Footer />
