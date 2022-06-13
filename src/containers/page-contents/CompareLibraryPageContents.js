@@ -45,7 +45,7 @@ function CompareLibraryPageContents(props) {
             <PlaylistHeader
               headingType={playlistsHeadingType}
               playlistName="Artists"
-              totalSongs={artistList.artists.total}
+              totalItems={artistList.artists.total}
               totalRunningTime={-1} // Default value
             />
           )}
@@ -57,7 +57,7 @@ function CompareLibraryPageContents(props) {
             <PlaylistHeader
               headingType={playlistsHeadingType}
               playlistName="Albums"
-              totalSongs={albumList.total}
+              totalItems={albumList.total}
               totalRunningTime={-1} // Default Value
             />
           )}
@@ -69,7 +69,7 @@ function CompareLibraryPageContents(props) {
             <PlaylistHeader
               headingType={playlistsHeadingType}
               playlistName="Playlists"
-              totalSongs={playlistList.total}
+              totalItems={playlistList.total}
               totalRunningTime={-1} // Default Value
             />
           )}

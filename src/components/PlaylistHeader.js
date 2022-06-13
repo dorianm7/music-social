@@ -39,7 +39,7 @@ function PlaylistHeader(props) {
   const {
     headingType,
     playlistName,
-    totalSongs,
+    totalItems,
     totalRunningTime,
   } = props;
 
@@ -47,8 +47,8 @@ function PlaylistHeader(props) {
     <div className="playlist-header">
       {renderHeadingElement(headingType, playlistName)}
       <span>
-        {totalSongs}
-        &nbsp;songs
+        Total:&nbsp;
+        {totalItems}
         {(totalRunningTime > 0) && (
           <>
             ;&nbsp;
@@ -63,14 +63,14 @@ function PlaylistHeader(props) {
 PlaylistHeader.propTypes = {
   headingType: PropTypes.string,
   playlistName: PropTypes.string,
-  totalSongs: PropTypes.number,
+  totalItems: PropTypes.number,
   totalRunningTime: PropTypes.number,
 };
 
 PlaylistHeader.defaultProps = {
   headingType: 'h2',
   playlistName: 'Playlist',
-  totalSongs: 50,
+  totalItems: 50,
   totalRunningTime: -1,
 };
 
