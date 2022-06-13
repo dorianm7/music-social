@@ -9,9 +9,5 @@
 }
 
 .list-search > input {
-  width: 7em;
-}
-
-.list-search > input:focus {
   width: 10em;
 }
