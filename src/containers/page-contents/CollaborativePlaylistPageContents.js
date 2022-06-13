@@ -23,7 +23,7 @@ function CollaborativePlaylistPageContents(props) {
     <PlaylistHeader
       headingType={playlistHeadingType}
       playlistName={playlistName}
-      totalSongs={playlist.total}
+      totalItems={playlist.total}
       totalRunningTime={playlistRunningTime}
     />
   );
