@@ -23,6 +23,7 @@
   flex-direction: column;
   justify-content: center;
   margin-right: auto;
+  overflow: hidden;
 }
 
 .info .title {
