@@ -65,13 +65,15 @@ function BasicPlaylist(props) {
     <>
       <div className="basic-playlist">
         <div className="heading">
-          {(typeof playlistHeader === 'string')
-            ? <h2>{playlistHeader}</h2>
-            : playlistHeader}
-          <Select
-            options={selectOptions}
-            optionOnClick={(string) => onSelectOptionClick(string)}
-          />
+          <div className="heading-main">
+            {(typeof playlistHeader === 'string')
+              ? <h2>{playlistHeader}</h2>
+              : playlistHeader}
+            <Select
+              options={selectOptions}
+              optionOnClick={(string) => onSelectOptionClick(string)}
+            />
+          </div>
           {showSearch && (
             <ListSearch
               onInputChange={onInputChange}

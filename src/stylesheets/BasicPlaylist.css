@@ -9,16 +9,22 @@
   margin-bottom: auto;
 }
 
-.heading .select {
+.heading > .heading-main {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.heading-main > .select {
   margin-left: .5em;
 }
 
-.heading .select .selected-option-button {
+.heading-main > .select .selected-option-button {
   /* Color-Light-05 */
   background-color: #75a7e0;
 }
 
-.heading .list-search {
+.heading > .list-search {
   margin-left: auto;
 }
 
