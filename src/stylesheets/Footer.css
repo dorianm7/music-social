@@ -6,9 +6,13 @@ footer {
   color: white;
 }
 
-footer .left .app-name {
+footer > .text-section > .app-name {
   display: block;
   font-size: 1.5rem;
+}
+
+footer > .text-section > br {
+  display: none;
 }
 
 footer > hr {
@@ -24,28 +28,28 @@ footer ul {
   margin: 0;
 }
 
-footer > .right {
+footer > .links-section {
   display: flex;
   flex-direction: row;
 }
 
-footer > .right li {
+footer > .links-section li {
   list-style: none;
 }
 
-footer > .right > li:not(:first-of-type) {
+footer > .links-section > li:not(:first-of-type) {
   margin-left: 2rem;
 }
 
-footer > .right > li > span {
+footer > .links-section > li > span {
   text-decoration: underline;
 }
 
-footer > .right ul {
+footer > .links-section ul {
   margin-top: .5rem;
 }
 
-footer > .right ul a {
+footer > .links-section ul a {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -53,6 +57,6 @@ footer > .right ul a {
   color: grey;
 }
 
-footer > .right ul a > .icon {
+footer > .links-section ul a > .icon {
   margin-right: .5rem;
 }
