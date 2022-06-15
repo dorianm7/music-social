@@ -15,6 +15,15 @@
   align-items: center;
 }
 
+.heading-main > h1,
+.heading-main > h2,
+.heading-main > h3,
+.heading-main > h4,
+.heading-main > h5,
+.heading-main > h6 {
+  margin: 0;
+}
+
 .heading-main > .select {
   margin-left: .5em;
 }
