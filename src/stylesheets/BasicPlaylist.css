@@ -4,6 +4,13 @@
   align-items: center;
 }
 
+@media screen and (max-width: 430px) {
+  .heading {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+}
+
 .heading > * {
   margin-top: auto;
   margin-bottom: auto;
@@ -13,6 +20,12 @@
   display: inline-flex;
   flex-direction: row;
   align-items: center;
+}
+
+@media screen and (max-width: 430px) {
+  .heading > .heading-main {
+    width: 100%
+  }
 }
 
 .heading-main > h1,
@@ -28,6 +41,12 @@
   margin-left: .5em;
 }
 
+@media screen and (max-width: 430px) {
+  .heading-main > .select {
+    margin-left: auto;
+  }
+}
+
 .heading-main > .select .selected-option-button {
   /* Color-Light-05 */
   background-color: #75a7e0;
@@ -35,6 +54,13 @@
 
 .heading > .list-search {
   margin-left: auto;
+}
+
+@media screen and (max-width: 430px) {
+  .heading > .list-search {
+    margin-left: 0;
+    margin-bottom: .5rem;
+  }
 }
 
 .list {
