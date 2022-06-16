@@ -11,11 +11,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 11em;
-  height: 2.5em;
+  width: 9.0rem;
+  height: 2rem;
   /* Color-Dark-1 */
   background-color: rgba(0, 0, 0, .2);
   font-size: .85rem;
+}
+
+@media screen and (max-width: 530px) {
+  .tabs .tab {
+    width: 8rem;
+  }
 }
 
 .tabs .tab.selected {
