@@ -44,6 +44,12 @@ section .tabs {
   background-color: rgba(58, 129, 211, 1);
 }
 
+@media screen and not (hover){
+  section .tabs {
+    display: none;
+  }
+}
+
 section .tabs a {
   text-decoration: none;
 }
