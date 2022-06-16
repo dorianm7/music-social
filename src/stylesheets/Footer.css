@@ -15,6 +15,12 @@ footer > .text-section > br {
   display: none;
 }
 
+@media screen and (max-width: 530px) {
+  footer > .text-section > br {
+    display: block;
+  }
+}
+
 footer > hr {
   display: inline;
   width: 3px;
@@ -26,11 +32,18 @@ footer > hr {
 footer ul {
   padding: 0;
   margin: 0;
+  white-space: nowrap;
 }
 
 footer > .links-section {
   display: flex;
   flex-direction: row;
+}
+
+@media screen and (max-width: 430px) {
+  footer > .links-section {
+    flex-direction: column;
+  }
 }
 
 footer > .links-section li {
@@ -39,6 +52,13 @@ footer > .links-section li {
 
 footer > .links-section > li:not(:first-of-type) {
   margin-left: 2rem;
+}
+
+@media screen and (max-width: 430px) {
+  footer > .links-section > li:not(:first-of-type) {
+    margin-left: 0;
+    margin-top: .5rem;
+  }
 }
 
 footer > .links-section > li > span {
