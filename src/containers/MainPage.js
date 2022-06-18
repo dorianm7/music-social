@@ -14,6 +14,7 @@ import MusicLibrary from '../components/MusicLibrary';
 import PlaylistHeader from '../components/PlaylistHeader';
 import SignInModalContents from '../components/modals/contents/SignInModalContents';
 import SignUpModalContents from '../components/modals/contents/SignUpModalContents';
+import ConfirmEmailModalContents from '../components/modals/contents/ConfirmEmailModalContents';
 import Tabs from '../components/subcomponents/Tabs';
 import UserProfileHeader from '../components/UserProfileHeader';
 
@@ -39,6 +40,7 @@ function Main(props) {
 
   let signInModalContents;
   let signUpModalContents;
+  let confirmEmailModalContents;
 
   const moveToSignIn = () => {
     setModalHeader('Sign In');
@@ -50,15 +52,20 @@ function Main(props) {
     setModalContents(signUpModalContents);
   };
 
+  const moveToConfirmEmail = () => {
+    setModalHeader('Confirm Email');
+    setModalContents(confirmEmailModalContents);
+  };
+
   // TODO Show account created
   const signUpHandler = async (email, password) => {
     let error = null;
     await createUser(
       email,
       password,
-      (user) => { // Success
-        // Show account created
-        console.log(user);
+      () => { // Success
+        // Show spinner while loading
+        moveToConfirmEmail();
       },
       (err) => { // Error
         error = err;
@@ -101,6 +108,12 @@ function Main(props) {
     <SignInModalContents
       formOnSubmit={signInHandler}
       signUpOnClick={() => moveToSignUp()}
+    />
+  );
+
+  confirmEmailModalContents = (
+    <ConfirmEmailModalContents
+      moveToSignInOnClick={moveToSignIn}
     />
   );
 
