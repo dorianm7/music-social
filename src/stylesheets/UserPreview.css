@@ -15,3 +15,11 @@
 .user-info span {
   display: block;
 }
+
+.user-preview > .following {
+  background-color: var(--Follow-Button-Color);
+}
+
+.user-preview > .not-following {
+  background-color: var(--Default-Button-Color);
+}

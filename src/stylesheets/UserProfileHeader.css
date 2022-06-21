@@ -19,6 +19,14 @@
   align-items: center;
 }
 
+.name-follow-option .following {
+  background-color: var(--Follow-Button-Color);
+}
+
+.name-follow-option .not-following {
+  background-color: var(--Default-Button-Color);
+}
+
 .name-follow-option .expandable-button {
   margin-left: .2em;
 }
