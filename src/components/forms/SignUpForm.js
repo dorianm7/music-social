@@ -177,7 +177,7 @@ function SignUpForm(props) {
           disabled={!canSubmit}
         />
         {error && (
-          <span className="error-message">{error.message}</span>
+          <span className="error-message center-text">{error.message}</span>
         )}
       </form>
     </div>
