@@ -8,11 +8,17 @@
   z-index: 5;
 }
 
+.modal-close-btn {
+  background-color: var(--Color-Dark-2);
+  color: white;
+}
+
 .modal-heading {
   margin: 0;
   padding: 2rem 0;
   text-align: center;
-  background-color: gray;
+  background-color: var(--Color-Dark-3);
+  color: white;
   border-radius: 10px 10px 0 0;
 }
 
