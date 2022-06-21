@@ -26,3 +26,7 @@
   margin: 0 auto;
   border-radius: .2em;
 }
+
+.sign-in-form .error-message {
+  font-size: .4em;
+}

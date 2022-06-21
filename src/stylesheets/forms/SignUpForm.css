@@ -26,8 +26,6 @@
   margin: 0 auto;
 }
 
-.error-message {
-  color: red;
+.sign-up-form .error-message {
   font-size: .4em;
-  text-align: center;
 }
