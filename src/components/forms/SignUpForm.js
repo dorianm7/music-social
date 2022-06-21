@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import '../../stylesheets/forms/SignUpForm.css';
 import TextInput from '../TextInput';
 import ToggleIconButton from '../basic/ToggleIconButton';
+import PercentGauge from '../basic/PercentGauge';
 import { OPEN_EYE_NAME, CLOSED_EYE_NAME } from '../../Icons';
 import {
   VALID_EMAIL_REGEXP,
@@ -21,6 +22,7 @@ function SignUpForm(props) {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleEmailChange = (e) => {
     const email = e.target.value;
@@ -53,12 +55,14 @@ function SignUpForm(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
     const userEmail = e.target.email.value;
     const userPassword = e.target.password.value;
 
     onSubmit(userEmail, userPassword)
       .catch((err) => {
+        setIsLoading(false);
         setError(err);
       });
   };
@@ -146,12 +150,20 @@ function SignUpForm(props) {
             />
           </label>
         )}
-        <input
-          className="sign-up-button basic-button"
-          type="submit"
-          value="Sign Up"
-          disabled={!canSubmit}
-        />
+        {!isLoading && (
+          <input
+            className="sign-up-button basic-button"
+            type="submit"
+            value="Sign Up"
+            disabled={!canSubmit}
+          />
+        )}
+        {isLoading && (
+          <PercentGauge
+            percentFilled={10}
+            size="1rem"
+          />
+        )}
         {error && (
           <span className="error-message">{error.message}</span>
         )}

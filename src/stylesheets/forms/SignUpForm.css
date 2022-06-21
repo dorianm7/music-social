@@ -31,3 +31,17 @@
   font-size: .4em;
   text-align: center;
 }
+
+.sign-up-form .percent-gauge {
+  animation: rotate 2s linear infinite;
+  margin: auto;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
