@@ -1,38 +1,175 @@
+:root {
+  /* Colors */
+  --Main-Color: #3A81D3;
+  --Color-Light-05: #75a7e0;
+  --Color-Light-1: #B0CDED;
+  --Color-Light-2: #D0E1F4;
+  --Color-Light-3: #ECF3FB;
+  --Color-Light-4: #FBFDFE;
+  --Color-Dark-1: #2E67A9;
+  --Color-Dark-2: #1D4069;
+  --Color-Dark-3: #0F2035;
+
+  /* Button Colors */
+  --Light-Button-Color: #D8E6F6;
+  --Default-Button-Color: hsl(0, 0%, 70%);
+  --Follow-Button-Color: rgb(149, 42, 199);
+
+  /* Main content widths */
+  --Width-Small: 95%;
+  --Width-Medium: 90%;
+  --Width-Large: 800px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 .App {
-  text-align: center;
+  background-color: var(--Main-Color);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Main content styling */
+.App main {
+  box-sizing: border-box;
+  width: var(--Width-Small);
+  margin-left: auto;
+  margin-right: auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media screen and (min-width: 768px) {
+  .App main {
+    width: var(--Width-Medium);
+  } 
+}
+
+@media screen and (min-width: 868px) {
+  .App main {
+    width: var(--Width-Large);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Nav styling */
+nav {
+  padding: 0 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--Color-Dark-3);
+}
+
+nav button {
+  background-color: var(--Light-Button-Color);
+}
+
+/* Button styling */
+button {
+  background-color: var(--Light-Button-Color);
+  border-style: none;
+}
+
+button:enabled:hover {
+  cursor: pointer;
+}
+
+.anchor-like {
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+/* Helper Classes */
+/* Round Corner Classes */
+.round-corners {
+  border-radius: .2em;
+}
+
+.rounded-none {
+  border-radius: 0;
+}
+
+.rounded-all {
+  border-radius: .2em;
+}
+
+.rounded-top {
+  border-radius: .2em .2em 0 0;
+}
+
+.rounded-right {
+  border-radius: 0 .2em .2em 0;
+}
+
+.rounded-bottom {
+  border-radius: 0 0 .2em .2em;
+}
+
+.rounded-left {
+  border-radius: .2em 0 0 .2em;
+}
+
+/* Background color classes */
+.transparent-background {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+/* Display Flex Classes */
+.center-column {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.center-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.space-evenly-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Mouse / Cursor styling */
+.no-clicks {
+  pointer-events: none;
+}
+
+.unselectable {
+  user-select: none;
+}
+
+/* Component movement */
+.top-right {
+  position: absolute;
+  right: 0;
+}
+
+/* Text styling */
+.error-message {
+  color: red;
+}
+
+.center-text {
+  text-align: center;
+}
+
+/* Parent element should have overflow:hidden */
+.ellipses-overflow {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Input styling */
+.full-width-input {
+  display: block;
+  width: 97%;
+  padding: 1%;
 }

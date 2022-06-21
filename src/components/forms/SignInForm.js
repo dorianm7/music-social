@@ -74,7 +74,7 @@ function SignInForm(props) {
           Sign In
         </button>
         {error && (
-          <span className="error-message">{error.message}</span>
+          <span className="error-message center-text">{error.message}</span>
         )}
       </form>
     </div>
