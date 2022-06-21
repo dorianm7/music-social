@@ -15,9 +15,21 @@
 }
 
 .app-intro p {
-  width: 90%;
+  width: var(--Width-Medium);
   margin-left: auto;
   margin-right: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .app-intro p {
+    width: var(--Width-Small);
+  } 
+}
+
+@media screen and (min-width: 868px) {
+  .app-intro p {
+    width: var(--Width-Large);
+  }
 }
 
 .app-intro > .basic-button,
