@@ -36,8 +36,6 @@
 .app-conclusion > .basic-button {
   display: block;
   margin: 1rem auto 2rem auto;
-  /* Color-Light-1 */
-  background-color: rgba(255, 255, 255, .8);
 }
 
 section:not(:first-of-type) {
@@ -52,8 +50,7 @@ section .tabs {
   position: sticky;
   top: 2.5rem;
   z-index: 7;
-  /* Main-Color */
-  background-color: rgba(58, 129, 211, 1);
+  background-color: var(--Main-Color);
 }
 
 @media screen and (hover:none) {
@@ -67,8 +64,7 @@ section .tabs a {
 }
 
 .feature {
-  /* Color-Light-1 */
-  background-color: rgba(255, 255, 255, .8);
+  background-color: var(--Color-Light-1);
 }
 
 .feature > *:not(:first-child) {
@@ -83,21 +79,40 @@ section .tabs a {
   margin-bottom: .5rem;
 }
 
-.compare-feature .basic-playlist {
+.compare-feature > .music-library {
+  background-color: var(--Color-Light-2);
+}
+
+.compare-feature > .music-library > .basic-playlist {
   box-shadow: none;
+  background-color: var(--Color-Light-3);
 }
 
 .compare-feature .basic-playlist .list {
   max-height: 200px;
 }
 
+.compare-feature .basic-playlist .list li {
+  background-color: var(--Color-Light-4);
+}
+
 .collaborative-feature > .user-images {
   margin-bottom: .5rem;
+}
+
+.collaborative-feature > .basic-playlist,
+.follow-feature > .basic-playlist {
+  background-color: var(--Color-Light-3);
 }
 
 .collaborative-feature .basic-playlist .list,
 .follow-feature .basic-playlist .list {
   max-height: 300px;
+}
+
+.collaborative-feature .basic-playlist .list li,
+.follow-feature .basic-playlist .list li {
+  background-color: var(--Color-Light-4);
 }
 
 .app-conclusion > h2,
