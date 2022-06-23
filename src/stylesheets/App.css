@@ -194,3 +194,12 @@ button:enabled:hover {
   width: 97%;
   padding: 1%;
 }
+
+/* Icon classes */
+.invalid {
+  color: red;
+}
+
+.valid {
+  color: green;
+}
