@@ -107,6 +107,27 @@ button:enabled:hover {
   border-radius: .2em 0 0 .2em;
 }
 
+/* Corner Point Classes */
+.top-left-corner {
+  border-radius: .2em;
+  border-top-left-radius: 0;
+}
+
+.top-right-corner {
+  border-radius: .2em;
+  border-top-right-radius: 0;
+}
+
+.bottom-right-corner {
+  border-radius: .2em;
+  border-bottom-right-radius: 0;
+}
+
+.bottom-left-corner {
+  border-radius: .2em;
+  border-bottom-left-radius: 0;
+}
+
 /* Background color classes */
 .transparent-background {
   background-color: rgba(0, 0, 0, 0);
