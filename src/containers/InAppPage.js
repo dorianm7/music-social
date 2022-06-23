@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import '../stylesheets/InAppPage.css';
 
 import AppNav from '../components/AppNav';
+import Footer from '../components/Footer';
 
 function InAppPage(props) {
   const {
@@ -29,9 +30,7 @@ function InAppPage(props) {
         <h1>{pageTitle}</h1>
         {children}
       </main>
-      <footer>
-        <p>Temp Footer</p>
-      </footer>
+      <Footer />
     </div>
   );
 }
