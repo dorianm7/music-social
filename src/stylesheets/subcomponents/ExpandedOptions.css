@@ -1,16 +1,4 @@
-.align-center {
-  text-align: center;
-}
-
-.align-left {
-  text-align:left;
-}
-
-.align-right {
-  text-align: right;
-}
-
-.expanded-options {
+ul.expanded-options {
   display: inline-block;
   list-style: none;
   margin: 0;
@@ -18,17 +6,29 @@
   overflow: hidden;
 }
 
-.expanded-options li *:first-child{
+ul.expanded-options > li *:first-child{
   display: inline;
   width: 100%;
   padding: .2em;
 }
 
-.options-title {
+ul.expanded-options > li.options-title {
   padding-bottom: .2em;
   background-color: hsl(0, 0%, 60%);
 }
 
-.hide {
+ul.expanded-options .align-center {
+  text-align: center;
+}
+
+ul.expanded-options .align-left {
+  text-align:left;
+}
+
+ul.expanded-options .align-right {
+  text-align: right;
+}
+
+ul.expanded-options.hide {
   display: none;
 }
