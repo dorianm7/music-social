@@ -19,38 +19,38 @@
   flex-direction: row-reverse;
 }
 
-.expandable-button .expanded-options{
+.expandable-button > .expanded-options{
   position: absolute;
 }
 
-.expandable-button.expand-up .expanded-options {
+.expandable-button.expand-up > .expanded-options {
   bottom: 100%;
 }
 
-.expandable-button.expand-right .expanded-options {
+.expandable-button.expand-right > .expanded-options {
   left: 100%; 
 }
 
-.expandable-button.expand-down .expanded-options {
+.expandable-button.expand-down > .expanded-options {
   top: 100%;
 }
 
-.expandable-button.expand-left .expanded-options {
+.expandable-button.expand-left > .expanded-options {
   right: 100%;
 }
 
-.expandable-button.direction-left .expanded-options {
+.expandable-button.direction-left > .expanded-options {
   right: calc(100% - var(--icon-width));
 }
 
-.expandable-button.direction-right .expanded-options {
+.expandable-button.direction-right > .expanded-options {
   left: 0;
 }
 
-.expandable-button.direction-up .expanded-options {
+.expandable-button.direction-up > .expanded-options {
   bottom: calc(100% - var(--icon-height));
 }
 
-.expandable-button.direction-down .expanded-options {
+.expandable-button.direction-down > .expanded-options {
   top: calc(100% - var(--icon-height));
 }

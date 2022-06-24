@@ -8,12 +8,12 @@
   z-index: 5;
 }
 
-.modal-close-btn {
+.modal > .modal-close-btn {
   background-color: var(--Color-Dark-2);
   color: white;
 }
 
-.modal-heading {
+.modal > .modal-heading {
   margin: 0;
   padding: 2rem 0;
   text-align: center;
@@ -22,7 +22,7 @@
   border-radius: 10px 10px 0 0;
 }
 
-.modal-content {
+.modal > .modal-content {
   margin: 0 auto;
   padding: 10% 0;
   width: 80%;

@@ -1,17 +1,9 @@
-.drop-down .requirements-list {
+.requirements-drop-down .requirements-list {
   list-style-type: none;
   margin: 0;
   padding: 0 .5em 0 .7em;
 }
 
-.requirement .icon {
+.requirements-drop-down .requirement > .icon {
   margin-left: auto;
-} 
-
-.invalid {
-  color: red;
-}
-
-.valid {
-  color: green;
 }

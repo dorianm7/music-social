@@ -1,69 +1,69 @@
-.heading {
+.basic-playlist > .heading {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
 @media screen and (max-width: 430px) {
-  .heading {
+  .basic-playlist .heading {
     flex-direction: column-reverse;
     align-items: flex-start;
   }
 }
 
-.heading > * {
+.basic-playlist > .heading > * {
   margin-top: auto;
   margin-bottom: auto;
 }
 
-.heading > .heading-main {
+.basic-playlist > .heading > .heading-main {
   display: inline-flex;
   flex-direction: row;
   align-items: center;
 }
 
 @media screen and (max-width: 430px) {
-  .heading > .heading-main {
+  .basic-playlist > .heading > .heading-main {
     width: 100%
   }
 }
 
-.heading-main > h1,
-.heading-main > h2,
-.heading-main > h3,
-.heading-main > h4,
-.heading-main > h5,
-.heading-main > h6 {
+.basic-playlist > .heading > .heading-main > h1,
+.basic-playlist > .heading > .heading-main > h2,
+.basic-playlist > .heading > .heading-main > h3,
+.basic-playlist > .heading > .heading-main > h4,
+.basic-playlist > .heading > .heading-main > h5,
+.basic-playlist > .heading > .heading-main > h6 {
   margin: 0;
 }
 
-.heading-main > .select {
+.basic-playlist > .heading > .heading-main > .select {
   margin-left: .5em;
 }
 
 @media screen and (max-width: 430px) {
-  .heading-main > .select {
+  .basic-playlist > .heading > .heading-main > .select {
     margin-left: auto;
   }
 }
 
-.heading-main > .select .selected-option-button {
+.basic-playlist > .heading > .heading-main > .select .selected-option-button {
   /* Color-Light-05 */
   background-color: #75a7e0;
 }
 
-.heading > .list-search {
+.basic-playlist > .heading > .list-search {
   margin-left: auto;
 }
 
 @media screen and (max-width: 430px) {
-  .heading > .list-search {
+  .basic-playlist > .heading > .list-search {
     margin-left: 0;
     margin-bottom: .5rem;
   }
 }
 
-.list {
+.basic-playlist > .list {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -71,33 +71,29 @@
   overflow-y: auto;
 }
 
-.list > p {
+.basic-playlist > .list > p {
   text-align: center;
 }
 
-.list > li {
+.basic-playlist > .list > li {
   /* To view Music Items */
   /* Color-Light-3 */
   background-color: rgba(255,255,255, .8);
   padding-right: .5rem;
 }
 
-.list.collaborative > li{
+.basic-playlist > .list.collaborative > li {
   padding: .5rem;
 }
 
-.list.artist > li {
+.basic-playlist > .list.artist > li {
   padding: .2rem;
 }
 
-.list > li:not(:first-child) {
+.basic-playlist > .list > li:not(:first-child) {
   margin-top: .5em;
 }
 
-.music-item .expandable-button li {
-  padding: 0;
-}
-
-.music-item .expandable-button li button {
+.basic-playlist > .list .music-item .expandable-button li button {
   padding: .2em .6em;
 }

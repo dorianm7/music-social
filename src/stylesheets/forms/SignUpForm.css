@@ -7,25 +7,25 @@
   margin-bottom: 10px;
 }
 
-.label-bar {
+.sign-up-form > form > label > .label-bar {
   margin: 0 0 .2em 0;
   display: inline-flex;
   flex-direction: row;
 }
 
-.label-bar > .label-text {
+.sign-up-form > form > label > .label-bar > .label-text {
   margin: 0 .4em 0 0;
 }
 
-.requirement {
+.sign-up-form > form > label > .text-input > .input-requirements .requirement {
   font-size: .8em;
 }
 
-.sign-up-button {
+.sign-up-form > form > .sign-up-button {
   width: 50%;
   margin: 0 auto;
 }
 
-.sign-up-form .error-message {
+.sign-up-form > form > .error-message {
   font-size: .4em;
 }

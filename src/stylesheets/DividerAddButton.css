@@ -4,10 +4,10 @@
   align-items: center;
 }
 
-.divider-add-button .icon-button {
+.divider-add-button > .icon-button {
   margin: 0 1em;
 }
 
-.divider-add-button hr {
+.divider-add-button > hr {
   width: 50%;
 }

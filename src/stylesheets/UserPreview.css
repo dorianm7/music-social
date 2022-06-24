@@ -3,23 +3,23 @@
   align-items: center;
 }
 
-.user-preview .user-picture {
+.user-preview > .user-picture {
   border-radius: 50%;
 }
 
-.user-info {
+.user-preview > .user-info {
   margin-right: auto;
   margin-left: 1em;
 }
 
-.user-info span {
+.user-preview > .user-info > span {
   display: block;
 }
 
-.user-preview > .following {
+.user-preview > button.following {
   background-color: var(--Follow-Button-Color);
 }
 
-.user-preview > .not-following {
+.user-preview > button.not-following {
   background-color: var(--Default-Button-Color);
 }

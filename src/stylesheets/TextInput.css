@@ -1,4 +1,4 @@
-.text-input input {
+.text-input > input {
   width: 97%;
   padding: 1%;
   border: 1% solid black;

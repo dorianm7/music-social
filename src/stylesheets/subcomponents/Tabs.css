@@ -1,4 +1,4 @@
-.tabs {
+ul.tabs {
   display: flex;
   flex-direction: row;
   list-style: none;
@@ -6,7 +6,7 @@
   margin: 0;
 }
 
-.tabs .tab {
+ul.tabs li.tab {
   border-radius: .4em .4em 0 0;
   display: flex;
   justify-content: center;
@@ -19,18 +19,18 @@
 }
 
 @media screen and (max-width: 530px) {
-  .tabs .tab {
+  ul.tabs li.tab {
     width: 8rem;
   }
 }
 
-.tabs .tab.selected {
+ul.tabs > li.tab.selected {
   /* Color-Light-1 */
   background-color: #B0CDED;
   text-decoration: underline;
 }
 
-.tab > *:first-child {
+ul.tabs > li.tab > *:first-child {
   border-radius: inherit;
   display: flex;
   justify-content: center;
