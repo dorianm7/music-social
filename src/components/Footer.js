@@ -58,7 +58,7 @@ function Footer() {
             </li>
             <li key={nanoid()}>
               <a
-                href="#d"
+                href="https://www.linkedin.com/in/dorian-maldonado/"
                 target="_blank"
                 rel="noreferrer"
               >
