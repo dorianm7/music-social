@@ -7,11 +7,11 @@
   margin-bottom: 10px;
 }
 
-.sign-in-form > form > .label > * {
+.sign-in-form > form > label > * {
   display: block;
 }
 
-.sign-in-form > form > .label > .label-bar {
+.sign-in-form > form > label > .label-bar {
   margin: 0 0 .2em 0;
   display: inline-flex;
   flex-direction: row;
