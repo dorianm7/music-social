@@ -7,26 +7,26 @@
   margin-bottom: 10px;
 }
 
-.label > * {
+.sign-in-form > form > .label > * {
   display: block;
 }
 
-.label-bar {
+.sign-in-form > form > .label > .label-bar {
   margin: 0 0 .2em 0;
   display: inline-flex;
   flex-direction: row;
 }
 
-.label-bar > .label-text {
+.sign-in-form > form > label > .label-bar > .label-text {
   margin: 0 .4em 0 0;
 }
 
-.sign-in-button {
+.sign-in-form > form > .sign-in-button {
   width: 50%;
   margin: 0 auto;
   border-radius: .2em;
 }
 
-.sign-in-form .error-message {
+.sign-in-form > form > .error-message {
   font-size: .4em;
 }

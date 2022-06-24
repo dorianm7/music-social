@@ -3,14 +3,14 @@
   align-items: center;
 }
 
-.user-info {
+.user-compatibility-preview > .user-info {
   margin-left: 1em;
 }
 
-.user-info span {
+.user-compatibility-preview > .user-info > span {
   display: block;
 }
 
-.user-info .user-name {
+.user-compatibility-preview > .user-info > span.user-name {
   font-size: 1.25em;
 }

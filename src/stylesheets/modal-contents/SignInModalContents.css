@@ -3,7 +3,7 @@
   flex-direction: column;
 }
 
-.modal-content hr {
+.modal-content > hr {
   margin: 1em auto;
   width: 80%;
 }
@@ -31,12 +31,8 @@
   margin-left: auto;
 }
 
-.move-to-sign-up {
+.modal-content > .move-to-sign-up {
   margin-top: 1em;
   font-size: .8em;
   text-align: center;
-}
-
-.move-to-sign-up a {
-  color: black;
 }

@@ -2,17 +2,17 @@
   width: 100%;
 }
 
-.drop-down .title-bar {
+.drop-down > .title-bar {
   width: inherit;
   height: 1.5em;
   padding: 0 .5em;
 }
 
-.drop-down .expand-collapse-icon {
+.drop-down > .title-bar > .expand-collapse-icon {
   margin-left: .5em;
   margin-right: auto;
 }
 
-.drop-down .down {
+.drop-down > .title-bar > .expand-collapse-icon.down {
   transform: rotate(180deg);
 }

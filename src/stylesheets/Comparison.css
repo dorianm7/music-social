@@ -1,12 +1,12 @@
-.comparison-user img {
+.comparison .comparison-user > img {
   border-radius: 50%;
 }
 
-.comparison-users {
+.comparison > .comparison-users {
   margin-bottom: 1rem;
 }
 
-.summary-title {
+.comparison > .comparison-summary .summary-title {
   font-size: 1.25em;
   margin-bottom: .25em;
 }

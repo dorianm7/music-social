@@ -6,56 +6,57 @@
   background-color: hsl(0, 0%, 95%);
 }
 
-.side-menu-user-preview {
+.side-menu > .side-menu-user-preview {
   margin-top: 1em;
 }
 
-.basic-button {
+.side-menu > button.view-profile {
   margin: 1em auto;
 }
 
-.side-menu .nav-bottom {
+.side-menu > nav .nav-bottom {
   margin-top: auto;
 }
 
-nav {
+.side-menu > nav {
   height: inherit;
 }
 
-nav ul {
+.side-menu > nav > ul {
   margin: 0;
 }
 
-.nav-top > li:first-child,
-.nav-bottom > li:first-child {
+.side-menu > nav .nav-top > li:first-child,
+.side-menu > nav .nav-bottom > li:first-child {
   border-radius: .2em .2em 0 0;
 }
 
-.nav-top > li:last-child,
-.nav-bottom > li:last-child{
+.side-menu > nav .nav-top > li:last-child,
+.side-menu > nav .nav-bottom > li:last-child{
   border-radius: 0 0 .2em .2em;
 }
 
-.nav-top > li,
-.nav-bottom > li{
+.side-menu > nav .nav-top > li,
+.side-menu > nav .nav-bottom > li{
   background-color: hsl(0, 0%, 70%);
 }
 
-li {
+.side-menu > nav > ul li {
   transition: 80ms ease;
   transition-property: filter;
 }
 
-li:hover {
+.side-menu > nav > ul li:hover {
   filter: brightness(85%);
 }
 
-ul {
+.side-menu > nav > ul {
   height: inherit;
   padding: 0;
 }
 
-li a, li button {
+.side-menu > nav > ul li > a,
+.side-menu > nav > ul li button {
   display: flex;
   align-items: center;
   width: 100%;
@@ -66,13 +67,13 @@ li a, li button {
 }
 
 
-li .icon {
+.side-menu > nav > ul li .icon {
   margin-right: 1em;
   height: 25px;
   width: 25px;
 }
 
-hr {
+.side-menu > nav > ul hr {
   margin: 0 auto;
   height: 2px;
   border: 0;

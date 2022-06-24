@@ -17,24 +17,24 @@
   cursor: pointer;
 }
 
-.select .selected-option-button {
+.select > .selected-option-button {
   border-radius: .2em;
   height: 2em;
 }
 
-.selected-option-button .icon {
+.select > .selected-option-button > .icon {
   margin-left: .5em;
 }
 
-.selected-option-button.open {
+.select > .selected-option-button.open {
   border-radius: .2em .2em 0 0;
 }
 
-.selected-option-button.open .icon {
+.select > .selected-option-button.open > .icon {
   transform: rotate(.5turn);
 }
 
-.select ul {
+.select > ul {
   padding: 0;
   margin: 0;
   list-style: none;
@@ -43,10 +43,10 @@
   min-width: 100%;
 }
 
-.select ul.closed {
+.select > ul.closed {
   display: none;
 }
 
-.select ul > li:last-child > button {
+.select > ul > li:last-child > button {
   border-radius: 0 0 .2em .2em;
 }

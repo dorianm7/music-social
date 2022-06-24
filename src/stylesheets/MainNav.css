@@ -1,4 +1,4 @@
-.main-nav {
+nav.main-nav {
   --nav-font-color: white;
   display: flex;
   align-items: center;
@@ -7,12 +7,12 @@
   white-space: nowrap;
 }
 
-.main-nav a {
+nav.main-nav a {
   color: var(--nav-font-color);
   text-decoration: none;
 }
 
-.main-nav .nav-menu {
+nav.main-nav > .nav-menu {
   display: flex;
   align-items: center;
   margin: 0 0 0 auto;
@@ -21,11 +21,11 @@
 }
 
 @media screen and (max-width: 430px) {
-  .main-nav .nav-menu > *:first-child {
+  nav.main-nav > .nav-menu > *:first-child {
     display: none;
   }
 }
 
-.nav-menu li {
+nav.main-nav > .nav-menu > li {
   margin-left: 1rem;
 }
