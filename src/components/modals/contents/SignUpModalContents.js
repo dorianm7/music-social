@@ -10,7 +10,7 @@ function SignUpModalContents(props) {
   } = props;
 
   return (
-    <>
+    <div className="sign-up-modal-contents">
       <SignUpForm
         onSubmit={formOnSubmit}
         submitSuccess // TODO remove when SignUpForm backend connected
@@ -23,7 +23,7 @@ function SignUpModalContents(props) {
       >
         Move&nbsp;to&nbsp;Sign&nbsp;in
       </button>
-    </>
+    </div>
   );
 }
 
