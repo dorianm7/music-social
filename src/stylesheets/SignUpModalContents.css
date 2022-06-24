@@ -1,9 +1,0 @@
-.modal-content hr {
-  margin: 1em auto;
-  width: 80%;
-}
-
-.modal-content > *:last-child.anchor-like {
-  width: fit-content;
-  margin: 0 auto;
-}

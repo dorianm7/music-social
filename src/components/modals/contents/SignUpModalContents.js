@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SignUpForm from '../../forms/SignUpForm';
-import '../../../stylesheets/SignUpModalContents.css';
+import '../../../stylesheets/modal-contents/SignUpModalContents.css';
 
 function SignUpModalContents(props) {
   const {
