@@ -1,0 +1,15 @@
+.modal-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-content hr {
+  margin: 1em auto;
+  width: 80%;
+}
+
+.modal-content > button.anchor-like {
+  width: fit-content;
+  margin: 0 auto;
+  justify-content: center;
+}
