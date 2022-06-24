@@ -15,7 +15,7 @@ function SignInModalContents(props) {
   } = props;
 
   return (
-    <>
+    <div className="sign-in-modal-contents">
       <SignInForm
         onSubmit={formOnSubmit}
       />
@@ -38,7 +38,7 @@ function SignInModalContents(props) {
           Sign Up
         </button>
       </span>
-    </>
+    </div>
   );
 }
 

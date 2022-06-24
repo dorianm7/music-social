@@ -1,14 +1,14 @@
-.modal-content {
+.sign-up-modal-contents {
   display: flex;
   flex-direction: column;
 }
 
-.modal-content hr {
+.sign-up-modal-contents hr {
   margin: 1em auto;
   width: 80%;
 }
 
-.modal-content > button.anchor-like {
+.sign-up-modal-contents > button.anchor-like {
   width: fit-content;
   margin: 0 auto;
   justify-content: center;
