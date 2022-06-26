@@ -41,35 +41,35 @@ footer > ul.links-section {
 }
 
 @media screen and (max-width: 430px) {
-  footer > .links-section {
+  footer > ul.links-section {
     flex-direction: column;
   }
 }
 
-footer > .links-section li {
+footer > ul.links-section li {
   list-style: none;
 }
 
-footer > .links-section > li:not(:first-of-type) {
+footer > ul.links-section > li:not(:first-of-type) {
   margin-left: 2rem;
 }
 
 @media screen and (max-width: 430px) {
-  footer > .links-section > li:not(:first-of-type) {
+  footer > ul.links-section > li:not(:first-of-type) {
     margin-left: 0;
     margin-top: .5rem;
   }
 }
 
-footer > .links-section > li > span {
+footer > ul.links-section > li > span {
   text-decoration: underline;
 }
 
-footer > .links-section > li > ul {
+footer > ul.links-section > li > ul {
   margin-top: .5rem;
 }
 
-footer > .links-section > li > ul a {
+footer > ul.links-section > li > ul a {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -77,6 +77,6 @@ footer > .links-section > li > ul a {
   color: grey;
 }
 
-footer > .links-section > li > ul a > .icon {
+footer > ul.links-section > li > ul a > .icon {
   margin-right: .5rem;
 }
