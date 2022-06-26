@@ -46,7 +46,7 @@ section > :last-child {
   padding-bottom: .5rem;
 }
 
-section .tabs {
+section ul.tabs {
   position: sticky;
   top: 2.5rem;
   z-index: 7;
