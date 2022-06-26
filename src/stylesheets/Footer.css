@@ -33,23 +33,36 @@ footer > ul.links-section {
   flex-direction: row;
 }
 
-footer > .links-section li {
+@media screen and (max-width: 430px) {
+  footer > ul.links-section {
+    flex-direction: column;
+  }
+}
+
+footer > ul.links-section li {
   list-style: none;
 }
 
-footer > .links-section > li:not(:first-of-type) {
+footer > ul.links-section > li:not(:first-of-type) {
   margin-left: 2rem;
 }
 
-footer > .links-section > li > span {
+@media screen and (max-width: 430px) {
+  footer > ul.links-section > li:not(:first-of-type) {
+    margin-left: 0;
+    margin-top: .5rem;
+  }
+}
+
+footer > ul.links-section > li > span {
   text-decoration: underline;
 }
 
-footer > .links-section > li > ul {
+footer > ul.links-section > li > ul {
   margin-top: .5rem;
 }
 
-footer > .links-section > li > ul a {
+footer > ul.links-section > li > ul a {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -57,6 +70,6 @@ footer > .links-section > li > ul a {
   color: grey;
 }
 
-footer > .links-section > li > ul a > .icon {
+footer > ul.links-section > li > ul a > .icon {
   margin-right: .5rem;
 }
