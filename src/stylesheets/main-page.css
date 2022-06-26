@@ -54,7 +54,7 @@ section .tabs {
 }
 
 @media screen and (hover:none) {
-  section .tabs {
+  section ul.tabs {
     display: none;
   }
 }
