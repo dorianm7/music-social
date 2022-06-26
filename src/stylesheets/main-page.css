@@ -59,7 +59,7 @@ section ul.tabs {
   }
 }
 
-section .tabs a {
+section ul.tabs a {
   text-decoration: none;
 }
 
