@@ -13,6 +13,7 @@
 
 .user-images.margin {
   justify-content: space-between;
+  padding-bottom: 1rem;
 }
 
 .user-images.margin > .user:not(:last-child) {
