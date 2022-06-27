@@ -64,7 +64,7 @@ section ul.tabs a {
 }
 
 .feature {
-  background-color: var(--Color-Light-1);
+  background-color: var(--Color-Light-05);
 }
 
 .feature > *:not(:first-child) {
@@ -79,40 +79,21 @@ section ul.tabs a {
   margin-bottom: .5rem;
 }
 
-.compare-feature > .music-library {
-  background-color: var(--Color-Light-2);
-}
-
 .compare-feature > .music-library > .basic-playlist {
   box-shadow: none;
-  background-color: var(--Color-Light-3);
 }
 
 .compare-feature .basic-playlist .list {
   max-height: 200px;
 }
 
-.compare-feature .basic-playlist .list li {
-  background-color: var(--Color-Light-4);
-}
-
 .collaborative-feature > .user-images {
   margin-bottom: .5rem;
-}
-
-.collaborative-feature > .basic-playlist,
-.follow-feature > .basic-playlist {
-  background-color: var(--Color-Light-3);
 }
 
 .collaborative-feature .basic-playlist .list,
 .follow-feature .basic-playlist .list {
   max-height: 300px;
-}
-
-.collaborative-feature .basic-playlist .list li,
-.follow-feature .basic-playlist .list li {
-  background-color: var(--Color-Light-4);
 }
 
 .app-conclusion > h2,
