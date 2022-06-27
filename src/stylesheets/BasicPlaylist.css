@@ -56,6 +56,10 @@
   background-color: var(--Color-Light-05);
 }
 
+.basic-playlist > .heading > .heading-main > .select li > button {
+  background-color: var(--Color-Light-1);
+}
+
 .basic-playlist > .heading > .list-search {
   margin-left: auto;
 }
