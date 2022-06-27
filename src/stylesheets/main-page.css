@@ -79,6 +79,10 @@ section ul.tabs a {
   margin-bottom: .5rem;
 }
 
+.compare-feature > .music-library {
+  margin-top: 1.5rem;
+}
+
 .compare-feature > .music-library > .basic-playlist {
   box-shadow: none;
 }
