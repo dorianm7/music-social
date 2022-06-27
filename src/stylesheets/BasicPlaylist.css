@@ -43,6 +43,7 @@
 
 .basic-playlist > .heading > .heading-main > .select {
   margin-left: .5em;
+  z-index: 3;
 }
 
 @media screen and (max-width: 430px) {
