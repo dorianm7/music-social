@@ -1,14 +1,8 @@
-.in-app-page {
-  /* Main-Background-Color */
-  background-color: rgba(58, 129, 211, 1);
-}
-
 .in-app-page > header {
   position: sticky;
   top: 0;
   z-index: 10;
-  /* Main-Background-Color */
-  background-color: rgba(58, 129, 211, 1);
+  background-color: var(--Main-Color);
   box-shadow: 0 3px 10px 2px rgba(0,0,0,.3);
 }
 
@@ -17,8 +11,7 @@
 }
 
 .in-app-page > main {
-  /* Color-Light-1 */
-  background-color: rgba(255,255,255,.4);
+  background-color: var(--Color-Light-05);
   padding-bottom: 1rem;
 }
 

@@ -1,3 +1,7 @@
+.basic-playlist {
+  background-color: var(--Color-Light-2);
+}
+
 .basic-playlist > .heading {
   display: flex;
   flex-direction: row;
@@ -48,8 +52,7 @@
 }
 
 .basic-playlist > .heading > .heading-main > .select .selected-option-button {
-  /* Color-Light-05 */
-  background-color: #75a7e0;
+  background-color: var(--Color-Light-05);
 }
 
 .basic-playlist > .heading > .list-search {
@@ -76,9 +79,7 @@
 }
 
 .basic-playlist > .list > li {
-  /* To view Music Items */
-  /* Color-Light-3 */
-  background-color: rgba(255,255,255, .8);
+  background-color: var(--Color-Light-4);
   padding-right: .5rem;
 }
 

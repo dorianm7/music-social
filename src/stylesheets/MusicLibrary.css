@@ -3,8 +3,7 @@
   margin-top: 1.5rem;
   padding: .5rem;
   border-radius: .2rem;
-  /* Color-Light-2 */
-  background-color: rgba(255,255,255,.4);
+  background-color: var(--Color-Light-1);
   box-shadow: 0 2px 19px 3px rgba(0, 0, 0, .1);
 }
 
@@ -20,8 +19,6 @@
   box-sizing: border-box;
   padding: 0 .5rem .5rem;
   border-radius: .2rem;
-  /* Color-Light-3 */
-  background-color: rgba(255, 255, 255, .6);
 }
 
 .music-library >.basic-playlist:not(:first-child) {
