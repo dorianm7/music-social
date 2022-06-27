@@ -13,8 +13,7 @@ ul.tabs li.tab {
   align-items: center;
   width: 9.0rem;
   height: 2rem;
-  /* Color-Dark-1 */
-  background-color: rgba(0, 0, 0, .2);
+  background-color: var(--Color-Dark-1);
   font-size: .85rem;
 }
 
@@ -25,8 +24,7 @@ ul.tabs li.tab {
 }
 
 ul.tabs > li.tab.selected {
-  /* Color-Light-1 */
-  background-color: #B0CDED;
+  background-color: var(--Color-Light-05);
   text-decoration: underline;
 }
 

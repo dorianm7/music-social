@@ -2,12 +2,12 @@
   position: fixed;
   width: 15em;
   height: 100%;
-  z-index: 5;
-  background-color: hsl(0, 0%, 95%);
+  background-color: var(--Color-Dark-3);
 }
 
 .side-menu > .side-menu-user-preview {
   margin-top: 1em;
+  color: white;
 }
 
 .side-menu > button.view-profile {
@@ -38,7 +38,7 @@
 
 .side-menu > nav .nav-top > li,
 .side-menu > nav .nav-bottom > li{
-  background-color: hsl(0, 0%, 70%);
+  background-color: var(--Light-Button-Color);
 }
 
 .side-menu > nav > ul li {
@@ -77,5 +77,5 @@
   margin: 0 auto;
   height: 2px;
   border: 0;
-  background: linear-gradient(90deg, hsl(0, 0%, 70%) 0% 10%, hsl(0, 0%, 60%) 10% 90%, hsl(0, 0%, 70%) 90% 100%);
+  background: linear-gradient(90deg, var(--Light-Button-Color) 0% 10%, var(--Color-Dark-3) 10% 90%, var(--Light-Button-Color) 90% 100%);
 }

@@ -3,6 +3,5 @@ button.basic-button {
 }
 
 button.basic-button.outline {
-  /* Color-Dark-3 */
-  border: 1px solid #0F2035;
+  border: 1px solid var(--Color-Dark-3);
 }
