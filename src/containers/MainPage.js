@@ -26,6 +26,7 @@ import {
 import albumList from '../local_data/Users_Albums_0.json';
 import artistList from '../local_data/Users_Artists_0.json';
 import playlistList from '../local_data/Users_Playlists.json';
+import usersList from '../local_data/users.json';
 import { Icons } from '../Icons';
 
 function Main(props) {
@@ -201,13 +202,13 @@ function Main(props) {
             <div className="compare-feature">
               <h2>Compare Music Libraries</h2>
               <Comparison
-                firstUserImg="https://www.thispersondoesnotexist.com/image"
-                firstUserName="Action B"
-                secondUserImg="https://www.thispersondoesnotexist.com/image"
-                secondUserName="Baction A"
-                artistPercent="43"
-                albumPercent="34"
-                playlistPercent="2"
+                firstUserImg={usersList.users['000u'].profile_img}
+                firstUserName={usersList.users['000u'].username}
+                secondUserImg={usersList.users['001u'].profile_img}
+                secondUserName={usersList.users['001u'].username}
+                artistPercent={usersList.users['000u'].comparisons['001u'].most_recent.artists_score}
+                albumPercent={usersList.users['000u'].comparisons['001u'].most_recent.albums_score}
+                playlistPercent={usersList.users['000u'].comparisons['001u'].most_recent.playlists_score}
               />
               <MusicLibrary>
                 <BasicPlaylist
@@ -262,34 +263,34 @@ function Main(props) {
                 playlistHeadingType={PLAYLISTS_HEADING_TYPE}
                 playlistName="Playlist"
                 userImages={[
-                  'https://www.thispersondoesnotexist.com/image',
-                  'https://www.thispersondoesnotexist.com/image',
-                  'https://www.thispersondoesnotexist.com/image',
-                  'https://www.thispersondoesnotexist.com/image',
-                  'https://www.thispersondoesnotexist.com/image',
-                  'https://www.thispersondoesnotexist.com/image',
-                  'https://www.thispersondoesnotexist.com/image',
-                  'https://www.thispersondoesnotexist.com/image',
+                  usersList.users['000u'].profile_img,
+                  usersList.users['001u'].profile_img,
+                  usersList.users['002u'].profile_img,
+                  usersList.users['003u'].profile_img,
+                  usersList.users['004u'].profile_img,
+                  usersList.users['005u'].profile_img,
+                  usersList.users['006u'].profile_img,
+                  usersList.users['007u'].profile_img,
                 ]}
                 userNames={[
-                  'Actionnnn Bronson',
-                  'Bactionnnn Aronson',
-                  'Cactionnnn Dronson',
-                  'Dactionnnn Cronson',
-                  'Ectionnnn Fronson',
-                  'Factionnnn Eronson',
-                  'Gactionnnn Hronson',
-                  'Hactionnnn Gronson',
+                  `${usersList.users['000u'].username}`,
+                  `${usersList.users['001u'].username}`,
+                  `${usersList.users['002u'].username}`,
+                  `${usersList.users['003u'].username}`,
+                  `${usersList.users['004u'].username}`,
+                  `${usersList.users['005u'].username}`,
+                  `${usersList.users['006u'].username}`,
+                  `${usersList.users['007u'].username}`,
                 ]}
                 userIds={[
-                  'Actionnnn Bronson',
-                  'Bactionnnn Aronson',
-                  'Cactionnnn Dronson',
-                  'Dactionnnn Cronson',
-                  'Ectionnnn Fronson',
-                  'Factionnnn Eronson',
-                  'Gactionnnn Hronson',
-                  'Hactionnnn Gronson',
+                  `${usersList.users['000u'].username}`,
+                  `${usersList.users['001u'].username}`,
+                  `${usersList.users['002u'].username}`,
+                  `${usersList.users['003u'].username}`,
+                  `${usersList.users['004u'].username}`,
+                  `${usersList.users['005u'].username}`,
+                  `${usersList.users['006u'].username}`,
+                  `${usersList.users['007u'].username}`,
                 ]}
               />
             </div>
@@ -304,10 +305,11 @@ function Main(props) {
             <div className="follow-feature">
               <h2>Follow Users</h2>
               <UserProfileHeader
-                imageSrc="https://www.thispersondoesnotexist.com/image"
-                name="Name Person"
-                infoText="Follow for the most rockinest bootsteppinest country!"
-                numFollowers="5"
+                imageSrc={usersList.users['002u'].profile_img}
+                name={usersList.users['002u'].username}
+                infoText={usersList.users['002u'].profile_description}
+                numFollowers={usersList.users['002u'].num_followers}
+                numFollowing={usersList.users['002u'].num_following}
                 isFollowing
               />
               <BasicPlaylist
