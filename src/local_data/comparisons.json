@@ -1,0 +1,52 @@
+{
+  "comparisons": {
+    "000u_001u": [
+      {
+        "albums_score": "24.0",
+        "artists_score": "43.0",
+        "overall_score": "37.0",
+        "playlists_score": "44.0",
+        "time": "2022-06-28T05:37:25.207Z"
+      },
+      {
+        "albums_score": "10.0",
+        "artists_score": "40.0",
+        "overall_score": "26.67",
+        "playlists_score": "30.0",
+        "time": "2022-06-27T05:37:25.207Z"
+      }
+    ],
+    "000u_002u": [
+      {
+        "albums_score": "24.0",
+        "artists_score": "43.0",
+        "overall_score": "37.0",
+        "playlists_score": "44.0",
+        "time": "2022-06-28T05:37:25.207Z"
+      },
+      {
+        "albums_score": "10.0",
+        "artists_score": "40.0",
+        "overall_score": "26.67",
+        "playlists_score": "30.0",
+        "time": "2022-06-27T05:37:25.207Z"
+      }
+    ],
+    "001u_000u": [
+      {
+        "albums_score": "24.0",
+        "artists_score": "43.0",
+        "overall_score": "37.0",
+        "playlists_score": "44.0",
+        "time": "2022-06-28T05:37:25.207Z"
+      },
+      {
+        "albums_score": "10.0",
+        "artists_score": "40.0",
+        "overall_score": "26.67",
+        "playlists_score": "30.0",
+        "time": "2022-06-27T05:37:25.207Z"
+      }
+    ]
+  }
+}

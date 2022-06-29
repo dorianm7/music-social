@@ -1,0 +1,408 @@
+{
+  "users": {
+    "000u": {
+      "collab_playlists": [
+        "000cp"
+      ],
+      "comparisons": {
+        "001u": {
+          "comparison_history": "000u-001u",
+          "most_recent": {
+              "albums_score": "24.0",
+              "artists_score": "43.0",
+              "overall_score": "37.0",
+              "playlists_score": "44.0",
+              "time": "2022-06-28T05:37:25.207Z"
+          }
+        },
+        "002u": {
+          "comparison_history": "000u-002u",
+          "most_recent": {
+              "albums_score": "24.0",
+              "artists_score": "43.0",
+              "overall_score": "37.0",
+              "playlists_score": "44.0",
+              "time": "2022-06-28T05:37:25.207Z"
+          }
+        }
+      },
+      "followers": [
+        "000u",
+        "000u",
+        "000u",
+        "000u",
+        "000u"
+      ],
+      "following": [
+        "000u",
+        "000u",
+        "000u",
+        "000u",
+        "000u",
+        "000u",
+        "000u"
+      ],
+      "library_album_ordering": "recent",
+      "library_artist_ordering": "recent",
+      "library_playlist_ordering": "recent",
+      "num_followers": "5",
+      "num_following": "7",
+      "profile_description": "",
+      "profile_img": "/images/user-images/image1.webp",
+      "spotify_user_id": "000u-spotify-user-id",
+      "username": "Linzy"
+    },
+    "001u": {
+      "collab_playlists": [
+        "000cp"
+      ],
+      "comparisons": {
+        "000u": {
+          "comparison_history": "001u-000u",
+          "most_recent": {
+              "albums_score": "24.0",
+              "artists_score": "43.0",
+              "overall_score": "37.0",
+              "playlists_score": "44.0",
+              "time": "2022-06-28T05:37:25.207Z"
+          }
+        },
+        "002u": {
+          "comparison_history": "001u-002u",
+          "most_recent": {
+              "albums_score": "24.0",
+              "artists_score": "43.0",
+              "overall_score": "37.0",
+              "playlists_score": "44.0",
+              "time": "2022-06-28T05:37:25.207Z"
+          }
+        }
+      },
+      "followers": [
+        "000u",
+        "000u",
+        "000u",
+        "000u",
+        "000u",
+        "000u",
+        "000u"
+      ],
+      "following": [
+        "000u",
+        "000u",
+        "000u",
+        "000u",
+        "000u"
+      ],
+      "library_album_ordering": "recent",
+      "library_artist_ordering": "recent",
+      "library_playlist_ordering": "recent",
+      "num_followers": "7",
+      "num_following": "5",
+      "profile_description": "",
+      "profile_img": "/images/user-images/image2.webp",
+      "spotify_user_id": "001u-spotify-user-id",
+      "username": "Anslie"
+    },
+    "002u": {
+      "collab_playlists": [
+        "000cp"
+      ],
+      "comparisons": {
+        "000u": {
+          "comparison_history": "002u-000u",
+          "most_recent": {
+              "albums_score": "24.0",
+              "artists_score": "43.0",
+              "overall_score": "37.0",
+              "playlists_score": "44.0",
+              "time": "2022-06-28T05:37:25.207Z"
+          }
+        },
+        "001u": {
+          "comparison_history": "002u-001u",
+          "most_recent": {
+              "albums_score": "24.0",
+              "artists_score": "43.0",
+              "overall_score": "37.0",
+              "playlists_score": "44.0",
+              "time": "2022-06-28T05:37:25.207Z"
+          }
+        }
+      },
+      "followers": [
+        "000u",
+        "000u",
+        "000u"
+      ],
+      "following": [
+        "000u",
+        "000u",
+        "000u",
+        "000u",
+        "000u",
+        "000u",
+        "000u",
+        "000u"
+      ],
+      "library_album_ordering": "recent",
+      "library_artist_ordering": "recent",
+      "library_playlist_ordering": "recent",
+      "num_followers": "3",
+      "num_following": "8",
+      "profile_description": "Follow for the most rockinest bootsteppinest country!",
+      "profile_img": "/images/user-images/image3.webp",
+      "spotify_user_id": "001u-spotify-user-id",
+      "username": "Lillie"
+    },
+    "003u": {
+      "collab_playlists": [
+        "000cp"
+      ],
+      "comparisons": {
+        "000u": {
+          "comparison_history": "003u-000u",
+          "most_recent": {
+              "albums_score": "24.0",
+              "artists_score": "43.0",
+              "overall_score": "37.0",
+              "playlists_score": "44.0",
+              "time": "2022-06-28T05:37:25.207Z"
+          }
+        },
+        "001u": {
+          "comparison_history": "003u-001u",
+          "most_recent": {
+              "albums_score": "24.0",
+              "artists_score": "43.0",
+              "overall_score": "37.0",
+              "playlists_score": "44.0",
+              "time": "2022-06-28T05:37:25.207Z"
+          }
+        }
+      },
+      "followers": [
+        "000u",
+        "000u",
+        "000u",
+        "000u"
+      ],
+      "following": [
+        "000u",
+        "000u",
+        "000u",
+        "000u",
+        "000u"
+      ],
+      "library_album_ordering": "recent",
+      "library_artist_ordering": "recent",
+      "library_playlist_ordering": "recent",
+      "num_followers": "4",
+      "num_following": "5",
+      "profile_description": "",
+      "profile_img": "/images/user-images/image4.webp",
+      "spotify_user_id": "001u-spotify-user-id",
+      "username": "Bronson"
+    },
+    "004u": {
+      "collab_playlists": [
+        "000cp"
+      ],
+      "comparisons": {
+        "000u": {
+          "comparison_history": "004u-001u",
+          "most_recent": {
+              "albums_score": "24.0",
+              "artists_score": "43.0",
+              "overall_score": "37.0",
+              "playlists_score": "44.0",
+              "time": "2022-06-28T05:37:25.207Z"
+          }
+        },
+        "001u": {
+          "comparison_history": "004u-001u",
+          "most_recent": {
+              "albums_score": "24.0",
+              "artists_score": "43.0",
+              "overall_score": "37.0",
+              "playlists_score": "44.0",
+              "time": "2022-06-28T05:37:25.207Z"
+          }
+        }
+      },
+      "followers": [
+        "000u"
+      ],
+      "following": [
+        "000u",
+        "000u",
+        "000u"
+      ],
+      "library_album_ordering": "recent",
+      "library_artist_ordering": "recent",
+      "library_playlist_ordering": "recent",
+      "num_followers": "1",
+      "num_following": "3",
+      "profile_description": "",
+      "profile_img": "/images/user-images/image5.webp",
+      "spotify_user_id": "001u-spotify-user-id",
+      "username": "Tayte"
+    },
+    "005u": {
+      "collab_playlists": [
+        "000cp"
+      ],
+      "comparisons": {
+        "000u": {
+          "comparison_history": "005u-000u",
+          "most_recent": {
+              "albums_score": "24.0",
+              "artists_score": "43.0",
+              "overall_score": "37.0",
+              "playlists_score": "44.0",
+              "time": "2022-06-28T05:37:25.207Z"
+          }
+        },
+        "001u": {
+          "comparison_history": "005u-001u",
+          "most_recent": {
+              "albums_score": "24.0",
+              "artists_score": "43.0",
+              "overall_score": "37.0",
+              "playlists_score": "44.0",
+              "time": "2022-06-28T05:37:25.207Z"
+          }
+        }
+      },
+      "followers": [
+        "000u",
+        "000u",
+        "000u",
+        "000u",
+        "000u",
+        "000u",
+        "000u",
+        "000u",
+        "000u"
+      ],
+      "following": [
+        "000u",
+        "000u",
+        "000u",
+        "000u",
+        "000u",
+        "000u",
+        "000u"
+      ],
+      "library_album_ordering": "recent",
+      "library_artist_ordering": "recent",
+      "library_playlist_ordering": "recent",
+      "num_followers": "9",
+      "num_following": "7",
+      "profile_description": "",
+      "profile_img": "/images/user-images/image6.webp",
+      "spotify_user_id": "001u-spotify-user-id",
+      "username": "Paxton"
+    },
+    "006u": {
+      "collab_playlists": [
+        "000cp"
+      ],
+      "comparisons": {
+        "000u": {
+          "comparison_history": "006u-000u",
+          "most_recent": {
+              "albums_score": "24.0",
+              "artists_score": "43.0",
+              "overall_score": "37.0",
+              "playlists_score": "44.0",
+              "time": "2022-06-28T05:37:25.207Z"
+          }
+        },
+        "001u": {
+          "comparison_history": "006u-001u",
+          "most_recent": {
+              "albums_score": "24.0",
+              "artists_score": "43.0",
+              "overall_score": "37.0",
+              "playlists_score": "44.0",
+              "time": "2022-06-28T05:37:25.207Z"
+          }
+        }
+      },
+      "followers": [
+        "000u",
+        "000u",
+        "000u",
+        "000u",
+        "000u",
+        "000u",
+        "000u",
+        "000u"
+      ],
+      "following": [
+        "000u",
+        "000u"
+      ],
+      "library_album_ordering": "recent",
+      "library_artist_ordering": "recent",
+      "library_playlist_ordering": "recent",
+      "num_followers": "8",
+      "num_following": "2",
+      "profile_description": "",
+      "profile_img": "/images/user-images/image7.webp",
+      "spotify_user_id": "001u-spotify-user-id",
+      "username": "Ramzi"
+    },
+    "007u": {
+      "collab_playlists": [
+        "000cp"
+      ],
+      "comparisons": {
+        "000u": {
+          "comparison_history": "007u-000u",
+          "most_recent": {
+              "albums_score": "24.0",
+              "artists_score": "43.0",
+              "overall_score": "37.0",
+              "playlists_score": "44.0",
+              "time": "2022-06-28T05:37:25.207Z"
+          }
+        },
+        "001u": {
+          "comparison_history": "007u-001u",
+          "most_recent": {
+              "albums_score": "24.0",
+              "artists_score": "43.0",
+              "overall_score": "37.0",
+              "playlists_score": "44.0",
+              "time": "2022-06-28T05:37:25.207Z"
+          }
+        }
+      },
+      "followers": [
+        "000u",
+        "000u",
+        "000u",
+        "000u"
+      ],
+      "following": [
+        "000u",
+        "000u",
+        "000u",
+        "000u",
+        "000u",
+        "000u"
+      ],
+      "library_album_ordering": "recent",
+      "library_artist_ordering": "recent",
+      "library_playlist_ordering": "recent",
+      "num_followers": "4",
+      "num_following": "6",
+      "profile_description": "",
+      "profile_img": "/images/user-images/image8.webp",
+      "spotify_user_id": "001u-spotify-user-id",
+      "username": "Marilynn"
+    }
+  }
+}
