@@ -45,11 +45,15 @@ function Main(props) {
   const [modalContents, setModalContents] = useState(<span>Default</span>);
 
   // States for feature sections
+  // Playlist Select states
   const [compareArtistOrdering, setCompareArtistOrdering] = useState('Recent');
   const [compareAlbumOrdering, setCompareAlbumOrdering] = useState('Recent');
   const [comparePlaylistOrdering, setComparePlaylistOrdering] = useState('Recent');
   const [collabPlaylistOrdering, setCollabPlaylistOrdering] = useState('Recent');
   const [profilePlaylistOrdering, setProfilePlaylistOrdering] = useState('Recent');
+
+  // Profile follow state
+  const [isFollowingProfile, setIsFollowingProfile] = useState(true);
 
   let signInModalContents;
   let signUpModalContents;
@@ -193,6 +197,11 @@ function Main(props) {
   const profileArtistList = profilePlaylistOrdering === 'Recent'
     ? artistList
     : artistListReverse;
+
+  // Change number profile followers
+  const profileNumFollowers = (isFollowingProfile)
+    ? usersList.users['002u'].num_followers
+    : (Number(usersList.users['002u'].num_followers) - 1);
 
   return (
     <>
@@ -354,9 +363,15 @@ function Main(props) {
                 imageSrc={usersList.users['002u'].profile_img}
                 name={usersList.users['002u'].username}
                 infoText={usersList.users['002u'].profile_description}
-                numFollowers={usersList.users['002u'].num_followers}
+                numFollowers={profileNumFollowers}
                 numFollowing={usersList.users['002u'].num_following}
-                isFollowing
+                isFollowing={isFollowingProfile}
+                followButtonOnClick={() => {
+                  setIsFollowingProfile(true);
+                }}
+                unfollowButtonOnClick={() => {
+                  setIsFollowingProfile(false);
+                }}
               />
               <BasicPlaylist
                 playlistHeader={<h3>Artists</h3>}
