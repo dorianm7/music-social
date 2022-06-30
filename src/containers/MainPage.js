@@ -24,9 +24,14 @@ import {
 } from '../firebase/auth-firebase';
 
 import albumList from '../local_data/Users_Albums_0.json';
+import albumListReverse from '../local_data/Users_Albums_0_Reverse.json';
 import artistList from '../local_data/Users_Artists_0.json';
+import artistListReverse from '../local_data/Users_Artists_0_Reverse.json';
 import playlistList from '../local_data/Users_Playlists.json';
+import playlistListReverse from '../local_data/Users_Playlists_Reverse.json';
 import usersList from '../local_data/users.json';
+import playlist from '../local_data/Playlist_0.json';
+import playlistReverse from '../local_data/Playlist_0_Reverse.json';
 import { Icons } from '../Icons';
 
 function Main(props) {
@@ -38,6 +43,13 @@ function Main(props) {
   } = props;
   const [modalHeader, setModalHeader] = useState('modal');
   const [modalContents, setModalContents] = useState(<span>Default</span>);
+
+  // States for feature sections
+  const [compareArtistOrdering, setCompareArtistOrdering] = useState('Recent');
+  const [compareAlbumOrdering, setCompareAlbumOrdering] = useState('Recent');
+  const [comparePlaylistOrdering, setComparePlaylistOrdering] = useState('Recent');
+  const [collabPlaylistOrdering, setCollabPlaylistOrdering] = useState('Recent');
+  const [profilePlaylistOrdering, setProfilePlaylistOrdering] = useState('Recent');
 
   let signInModalContents;
   let signUpModalContents;
@@ -161,6 +173,27 @@ function Main(props) {
 
   const navButtonOnClick = userSignedIn ? openApp : navSignInClickHandler;
 
+  // Change order of playlists
+  const compareArtistList = compareArtistOrdering === 'Recent'
+    ? artistList
+    : artistListReverse;
+
+  const compareAlbumList = compareAlbumOrdering === 'Recent'
+    ? albumList
+    : albumListReverse;
+
+  const comparePlaylistList = comparePlaylistOrdering === 'Recent'
+    ? playlistList
+    : playlistListReverse;
+
+  const collabPlaylist = collabPlaylistOrdering === 'Recent'
+    ? playlist
+    : playlistReverse;
+
+  const profileArtistList = profilePlaylistOrdering === 'Recent'
+    ? artistList
+    : artistListReverse;
+
   return (
     <>
       <div
@@ -221,7 +254,10 @@ function Main(props) {
                       totalRunningTime={-1} // Default Value
                     />
                   )}
-                  playlist={artistList}
+                  playlist={compareArtistList}
+                  onSelectOptionClick={(option) => {
+                    setCompareArtistOrdering(option);
+                  }}
                 />
                 <BasicPlaylist
                   type="album"
@@ -233,7 +269,10 @@ function Main(props) {
                       totalRunningTime={-1} // Default Value
                     />
                   )}
-                  playlist={albumList}
+                  playlist={compareAlbumList}
+                  onSelectOptionClick={(option) => {
+                    setCompareAlbumOrdering(option);
+                  }}
                 />
                 <BasicPlaylist
                   type="playlist"
@@ -245,7 +284,10 @@ function Main(props) {
                       totalRunningTime={-1} // Default Value
                     />
                   )}
-                  playlist={playlistList}
+                  playlist={comparePlaylistList}
+                  onSelectOptionClick={(option) => {
+                    setComparePlaylistOrdering(option);
+                  }}
                 />
               </MusicLibrary>
             </div>
@@ -292,6 +334,10 @@ function Main(props) {
                   `${usersList.users['006u'].username}`,
                   `${usersList.users['007u'].username}`,
                 ]}
+                playlist={collabPlaylist}
+                onPlaylistSelectOptionClick={(option) => {
+                  setCollabPlaylistOrdering(option);
+                }}
               />
             </div>
           </section>
@@ -314,7 +360,12 @@ function Main(props) {
               />
               <BasicPlaylist
                 playlistHeader={<h3>Artists</h3>}
+                type="artist"
                 showSearch
+                playlist={profileArtistList}
+                onSelectOptionClick={(option) => {
+                  setProfilePlaylistOrdering(option);
+                }}
               />
             </div>
           </section>
