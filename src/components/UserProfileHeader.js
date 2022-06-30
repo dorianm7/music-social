@@ -15,6 +15,8 @@ function UserProfileHeader(props) {
     numFollowers,
     numFollowing,
     isFollowing,
+    followButtonOnClick,
+    unfollowButtonOnClick,
     reportOptionOnClick,
     shareOptionOnClick,
     checkCompatOnClick,
@@ -36,8 +38,10 @@ function UserProfileHeader(props) {
             toggle={isFollowing}
             initialClassName="not-following"
             initialIcon={PLUS_NAME}
+            initialOnClick={followButtonOnClick}
             subsequentClassName="following"
             subsequentIcon={CHECK_NAME}
+            subsequentOnClick={unfollowButtonOnClick}
             iconWidth="20px"
             iconHeight="20px"
           />
@@ -78,6 +82,8 @@ UserProfileHeader.propTypes = {
   numFollowers: PropTypes.string,
   numFollowing: PropTypes.string,
   isFollowing: PropTypes.bool,
+  followButtonOnClick: PropTypes.func,
+  unfollowButtonOnClick: PropTypes.func,
   reportOptionOnClick: PropTypes.func,
   shareOptionOnClick: PropTypes.func,
   checkCompatOnClick: PropTypes.func,
@@ -90,6 +96,8 @@ UserProfileHeader.defaultProps = {
   numFollowers: '2',
   numFollowing: '3',
   isFollowing: false,
+  followButtonOnClick: () => { window.alert('Follow Button Clicked'); },
+  unfollowButtonOnClick: () => { window.alert('Unfollow Button Clicked'); },
   reportOptionOnClick: () => { window.alert('Report Button Clicked'); },
   shareOptionOnClick: () => { window.alert('Share Button Clicked'); },
   checkCompatOnClick: () => { window.alert('Check Compatibility Button Clicked'); },
