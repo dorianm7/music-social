@@ -17,6 +17,7 @@ function CollaborativePlaylistPageContents(props) {
     playlistName,
     playlistRunningTime,
     playlist,
+    onPlaylistSelectOptionClick,
   } = props;
 
   const playlistHeader = (
@@ -40,6 +41,8 @@ function CollaborativePlaylistPageContents(props) {
         isCollaborative
         showSearch
         type="collaborative"
+        selectOptions={['Recent', 'Latest']}
+        onSelectOptionClick={onPlaylistSelectOptionClick}
         playlist={playlist}
       />
     </>
@@ -63,6 +66,7 @@ CollaborativePlaylistPageContents.propTypes = {
     previous: PropTypes.string,
     total: PropTypes.number,
   }),
+  onPlaylistSelectOptionClick: PropTypes.func,
 };
 
 CollaborativePlaylistPageContents.defaultProps = {
@@ -82,6 +86,7 @@ CollaborativePlaylistPageContents.defaultProps = {
   playlistName: 'Playlist Name',
   playlistRunningTime: -1,
   playlist: localPlaylist,
+  onPlaylistSelectOptionClick: (option) => { console.log(`${option} clicked`); },
 };
 
 export default CollaborativePlaylistPageContents;
