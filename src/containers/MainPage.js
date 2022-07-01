@@ -52,8 +52,9 @@ function Main(props) {
   const [collabPlaylistOrdering, setCollabPlaylistOrdering] = useState('Recent');
   const [profilePlaylistOrdering, setProfilePlaylistOrdering] = useState('Recent');
 
-  // Profile follow state
+  // Profile states
   const [isFollowingProfile, setIsFollowingProfile] = useState(true);
+  const [showProfileCompatibility, setShowProfileCompatibility] = useState(true);
 
   let signInModalContents;
   let signUpModalContents;
@@ -359,20 +360,46 @@ function Main(props) {
             </Tabs>
             <div className="follow-feature">
               <h2>Follow Users</h2>
-              <UserProfileHeader
-                imageSrc={usersList.users['002u'].profile_img}
-                name={usersList.users['002u'].username}
-                infoText={usersList.users['002u'].profile_description}
-                numFollowers={profileNumFollowers}
-                numFollowing={usersList.users['002u'].num_following}
-                isFollowing={isFollowingProfile}
-                followButtonOnClick={() => {
-                  setIsFollowingProfile(true);
-                }}
-                unfollowButtonOnClick={() => {
-                  setIsFollowingProfile(false);
-                }}
-              />
+              {!showProfileCompatibility && (
+                <UserProfileHeader
+                  imageSrc={usersList.users['002u'].profile_img}
+                  name={usersList.users['002u'].username}
+                  infoText={usersList.users['002u'].profile_description}
+                  numFollowers={profileNumFollowers}
+                  numFollowing={usersList.users['002u'].num_following}
+                  isFollowing={isFollowingProfile}
+                  followButtonOnClick={() => {
+                    setIsFollowingProfile(true);
+                  }}
+                  unfollowButtonOnClick={() => {
+                    setIsFollowingProfile(false);
+                  }}
+                  checkCompatOnClick={() => {
+                    setShowProfileCompatibility(true);
+                  }}
+                />
+              )}
+              {showProfileCompatibility && (
+                <>
+                  <BasicButton
+                    className="profile-back-button transparent-background"
+                    onClick={() => {
+                      setShowProfileCompatibility(false);
+                    }}
+                  >
+                    {Icons.BACK}
+                  </BasicButton>
+                  <Comparison
+                    firstUserImg={usersList.users['006u'].profile_img}
+                    firstUserName={usersList.users['006u'].username}
+                    secondUserImg={usersList.users['002u'].profile_img}
+                    secondUserName={usersList.users['002u'].username}
+                    albumPercent="20"
+                    artistPercent="40"
+                    playlistPercent="23"
+                  />
+                </>
+              )}
               <BasicPlaylist
                 playlistHeader={<h3>Artists</h3>}
                 type="artist"

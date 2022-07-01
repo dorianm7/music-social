@@ -100,6 +100,15 @@ section ul.tabs a {
   max-height: 300px;
 }
 
+.follow-feature .profile-back-button .icon {
+  height: 30px;
+  width: 30px;
+}
+
+.follow-feature .comparison {
+  padding-bottom: .5rem;
+}
+
 .app-conclusion > h2,
 .contact > h2 {
   margin-top: 0;
