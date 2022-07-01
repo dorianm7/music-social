@@ -12,20 +12,23 @@ function Modal(props) {
   } = props;
 
   return (
-    <div className="modal">
-      <IconButton
-        className="modal-close-btn top-right"
-        icon={X_NAME}
-        iconWidth="40px"
-        iconHeight="40px"
-        rounded="all"
-        onClick={closeHandler}
-      />
-      <h1 className="modal-heading">{heading}</h1>
-      <div className="modal-content">
-        {contents}
+    <>
+      <div className="modal-background" />
+      <div className="modal">
+        <IconButton
+          className="modal-close-btn top-right"
+          icon={X_NAME}
+          iconWidth="40px"
+          iconHeight="40px"
+          rounded="all"
+          onClick={closeHandler}
+        />
+        <h1 className="modal-heading">{heading}</h1>
+        <div className="modal-content">
+          {contents}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

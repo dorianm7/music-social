@@ -1,3 +1,13 @@
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,.6);
+  z-index: 14;
+}
+
 .modal {
   position: fixed;
   top: 50%;
@@ -5,7 +15,7 @@
   transform: translate(-50%, -50%);
   background: white;
   border-radius: 20px 20px 10px 10px;
-  z-index: 5;
+  z-index: 15;
 }
 
 .modal > .modal-close-btn {
