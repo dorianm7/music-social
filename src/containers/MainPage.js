@@ -54,7 +54,7 @@ function Main(props) {
 
   // Profile states
   const [isFollowingProfile, setIsFollowingProfile] = useState(true);
-  const [showProfileCompatibility, setShowProfileCompatibility] = useState(true);
+  const [showProfileCompatibility, setShowProfileCompatibility] = useState(false);
 
   let signInModalContents;
   let signUpModalContents;
