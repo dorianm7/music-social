@@ -204,6 +204,14 @@ function Main(props) {
     ? usersList.users['002u'].num_followers
     : (Number(usersList.users['002u'].num_followers) - 1);
 
+  const profileShareButtonOnClick = (text) => {
+    navigator.clipboard.writeText(text)
+      .then(() => {})
+      .catch(() => {
+        window.alert('Couldnt copy profile link');
+      });
+  };
+
   return (
     <>
       <div
@@ -373,6 +381,9 @@ function Main(props) {
                   }}
                   unfollowButtonOnClick={() => {
                     setIsFollowingProfile(false);
+                  }}
+                  shareOptionOnClick={() => {
+                    profileShareButtonOnClick(usersList.users['002u'].profile_url);
                   }}
                   checkCompatOnClick={() => {
                     setShowProfileCompatibility(true);

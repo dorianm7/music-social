@@ -49,6 +49,7 @@
       "num_following": "7",
       "profile_description": "",
       "profile_img": "/images/user-images/image1.webp",
+      "profile_url": "https://pretend-link.com/users/000u",
       "spotify_user_id": "000u-spotify-user-id",
       "username": "Linzy"
     },
@@ -101,6 +102,7 @@
       "num_following": "5",
       "profile_description": "",
       "profile_img": "/images/user-images/image2.webp",
+      "profile_url": "https://pretend-link.com/users/001u",
       "spotify_user_id": "001u-spotify-user-id",
       "username": "Anslie"
     },
@@ -152,6 +154,7 @@
       "num_following": "8",
       "profile_description": "Follow for the most rockinest bootsteppinest country!",
       "profile_img": "/images/user-images/image3.webp",
+      "profile_url": "https://pretend-link.com/users/002u",
       "spotify_user_id": "001u-spotify-user-id",
       "username": "Lillie"
     },
@@ -201,6 +204,7 @@
       "num_following": "5",
       "profile_description": "",
       "profile_img": "/images/user-images/image4.webp",
+      "profile_url": "https://pretend-link.com/users/003u",
       "spotify_user_id": "001u-spotify-user-id",
       "username": "Bronson"
     },
@@ -245,6 +249,7 @@
       "num_following": "3",
       "profile_description": "",
       "profile_img": "/images/user-images/image5.webp",
+      "profile_url": "https://pretend-link.com/users/004u",
       "spotify_user_id": "001u-spotify-user-id",
       "username": "Tayte"
     },
@@ -301,6 +306,7 @@
       "num_following": "7",
       "profile_description": "",
       "profile_img": "/images/user-images/image6.webp",
+      "profile_url": "https://pretend-link.com/users/005u",
       "spotify_user_id": "001u-spotify-user-id",
       "username": "Paxton"
     },
@@ -351,6 +357,7 @@
       "num_following": "2",
       "profile_description": "",
       "profile_img": "/images/user-images/image7.webp",
+      "profile_url": "https://pretend-link.com/users/006u",
       "spotify_user_id": "001u-spotify-user-id",
       "username": "Ramzi"
     },
@@ -401,6 +408,7 @@
       "num_following": "6",
       "profile_description": "",
       "profile_img": "/images/user-images/image8.webp",
+      "profile_url": "https://pretend-link.com/users/007u",
       "spotify_user_id": "001u-spotify-user-id",
       "username": "Marilynn"
     }
