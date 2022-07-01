@@ -157,15 +157,6 @@ button:enabled:hover {
   flex-direction: column;
 }
 
-/* Mouse / Cursor styling */
-.no-clicks {
-  pointer-events: none;
-}
-
-.unselectable {
-  user-select: none;
-}
-
 /* Component movement */
 .top-right {
   position: absolute;
