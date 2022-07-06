@@ -1,0 +1,38 @@
+.report-profile-form > fieldset {
+  margin-bottom: .5rem;
+}
+
+.report-profile-form > fieldset > legend {
+  white-space: pre;
+}
+
+.report-profile-form > fieldset > legend > span {
+  text-decoration: underline;
+  margin: 0 .3rem;
+}
+
+.report-profile-form > fieldset input[type="radio"] {
+  margin-right: .5rem;
+}
+
+.report-profile-form > fieldset textarea {
+  margin-top: .2rem;
+  width: 100%;
+  resize: none;
+  overflow-y: auto;
+}
+
+.report-profile-form > fieldset > label > .word-counter {
+  display: block;
+  font-size: .5rem;
+  text-align: end;
+}
+
+.report-profile-form .red {
+  color: red;
+}
+
+.report-profile-form > input[type="submit"] {
+  width: 40%;
+  margin: 0 auto;
+}
