@@ -15,6 +15,7 @@ import PlaylistHeader from '../components/PlaylistHeader';
 import SignInModalContents from '../components/modals/contents/SignInModalContents';
 import SignUpModalContents from '../components/modals/contents/SignUpModalContents';
 import ConfirmEmailModalContents from '../components/modals/contents/ConfirmEmailModalContents';
+import ReportProfileForm from '../components/forms/ReportProfileForm';
 import Tabs from '../components/subcomponents/Tabs';
 import UserProfileHeader from '../components/UserProfileHeader';
 
@@ -144,6 +145,16 @@ function Main(props) {
   const openSignUpOnClick = () => {
     setModalHeader('Sign Up');
     setModalContents(signUpModalContents);
+    toggleHandler();
+  };
+
+  const openReportProfileModal = (reportedUser) => {
+    setModalHeader('Report');
+    setModalContents((
+      <ReportProfileForm
+        reportedUsername={reportedUser}
+      />
+    ));
     toggleHandler();
   };
 
@@ -384,6 +395,9 @@ function Main(props) {
                   }}
                   shareOptionOnClick={() => {
                     profileShareButtonOnClick(usersList.users['002u'].profile_url);
+                  }}
+                  reportOptionOnClick={() => {
+                    openReportProfileModal(usersList.users['002u'].username);
                   }}
                   checkCompatOnClick={() => {
                     setShowProfileCompatibility(true);
