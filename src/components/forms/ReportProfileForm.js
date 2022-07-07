@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import '../../stylesheets/forms/ReportProfileForm.css';
 
+import PercentGauge from '../basic/PercentGauge';
+
 // onSubmit params:
 //  reportingUsername,
 //  reportUsername,
@@ -16,19 +18,26 @@ function ReportProfileForm(props) {
   } = props;
   const [showDescription, setShowDescription] = useState(false);
   const [descriptionCharCount, setDescriptionCharCount] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const maxDescriptionLength = 150;
   const wordCountClass = descriptionCharCount > 135 ? ' red' : '';
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsLoading(true);
     const data = new FormData(e.target);
     onSubmit(
       reportingUsername,
       reportedUsername,
       data.get('report-type'),
       data.get('report-description'),
-    );
+    )
+      .catch((err) => {
+        setIsLoading(false);
+        setError(err);
+      });
   };
 
   return (
@@ -97,10 +106,23 @@ function ReportProfileForm(props) {
           </label>
         )}
       </fieldset>
-      <input
-        type="submit"
-        value="Submit"
-      />
+      {!isLoading && (
+        <input
+          type="submit"
+          value="Submit"
+        />
+      )}
+      {isLoading && (
+        <PercentGauge
+          percentFilled={10}
+          size="1rem"
+        />
+      )}
+      {error && (
+        <span className="error-message center-text">
+          {error.message}
+        </span>
+      )}
     </form>
   );
 }

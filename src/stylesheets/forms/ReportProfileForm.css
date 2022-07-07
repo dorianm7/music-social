@@ -1,3 +1,7 @@
+.report-profile-form > .percent-gauge {
+  margin: 0 auto;
+}
+
 .report-profile-form > fieldset {
   margin-bottom: .5rem;
 }
@@ -35,4 +39,8 @@
 .report-profile-form > input[type="submit"] {
   width: 40%;
   margin: 0 auto;
+}
+
+.report-profile-form > .error-message {
+  font-size: .9rem;
 }
