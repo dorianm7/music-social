@@ -16,6 +16,7 @@ import SignInModalContents from '../components/modals/contents/SignInModalConten
 import SignUpModalContents from '../components/modals/contents/SignUpModalContents';
 import ConfirmEmailModalContents from '../components/modals/contents/ConfirmEmailModalContents';
 import ReportProfileForm from '../components/forms/ReportProfileForm';
+import AfterReportModalContents from '../components/modals/contents/AfterReportModalContents';
 import Tabs from '../components/subcomponents/Tabs';
 import UserProfileHeader from '../components/UserProfileHeader';
 
@@ -148,11 +149,18 @@ function Main(props) {
     toggleHandler();
   };
 
+  const openAfterReportModal = () => {
+    setModalContents((
+      <AfterReportModalContents />
+    ));
+  };
+
   const openReportProfileModal = (reportedUser) => {
     setModalHeader('Report');
     setModalContents((
       <ReportProfileForm
         reportedUsername={reportedUser}
+        onSubmit={() => openAfterReportModal()}
       />
     ));
     toggleHandler();
