@@ -76,6 +76,20 @@ function ExpandableButton(props) {
 
   const expandedOptionsRef = useRef(null);
 
+  const addCloseOnClick = (func) => (
+    () => {
+      func();
+      setIsOpen(false);
+    }
+  );
+
+  // Add options close functionality when option clicked
+  const optionsOnClicksCloseOptions = [];
+  for (let i = 0; i < optionsOnClicks.length; i += 1) {
+    const newOnClick = addCloseOnClick(optionsOnClicks[i]);
+    optionsOnClicksCloseOptions.push(newOnClick);
+  }
+
   useEffect(() => {
     if (expandedOptionsRef.current !== null && !hasOpened) {
       expandedOptionsRef.current.style.setProperty('--icon-width', iconWidth);
@@ -101,7 +115,7 @@ function ExpandableButton(props) {
         alignTitle={alignOptionsTitle}
         options={options}
         alignOptions={alignOptions}
-        optionsOnClicks={optionsOnClicks}
+        optionsOnClicks={optionsOnClicksCloseOptions}
         corner={getCorner(expand, direction)}
         ref={expandedOptionsRef}
       />
