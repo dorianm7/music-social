@@ -149,18 +149,20 @@ function Main(props) {
     toggleHandler();
   };
 
-  const openAfterReportModal = () => {
+  // TODO Add report submit functionality
+  const openAfterReportModal = () => new Promise((resolve) => {
     setModalContents((
       <AfterReportModalContents />
     ));
-  };
+    resolve();
+  });
 
   const openReportProfileModal = (reportedUser) => {
     setModalHeader('Report');
     setModalContents((
       <ReportProfileForm
         reportedUsername={reportedUser}
-        onSubmit={() => openAfterReportModal()}
+        onSubmit={openAfterReportModal}
       />
     ));
     toggleHandler();
