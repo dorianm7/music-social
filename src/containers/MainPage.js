@@ -267,9 +267,9 @@ function Main(props) {
               <h2>Compare Music Libraries</h2>
               <Comparison
                 firstUserImg={usersList.users['000u'].profile_img}
-                firstUserName={usersList.users['000u'].username}
+                firstUsername={usersList.users['000u'].username}
                 secondUserImg={usersList.users['001u'].profile_img}
-                secondUserName={usersList.users['001u'].username}
+                secondUsername={usersList.users['001u'].username}
                 artistPercent={usersList.users['000u'].comparisons['001u'].most_recent.artists_score}
                 albumPercent={usersList.users['000u'].comparisons['001u'].most_recent.albums_score}
                 playlistPercent={usersList.users['000u'].comparisons['001u'].most_recent.playlists_score}
@@ -345,7 +345,7 @@ function Main(props) {
                   usersList.users['006u'].profile_img,
                   usersList.users['007u'].profile_img,
                 ]}
-                userNames={[
+                usernames={[
                   `${usersList.users['000u'].username}`,
                   `${usersList.users['001u'].username}`,
                   `${usersList.users['002u'].username}`,
@@ -416,9 +416,9 @@ function Main(props) {
                   </BasicButton>
                   <Comparison
                     firstUserImg={usersList.users['006u'].profile_img}
-                    firstUserName={usersList.users['006u'].username}
+                    firstUsername={usersList.users['006u'].username}
                     secondUserImg={usersList.users['002u'].profile_img}
-                    secondUserName={usersList.users['002u'].username}
+                    secondUsername={usersList.users['002u'].username}
                     albumPercent="20"
                     artistPercent="40"
                     playlistPercent="23"
