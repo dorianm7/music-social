@@ -11,7 +11,7 @@ import PercentGauge from './basic/PercentGauge';
 function UserImages(props) {
   const {
     imgSrcs,
-    names,
+    usernames,
     userIds,
   } = props;
   const users = [];
@@ -22,9 +22,9 @@ function UserImages(props) {
           percentFilled="100"
           filledGaugeColor={stc(userIds[i])}
           imageSrc={imgSrcs[i]}
-          imageAlt={names[i]}
+          imageAlt={usernames[i]}
         />
-        <span>{names[i]}</span>
+        <span>{usernames[i]}</span>
       </li>,
     );
   }
@@ -40,14 +40,14 @@ function UserImages(props) {
 
 UserImages.propTypes = {
   imgSrcs: PropTypes.arrayOf(PropTypes.string),
-  names: PropTypes.arrayOf(PropTypes.string),
+  usernames: PropTypes.arrayOf(PropTypes.string),
   userIds: PropTypes.arrayOf(PropTypes.string),
 };
 
 UserImages.defaultProps = {
 
   imgSrcs: ['https://www.thispersondoesnotexist.com/image'],
-  names: ['Namey Nameo'],
+  usernames: ['Username'],
   userIds: ['userId'],
 };
 

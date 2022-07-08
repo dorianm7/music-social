@@ -9,7 +9,7 @@ function UserPreview(props) {
   const {
     imgSrc,
     imgAlt,
-    name,
+    username,
     numFollowers,
     numFollowing,
     isFollowing,
@@ -27,7 +27,7 @@ function UserPreview(props) {
         height="60px"
       />
       <div className="user-info">
-        <span className="user-name">{name}</span>
+        <span className="username">{username}</span>
         <span className="user-follow-info">
           {`${numFollowers} Followers, ${numFollowing} Following`}
         </span>
@@ -48,7 +48,7 @@ function UserPreview(props) {
 UserPreview.propTypes = {
   imgSrc: PropTypes.string,
   imgAlt: PropTypes.string,
-  name: PropTypes.string,
+  username: PropTypes.string,
   numFollowers: PropTypes.string,
   numFollowing: PropTypes.string,
   isFollowing: PropTypes.bool,
@@ -59,7 +59,7 @@ UserPreview.propTypes = {
 UserPreview.defaultProps = {
   imgSrc: defaultImg,
   imgAlt: 'Default Image',
-  name: 'Name L',
+  username: 'Username',
   numFollowers: '2',
   numFollowing: '3',
   isFollowing: false,

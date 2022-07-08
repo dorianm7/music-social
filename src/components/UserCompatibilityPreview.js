@@ -5,17 +5,17 @@ import PercentGauge from './basic/PercentGauge';
 import defaultImage from '../images/help-rhombus-outline.svg';
 
 function UserCompatibilityPreview(props) {
-  const { imageSrc, name, percentCompatible } = props;
+  const { imageSrc, username, percentCompatible } = props;
   return (
     <div className="user-compatibility-preview">
       <PercentGauge
         size="60px"
         percentFilled={percentCompatible}
         imageSrc={imageSrc}
-        imageAlt={`Picture of ${name}`}
+        imageAlt={`Picture of ${username}`}
       />
       <div className="user-info">
-        <span className="user-name">{name}</span>
+        <span className="username">{username}</span>
         <span className="user-compatibility">{`${percentCompatible}% Compatible`}</span>
       </div>
     </div>
@@ -24,13 +24,13 @@ function UserCompatibilityPreview(props) {
 
 UserCompatibilityPreview.propTypes = {
   imageSrc: PropTypes.string,
-  name: PropTypes.string,
+  username: PropTypes.string,
   percentCompatible: PropTypes.string,
 };
 
 UserCompatibilityPreview.defaultProps = {
   imageSrc: defaultImage,
-  name: 'Name L',
+  username: 'Username',
   percentCompatible: '40',
 };
 

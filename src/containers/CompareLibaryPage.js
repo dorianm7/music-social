@@ -11,9 +11,9 @@ import usersArtists from '../local_data/Users_Artists_0.json';
 function CompareLibraryPage(props) {
   const {
     firstUserImg,
-    firstUserName,
+    firstUsername,
     secondUserImg,
-    secondUserName,
+    secondUsername,
     artistPercent,
     albumPercent,
     songPercent,
@@ -34,9 +34,9 @@ function CompareLibraryPage(props) {
     >
       <CompareLibraryPageContents
         firstUserImg={firstUserImg}
-        firstUserName={firstUserName}
+        firstUsername={firstUsername}
         secondUserImg={secondUserImg}
-        secondUserName={secondUserName}
+        secondUsername={secondUsername}
         artistPercent={artistPercent}
         albumPercent={albumPercent}
         songPercent={songPercent}
@@ -50,9 +50,9 @@ function CompareLibraryPage(props) {
 
 CompareLibraryPage.propTypes = {
   firstUserImg: PropTypes.string,
-  firstUserName: PropTypes.string,
+  firstUsername: PropTypes.string,
   secondUserImg: PropTypes.string,
-  secondUserName: PropTypes.string,
+  secondUsername: PropTypes.string,
   artistPercent: PropTypes.string,
   albumPercent: PropTypes.string,
   songPercent: PropTypes.string,
@@ -94,9 +94,9 @@ CompareLibraryPage.propTypes = {
 
 CompareLibraryPage.defaultProps = {
   firstUserImg: 'https://www.thispersondoesnotexist.com/image',
-  firstUserName: 'User 1',
+  firstUsername: 'User1',
   secondUserImg: 'https://www.thispersondoesnotexist.com/image',
-  secondUserName: 'User 2',
+  secondUsername: 'User2',
   artistPercent: '50',
   albumPercent: '50',
   songPercent: '50',
