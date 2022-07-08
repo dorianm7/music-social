@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 
 import '../../../stylesheets/modal-contents/ConfirmEmailModalContents.css';
 
-import BasicButton from '../../basic/BasicButton';
-
 function ConfirmEmailModalContents(props) {
   const { moveToSignInOnClick } = props;
   return (
@@ -12,12 +10,13 @@ function ConfirmEmailModalContents(props) {
       <p className="confirm-text">
         Please confirm email to recieve updates and sign in to your account.
       </p>
-      <BasicButton
+      <button
+        type="button"
         className="anchor-like"
         onClick={moveToSignInOnClick}
       >
         Move to sign in
-      </BasicButton>
+      </button>
     </div>
   );
 }
