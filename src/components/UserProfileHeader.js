@@ -2,15 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../stylesheets/UserProfileHeader.css';
 import ToggleIconButton from './basic/ToggleIconButton';
-import ExpandableIconButton from './basic/ExpandableButton';
 import BasicButton from './basic/BasicButton';
+import UserProfileOptions from './UserProfileOptions';
 import defaultImg from '../images/help-rhombus-outline.svg';
-import { PLUS_NAME, CHECK_NAME, VERTICAL_DOTS_NAME } from '../Icons';
+import { PLUS_NAME, CHECK_NAME } from '../Icons';
 
 function UserProfileHeader(props) {
   const {
     imageSrc,
     name,
+    userLink,
     infoText,
     numFollowers,
     numFollowing,
@@ -45,24 +46,10 @@ function UserProfileHeader(props) {
             iconWidth="20px"
             iconHeight="20px"
           />
-          <ExpandableIconButton
-            initialIcon={VERTICAL_DOTS_NAME}
-            iconWidth="15px"
-            iconHeight="20px"
-            expand="right"
-            direction="up"
-            options={
-              [
-                'Report',
-                'Share',
-              ]
-            }
-            optionsOnClicks={
-              [
-                reportOptionOnClick,
-                shareOptionOnClick,
-              ]
-            }
+          <UserProfileOptions
+            userLink={userLink}
+            shareOptionOnClick={shareOptionOnClick}
+            reportOptionOnClick={reportOptionOnClick}
           />
         </div>
         <span className="user-info">{infoText}</span>
@@ -78,6 +65,7 @@ function UserProfileHeader(props) {
 UserProfileHeader.propTypes = {
   imageSrc: PropTypes.string,
   name: PropTypes.string,
+  userLink: PropTypes.string,
   infoText: PropTypes.string,
   numFollowers: PropTypes.string,
   numFollowing: PropTypes.string,
@@ -92,6 +80,7 @@ UserProfileHeader.propTypes = {
 UserProfileHeader.defaultProps = {
   imageSrc: defaultImg,
   name: 'Name L',
+  userLink: 'https://pretend-link.com/users/user',
   infoText: 'Here\'s some info the user would like to share.',
   numFollowers: '2',
   numFollowing: '3',
