@@ -23,6 +23,10 @@
   position: absolute;
 }
 
+.expandable-button > .expanded-options button:active {
+  filter: brightness(.9);
+}
+
 .expandable-button.expand-up > .expanded-options {
   bottom: 100%;
 }
