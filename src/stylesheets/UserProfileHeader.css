@@ -13,25 +13,25 @@
   margin-bottom: .2em;
 }
 
-.user-profile-header > .profile-main > .name-follow-option {
+.user-profile-header > .profile-main > .username-follow-option {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.user-profile-header > .profile-main > .name-follow-option > button.following {
+.user-profile-header > .profile-main > .username-follow-option > button.following {
   background-color: var(--Follow-Button-Color);
 }
 
-.user-profile-header > .profile-main > .name-follow-option > button.not-following {
+.user-profile-header > .profile-main > .username-follow-option > button.not-following {
   background-color: var(--Default-Button-Color);
 }
 
-.user-profile-header > .profile-main > .name-follow-option > .expandable-button {
+.user-profile-header > .profile-main > .username-follow-option > .expandable-button {
   margin-left: .2em;
 }
 
-.user-profile-header > .profile-main > .name-follow-option > .user-name {
+.user-profile-header > .profile-main > .username-follow-option > .username {
   font-size: 1.2em;
   margin-right: .4em;
 }

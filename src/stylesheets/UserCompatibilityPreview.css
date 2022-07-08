@@ -11,6 +11,6 @@
   display: block;
 }
 
-.user-compatibility-preview > .user-info > span.user-name {
+.user-compatibility-preview > .user-info > span.username {
   font-size: 1.25em;
 }

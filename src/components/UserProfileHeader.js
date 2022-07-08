@@ -10,7 +10,7 @@ import { PLUS_NAME, CHECK_NAME } from '../Icons';
 function UserProfileHeader(props) {
   const {
     imageSrc,
-    name,
+    username,
     userLink,
     infoText,
     numFollowers,
@@ -29,12 +29,12 @@ function UserProfileHeader(props) {
         <img
           className="user-picture"
           src={imageSrc}
-          alt={name}
+          alt={username}
           width="80px"
           height="80px"
         />
-        <div className="name-follow-option">
-          <span className="user-name">{name}</span>
+        <div className="username-follow-option">
+          <span className="username">{username}</span>
           <ToggleIconButton
             toggle={isFollowing}
             initialClassName="not-following"
@@ -64,7 +64,7 @@ function UserProfileHeader(props) {
 
 UserProfileHeader.propTypes = {
   imageSrc: PropTypes.string,
-  name: PropTypes.string,
+  username: PropTypes.string,
   userLink: PropTypes.string,
   infoText: PropTypes.string,
   numFollowers: PropTypes.string,
@@ -79,7 +79,7 @@ UserProfileHeader.propTypes = {
 
 UserProfileHeader.defaultProps = {
   imageSrc: defaultImg,
-  name: 'Name L',
+  username: 'Username',
   userLink: 'https://pretend-link.com/users/user',
   infoText: 'Here\'s some info the user would like to share.',
   numFollowers: '2',

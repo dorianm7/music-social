@@ -11,7 +11,7 @@ function CollaborativePlaylistPage(props) {
     notificationsOnClick,
     hasNotification,
     userImages,
-    userNames,
+    usernames,
     userIds,
     playlistName,
     playlist,
@@ -25,7 +25,7 @@ function CollaborativePlaylistPage(props) {
     >
       <CollaborativePlaylistPageContents
         userImages={userImages}
-        userNames={userNames}
+        usernames={usernames}
         userIds={userIds}
         playlistName={playlistName}
         playlist={playlist}
@@ -39,7 +39,7 @@ CollaborativePlaylistPage.propTypes = {
   notificationsOnClick: PropTypes.func,
   hasNotification: PropTypes.bool,
   userImages: PropTypes.arrayOf(PropTypes.string),
-  userNames: PropTypes.arrayOf(PropTypes.string),
+  usernames: PropTypes.arrayOf(PropTypes.string),
   userIds: PropTypes.arrayOf(PropTypes.string),
   playlistName: PropTypes.string,
   playlist: PropTypes.shape({
@@ -62,9 +62,9 @@ CollaborativePlaylistPage.defaultProps = {
     'https://www.thispersondoesnotexist.com/image',
     'https://www.thispersondoesnotexist.com/image',
   ],
-  userNames: [
-    'User 1',
-    'User 2',
+  usernames: [
+    'User1',
+    'User2',
   ],
   userIds: [
     'id0',

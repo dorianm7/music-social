@@ -16,9 +16,9 @@ import userPlaylists from '../../local_data/Users_Playlists.json';
 function CompareLibraryPageContents(props) {
   const {
     firstUserImg,
-    firstUserName,
+    firstUsername,
     secondUserImg,
-    secondUserName,
+    secondUsername,
     artistPercent,
     albumPercent,
     songPercent,
@@ -33,9 +33,9 @@ function CompareLibraryPageContents(props) {
     <>
       <Comparison
         firstUserImg={firstUserImg}
-        firstUserName={firstUserName}
+        firstUsername={firstUsername}
         secondUserImg={secondUserImg}
-        secondUserName={secondUserName}
+        secondUsername={secondUsername}
         artistPercent={artistPercent}
         albumPercent={albumPercent}
         songPercent={songPercent}
@@ -84,9 +84,9 @@ function CompareLibraryPageContents(props) {
 
 CompareLibraryPageContents.propTypes = {
   firstUserImg: PropTypes.string,
-  firstUserName: PropTypes.string,
+  firstUsername: PropTypes.string,
   secondUserImg: PropTypes.string,
-  secondUserName: PropTypes.string,
+  secondUsername: PropTypes.string,
   artistPercent: PropTypes.string,
   albumPercent: PropTypes.string,
   songPercent: PropTypes.string,
@@ -125,9 +125,9 @@ CompareLibraryPageContents.propTypes = {
 
 CompareLibraryPageContents.defaultProps = {
   firstUserImg: defaultImg,
-  firstUserName: 'User 1',
+  firstUsername: 'User 1',
   secondUserImg: defaultImg,
-  secondUserName: 'User 2',
+  secondUsername: 'User 2',
   artistPercent: '50',
   albumPercent: '50',
   songPercent: '50',

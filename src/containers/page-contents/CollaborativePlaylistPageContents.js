@@ -11,7 +11,7 @@ import PlaylistHeader from '../../components/PlaylistHeader';
 function CollaborativePlaylistPageContents(props) {
   const {
     userImages,
-    userNames,
+    usernames,
     userIds,
     playlistHeadingType,
     playlistName,
@@ -33,7 +33,7 @@ function CollaborativePlaylistPageContents(props) {
     <>
       <UserImages
         imgSrcs={userImages}
-        names={userNames}
+        usernames={usernames}
         userIds={userIds}
       />
       <BasicPlaylist
@@ -51,7 +51,7 @@ function CollaborativePlaylistPageContents(props) {
 
 CollaborativePlaylistPageContents.propTypes = {
   userImages: PropTypes.arrayOf(PropTypes.string),
-  userNames: PropTypes.arrayOf(PropTypes.string),
+  usernames: PropTypes.arrayOf(PropTypes.string),
   userIds: PropTypes.arrayOf(PropTypes.string),
   playlistHeadingType: PropTypes.string,
   playlistName: PropTypes.string,
@@ -74,9 +74,9 @@ CollaborativePlaylistPageContents.defaultProps = {
     'https://www.thispersondoesnotexist.com/image',
     'https://www.thispersondoesnotexist.com/image',
   ],
-  userNames: [
-    'User 1',
-    'User 2',
+  usernames: [
+    'User1',
+    'User2',
   ],
   userIds: [
     'id0',

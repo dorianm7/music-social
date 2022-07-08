@@ -8,9 +8,9 @@ import defaultImg from '../images/help-rhombus-outline.svg';
 
 function Comparison(props) {
   const {
-    firstUserName,
+    firstUsername,
     firstUserImg,
-    secondUserName,
+    secondUsername,
     secondUserImg,
     artistPercent,
     albumPercent,
@@ -24,20 +24,20 @@ function Comparison(props) {
         <div className="comparison-user center-column">
           <img
             src={firstUserImg}
-            alt={firstUserName}
+            alt={firstUsername}
             width={CIRCLE_SIZE}
             height={CIRCLE_SIZE}
           />
-          <span className="comparison-user-name">{firstUserName}</span>
+          <span className="comparison-username">{firstUsername}</span>
         </div>
         <div className="comparison-user center-column">
           <img
             src={secondUserImg}
-            alt={secondUserName}
+            alt={secondUsername}
             width={CIRCLE_SIZE}
             height={CIRCLE_SIZE}
           />
-          <span className="comparison-user-name">{secondUserName}</span>
+          <span className="comparison-username">{secondUsername}</span>
         </div>
       </div>
       <div className="comparison-summary space-evenly-row">
@@ -71,9 +71,9 @@ function Comparison(props) {
 }
 
 Comparison.propTypes = {
-  firstUserName: PropTypes.string,
+  firstUsername: PropTypes.string,
   firstUserImg: PropTypes.string,
-  secondUserName: PropTypes.string,
+  secondUsername: PropTypes.string,
   secondUserImg: PropTypes.string,
   artistPercent: PropTypes.string,
   albumPercent: PropTypes.string,
@@ -81,9 +81,9 @@ Comparison.propTypes = {
 };
 
 Comparison.defaultProps = {
-  firstUserName: 'User 1',
+  firstUsername: 'User1',
   firstUserImg: defaultImg,
-  secondUserName: 'User 2',
+  secondUsername: 'User2',
   secondUserImg: defaultImg,
   artistPercent: '50',
   albumPercent: '50',
