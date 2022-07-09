@@ -39,14 +39,17 @@ import { Icons } from '../Icons';
 
 function Main(props) {
   const {
+    // Modal Container HOC Props
     modalContainerClassName,
     modalOpen,
     toggleHandler,
-    userSignedIn,
+    // Toast Container HOC Props
     toastContainerClassName,
     toastVisible,
     toast,
     toastMessage,
+    // Regular Props
+    userSignedIn,
   } = props;
   const [modalHeader, setModalHeader] = useState('modal');
   const [modalContents, setModalContents] = useState(<span>Default</span>);
@@ -492,25 +495,28 @@ function Main(props) {
 }
 
 Main.propTypes = {
+  // Modal Container HOC Props
   modalContainerClassName: PropTypes.string,
   modalOpen: PropTypes.bool,
   toggleHandler: PropTypes.func,
-  userSignedIn: PropTypes.bool,
+  // Toast Container HOC Props
   toastContainerClassName: PropTypes.string,
   toastVisible: PropTypes.bool,
   toast: PropTypes.func,
   toastMessage: PropTypes.string,
+  // Regular Props
+  userSignedIn: PropTypes.bool,
 };
 
 Main.defaultProps = {
   modalContainerClassName: 'modal-container',
   modalOpen: false,
   toggleHandler: () => console.log('Modal toggled'),
-  userSignedIn: false,
   toastContainerClassName: 'toast-container',
   toastVisible: false,
   toast: () => console.log('Toast toasting'),
   toastMessage: 'Toast message',
+  userSignedIn: false,
 };
 
 export default Main;
