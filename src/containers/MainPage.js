@@ -19,6 +19,7 @@ import ReportProfileForm from '../components/forms/ReportProfileForm';
 import AfterReportModalContents from '../components/modals/contents/AfterReportModalContents';
 import Tabs from '../components/subcomponents/Tabs';
 import UserProfileHeader from '../components/UserProfileHeader';
+import Toast from '../components/Toast';
 
 import {
   createUser,
@@ -42,6 +43,10 @@ function Main(props) {
     modalOpen,
     toggleHandler,
     userSignedIn,
+    toastContainerClassName,
+    toastVisible,
+    toast,
+    toastMessage,
   } = props;
   const [modalHeader, setModalHeader] = useState('modal');
   const [modalContents, setModalContents] = useState(<span>Default</span>);
@@ -228,7 +233,7 @@ function Main(props) {
   return (
     <>
       <div
-        className={`main-page ${modalContainerClassName}`}
+        className={`main-page ${modalContainerClassName} ${toastContainerClassName}`}
       >
         <MainNav
           navText={APP_NAME}
@@ -395,7 +400,9 @@ function Main(props) {
                   unfollowButtonOnClick={() => {
                     setIsFollowingProfile(false);
                   }}
-                  shareOptionOnClick={() => {}}
+                  shareOptionOnClick={() => {
+                    toast('Link copied to clipboard', 4000);
+                  }}
                   reportOptionOnClick={() => {
                     openReportProfileModal(usersList.users['002u'].username);
                   }}
@@ -477,6 +484,9 @@ function Main(props) {
           closeHandler={toggleHandler}
         />
       )}
+      {toastVisible && (
+        <Toast message={toastMessage} />
+      )}
     </>
   );
 }
@@ -486,6 +496,10 @@ Main.propTypes = {
   modalOpen: PropTypes.bool,
   toggleHandler: PropTypes.func,
   userSignedIn: PropTypes.bool,
+  toastContainerClassName: PropTypes.string,
+  toastVisible: PropTypes.bool,
+  toast: PropTypes.func,
+  toastMessage: PropTypes.string,
 };
 
 Main.defaultProps = {
@@ -493,6 +507,10 @@ Main.defaultProps = {
   modalOpen: false,
   toggleHandler: () => console.log('Modal toggled'),
   userSignedIn: false,
+  toastContainerClassName: 'toast-container',
+  toastVisible: false,
+  toast: () => console.log('Toast toasting'),
+  toastMessage: 'Toast message',
 };
 
 export default Main;
