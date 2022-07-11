@@ -25,6 +25,7 @@ import UnderConstructionModalContents from '../components/modals/contents/UnderC
 import {
   createUser,
   emailPasswordSignIn,
+  googleSignIn,
 } from '../firebase/auth-firebase';
 
 import albumList from '../local_data/Users_Albums_0.json';
@@ -141,9 +142,24 @@ function Main(props) {
     }
   };
 
+  // TODO Move to App after sign in
+  const googleSignInHandler = () => {
+    const noop = () => {};
+    googleSignIn(
+      (user) => { // Success
+        noop(user);
+        moveToUnderConstruction();
+      },
+      (error) => { // Error
+        noop(error);
+      },
+    );
+  };
+
   signInModalContents = (
     <SignInModalContents
       formOnSubmit={signInHandler}
+      googleSignInOnClick={googleSignInHandler}
       signUpOnClick={() => moveToSignUp()}
     />
   );
