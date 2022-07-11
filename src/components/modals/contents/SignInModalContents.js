@@ -11,6 +11,7 @@ import '../../../stylesheets/modal-contents/SignInModalContents.css';
 function SignInModalContents(props) {
   const {
     formOnSubmit,
+    googleSignInOnClick,
     signUpOnClick,
   } = props;
 
@@ -21,9 +22,7 @@ function SignInModalContents(props) {
       />
       <hr />
       <BasicButton
-        onClick={() => {
-          window.alert('Google Button Clicked'); // TODO use Google SignIn function call
-        }}
+        onClick={googleSignInOnClick}
       >
         {renderIcon(GOOGLE_COLOR_ICON_NAME, '15px', '15px')}
         <span className="text">Google&nbsp;Sign&nbsp;In</span>
@@ -44,11 +43,13 @@ function SignInModalContents(props) {
 
 SignInModalContents.propTypes = {
   formOnSubmit: PropTypes.func,
+  googleSignInOnClick: PropTypes.func,
   signUpOnClick: PropTypes.func,
 };
 
 SignInModalContents.defaultProps = {
   formOnSubmit: () => { console.log('Submit success'); },
+  googleSignInOnClick: () => { console.log('Google sign in clicked'); },
   signUpOnClick: () => { console.log('Sign Up button clicked'); },
 };
 
