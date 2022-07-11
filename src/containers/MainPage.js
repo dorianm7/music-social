@@ -20,6 +20,7 @@ import AfterReportModalContents from '../components/modals/contents/AfterReportM
 import Tabs from '../components/subcomponents/Tabs';
 import UserProfileHeader from '../components/UserProfileHeader';
 import Toast from '../components/Toast';
+import UnderConstructionModalContents from '../components/modals/contents/UnderConstructionModalContents';
 
 import {
   createUser,
@@ -69,6 +70,7 @@ function Main(props) {
   let signInModalContents;
   let signUpModalContents;
   let confirmEmailModalContents;
+  let underConstructionModalContents;
 
   const moveToSignIn = () => {
     setModalHeader('Sign In');
@@ -83,6 +85,11 @@ function Main(props) {
   const moveToConfirmEmail = () => {
     setModalHeader('Confirm Email');
     setModalContents(confirmEmailModalContents);
+  };
+
+  const moveToUnderConstruction = () => {
+    setModalHeader('Under Construction');
+    setModalContents(underConstructionModalContents);
   };
 
   // TODO Show account created
@@ -120,7 +127,9 @@ function Main(props) {
       password,
       (user) => { //  Success
         // Move to App
-        console.log(user);
+        const noop = () => {};
+        noop(user);
+        moveToUnderConstruction();
       },
       (err) => { // Error
         error = err;
@@ -143,6 +152,10 @@ function Main(props) {
     <ConfirmEmailModalContents
       moveToSignInOnClick={moveToSignIn}
     />
+  );
+
+  underConstructionModalContents = (
+    <UnderConstructionModalContents />
   );
 
   const navSignInClickHandler = () => {
