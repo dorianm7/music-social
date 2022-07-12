@@ -207,9 +207,7 @@ function Main(props) {
   };
 
   // TODO Move to App
-  const openApp = () => {
-    window.alert('Open App onClick ');
-  };
+  const openApp = () => {};
 
   const APP_NAME = 'Music Social';
   const COMPARE_LIBRARIES_SECTION_ID = 'compare-libraries-section';
@@ -550,10 +548,10 @@ Main.propTypes = {
 Main.defaultProps = {
   modalContainerClassName: 'modal-container',
   modalOpen: false,
-  toggleHandler: () => console.log('Modal toggled'),
+  toggleHandler: () => {},
   toastContainerClassName: 'toast-container',
   toastVisible: false,
-  toast: () => console.log('Toast toasting'),
+  toast: () => {},
   toastMessage: 'Toast message',
   userSignedIn: false,
 };
