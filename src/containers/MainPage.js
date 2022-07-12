@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
+import { nanoid } from 'nanoid';
 
 import '../stylesheets/main-page.css';
 
@@ -216,13 +217,22 @@ function Main(props) {
   const FOLLOW_USERS_SECTION_ID = 'follow-users-section';
   const CONTACT_SECTION_ID = 'contact';
   const TAB_ITEMS = [
-    <a href={`#${COMPARE_LIBRARIES_SECTION_ID}`}>
+    <a
+      key={nanoid()}
+      href={`#${COMPARE_LIBRARIES_SECTION_ID}`}
+    >
       Compare Libraries
     </a>,
-    <a href={`#${COLLAB_PLAYLISTS_SECTION_ID}`}>
+    <a
+      key={nanoid()}
+      href={`#${COLLAB_PLAYLISTS_SECTION_ID}`}
+    >
       Collab Playlists
     </a>,
-    <a href={`#${FOLLOW_USERS_SECTION_ID}`}>
+    <a
+      key={nanoid()}
+      href={`#${FOLLOW_USERS_SECTION_ID}`}
+    >
       Follow Users
     </a>,
   ];
