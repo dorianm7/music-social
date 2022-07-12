@@ -16,7 +16,7 @@ function Comparison(props) {
     albumPercent,
     playlistPercent,
   } = props;
-  const CIRCLE_SIZE = '80px';
+  const CIRCLE_SIZE = '90px';
 
   return (
     <div className="comparison">
