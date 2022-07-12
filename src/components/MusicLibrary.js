@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { nanoid } from 'nanoid';
 
 import '../stylesheets/MusicLibrary.css';
 
@@ -20,6 +21,7 @@ function MusicLibrary(props) {
       updatedChildren.push(
         React.cloneElement(child, {
           searchVal: searchText,
+          key: nanoid(),
         }),
       );
     } else {
