@@ -74,6 +74,7 @@ function Main(props) {
   let confirmEmailModalContents;
   let underConstructionModalContents;
 
+  // Change modal functions
   const moveToSignIn = () => {
     setModalHeader('Sign In');
     setModalContents(signInModalContents);
@@ -94,33 +95,9 @@ function Main(props) {
     setModalContents(underConstructionModalContents);
   };
 
-  // TODO Show account created
-  const signUpHandler = async (email, password) => {
-    let error = null;
-    await createUser(
-      email,
-      password,
-      () => { // Success
-        // Show spinner while loading
-        moveToConfirmEmail();
-      },
-      (err) => { // Error
-        error = err;
-      },
-    );
+  // Modal form handlers
 
-    if (error) {
-      throw new Error(error);
-    }
-  };
-
-  signUpModalContents = (
-    <SignUpModalContents
-      formOnSubmit={signUpHandler}
-      signInOnClick={() => moveToSignIn()}
-    />
-  );
-
+  // Sign in form handlers
   // TODO Move to App after sign in
   const signInHandler = async (email, password) => {
     let error = null;
@@ -157,6 +134,33 @@ function Main(props) {
     );
   };
 
+  // Sign up Form Handler
+  const signUpHandler = async (email, password) => {
+    let error = null;
+    await createUser(
+      email,
+      password,
+      () => { // Success
+        moveToConfirmEmail();
+      },
+      (err) => { // Error
+        error = err;
+      },
+    );
+
+    if (error) {
+      throw new Error(error);
+    }
+  };
+
+  // Modal Contents
+  signUpModalContents = (
+    <SignUpModalContents
+      formOnSubmit={signUpHandler}
+      signInOnClick={() => moveToSignIn()}
+    />
+  );
+
   signInModalContents = (
     <SignInModalContents
       formOnSubmit={signInHandler}
@@ -175,6 +179,7 @@ function Main(props) {
     <UnderConstructionModalContents />
   );
 
+  // Component click handlers
   const navSignInClickHandler = () => {
     setModalHeader('Sign In');
     setModalContents(signInModalContents);
