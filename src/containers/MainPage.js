@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
 
-import '../stylesheets/main-page.css';
+import '../stylesheets/MainPage.css';
 
 import AfterReportModalContents from '../components/modals/contents/AfterReportModalContents';
 import BasicButton from '../components/basic/BasicButton';
@@ -40,7 +40,7 @@ import playlist from '../local_data/Playlist_0.json';
 import playlistReverse from '../local_data/Playlist_0_Reverse.json';
 import { Icons } from '../Icons';
 
-function Main(props) {
+function MainPage(props) {
   const {
     // Modal Container HOC Props
     modalContainerClassName,
@@ -536,7 +536,7 @@ function Main(props) {
   );
 }
 
-Main.propTypes = {
+MainPage.propTypes = {
   // Modal Container HOC Props
   modalContainerClassName: PropTypes.string,
   modalOpen: PropTypes.bool,
@@ -550,7 +550,7 @@ Main.propTypes = {
   userSignedIn: PropTypes.bool,
 };
 
-Main.defaultProps = {
+MainPage.defaultProps = {
   modalContainerClassName: 'modal-container',
   modalOpen: false,
   toggleHandler: () => {},
@@ -561,4 +561,4 @@ Main.defaultProps = {
   userSignedIn: false,
 };
 
-export default Main;
+export default MainPage;
