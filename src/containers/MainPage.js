@@ -4,24 +4,24 @@ import { nanoid } from 'nanoid';
 
 import '../stylesheets/main-page.css';
 
+import AfterReportModalContents from '../components/modals/contents/AfterReportModalContents';
 import BasicButton from '../components/basic/BasicButton';
 import BasicPlaylist from '../components/BasicPlaylist';
 import CollaborativePlaylistPageContent from './page-contents/CollaborativePlaylistPageContents';
 import Comparison from '../components/Comparison';
+import ConfirmEmailModalContents from '../components/modals/contents/ConfirmEmailModalContents';
 import Footer from '../components/Footer';
 import MainNav from '../components/MainNav';
 import Modal from '../components/modals/Modal';
 import MusicLibrary from '../components/MusicLibrary';
 import PlaylistHeader from '../components/PlaylistHeader';
+import ReportProfileForm from '../components/forms/ReportProfileForm';
 import SignInModalContents from '../components/modals/contents/SignInModalContents';
 import SignUpModalContents from '../components/modals/contents/SignUpModalContents';
-import ConfirmEmailModalContents from '../components/modals/contents/ConfirmEmailModalContents';
-import ReportProfileForm from '../components/forms/ReportProfileForm';
-import AfterReportModalContents from '../components/modals/contents/AfterReportModalContents';
 import Tabs from '../components/subcomponents/Tabs';
-import UserProfileHeader from '../components/UserProfileHeader';
 import Toast from '../components/Toast';
 import UnderConstructionModalContents from '../components/modals/contents/UnderConstructionModalContents';
+import UserProfileHeader from '../components/UserProfileHeader';
 
 import {
   createUser,
