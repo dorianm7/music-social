@@ -211,7 +211,7 @@ function Main(props) {
     window.alert('Open App onClick ');
   };
 
-  const APP_NAME = 'Music Comparison';
+  const APP_NAME = 'Music Social';
   const COMPARE_LIBRARIES_SECTION_ID = 'compare-libraries-section';
   const COLLAB_PLAYLISTS_SECTION_ID = 'collab-playlists-section';
   const FOLLOW_USERS_SECTION_ID = 'follow-users-section';
@@ -238,7 +238,7 @@ function Main(props) {
   ];
   const PLAYLISTS_HEADING_TYPE = 'h3';
   const APP_DESCRIPTION_P1 = 'Tired from the lack of social features on'
-    + ' the popular streaming platforms, Music Comparison was made for'
+    + ` the popular streaming platforms, ${APP_NAME} was made for`
     + ' making your music library a more social experience.';
   const APP_DESCRIPTION_P2 = 'Initially powered by Spotify, with plans to work with more streaming services'
     + ' in the future, use your account to compare your music'
