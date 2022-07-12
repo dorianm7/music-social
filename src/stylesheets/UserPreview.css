@@ -16,6 +16,11 @@
   display: block;
 }
 
+.user-preview > button {
+  width: 25px;
+  height: 25px;
+}
+
 .user-preview > button.following {
   background-color: var(--Follow-Button-Color);
 }
