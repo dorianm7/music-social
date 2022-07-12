@@ -62,6 +62,7 @@ function ReportProfileForm(props) {
             name="report-type"
             value="spam"
             onClick={() => setShowDescription(false)}
+            required
           />
           Spam
         </label>
@@ -71,6 +72,7 @@ function ReportProfileForm(props) {
             name="report-type"
             value="harassment"
             onClick={() => setShowDescription(false)}
+            required
           />
           Harassment
         </label>
@@ -80,6 +82,7 @@ function ReportProfileForm(props) {
             name="report-type"
             value="other"
             onClick={() => setShowDescription(true)}
+            required
           />
           Other
         </label>
