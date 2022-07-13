@@ -41,7 +41,7 @@ function CollaborativePlaylistPageContents(props) {
         isCollaborative
         showSearch
         type="collaborative"
-        selectOptions={['Recent', 'Latest']}
+        selectOptions={['Recent', 'Oldest']}
         onSelectOptionClick={onPlaylistSelectOptionClick}
         playlist={playlist}
       />
