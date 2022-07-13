@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import '../stylesheets/ListSearch.css';
+import './ListSearch.css';
 
 // onInputChange has a string parameter
 function ListSearch(props) {

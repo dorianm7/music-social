@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { nanoid } from 'nanoid';
 
-import '../../stylesheets/subcomponents/Tabs.css';
+import './Tabs.css';
 
 // children are preferably buttons or strings
 class Tabs extends React.Component {

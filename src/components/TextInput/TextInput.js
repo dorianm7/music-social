@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import InputRequirements from './subcomponents/InputRequirements';
-import '../stylesheets/TextInput.css';
+import InputRequirements from '../subcomponents/InputRequirements/InputRequirements';
+import './TextInput.css';
 
 function TextInput(props) {
   const [value, setValue] = useState('');

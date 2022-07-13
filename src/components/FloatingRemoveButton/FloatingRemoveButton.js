@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../stylesheets/FloatingRemoveButton.css';
-import { renderIcon, X_NAME } from '../Icons';
+import './FloatingRemoveButton.css';
+import { renderIcon, X_NAME } from '../../Icons';
 
 function FloatingRemoveButton(props) {
   const { onClick } = props;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../../../stylesheets/modal-contents/UnderConstructionModalContents.css';
+import './UnderConstructionModalContents.css';
 
 import { Icons } from '../../../Icons';
 

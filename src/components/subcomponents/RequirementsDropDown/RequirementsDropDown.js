@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
-import '../../stylesheets/subcomponents/RequirementsDropDown.css';
-import DropDown from '../DropDown';
-import { renderIcon, CHECK_NAME, X_NAME } from '../../Icons';
+import './RequirementsDropDown.css';
+import DropDown from '../../DropDown/DropDown';
+import { renderIcon, CHECK_NAME, X_NAME } from '../../../Icons';
 
 function renderRequirement(text, valid) {
   const validityClassName = valid ? 'valid' : 'invalid';

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import ToggleIconButton from '../basic/ToggleIconButton';
+import ToggleIconButton from '../../basic/ToggleIconButton/ToggleIconButton';
 import {
   CLOSED_EYE_NAME,
   OPEN_EYE_NAME,
-} from '../../Icons';
-import '../../stylesheets/forms/SignInForm.css';
+} from '../../../Icons';
+import './SignInForm.css';
 
 function SignInForm(props) {
   const {

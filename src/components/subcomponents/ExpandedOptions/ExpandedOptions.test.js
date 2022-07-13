@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
-import { ExpandedOptions } from '../../components/subcomponents/ExpandedOptions';
+import { ExpandedOptions } from './ExpandedOptions';
 
 let container = null;
 

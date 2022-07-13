@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../stylesheets/UserProfileHeader.css';
-import ToggleIconButton from './basic/ToggleIconButton';
-import BasicButton from './basic/BasicButton';
-import UserProfileOptions from './UserProfileOptions';
-import defaultImg from '../images/help-rhombus-outline.svg';
-import { PLUS_NAME, CHECK_NAME } from '../Icons';
+import './UserProfileHeader.css';
+import ToggleIconButton from '../basic/ToggleIconButton/ToggleIconButton';
+import BasicButton from '../basic/BasicButton/BasicButton';
+import UserProfileOptions from '../UserProfileOptions/UserProfileOptions';
+import defaultImg from '../../images/help-rhombus-outline.svg';
+import { PLUS_NAME, CHECK_NAME } from '../../Icons';
 
 function UserProfileHeader(props) {
   const {

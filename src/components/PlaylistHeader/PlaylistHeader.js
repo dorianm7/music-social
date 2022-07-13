@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import '../stylesheets/PlaylistHeader.css';
+import './PlaylistHeader.css';
 
 function renderHeadingElement(headingType, playlistName) {
   let res;

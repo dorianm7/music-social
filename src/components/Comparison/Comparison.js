@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import '../stylesheets/Comparison.css';
+import './Comparison.css';
 
-import PercentageGauge from './basic/PercentGauge';
-import defaultImg from '../images/help-rhombus-outline.svg';
+import PercentageGauge from '../basic/PercentGauge/PercentGauge';
+import defaultImg from '../../images/help-rhombus-outline.svg';
 
 function Comparison(props) {
   const {

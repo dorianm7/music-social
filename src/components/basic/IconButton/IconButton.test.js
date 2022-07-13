@@ -1,8 +1,8 @@
 import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
-import IconButton from '../../components/basic/IconButton';
-import menu from '../../images/menu.svg';
+import IconButton from './IconButton';
+import menu from '../../../images/menu.svg';
 
 let container = null;
 

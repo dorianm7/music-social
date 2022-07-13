@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {
   RequirementsDropDown,
   renderRequirement,
-} from './RequirementsDropDown';
+} from '../RequirementsDropDown/RequirementsDropDown';
 
 function InputRequirements(props) {
   const {

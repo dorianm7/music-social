@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import ExpandableButton from './basic/ExpandableButton';
+import ExpandableButton from '../basic/ExpandableButton/ExpandableButton';
 
-import { VERTICAL_DOTS_NAME } from '../Icons';
+import { VERTICAL_DOTS_NAME } from '../../Icons';
 
 function UserProfileOptions(props) {
   const {

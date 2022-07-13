@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import '../../stylesheets/page-contents/CompareLibraryPageContents.css';
+import './CompareLibraryPageContents.css';
 
-import Comparison from '../../components/Comparison';
-import MusicLibrary from '../../components/MusicLibrary';
-import BasicPlaylist from '../../components/BasicPlaylist';
-import PlaylistHeader from '../../components/PlaylistHeader';
+import Comparison from '../../../components/Comparison/Comparison';
+import MusicLibrary from '../../../components/MusicLibrary/MusicLibrary';
+import BasicPlaylist from '../../../components/BasicPlaylist/BasicPlaylist';
+import PlaylistHeader from '../../../components/PlaylistHeader/PlaylistHeader';
 
-import defaultImg from '../../images/help-rhombus-outline.svg';
-import artists from '../../local_data/Users_Artists_0.json';
-import albums from '../../local_data/Users_Albums_0.json';
-import userPlaylists from '../../local_data/Users_Playlists.json';
+import defaultImg from '../../../images/help-rhombus-outline.svg';
+import artists from '../../../local_data/Users_Artists_0.json';
+import albums from '../../../local_data/Users_Albums_0.json';
+import userPlaylists from '../../../local_data/Users_Playlists.json';
 
 function CompareLibraryPageContents(props) {
   const {

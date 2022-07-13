@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../../stylesheets/BasicButton.css';
+import './BasicButton.css';
 
 function BasicButton(props) {
   const {

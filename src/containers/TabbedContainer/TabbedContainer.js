@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Tabs from '../components/subcomponents/Tabs';
-import '../stylesheets/TabbedContainer.css';
+import Tabs from '../../components/subcomponents/Tabs/Tabs';
+import './TabbedContainer.css';
 
 class TabbedContainer extends React.Component {
   constructor(props) {

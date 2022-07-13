@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import '../../stylesheets/forms/ReportProfileForm.css';
+import './ReportProfileForm.css';
 
-import PercentGauge from '../basic/PercentGauge';
+import PercentGauge from '../../basic/PercentGauge/PercentGauge';
 
 // onSubmit params:
 //  reportingUsername,

@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import InAppPage from './InAppPage';
-import CompareLibraryPageContents from './page-contents/CompareLibraryPageContents';
+import InAppPage from '../InAppPage/InAppPage';
+import CompareLibraryPageContents from
+  '../page-contents/CompareLibraryPageContents/CompareLibraryPageContents';
 
-import usersPlaylists from '../local_data/Users_Playlists.json';
-import usersAlbums from '../local_data/Users_Albums_0.json';
-import usersArtists from '../local_data/Users_Artists_0.json';
+import usersPlaylists from '../../local_data/Users_Playlists.json';
+import usersAlbums from '../../local_data/Users_Albums_0.json';
+import usersArtists from '../../local_data/Users_Artists_0.json';
 
 function CompareLibraryPage(props) {
   const {

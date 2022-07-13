@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import '../../stylesheets/page-contents/CollaborativePlaylistPageContents.css';
+import './CollaborativePlaylistPageContents.css';
 
-import UserImages from '../../components/UserImages';
-import BasicPlaylist from '../../components/BasicPlaylist';
-import localPlaylist from '../../local_data/Playlist_0.json';
-import PlaylistHeader from '../../components/PlaylistHeader';
+import UserImages from '../../../components/UserImages/UserImages';
+import BasicPlaylist from '../../../components/BasicPlaylist/BasicPlaylist';
+import localPlaylist from '../../../local_data/Playlist_0.json';
+import PlaylistHeader from '../../../components/PlaylistHeader/PlaylistHeader';
 
 function CollaborativePlaylistPageContents(props) {
   const {

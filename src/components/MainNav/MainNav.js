@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../stylesheets/MainNav.css';
+import './MainNav.css';
 import { nanoid } from 'nanoid';
-import BasicButton from './basic/BasicButton';
+import BasicButton from '../basic/BasicButton/BasicButton';
 
 function MainNav(props) {
   const {

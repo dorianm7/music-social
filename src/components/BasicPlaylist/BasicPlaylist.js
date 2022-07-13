@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import '../stylesheets/BasicPlaylist.css';
+import './BasicPlaylist.css';
 
-import Select from './Select';
-import ListSearch from './ListSearch';
+import Select from '../Select/Select';
+import ListSearch from '../ListSearch/ListSearch';
 
 import {
   basicTrackPlaylistToListItems,
@@ -12,8 +12,8 @@ import {
   basicArtistPlaylistToListItems,
   basicAlbumPlaylistToListItems,
   basicPlaylistPlaylistToListItems,
-} from './utility/PlaylistUtilities';
-import localPlaylist from '../local_data/Playlist_0.json';
+} from '../utility/PlaylistUtilities';
+import localPlaylist from '../../local_data/Playlist_0.json';
 
 function BasicPlaylist(props) {
   const {

@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import '../../stylesheets/forms/SignUpForm.css';
-import TextInput from '../TextInput';
-import ToggleIconButton from '../basic/ToggleIconButton';
-import PercentGauge from '../basic/PercentGauge';
-import { OPEN_EYE_NAME, CLOSED_EYE_NAME } from '../../Icons';
+import './SignUpForm.css';
+import TextInput from '../../TextInput/TextInput';
+import ToggleIconButton from '../../basic/ToggleIconButton/ToggleIconButton';
+import PercentGauge from '../../basic/PercentGauge/PercentGauge';
+import { OPEN_EYE_NAME, CLOSED_EYE_NAME } from '../../../Icons';
 import {
   VALID_EMAIL_REGEXP,
   HAS_NUM_REGEXP,
   HAS_SPECIAL_CHAR_REGEXP,
-} from '../../RegExps';
+} from '../../../RegExps';
 
 function SignUpForm(props) {
   const {

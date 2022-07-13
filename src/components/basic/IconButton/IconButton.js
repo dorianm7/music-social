@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../../stylesheets/IconButton.css';
-import { renderIcon, DEFAULT_NAME } from '../../Icons';
-import BasicButton from './BasicButton';
+import './IconButton.css';
+import { renderIcon, DEFAULT_NAME } from '../../../Icons';
+import BasicButton from '../BasicButton/BasicButton';
 
 function validateRoundedProp(rounded) {
   if (rounded !== 'all'

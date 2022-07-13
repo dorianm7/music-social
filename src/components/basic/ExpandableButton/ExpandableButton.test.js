@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
-import ExpandableButton from '../../components/basic/ExpandableButton';
+import ExpandableButton from './ExpandableButton';
 
 let container = null;
 

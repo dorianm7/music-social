@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import '../stylesheets/MainHero.css';
+import './MainHero.css';
 
-import BasicButton from './basic/BasicButton';
+import BasicButton from '../basic/BasicButton/BasicButton';
 
 function MainHero(props) {
   const { tryButtonOnClick } = props;

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../stylesheets/SideMenuUserPreview.css';
-import defaultImg from '../images/help-rhombus-outline.svg';
+import './SideMenuUserPreview.css';
+import defaultImg from '../../images/help-rhombus-outline.svg';
 
 function SideMenuUserPreview(props) {
   const {

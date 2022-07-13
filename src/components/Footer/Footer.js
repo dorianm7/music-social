@@ -1,9 +1,9 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
 
-import '../stylesheets/Footer.css';
+import './Footer.css';
 
-import { Icons } from '../Icons';
+import { Icons } from '../../Icons';
 
 function Footer() {
   return (

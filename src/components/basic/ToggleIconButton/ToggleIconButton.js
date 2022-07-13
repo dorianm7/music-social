@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import IconButton from './IconButton';
-import { VERTICAL_DOTS_NAME, X_NAME } from '../../Icons';
+import IconButton from '../IconButton/IconButton';
+import { VERTICAL_DOTS_NAME, X_NAME } from '../../../Icons';
 
 function ToggleIconButton(props) {
   const {

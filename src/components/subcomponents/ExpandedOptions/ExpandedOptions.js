@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../../stylesheets/subcomponents/ExpandedOptions.css';
+import './ExpandedOptions.css';
 
 import { nanoid } from 'nanoid';
 
-import { spaceToNbsp } from '../../utility/StringUtilities';
+import { spaceToNbsp } from '../../../utility/StringUtilities';
 
 const DEFAULT_CLASSNAME = '';
 const DEFAULT_TITLE = 'Title';

@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 
-import '../stylesheets/MusicLibrary.css';
+import './MusicLibrary.css';
 
-import BasicPlaylist from './BasicPlaylist';
-import ListSearch from './ListSearch';
+import BasicPlaylist from '../BasicPlaylist/BasicPlaylist';
+import ListSearch from '../ListSearch/ListSearch';
 
 // Music Library should hold more than one Basic Playlist
 function MusicLibrary(props) {

@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../stylesheets/UserImages.css';
+import './UserImages.css';
 
 import { nanoid } from 'nanoid';
 import stc from 'string-to-color';
 
-import PercentGauge from './basic/PercentGauge';
+import PercentGauge from '../basic/PercentGauge/PercentGauge';
 
 // Assumes all props are same length
 function UserImages(props) {

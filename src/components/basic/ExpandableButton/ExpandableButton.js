@@ -5,11 +5,11 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 
-import '../../stylesheets/ExpandableButton.css';
+import './ExpandableButton.css';
 
-import IconButton from './IconButton';
-import { RefExpandedOptions } from '../subcomponents/ExpandedOptions';
-import { DEFAULT_NAME, X_NAME } from '../../Icons';
+import IconButton from '../IconButton/IconButton';
+import { RefExpandedOptions } from '../../subcomponents/ExpandedOptions/ExpandedOptions';
+import { DEFAULT_NAME, X_NAME } from '../../../Icons';
 
 const DEFAULT_ONCLICK = () => console.log('Default onClick');
 

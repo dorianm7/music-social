@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../stylesheets/UserCompatibilityPreview.css';
-import PercentGauge from './basic/PercentGauge';
-import defaultImage from '../images/help-rhombus-outline.svg';
+import './UserCompatibilityPreview.css';
+import PercentGauge from '../basic/PercentGauge/PercentGauge';
+import defaultImage from '../../images/help-rhombus-outline.svg';
 
 function UserCompatibilityPreview(props) {
   const { imageSrc, username, percentCompatible } = props;

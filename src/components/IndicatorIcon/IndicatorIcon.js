@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import IconButton from './basic/IconButton';
-import { EXCLAMATION_NAME } from '../Icons';
+import IconButton from '../basic/IconButton/IconButton';
+import { EXCLAMATION_NAME } from '../../Icons';
 
 const defaultIconAlt = 'Default Indicator Icon';
 const defaultIconWidth = '20px';

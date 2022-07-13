@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import '../stylesheets/InAppPage.css';
+import './InAppPage.css';
 
-import AppNav from '../components/AppNav';
-import Footer from '../components/Footer';
+import AppNav from '../../components/AppNav/AppNav';
+import Footer from '../../components/Footer/Footer';
 
 function InAppPage(props) {
   const {

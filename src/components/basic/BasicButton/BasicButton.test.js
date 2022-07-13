@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
-import BasicButton from '../../components/basic/BasicButton';
+import BasicButton from './BasicButton';
 
 let container = null;
 

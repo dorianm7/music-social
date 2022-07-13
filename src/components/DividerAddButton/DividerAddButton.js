@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../stylesheets/DividerAddButton.css';
-import IconButton from './basic/IconButton';
-import { PLUS_NAME } from '../Icons';
+import './DividerAddButton.css';
+import IconButton from '../basic/IconButton/IconButton';
+import { PLUS_NAME } from '../../Icons';
 
 function DividerAddButton(props) {
   const { onClick } = props;

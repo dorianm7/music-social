@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Modal from './Modal';
-import SignUpModalContents from './contents/SignUpModalContents';
+import Modal from '../Modal/Modal';
+import SignUpModalContents from '../../modal-contents/SignUpModalContents/SignUpModalContents';
 
 function SignUpModal(props) {
   const {

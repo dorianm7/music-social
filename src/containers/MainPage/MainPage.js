@@ -2,43 +2,51 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
 
-import '../stylesheets/MainPage.css';
+import './MainPage.css';
 
-import AfterReportModalContents from '../components/modals/contents/AfterReportModalContents';
-import BasicButton from '../components/basic/BasicButton';
-import BasicPlaylist from '../components/BasicPlaylist';
-import CollaborativePlaylistPageContent from './page-contents/CollaborativePlaylistPageContents';
-import Comparison from '../components/Comparison';
-import ConfirmEmailModalContents from '../components/modals/contents/ConfirmEmailModalContents';
-import Footer from '../components/Footer';
-import MainNav from '../components/MainNav';
-import Modal from '../components/modals/Modal';
-import MusicLibrary from '../components/MusicLibrary';
-import PlaylistHeader from '../components/PlaylistHeader';
-import ReportProfileForm from '../components/forms/ReportProfileForm';
-import SignInModalContents from '../components/modals/contents/SignInModalContents';
-import SignUpModalContents from '../components/modals/contents/SignUpModalContents';
-import Tabs from '../components/subcomponents/Tabs';
-import Toast from '../components/Toast';
-import UnderConstructionModalContents from '../components/modals/contents/UnderConstructionModalContents';
-import UserProfileHeader from '../components/UserProfileHeader';
+import AfterReportModalContents from
+  '../../components/modal-contents/AfterReportModalContents/AfterReportModalContents';
+import BasicButton from '../../components/basic/BasicButton/BasicButton';
+import BasicPlaylist from '../../components/BasicPlaylist/BasicPlaylist';
+import CollaborativePlaylistPageContent from
+  '../page-contents/CollaborativePlaylistPageContents/CollaborativePlaylistPageContents';
+import Comparison from '../../components/Comparison/Comparison';
+import ConfirmEmailModalContents from
+  '../../components/modal-contents/ConfirmEmailModalContents/ConfirmEmailModalContents';
+import Footer from '../../components/Footer/Footer';
+import MainNav from '../../components/MainNav/MainNav';
+import Modal from '../../components/modals/Modal/Modal';
+import MusicLibrary from '../../components/MusicLibrary/MusicLibrary';
+import PlaylistHeader from '../../components/PlaylistHeader/PlaylistHeader';
+import ReportProfileForm from
+  '../../components/forms/ReportProfileForm/ReportProfileForm';
+import SignInModalContents from
+  '../../components/modal-contents/SignInModalContents/SignInModalContents';
+import SignUpModalContents from
+  '../../components/modal-contents/SignUpModalContents/SignUpModalContents';
+import Tabs from '../../components/subcomponents/Tabs/Tabs';
+import Toast from '../../components/Toast/Toast';
+import UnderConstructionModalContents from
+  '../../components/modal-contents/UnderConstructionModalContents/UnderConstructionModalContents';
+import UserProfileHeader
+  from '../../components/UserProfileHeader/UserProfileHeader';
 
 import {
   createUser,
   emailPasswordSignIn,
   googleSignIn,
-} from '../firebase/auth-firebase';
+} from '../../firebase/auth-firebase';
 
-import albumList from '../local_data/Users_Albums_0.json';
-import albumListReverse from '../local_data/Users_Albums_0_Reverse.json';
-import artistList from '../local_data/Users_Artists_0.json';
-import artistListReverse from '../local_data/Users_Artists_0_Reverse.json';
-import playlistList from '../local_data/Users_Playlists.json';
-import playlistListReverse from '../local_data/Users_Playlists_Reverse.json';
-import usersList from '../local_data/users.json';
-import playlist from '../local_data/Playlist_0.json';
-import playlistReverse from '../local_data/Playlist_0_Reverse.json';
-import { Icons } from '../Icons';
+import albumList from '../../local_data/Users_Albums_0.json';
+import albumListReverse from '../../local_data/Users_Albums_0_Reverse.json';
+import artistList from '../../local_data/Users_Artists_0.json';
+import artistListReverse from '../../local_data/Users_Artists_0_Reverse.json';
+import playlistList from '../../local_data/Users_Playlists.json';
+import playlistListReverse from '../../local_data/Users_Playlists_Reverse.json';
+import usersList from '../../local_data/users.json';
+import playlist from '../../local_data/Playlist_0.json';
+import playlistReverse from '../../local_data/Playlist_0_Reverse.json';
+import { Icons } from '../../Icons';
 
 function MainPage(props) {
   const {

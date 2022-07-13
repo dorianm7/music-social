@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import '../../../stylesheets/modal-contents/ConfirmEmailModalContents.css';
+import './ConfirmEmailModalContents.css';
 
 function ConfirmEmailModalContents(props) {
   const { moveToSignInOnClick } = props;

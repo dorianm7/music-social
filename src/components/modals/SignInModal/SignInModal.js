@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Modal from './Modal';
-import SignInModalContents from './contents/SignInModalContents';
+import Modal from '../Modal/Modal';
+import SignInModalContents from '../../modal-contents/SignInModalContents/SignInModalContents';
 
 function SignInModal(props) {
   const {

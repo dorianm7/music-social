@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../../../stylesheets/modal-contents/AfterReportModalContents.css';
+import './AfterReportModalContents.css';
 
 function AfterReportModalContents() {
   return (

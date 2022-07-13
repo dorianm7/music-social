@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import IconButton from './basic/IconButton';
-import IndicatorIcon from './IndicatorIcon';
-import '../stylesheets/AppNav.css';
-import { HAMBURGER_MENU_NAME, EXCLAMATION_NAME } from '../Icons';
+import IconButton from '../basic/IconButton/IconButton';
+import IndicatorIcon from '../IndicatorIcon/IndicatorIcon';
+import './AppNav.css';
+import { HAMBURGER_MENU_NAME, EXCLAMATION_NAME } from '../../Icons';
 
 function AppNav(props) {
   const {
