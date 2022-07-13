@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { nanoid } from 'nanoid';
 
 import './MusicLibrary.css';
 
@@ -16,12 +15,12 @@ function MusicLibrary(props) {
   const [searchText, setSearchText] = useState('');
 
   const updatedChildren = [];
-  children.forEach((child) => {
+  children.forEach((child, index) => {
     if (child.type.name === 'BasicPlaylist') {
       updatedChildren.push(
         React.cloneElement(child, {
           searchVal: searchText,
-          key: nanoid(),
+          key: index,
         }),
       );
     } else {
