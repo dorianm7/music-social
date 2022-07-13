@@ -22,7 +22,14 @@ function MusicItem(props) {
           style={{ backgroundColor: labelColor }}
         />
       )}
-      <img className="picture" src={imgSrc} alt={imgAlt} width="60px" height="60px" />
+      <img
+        className="picture"
+        src={imgSrc}
+        alt={imgAlt}
+        width="60px"
+        height="60px"
+        loading="lazy"
+      />
       <div className="info">
         {type !== 'artist' && (
           <span

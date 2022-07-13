@@ -19,6 +19,7 @@ function SideMenuUserPreview(props) {
         alt={`${username}`}
         width="60px"
         height="60px"
+        loading="lazy"
       />
       <span className="username">{username}</span>
       <span className="follower-info">{`${followers} Followers, ${following} Following`}</span>

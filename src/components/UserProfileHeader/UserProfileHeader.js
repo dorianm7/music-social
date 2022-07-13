@@ -32,6 +32,7 @@ function UserProfileHeader(props) {
           alt={username}
           width="80px"
           height="80px"
+          loading="lazy"
         />
         <div className="username-follow-option">
           <span className="username">{username}</span>

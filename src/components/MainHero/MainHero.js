@@ -13,6 +13,7 @@ function MainHero(props) {
       <img
         src="https://newyork-dailynews.com/wp-content/uploads/2017/10/Night-Clubs-in-New-York-City-1024x552.jpg"
         alt="Night club dance floor"
+        loading="lazy"
       />
       <h1>AppName</h1>
       <p>

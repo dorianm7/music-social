@@ -300,6 +300,7 @@ function MainPage(props) {
             src="https://newyork-dailynews.com/wp-content/uploads/2017/10/Night-Clubs-in-New-York-City-1024x552.jpg"
             alt="Night club dance floor"
             className="hero-image"
+            loading="lazy"
           />
           <h1>{APP_NAME}</h1>
           <p className="intro">

@@ -25,6 +25,7 @@ function UserPreview(props) {
         alt={imgAlt}
         width="60px"
         height="60px"
+        loading="lazy"
       />
       <div className="user-info">
         <span className="username">{username}</span>

@@ -27,6 +27,7 @@ function Comparison(props) {
             alt={firstUsername}
             width={CIRCLE_SIZE}
             height={CIRCLE_SIZE}
+            loading="lazy"
           />
           <span className="comparison-username">{firstUsername}</span>
         </div>
@@ -36,6 +37,7 @@ function Comparison(props) {
             alt={secondUsername}
             width={CIRCLE_SIZE}
             height={CIRCLE_SIZE}
+            loading="lazy"
           />
           <span className="comparison-username">{secondUsername}</span>
         </div>
