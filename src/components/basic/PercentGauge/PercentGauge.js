@@ -21,7 +21,7 @@ function renderContents(text, textColor, textFontSize, imgSrc, imgAlt) {
   );
 
   const imgContent = imgSrc === 'none' ? <></> : (
-    <img src={imgSrc} alt={imgAlt} />
+    <img src={imgSrc} alt={imgAlt} height="100%" width="100%" />
   );
 
   return (
