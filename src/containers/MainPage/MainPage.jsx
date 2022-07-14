@@ -11,8 +11,8 @@ import BasicPlaylist from '../../components/BasicPlaylist/BasicPlaylist';
 import CollaborativePlaylistPageContent from
   '../page-contents/CollaborativePlaylistPageContents/CollaborativePlaylistPageContents';
 import Comparison from '../../components/Comparison/Comparison';
-import ConfirmEmailModalContents from
-  '../../components/modal-contents/ConfirmEmailModalContents/ConfirmEmailModalContents';
+// import ConfirmEmailModalContents from
+//   '../../components/modal-contents/ConfirmEmailModalContents/ConfirmEmailModalContents';
 import Footer from '../../components/Footer/Footer';
 import MainNav from '../../components/MainNav/MainNav';
 import Modal from '../../components/modals/Modal/Modal';
@@ -79,7 +79,7 @@ function MainPage(props) {
 
   let signInModalContents;
   let signUpModalContents;
-  let confirmEmailModalContents;
+  // let confirmEmailModalContents;
   let underConstructionModalContents;
 
   // Change modal functions
@@ -93,10 +93,10 @@ function MainPage(props) {
     setModalContents(signUpModalContents);
   };
 
-  const moveToConfirmEmail = () => {
-    setModalHeader('Confirm Email');
-    setModalContents(confirmEmailModalContents);
-  };
+  // const moveToConfirmEmail = () => {
+  //   setModalHeader('Confirm Email');
+  //   setModalContents(confirmEmailModalContents);
+  // };
 
   const moveToUnderConstruction = () => {
     setModalHeader('Under Construction');
@@ -149,7 +149,8 @@ function MainPage(props) {
       email,
       password,
       () => { // Success
-        moveToConfirmEmail();
+        // moveToConfirmEmail();
+        moveToUnderConstruction();
       },
       (err) => { // Error
         error = err;
@@ -177,11 +178,11 @@ function MainPage(props) {
     />
   );
 
-  confirmEmailModalContents = (
-    <ConfirmEmailModalContents
-      moveToSignInOnClick={moveToSignIn}
-    />
-  );
+  // confirmEmailModalContents = (
+  //   <ConfirmEmailModalContents
+  //     moveToSignInOnClick={moveToSignIn}
+  //   />
+  // );
 
   underConstructionModalContents = (
     <UnderConstructionModalContents />
