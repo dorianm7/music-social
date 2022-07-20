@@ -2,7 +2,7 @@
 /** @type {import('@jest/types').Config.InitialOptions} */
 const config = {
   verbose: true,
-  setupFiles: ['<rootDir>/jest-setup.js'],
+  setupFiles: ['<rootDir>/src/jest/jest-setup.js'],
 };
 
 module.exports = {
