@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import CompareLibraryPage from './CompareLibaryPage';
 
 it('renders', () => {
-  render(<App />);
+  render(<CompareLibraryPage />);
 
   expect(screen.getByRole('heading', { level: 1 })).not.toBeNull();
 });

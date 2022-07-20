@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import Tabs from './Tabs';
 
 it('renders', () => {
-  render(<App />);
+  render(<Tabs />);
 
-  expect(screen.getByRole('heading', { level: 1 })).not.toBeNull();
+  expect(screen.getByRole('list')).not.toBeNull();
 });

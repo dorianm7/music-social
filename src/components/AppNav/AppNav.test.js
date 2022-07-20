@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import AppNav from './AppNav';
 
 it('renders', () => {
-  render(<App />);
+  render(<AppNav />);
 
-  expect(screen.getByRole('heading', { level: 1 })).not.toBeNull();
+  expect(screen.getByRole('navigation')).not.toBeNull();
 });

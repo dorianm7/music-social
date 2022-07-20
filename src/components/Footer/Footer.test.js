@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import Footer from './Footer';
 
 it('renders', () => {
-  render(<App />);
+  render(<Footer />);
 
-  expect(screen.getByRole('heading', { level: 1 })).not.toBeNull();
+  expect(screen.getByText('Music Social')).not.toBeNull();
 });

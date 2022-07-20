@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import Modal from './Modal';
 
 it('renders', () => {
-  render(<App />);
+  render(<Modal />);
 
-  expect(screen.getByRole('heading', { level: 1 })).not.toBeNull();
+  expect(screen.getByRole('heading')).not.toBeNull();
 });

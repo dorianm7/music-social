@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import Toast from './Toast';
 
 it('renders', () => {
-  render(<App />);
+  render(<Toast />);
 
-  expect(screen.getByRole('heading', { level: 1 })).not.toBeNull();
+  expect(screen.getByText('Toast message')).not.toBeNull();
 });

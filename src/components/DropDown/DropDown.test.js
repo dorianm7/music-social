@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import DropDown from './DropDown';
 
 it('renders', () => {
-  render(<App />);
+  render(<DropDown />);
 
-  expect(screen.getByRole('heading', { level: 1 })).not.toBeNull();
+  expect(screen.getByRole('button')).not.toBeNull();
 });

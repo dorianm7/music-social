@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import BasicButton from './BasicButton';
+import FloatingRemoveButton from './FloatingRemoveButton';
 
 it('renders', () => {
-  render(<BasicButton />);
+  render(<FloatingRemoveButton />);
 
   expect(screen.getByRole('button')).not.toBeNull();
 });

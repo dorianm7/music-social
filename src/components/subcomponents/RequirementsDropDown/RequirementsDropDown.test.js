@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import BasicButton from './BasicButton';
+import { RequirementsDropDown } from './RequirementsDropDown';
 
 it('renders', () => {
-  render(<BasicButton />);
+  render(<RequirementsDropDown />);
 
   expect(screen.getByRole('button')).not.toBeNull();
 });

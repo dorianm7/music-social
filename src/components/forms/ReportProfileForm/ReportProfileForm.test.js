@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import ExpandableButton from './ExpandableButton';
+import ReportProfileForm from './ReportProfileForm';
 
 it('renders', () => {
-  render(<ExpandableButton />);
+  render(<ReportProfileForm />);
 
   expect(screen.getAllByRole('button')).not.toBeNull();
 });

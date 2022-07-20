@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import BasicButton from './BasicButton';
+import ConfirmEmailModalContents from './ConfirmEmailModalContents';
 
 it('renders', () => {
-  render(<BasicButton />);
+  render(<ConfirmEmailModalContents />);
 
   expect(screen.getByRole('button')).not.toBeNull();
 });

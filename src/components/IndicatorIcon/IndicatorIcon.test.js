@@ -1,34 +1,9 @@
 import React from 'react';
-import { render, unmountComponentAtNode } from 'react-dom';
-import { act } from 'react-dom/test-utils';
+import { render, screen } from '@testing-library/react';
 import IndicatorIcon from './IndicatorIcon';
 
-let container = null;
+it('renders', () => {
+  render(<IndicatorIcon />);
 
-beforeEach(() => {
-  container = document.createElement('div');
-  document.body.appendChild(container);
-});
-
-afterEach(() => {
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
-});
-
-it('renders indicator', () => {
-  act(() => {
-    render(
-      <>
-        <IndicatorIcon />
-        <IndicatorIcon on />
-      </>,
-      container,
-    );
-  });
-
-  const icons = container.querySelectorAll('.indicator-icon');
-
-  expect(icons[0].querySelector('.indicator')).toBeNull();
-  expect(icons[1].querySelector('.indicator')).not.toBeNull();
+  expect(screen.getByRole('button')).not.toBeNull();
 });
