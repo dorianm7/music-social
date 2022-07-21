@@ -15,7 +15,7 @@ function MusicItem(props) {
   } = props;
 
   return (
-    <div className={`music-item ${type}`}>
+    <li className={`music-item ${type}`}>
       {labelColor !== 'none' && (
         <div
           className="label"
@@ -45,7 +45,7 @@ function MusicItem(props) {
         </span>
       </div>
       {rightComponent !== 'none' && rightComponent}
-    </div>
+    </li>
   );
 }
 
