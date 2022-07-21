@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { nanoid } from 'nanoid';
+
 import Tabs from '../../components/subcomponents/Tabs/Tabs';
 import './TabbedContainer.css';
 
@@ -37,6 +39,7 @@ class TabbedContainer extends React.Component {
         <button
           type="button"
           onClick={this.tabsClickHandler}
+          key={nanoid()}
         >
           {title}
         </button>
