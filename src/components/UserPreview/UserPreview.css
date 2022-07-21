@@ -1,30 +1,30 @@
-.user-preview {
+li.user-preview {
   display: flex;
   align-items: center;
 }
 
-.user-preview > .user-picture {
+li.user-preview > .user-picture {
   border-radius: 50%;
 }
 
-.user-preview > .user-info {
+li.user-preview > .user-info {
   margin-right: auto;
   margin-left: 1em;
 }
 
-.user-preview > .user-info > span {
+li.user-preview > .user-info > span {
   display: block;
 }
 
-.user-preview > button {
+li.user-preview > button {
   width: 25px;
   height: 25px;
 }
 
-.user-preview > button.following {
+li.user-preview > button.following {
   background-color: var(--Follow-Button-Color);
 }
 
-.user-preview > button.not-following {
+li.user-preview > button.not-following {
   background-color: var(--Default-Button-Color);
 }

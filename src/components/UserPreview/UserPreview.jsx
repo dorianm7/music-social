@@ -18,7 +18,7 @@ function UserPreview(props) {
   } = props;
 
   return (
-    <div className="user-preview">
+    <li className="user-preview">
       <img
         className="user-picture"
         src={imgSrc}
@@ -42,7 +42,7 @@ function UserPreview(props) {
         subsequentIcon={CHECK_NAME}
         subsequentOnClick={unfollowButtonOnClick}
       />
-    </div>
+    </li>
   );
 }
 
