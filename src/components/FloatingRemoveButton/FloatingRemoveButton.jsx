@@ -22,7 +22,7 @@ FloatingRemoveButton.propTypes = {
 };
 
 FloatingRemoveButton.defaultProps = {
-  onClick: () => window.alert('Floating Remove Button Clicked'),
+  onClick: () => {},
 };
 
 export default FloatingRemoveButton;

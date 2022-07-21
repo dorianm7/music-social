@@ -56,7 +56,7 @@ MainNav.defaultProps = {
   featuresHref: '#',
   contactHref: '#',
   userSignedIn: false,
-  buttonOnClick: () => { window.alert('Button Clicked'); },
+  buttonOnClick: () => {},
 };
 
 export default MainNav;

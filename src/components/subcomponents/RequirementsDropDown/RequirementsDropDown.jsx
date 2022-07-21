@@ -78,7 +78,7 @@ RequirementsDropDown.propTypes = {
 RequirementsDropDown.defaultProps = {
   open: false,
   hasOpened: false,
-  onTitleBarClick: () => window.alert('Requirements Title Bar Clicked'),
+  onTitleBarClick: () => {},
   requirementTexts: ['Requirement 1', 'Requirement 2'],
   requirementValidities: [false, true],
 };

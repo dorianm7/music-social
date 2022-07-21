@@ -37,7 +37,7 @@ BasicButton.defaultProps = {
   className: '',
   children: <span>Children</span>,
   hasOutline: false,
-  onClick: (e) => { window.alert(`'${e.target.innerText}' button clicked`); },
+  onClick: (e) => e,
 };
 
 export default BasicButton;

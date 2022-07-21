@@ -74,7 +74,7 @@ Select.propTypes = {
 
 Select.defaultProps = {
   options: ['One', 'Two', 'Three'],
-  optionOnClick: () => { window.alert('Option clicked'); },
+  optionOnClick: () => {},
 };
 
 export default Select;

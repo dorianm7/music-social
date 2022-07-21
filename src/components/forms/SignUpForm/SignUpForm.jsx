@@ -177,7 +177,7 @@ SignUpForm.propTypes = {
 };
 
 SignUpForm.defaultProps = {
-  onSubmit: () => { window.alert('Successfully submitted'); },
+  onSubmit: () => {},
 };
 
 export default SignUpForm;

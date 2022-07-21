@@ -48,10 +48,10 @@ AppNav.propTypes = {
 
 AppNav.defaultProps = {
   menuButtonSize: '20px',
-  menuButtonOnClick: () => { window.alert('Nav Menu Button Clicked'); },
+  menuButtonOnClick: () => {},
   navText: 'Nav Text',
   notificationsButtonSize: '20px',
-  notificationsButtonOnClick: () => { window.alert('Nav Notifications Button Clicked'); },
+  notificationsButtonOnClick: () => {},
   notificationsIndicatorOn: false,
 };
 

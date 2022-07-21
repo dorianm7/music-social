@@ -86,7 +86,7 @@ CollaborativePlaylistPageContents.defaultProps = {
   playlistName: 'Playlist Name',
   playlistRunningTime: -1,
   playlist: localPlaylist,
-  onPlaylistSelectOptionClick: (option) => { console.log(`${option} clicked`); },
+  onPlaylistSelectOptionClick: (option) => option,
 };
 
 export default CollaborativePlaylistPageContents;

@@ -139,7 +139,7 @@ ReportProfileForm.propTypes = {
 ReportProfileForm.defaultProps = {
   reportingUsername: 'Reporting User',
   reportedUsername: 'Reported User',
-  onSubmit: () => { window.alert('Submit clicked'); },
+  onSubmit: () => {},
 };
 
 export default ReportProfileForm;

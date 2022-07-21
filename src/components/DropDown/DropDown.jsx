@@ -52,7 +52,7 @@ DropDown.defaultProps = {
   title: 'Drop Down',
   titleBarIconName: 'none',
   titleBarIconClassName: '',
-  onTitleBarClick: () => { window.alert('Title Bar Clicked'); },
+  onTitleBarClick: () => {},
   showTitleBarIcon: false,
   open: false,
   content: 'Content',

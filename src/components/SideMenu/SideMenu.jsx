@@ -83,8 +83,8 @@ SideMenu.propTypes = {
 };
 
 SideMenu.defaultProps = {
-  viewProfileOnClick: () => { window.alert('View Profile Clicked'); },
-  signOutOnClick: () => { window.alert('Sign Out Clicked'); },
+  viewProfileOnClick: () => {},
+  signOutOnClick: () => {},
 };
 
 export default SideMenu;

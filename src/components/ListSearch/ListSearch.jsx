@@ -24,7 +24,7 @@ ListSearch.propTypes = {
 };
 
 ListSearch.defaultProps = {
-  onInputChange: (value) => console.log(`Input change: ${value}`),
+  onInputChange: (value) => value,
 };
 
 export default ListSearch;

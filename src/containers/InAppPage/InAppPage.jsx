@@ -44,8 +44,8 @@ InAppPage.propTypes = {
 };
 
 InAppPage.defaultProps = {
-  sideMenuOnClick: () => { window.alert('Side menu button clicked'); },
-  notificationsOnClick: () => { window.alert('Notifications button clicked'); },
+  sideMenuOnClick: () => {},
+  notificationsOnClick: () => {},
   hasNotification: false,
   pageTitle: 'In-app Page',
   children: <>Children</>,

@@ -48,9 +48,9 @@ SignInModalContents.propTypes = {
 };
 
 SignInModalContents.defaultProps = {
-  formOnSubmit: () => { console.log('Submit success'); },
-  googleSignInOnClick: () => { console.log('Google sign in clicked'); },
-  signUpOnClick: () => { console.log('Sign Up button clicked'); },
+  formOnSubmit: () => {},
+  googleSignInOnClick: () => {},
+  signUpOnClick: () => {},
 };
 
 export default SignInModalContents;

@@ -11,7 +11,7 @@ const DEFAULT_TITLE = 'Title';
 const DEFAULT_ALIGN_TITLE = 'center';
 const DEFAULT_OPTIONS = ['Default Option 1'];
 const DEFAULT_ALIGN_OPTIONS = 'center';
-const DEFAULT_OPTIONS_ONCLICKS = [() => console.log('Default onClick')];
+const DEFAULT_OPTIONS_ONCLICKS = [() => {}];
 const DEFAULT_CORNER = 'top-left';
 
 function createListElements(

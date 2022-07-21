@@ -60,7 +60,7 @@ IconButton.defaultProps = {
   rounded: 'none',
   transparentBackground: false,
   hasOutline: false,
-  onClick: () => { window.alert('Button clicked'); },
+  onClick: () => {},
 };
 
 export default IconButton;

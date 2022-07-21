@@ -32,8 +32,8 @@ SignUpModalContents.propTypes = {
 };
 
 SignUpModalContents.defaultProps = {
-  formOnSubmit: () => { window.alert('Modal contents submit'); },
-  signInOnClick: () => { window.alert('Move to sign in clicked'); },
+  formOnSubmit: () => {},
+  signInOnClick: () => {},
 };
 
 export default SignUpModalContents;

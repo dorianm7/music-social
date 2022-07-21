@@ -86,7 +86,7 @@ SignInForm.propTypes = {
 };
 
 SignInForm.defaultProps = {
-  onSubmit: () => { window.alert('Successfully submitted'); },
+  onSubmit: () => {},
 };
 
 export default SignInForm;

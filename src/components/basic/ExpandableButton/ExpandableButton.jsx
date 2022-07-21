@@ -11,8 +11,6 @@ import IconButton from '../IconButton/IconButton';
 import { RefExpandedOptions } from '../../subcomponents/ExpandedOptions/ExpandedOptions';
 import { DEFAULT_NAME, X_NAME } from '../../../Icons';
 
-const DEFAULT_ONCLICK = () => console.log('Default onClick');
-
 function getIconRoundedProp(expand) {
   let rounded;
   switch (expand) {
@@ -150,7 +148,7 @@ ExpandableButton.defaultProps = {
   alignOptionsTitle: 'center',
   options: ['Default Option'],
   alignOptions: 'center',
-  optionsOnClicks: [DEFAULT_ONCLICK],
+  optionsOnClicks: [() => {}],
 };
 
 export default ExpandableButton;

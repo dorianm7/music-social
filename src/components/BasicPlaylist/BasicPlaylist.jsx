@@ -148,7 +148,7 @@ BasicPlaylist.defaultProps = {
   type: 'track',
   playlistHeader: 'Playlist',
   selectOptions: ['Recent', 'Oldest'],
-  onSelectOptionClick: (option) => { console.log(`${option} clicked`); },
+  onSelectOptionClick: (option) => option,
   searchVal: '',
   onSearchStringChange: () => {},
   showSearch: false,

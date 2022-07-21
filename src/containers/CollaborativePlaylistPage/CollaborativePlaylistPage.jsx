@@ -56,8 +56,8 @@ CollaborativePlaylistPage.propTypes = {
 };
 
 CollaborativePlaylistPage.defaultProps = {
-  sideMenuOnClick: () => { window.alert('Side Menu button clicked'); },
-  notificationsOnClick: () => { window.alert('Notifications button clicked'); },
+  sideMenuOnClick: () => {},
+  notificationsOnClick: () => {},
   hasNotification: false,
   userImages: [
     'https://www.thispersondoesnotexist.com/image',

@@ -93,7 +93,7 @@ TextInput.defaultProps = {
   name: '',
   requirementTexts: ['Requirement 1', 'Requirement 2'],
   requirementValidities: [true, false],
-  onChange: () => { window.alert('Input onChanged'); },
+  onChange: () => {},
   pattern: null,
   minLength: null,
   maxLength: null,

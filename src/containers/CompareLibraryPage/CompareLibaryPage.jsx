@@ -104,8 +104,8 @@ CompareLibraryPage.defaultProps = {
   artistList: usersArtists,
   albumList: usersAlbums,
   playlistList: usersPlaylists,
-  sideMenuOnClick: () => { window.alert('Side Menu button clicked'); },
-  notificationsOnClick: () => { window.alert('Notifications button clicked'); },
+  sideMenuOnClick: () => {},
+  notificationsOnClick: () => {},
   hasNotification: false,
 };
 

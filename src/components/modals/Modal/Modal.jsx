@@ -47,7 +47,7 @@ Modal.defaultProps = {
       Here is some text
     </>
   ),
-  closeHandler: () => console.log('Close button clicked'),
+  closeHandler: () => {},
 };
 
 export default Modal;

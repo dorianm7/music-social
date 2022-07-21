@@ -3,10 +3,8 @@ import PropTypes from 'prop-types';
 import IconButton from '../basic/IconButton/IconButton';
 import { EXCLAMATION_NAME } from '../../Icons';
 
-const defaultIconAlt = 'Default Indicator Icon';
 const defaultIconWidth = '20px';
 const defaultIconHeight = '20px';
-const defaultOnClick = () => { window.alert(`${defaultIconAlt} clicked!`); };
 
 function renderIconButton(icon, iconWidth, iconHeight, rounded, onClick) {
   return (
@@ -92,7 +90,7 @@ IndicatorIcon.defaultProps = {
   iconWidth: defaultIconWidth,
   iconHeight: defaultIconHeight,
   rounded: 'all',
-  onClick: defaultOnClick,
+  onClick: () => {},
   on: false,
 };
 

@@ -26,7 +26,7 @@ ConfirmEmailModalContents.propTypes = {
 };
 
 ConfirmEmailModalContents.defaultProps = {
-  moveToSignInOnClick: () => { window.alert('Move to sign up clicked'); },
+  moveToSignInOnClick: () => {},
 };
 
 export default ConfirmEmailModalContents;

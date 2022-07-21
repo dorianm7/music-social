@@ -24,7 +24,7 @@ DividerAddButton.propTypes = {
 };
 
 DividerAddButton.defaultProps = {
-  onClick: () => { window.alert('Divider Add Button Clicked'); },
+  onClick: () => {},
 };
 
 export default DividerAddButton;

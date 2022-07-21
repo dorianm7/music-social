@@ -28,8 +28,8 @@ SignUpModal.propTypes = {
 };
 
 SignUpModal.defaultProps = {
-  onClose: () => { window.alert('Close handled'); },
-  formOnSubmit: () => { window.alert('Modal form submitted'); },
+  onClose: () => {},
+  formOnSubmit: () => {},
 };
 
 export default SignUpModal;

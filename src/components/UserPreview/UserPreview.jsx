@@ -64,8 +64,8 @@ UserPreview.defaultProps = {
   numFollowers: '2',
   numFollowing: '3',
   isFollowing: false,
-  followButtonOnClick: () => { window.alert('Follow Button Clicked'); },
-  unfollowButtonOnClick: () => { window.alert('Unfollow Button Clicked'); },
+  followButtonOnClick: () => {},
+  unfollowButtonOnClick: () => {},
 };
 
 export default UserPreview;

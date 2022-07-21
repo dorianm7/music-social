@@ -58,7 +58,7 @@ InputRequirements.defaultProps = {
   requirementTexts: ['Requirement 1', 'Requirement 2'],
   requirementValidities: [false, true],
   showRequirements: false,
-  onTitleBarClick: () => { window.alert('Input Requirements Title Bar Clicked'); },
+  onTitleBarClick: () => {},
 };
 
 export default InputRequirements;

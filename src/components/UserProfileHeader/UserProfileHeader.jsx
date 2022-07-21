@@ -86,11 +86,11 @@ UserProfileHeader.defaultProps = {
   numFollowers: '2',
   numFollowing: '3',
   isFollowing: false,
-  followButtonOnClick: () => { window.alert('Follow Button Clicked'); },
-  unfollowButtonOnClick: () => { window.alert('Unfollow Button Clicked'); },
-  reportOptionOnClick: () => { window.alert('Report Button Clicked'); },
-  shareOptionOnClick: () => { window.alert('Share Button Clicked'); },
-  checkCompatOnClick: () => { window.alert('Check Compatibility Button Clicked'); },
+  followButtonOnClick: () => {},
+  unfollowButtonOnClick: () => {},
+  reportOptionOnClick: () => {},
+  shareOptionOnClick: () => {},
+  checkCompatOnClick: () => {},
 };
 
 export default UserProfileHeader;
