@@ -217,6 +217,7 @@ function MainPage(props) {
   const openApp = () => {};
 
   const APP_NAME = 'Music Social';
+  const TOP_ID = 'top';
   const COMPARE_LIBRARIES_SECTION_ID = 'compare-libraries-section';
   const COLLAB_PLAYLISTS_SECTION_ID = 'collab-playlists-section';
   const FOLLOW_USERS_SECTION_ID = 'follow-users-section';
@@ -281,9 +282,11 @@ function MainPage(props) {
     <>
       <div
         className={`main-page ${modalContainerClassName} ${toastContainerClassName}`}
+        id={TOP_ID}
       >
         <MainNav
           navText={APP_NAME}
+          topHref={`#${TOP_ID}`}
           featuresHref={`#${COMPARE_LIBRARIES_SECTION_ID}`}
           contactHref={`#${CONTACT_SECTION_ID}`}
           buttonOnClick={navButtonOnClick}
