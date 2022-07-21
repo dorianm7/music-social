@@ -1,4 +1,5 @@
 .user-images {
+  --IMAGE-SIZE: 100px;
   display: flex;
   flex-direction: row;
   overflow: auto;
@@ -20,10 +21,15 @@
   margin-right: .5em;
 }
 
-.user-images > li {
+.user-images > li.user {
+  width: var(--IMAGE-SIZE);
   list-style: none;
 }
 
-.user-images > li > span {
+.user-images > li.user > span {
   display: block;
+  width: var(--IMAGE-SIZE);
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
