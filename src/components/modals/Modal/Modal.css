@@ -38,7 +38,7 @@
   width: 80%;
 }
 
-@media (max-width: 479px) {
+@media (max-width: 480px) {
   .modal {
     width: 100%;
   }

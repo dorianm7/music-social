@@ -21,7 +21,7 @@
   margin: 0 auto;
 }
 
-@media (max-width: 479px) {
+@media (max-width: 480px) {
   .sign-in-modal-contents > .basic-button > .text {
     font-size: 1em;
   }
