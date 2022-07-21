@@ -7,6 +7,7 @@ import BasicButton from '../basic/BasicButton/BasicButton';
 function MainNav(props) {
   const {
     navText,
+    topHref,
     featuresHref,
     contactHref,
     userSignedIn,
@@ -17,7 +18,12 @@ function MainNav(props) {
 
   return (
     <nav className="main-nav">
-      <span className="main-nav-text">{navText}</span>
+      <a
+        href={topHref}
+        className="main-nav-text"
+      >
+        {navText}
+      </a>
       <ul className="nav-menu">
         <li key={nanoid()}>
           <a href={featuresHref} className="nav-features">Features</a>
@@ -37,6 +43,7 @@ function MainNav(props) {
 
 MainNav.propTypes = {
   navText: PropTypes.string,
+  topHref: PropTypes.string,
   featuresHref: PropTypes.string,
   contactHref: PropTypes.string,
   userSignedIn: PropTypes.bool,
@@ -45,6 +52,7 @@ MainNav.propTypes = {
 
 MainNav.defaultProps = {
   navText: 'Nav Text',
+  topHref: '#',
   featuresHref: '#',
   contactHref: '#',
   userSignedIn: false,
