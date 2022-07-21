@@ -4,12 +4,10 @@ import { nanoid } from 'nanoid';
 
 import './MainPage.css';
 
-import AfterReportModalContents from
-  '../../components/modal-contents/AfterReportModalContents/AfterReportModalContents';
+import AfterReportModalContents from '../../components/modal-contents/AfterReportModalContents/AfterReportModalContents';
 import BasicButton from '../../components/basic/BasicButton/BasicButton';
 import BasicPlaylist from '../../components/BasicPlaylist/BasicPlaylist';
-import CollaborativePlaylistPageContent from
-  '../page-contents/CollaborativePlaylistPageContents/CollaborativePlaylistPageContents';
+import CollaborativePlaylistPageContent from '../page-contents/CollaborativePlaylistPageContents/CollaborativePlaylistPageContents';
 import Comparison from '../../components/Comparison/Comparison';
 // import ConfirmEmailModalContents from
 //   '../../components/modal-contents/ConfirmEmailModalContents/ConfirmEmailModalContents';
@@ -18,18 +16,13 @@ import MainNav from '../../components/MainNav/MainNav';
 import Modal from '../../components/modals/Modal/Modal';
 import MusicLibrary from '../../components/MusicLibrary/MusicLibrary';
 import PlaylistHeader from '../../components/PlaylistHeader/PlaylistHeader';
-import ReportProfileForm from
-  '../../components/forms/ReportProfileForm/ReportProfileForm';
-import SignInModalContents from
-  '../../components/modal-contents/SignInModalContents/SignInModalContents';
-import SignUpModalContents from
-  '../../components/modal-contents/SignUpModalContents/SignUpModalContents';
+import ReportProfileForm from '../../components/forms/ReportProfileForm/ReportProfileForm';
+import SignInModalContents from '../../components/modal-contents/SignInModalContents/SignInModalContents';
+import SignUpModalContents from '../../components/modal-contents/SignUpModalContents/SignUpModalContents';
 import Tabs from '../../components/subcomponents/Tabs/Tabs';
 import Toast from '../../components/Toast/Toast';
-import UnderConstructionModalContents from
-  '../../components/modal-contents/UnderConstructionModalContents/UnderConstructionModalContents';
-import UserProfileHeader
-  from '../../components/UserProfileHeader/UserProfileHeader';
+import UnderConstructionModalContents from '../../components/modal-contents/UnderConstructionModalContents/UnderConstructionModalContents';
+import UserProfileHeader from '../../components/UserProfileHeader/UserProfileHeader';
 
 import {
   createUser,
