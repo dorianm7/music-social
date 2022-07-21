@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { nanoid } from 'nanoid';
 import stc from 'string-to-color';
+import { nanoid } from 'nanoid';
 
 import MusicItem from '../MusicItem/MusicItem';
 import { VERTICAL_DOTS_NAME } from '../../Icons';
@@ -26,11 +26,7 @@ function renderPlaylistItems(
     const searchableString = getSearchableString(items[i]);
     if (searchableString.includes(searchString1.toLowerCase())
       && searchableString.includes(searchString2.toLowerCase())) {
-      listItems.push(
-        <li key={nanoid()}>
-          {renderItem(items[i])}
-        </li>,
-      );
+      listItems.push(renderItem(items[i]));
     }
   }
 
@@ -62,6 +58,7 @@ function renderTrackPlaylistMusicItem(item) {
 
   return (
     <MusicItem
+      key={nanoid()}
       type="track"
       labelColor="none"
       imgSrc={item.track.album.images[1].url}
@@ -104,6 +101,7 @@ function renderTrackCollaborativePlaylistMusicItem(item) {
 
   return (
     <MusicItem
+      key={nanoid()}
       type="track"
       labelColor={stc(item.added_by.id)}
       imgSrc={item.track.album.images[1].url}
@@ -148,6 +146,7 @@ function getArtistPlaylistItemSearchableString(item) {
 function renderArtistPlaylistMusicItem(item) {
   return (
     <MusicItem
+      key={nanoid()}
       type="artist"
       imgSrc={item.images[1].url}
       imgAlt={`${item.name} artist cover`}
@@ -201,6 +200,7 @@ function getAlbumPlaylistItemSearchableString(item) {
 function renderAlbumPlaylistMusicItem(item) {
   return (
     <MusicItem
+      key={nanoid()}
       type="album"
       imgSrc={item.images[1].url}
       imgAlt={`${item.name} album cover`}
@@ -244,6 +244,7 @@ function getPlaylistPlaylistItemSearchableString(item) {
 function renderPlaylistPlaylistMusicItem(item) {
   return (
     <MusicItem
+      key={nanoid()}
       type="playlist"
       imgSrc={item.images[1].url}
       imgAlt={`${item.name} playlist cover`}
