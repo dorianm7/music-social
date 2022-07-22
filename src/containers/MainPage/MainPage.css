@@ -132,7 +132,7 @@ section ul.tabs a {
 .contact-content > .icon {
   height: 3rem;
   width: 3rem;
-  color: white;
+  color: var(--Text-Color-Light);
 }
 
 .contact-content > .contact-info {

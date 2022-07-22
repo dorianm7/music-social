@@ -15,6 +15,10 @@
   --Default-Button-Color: hsl(0, 0%, 70%);
   --Follow-Button-Color: rgb(149, 42, 199);
 
+  /* Font Colors */
+  --Text-Color-Default : black;
+  --Text-Color-Light: white;
+
   /* Main content widths */
   --Width-Small: 95%;
   --Width-Medium: 90%;

@@ -7,7 +7,7 @@
 
 .side-menu > .side-menu-user-preview {
   margin-top: 1em;
-  color: white;
+  color: var(--Text-Color-Light);
 }
 
 .side-menu > button.view-profile {
@@ -63,7 +63,7 @@
   height: 100%;
   padding: .5em 10%;
   text-decoration: none;
-  color: black;
+  color: var(--Text-Color-Default);
 }
 
 

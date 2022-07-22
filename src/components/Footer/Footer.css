@@ -3,7 +3,7 @@ footer {
   flex-direction: row;
   padding: 1rem;
   background-color: var(--Color-Dark-3);
-  color: white;
+  color: var(--Text-Color-Light);
 }
 
 footer > .text-section > .app-name {

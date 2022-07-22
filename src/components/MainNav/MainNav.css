@@ -1,14 +1,13 @@
 nav.main-nav {
-  --nav-font-color: white;
   display: flex;
   align-items: center;
   height: 2.5rem;
-  color: var(--nav-font-color);
+  color: var(--Text-Color-Light);
   white-space: nowrap;
 }
 
 nav.main-nav a {
-  color: var(--nav-font-color);
+  color: var(--Text-Color-Light);
   text-decoration: none;
 }
 

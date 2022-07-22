@@ -28,7 +28,7 @@
   padding: 2rem 0;
   text-align: center;
   background-color: var(--Color-Dark-3);
-  color: white;
+  color: var(--Text-Color-Light);
   border-radius: 10px 10px 0 0;
 }
 

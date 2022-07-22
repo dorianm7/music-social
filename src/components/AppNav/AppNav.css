@@ -3,5 +3,5 @@ nav.app-nav {
   justify-content: space-between;
   align-items: center;
   height: 2.5rem;
-  color: white;
+  color: var(--Text-Color-Light);
 }
