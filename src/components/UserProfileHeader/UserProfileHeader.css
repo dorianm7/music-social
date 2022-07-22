@@ -17,6 +17,8 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  width: 90%;
+  justify-content: center;
 }
 
 .user-profile-header > .profile-main > .username-follow-option > button.following {
@@ -34,6 +36,8 @@
 .user-profile-header > .profile-main > .username-follow-option > .username {
   font-size: 1.2em;
   margin-right: .4em;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .user-profile-header > .profile-main > .user-info {
