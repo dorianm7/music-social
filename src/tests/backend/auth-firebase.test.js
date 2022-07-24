@@ -6,19 +6,23 @@ import {
   userSignOut,
 } from '../../firebase/auth-firebase';
 
-// Tests to create a user
-const createUserValidEmail = 'create@user.com';
-const createUserValidPassword = '1234567890,';
-const invalidEmail = 'createUsertest.com';
-const passwordInvalidLength = '123abc-';
-const passwordInvalidNum = 'abcdefghi-';
-const passwordInvalidChar = '123456789a';
+// Test objects
+const email = {
+  valid: 'valid@user.com',
+  invalid: 'invalid',
+};
+const password = {
+  valid: '1234567890-',
+  invalidLength: '123abc-',
+  invalidNum: 'abcdefghi-',
+  invalidChar: '123456789a',
+};
 
 // Mock Callbacks
 const successCallback = jest.fn(() => {});
 const errorCallback = jest.fn(() => {});
 
-describe('User Sign Up', () => {
+describe('Signs up user', () => {
   afterAll(async () => {
     await deleteUserAccount();
   });
@@ -27,10 +31,10 @@ describe('User Sign Up', () => {
     jest.restoreAllMocks();
   });
 
-  it('fails to create a user: invalid email', async () => {
+  it('fails to sign up user: invalid email', async () => {
     await userSignUp(
-      invalidEmail,
-      createUserValidPassword,
+      email.invalid,
+      password.valid,
       successCallback,
       errorCallback,
     );
@@ -39,10 +43,10 @@ describe('User Sign Up', () => {
     expect(auth.currentUser).toBe(null);
   });
 
-  it('fails to create a user: password wrong length', async () => {
+  it('fails to sign up user: password wrong length', async () => {
     await userSignUp(
-      createUserValidEmail,
-      passwordInvalidLength,
+      email.valid,
+      password.invalid,
       successCallback,
       errorCallback,
     );
@@ -51,10 +55,10 @@ describe('User Sign Up', () => {
     expect(auth.currentUser).toBe(null);
   });
 
-  it('fails to create a user: password missing number', async () => {
+  it('fails to sign up user: password missing number', async () => {
     await userSignUp(
-      createUserValidEmail,
-      passwordInvalidNum,
+      email.valid,
+      password.invalidNum,
       successCallback,
       errorCallback,
     );
@@ -63,10 +67,10 @@ describe('User Sign Up', () => {
     expect(auth.currentUser).toBe(null);
   });
 
-  it('fails to create a user: password missing special character', async () => {
+  it('fails to sign up user: password missing special character', async () => {
     await userSignUp(
-      createUserValidEmail,
-      passwordInvalidChar,
+      email.valid,
+      password.invalidChar,
       successCallback,
       errorCallback,
     );
@@ -75,10 +79,10 @@ describe('User Sign Up', () => {
     expect(auth.currentUser).toBe(null);
   });
 
-  it('creates a user', async () => {
+  it('signs up user', async () => {
     await userSignUp(
-      createUserValidEmail,
-      createUserValidPassword,
+      email.valid,
+      password.valid,
       successCallback,
       errorCallback,
     );
@@ -88,12 +92,12 @@ describe('User Sign Up', () => {
   });
 });
 
-describe('User Sign In, Sign Out', () => {
+describe('signs in user, signs out user', () => {
   afterEach(() => {
     jest.restoreAllMocks();
   });
 
-  it('Sign\'s the user in', async () => {
+  it('signs in user', async () => {
     await emailPasswordSignIn(
       process.env.REACT_APP_TEST_USER_EMAIL,
       process.env.REACT_APP_TEST_USER_PASSWORD,
@@ -105,7 +109,7 @@ describe('User Sign In, Sign Out', () => {
     expect(auth.currentUser).not.toBe(null);
   });
 
-  it('Sign\'s out the user', async () => {
+  it('signs out user', async () => {
     await userSignOut(successCallback, errorCallback);
     expect(successCallback).toHaveBeenCalled();
     expect(errorCallback).not.toHaveBeenCalled();
