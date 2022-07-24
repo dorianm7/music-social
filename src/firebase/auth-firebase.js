@@ -77,7 +77,7 @@ const passwordValid = (password) => passwordValidityMessage(password) === 'valid
 
 // successCallback should take a user argument
 // errorCallback should take an error argument
-const createUser = async (
+const userSignUp = async (
   email,
   password,
   successCallback = () => {},
@@ -177,7 +177,7 @@ const googleSignIn = (
 
 export {
   auth,
-  createUser,
+  userSignUp,
   deleteUserAccount,
   emailPasswordSignIn,
   googleSignIn,
