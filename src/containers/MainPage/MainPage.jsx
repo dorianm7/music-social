@@ -25,7 +25,7 @@ import UnderConstructionModalContents from '../../components/modal-contents/Unde
 import UserProfileHeader from '../../components/UserProfileHeader/UserProfileHeader';
 
 import {
-  createUser,
+  userSignUp,
   emailPasswordSignIn,
   googleSignIn,
 } from '../../firebase/auth-firebase';
@@ -138,7 +138,7 @@ function MainPage(props) {
   // Sign up Form Handler
   const signUpHandler = async (email, password) => {
     let error = null;
-    await createUser(
+    await userSignUp(
       email,
       password,
       () => { // Success
