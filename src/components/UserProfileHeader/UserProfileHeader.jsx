@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import './UserProfileHeader.css';
-import ToggleIconButton from '../basic/ToggleIconButton/ToggleIconButton';
+
 import BasicButton from '../basic/BasicButton/BasicButton';
+import ToggleIconButton from '../basic/ToggleIconButton/ToggleIconButton';
 import UserProfileOptions from '../UserProfileOptions/UserProfileOptions';
+
 import defaultImg from '../../images/help-rhombus-outline.svg';
 import { PLUS_NAME, CHECK_NAME } from '../../Icons';
 

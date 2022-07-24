@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import './FloatingRemoveButton.css';
+
 import { renderIcon, X_NAME } from '../../Icons';
 
 function FloatingRemoveButton(props) {

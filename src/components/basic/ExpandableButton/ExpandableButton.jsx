@@ -7,8 +7,9 @@ import PropTypes from 'prop-types';
 
 import './ExpandableButton.css';
 
-import IconButton from '../IconButton/IconButton';
 import { RefExpandedOptions } from '../../subcomponents/ExpandedOptions/ExpandedOptions';
+import IconButton from '../IconButton/IconButton';
+
 import { DEFAULT_NAME, X_NAME } from '../../../Icons';
 
 function getIconRoundedProp(expand) {

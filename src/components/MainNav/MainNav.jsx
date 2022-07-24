@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './MainNav.css';
 import { nanoid } from 'nanoid';
+
+import './MainNav.css';
+
 import BasicButton from '../basic/BasicButton/BasicButton';
 
 function MainNav(props) {

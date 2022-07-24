@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import './MusicItem.css';
+
 import defaultImg from '../../images/help-rhombus-outline.svg';
 
 function MusicItem(props) {

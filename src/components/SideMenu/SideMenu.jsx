@@ -2,10 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 
-import SideMenuUserPreview from '../SideMenuUserPreview/SideMenuUserPreview';
-import BasicButton from '../basic/BasicButton/BasicButton';
-import { Icons } from '../../Icons';
 import './SideMenu.css';
+
+import BasicButton from '../basic/BasicButton/BasicButton';
+import SideMenuUserPreview from '../SideMenuUserPreview/SideMenuUserPreview';
+
+import { Icons } from '../../Icons';
 
 function SideMenu(props) {
   const {

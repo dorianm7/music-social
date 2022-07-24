@@ -5,6 +5,7 @@ import React, {
   useEffect,
 } from 'react';
 import PropTypes from 'prop-types';
+
 import { handleAuthStateChange } from '../firebase/auth-firebase';
 
 const UserContext = createContext(null);

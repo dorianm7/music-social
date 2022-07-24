@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 import './CompareLibraryPageContents.css';
 
+import BasicPlaylist from '../../../components/BasicPlaylist/BasicPlaylist';
 import Comparison from '../../../components/Comparison/Comparison';
 import MusicLibrary from '../../../components/MusicLibrary/MusicLibrary';
-import BasicPlaylist from '../../../components/BasicPlaylist/BasicPlaylist';
 import PlaylistHeader from '../../../components/PlaylistHeader/PlaylistHeader';
 
 import defaultImg from '../../../images/help-rhombus-outline.svg';

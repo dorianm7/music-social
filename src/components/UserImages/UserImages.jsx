@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './UserImages.css';
-
 import { nanoid } from 'nanoid';
 import stc from 'string-to-color';
+
+import './UserImages.css';
 
 import PercentGauge from '../basic/PercentGauge/PercentGauge';
 

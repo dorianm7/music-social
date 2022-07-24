@@ -1,11 +1,11 @@
 import React from 'react';
-
 import stc from 'string-to-color';
 import { nanoid } from 'nanoid';
 
-import MusicItem from '../MusicItem/MusicItem';
-import { VERTICAL_DOTS_NAME } from '../../Icons';
 import ExpandableButton from '../basic/ExpandableButton/ExpandableButton';
+import MusicItem from '../MusicItem/MusicItem';
+
+import { VERTICAL_DOTS_NAME } from '../../Icons';
 
 // Generic playlist items render
 // Takes getSearchableString which creates a searchable string

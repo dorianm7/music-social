@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 
 import './Select.css';
+
 import { renderIcon, CHEVRON_DOWN_NAME } from '../../Icons';
 
 const NBSP_UNICODE = '\u00A0';

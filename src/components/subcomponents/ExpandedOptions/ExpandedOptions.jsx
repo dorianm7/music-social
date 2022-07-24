@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './ExpandedOptions.css';
-
 import { nanoid } from 'nanoid';
+
+import './ExpandedOptions.css';
 
 import { spaceToNbsp } from '../../../utility/StringUtilities';
 

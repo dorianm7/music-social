@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+
 import './SignUpForm.css';
+
+import PercentGauge from '../../basic/PercentGauge/PercentGauge';
 import TextInput from '../../TextInput/TextInput';
 import ToggleIconButton from '../../basic/ToggleIconButton/ToggleIconButton';
-import PercentGauge from '../../basic/PercentGauge/PercentGauge';
-import { OPEN_EYE_NAME, CLOSED_EYE_NAME } from '../../../Icons';
+
+import {
+  OPEN_EYE_NAME,
+  CLOSED_EYE_NAME,
+} from '../../../Icons';
 import {
   VALID_EMAIL_REGEXP,
   HAS_NUM_REGEXP,

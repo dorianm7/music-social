@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, {
+  useState,
+} from 'react';
 
 function ModalContainer(WrappedComponent) {
   const Wrapped = (props) => {

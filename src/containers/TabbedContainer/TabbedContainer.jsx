@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 
-import Tabs from '../../components/subcomponents/Tabs/Tabs';
 import './TabbedContainer.css';
+
+import Tabs from '../../components/subcomponents/Tabs/Tabs';
 
 class TabbedContainer extends React.Component {
   constructor(props) {

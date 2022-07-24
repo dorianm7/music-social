@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 
 import './CollaborativePlaylistPageContents.css';
 
-import UserImages from '../../../components/UserImages/UserImages';
 import BasicPlaylist from '../../../components/BasicPlaylist/BasicPlaylist';
-import localPlaylist from '../../../local_data/Playlist_0.json';
 import PlaylistHeader from '../../../components/PlaylistHeader/PlaylistHeader';
+import UserImages from '../../../components/UserImages/UserImages';
+
+import localPlaylist from '../../../local_data/Playlist_0.json';
 
 function CollaborativePlaylistPageContents(props) {
   const {

@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import './Modal.css';
+
 import IconButton from '../../basic/IconButton/IconButton';
+
 import { X_NAME } from '../../../Icons';
 
 function Modal(props) {

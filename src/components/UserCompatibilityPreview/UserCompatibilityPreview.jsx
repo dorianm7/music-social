@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import './UserCompatibilityPreview.css';
+
 import PercentGauge from '../basic/PercentGauge/PercentGauge';
+
 import defaultImage from '../../images/help-rhombus-outline.svg';
 
 function UserCompatibilityPreview(props) {

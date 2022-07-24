@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import './Comparison.css';
 
 import PercentageGauge from '../basic/PercentGauge/PercentGauge';
+
 import defaultImg from '../../images/help-rhombus-outline.svg';
 
 function Comparison(props) {

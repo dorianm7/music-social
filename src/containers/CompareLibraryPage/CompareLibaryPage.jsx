@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import InAppPage from '../InAppPage/InAppPage';
 import CompareLibraryPageContents from
   '../page-contents/CompareLibraryPageContents/CompareLibraryPageContents';
+import InAppPage from '../InAppPage/InAppPage';
 
 import usersPlaylists from '../../local_data/Users_Playlists.json';
 import usersAlbums from '../../local_data/Users_Albums_0.json';

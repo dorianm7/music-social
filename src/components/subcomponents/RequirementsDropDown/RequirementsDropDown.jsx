@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
+
 import './RequirementsDropDown.css';
+
 import DropDown from '../../DropDown/DropDown';
+
 import { renderIcon, CHECK_NAME, X_NAME } from '../../../Icons';
 
 function renderRequirement(text, valid) {

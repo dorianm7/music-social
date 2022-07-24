@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+import './SignInModalContents.css';
+
 import SignInForm from '../../forms/SignInForm/SignInForm';
 import BasicButton from '../../basic/BasicButton/BasicButton';
+
 import {
   renderIcon,
   GOOGLE_COLOR_ICON_NAME,
 } from '../../../Icons';
-import './SignInModalContents.css';
 
 function SignInModalContents(props) {
   const {

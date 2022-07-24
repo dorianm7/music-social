@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, {
+  useState,
+} from 'react';
 import PropTypes from 'prop-types';
 
 import './BasicPlaylist.css';
 
-import Select from '../Select/Select';
 import ListSearch from '../ListSearch/ListSearch';
+import Select from '../Select/Select';
 
 import {
   basicTrackPlaylistToListItems,

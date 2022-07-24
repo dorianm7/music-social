@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SignUpForm from '../../forms/SignUpForm/SignUpForm';
+
 import './SignUpModalContents.css';
+
+import SignUpForm from '../../forms/SignUpForm/SignUpForm';
 
 function SignUpModalContents(props) {
   const {

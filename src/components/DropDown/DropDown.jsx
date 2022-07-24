@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import './DropDown.css';
+
 import { renderIcon } from '../../Icons';
 
 function DropDown(props) {
