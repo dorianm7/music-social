@@ -1,6 +1,6 @@
 import {
   auth,
-  createUser,
+  userSignUp,
   deleteUserAccount,
   emailPasswordSignIn,
   userSignOut,
@@ -28,7 +28,7 @@ describe('User Sign Up', () => {
   });
 
   it('fails to create a user: invalid email', async () => {
-    await createUser(
+    await userSignUp(
       invalidEmail,
       createUserValidPassword,
       successCallback,
@@ -40,7 +40,7 @@ describe('User Sign Up', () => {
   });
 
   it('fails to create a user: password wrong length', async () => {
-    await createUser(
+    await userSignUp(
       createUserValidEmail,
       passwordInvalidLength,
       successCallback,
@@ -52,7 +52,7 @@ describe('User Sign Up', () => {
   });
 
   it('fails to create a user: password missing number', async () => {
-    await createUser(
+    await userSignUp(
       createUserValidEmail,
       passwordInvalidNum,
       successCallback,
@@ -64,7 +64,7 @@ describe('User Sign Up', () => {
   });
 
   it('fails to create a user: password missing special character', async () => {
-    await createUser(
+    await userSignUp(
       createUserValidEmail,
       passwordInvalidChar,
       successCallback,
@@ -76,7 +76,7 @@ describe('User Sign Up', () => {
   });
 
   it('creates a user', async () => {
-    await createUser(
+    await userSignUp(
       createUserValidEmail,
       createUserValidPassword,
       successCallback,
