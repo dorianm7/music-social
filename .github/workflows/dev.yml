@@ -50,6 +50,9 @@ jobs:
       - name: Run ESLint
         run: ./node_modules/.bin/eslint .
 
+      # Build app
+      - run: yarn build
+
       # Deploy to Firebase preview channel
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
