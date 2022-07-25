@@ -1,0 +1,105 @@
+.basic-playlist {
+  background-color: var(--Color-Light-2);
+}
+
+.basic-playlist > .heading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+@media screen and (max-width: 430px) {
+  .basic-playlist .heading {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+}
+
+.basic-playlist > .heading > * {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.basic-playlist > .heading > .heading-main {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+@media screen and (max-width: 430px) {
+  .basic-playlist > .heading > .heading-main {
+    width: 100%
+  }
+}
+
+.basic-playlist > .heading > .heading-main > h1,
+.basic-playlist > .heading > .heading-main > h2,
+.basic-playlist > .heading > .heading-main > h3,
+.basic-playlist > .heading > .heading-main > h4,
+.basic-playlist > .heading > .heading-main > h5,
+.basic-playlist > .heading > .heading-main > h6 {
+  margin: 0;
+}
+
+.basic-playlist > .heading > .heading-main > .select {
+  margin-left: .5em;
+  z-index: 3;
+}
+
+@media screen and (max-width: 430px) {
+  .basic-playlist > .heading > .heading-main > .select {
+    margin-left: auto;
+  }
+}
+
+.basic-playlist > .heading > .heading-main > .select .selected-option-button {
+  background-color: var(--Color-Light-05);
+}
+
+.basic-playlist > .heading > .heading-main > .select li > button {
+  background-color: var(--Color-Light-1);
+}
+
+.basic-playlist > .heading > .list-search {
+  margin-left: auto;
+}
+
+@media screen and (max-width: 430px) {
+  .basic-playlist > .heading > .list-search {
+    margin-left: 0;
+    margin-bottom: .5rem;
+  }
+}
+
+.basic-playlist > .list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+.basic-playlist > .list > p {
+  text-align: center;
+}
+
+.basic-playlist > .list > li {
+  background-color: var(--Color-Light-4);
+  padding-right: .5rem;
+}
+
+.basic-playlist > .list.collaborative > li {
+  padding: .5rem;
+}
+
+.basic-playlist > .list.artist > li {
+  padding: .2rem;
+}
+
+.basic-playlist > .list > li:not(:first-child) {
+  margin-top: .5em;
+}
+
+.basic-playlist > .list .music-item .expandable-button li button {
+  padding: .2em .6em;
+}

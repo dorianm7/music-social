@@ -1,0 +1,43 @@
+.sign-in-modal-contents {
+  display: flex;
+  flex-direction: column;
+}
+
+.sign-in-modal-contents > hr {
+  margin: 1em auto;
+  width: 80%;
+}
+
+.sign-in-modal-contents  > .basic-button {
+  width: 45%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.sign-in-modal-contents > .basic-button > .icon {
+  width: 15px;
+  height: 15px;
+}
+
+.sign-in-modal-contents > .basic-button > .text {
+  font-size: .8em;
+  margin: 0 auto;
+}
+
+@media (max-width: 480px) {
+  .sign-in-modal-contents > .basic-button > .text {
+    font-size: 1em;
+  }
+}
+
+.sign-in-modal-contents > .basic-button > svg {
+  margin-left: auto;
+}
+
+.sign-in-modal-contents > .move-to-sign-up {
+  margin-top: 1em;
+  font-size: .8em;
+  text-align: center;
+}

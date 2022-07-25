@@ -1,0 +1,39 @@
+ul.tabs {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul.tabs li.tab {
+  border-radius: .4em .4em 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 9.0rem;
+  height: 2rem;
+  background-color: var(--Color-Dark-1);
+  font-size: .85rem;
+}
+
+@media screen and (max-width: 530px) {
+  ul.tabs li.tab {
+    width: 8rem;
+  }
+}
+
+ul.tabs > li.tab.selected {
+  background-color: var(--Color-Light-05);
+  text-decoration: underline;
+}
+
+ul.tabs > li.tab > *:first-child {
+  border-radius: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: inherit;
+  height: inherit;
+  color: inherit;
+}

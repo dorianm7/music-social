@@ -1,0 +1,35 @@
+li.music-item {
+  display: flex;
+  align-items: center;
+}
+
+li.music-item > .label {
+  border-radius: 50%;
+  height: 10px;
+  width: 10px;
+  margin: auto .5rem auto 0;
+}
+
+li.music-item > .picture {
+  margin-right: 1em;
+}
+
+li.music-item.artist > .picture {
+  border-radius: 50%;
+}
+
+li.music-item > .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: auto;
+  overflow: hidden;
+}
+
+li.music-item > .info > .title {
+  margin-bottom: 0;
+}
+
+li.music-item > .info > .creator {
+  margin-top: 0;
+}

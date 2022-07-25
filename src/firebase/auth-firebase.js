@@ -32,13 +32,15 @@ import {
 } from 'firebase/auth';
 import app from './init-firebase';
 
+import {
+  VALID_EMAIL_REGEXP,
+  HAS_NUM_REGEXP,
+  HAS_SPECIAL_CHAR_REGEXP,
+} from '../RegExps';
+
 const auth = getAuth(app);
 
 const VALID_PASSWORD_LENGTH = 10;
-// create regexps constants that will get replaced by importing regexps file imports
-const VALID_EMAIL_REGEXP = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*)@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)/g;
-const HAS_NUM_REGEXP = /[0-9]/;
-const HAS_SPECIAL_CHAR_REGEXP = /[ !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/;
 
 const emailValid = (email) => {
   const emailMatches = email.match(VALID_EMAIL_REGEXP);

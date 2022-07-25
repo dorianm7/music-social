@@ -1,0 +1,13 @@
+.list-search {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.list-search > .text {
+  margin-right: .5em;
+}
+
+.list-search > input {
+  width: 10em;
+}

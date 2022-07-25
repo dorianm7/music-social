@@ -1,0 +1,28 @@
+.in-app-page > header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--Main-Color);
+  box-shadow: 0 3px 10px 2px rgba(0,0,0,.3);
+}
+
+.in-app-page > header > .app-nav {
+  padding: 0 1rem;
+}
+
+.in-app-page > main {
+  background-color: var(--Color-Light-05);
+  padding-bottom: 1rem;
+}
+
+.in-app-page > main > h1 {
+  width: 90%;
+  padding: 1rem 0;
+  margin: 0 auto;
+}
+
+.in-app-page > main > *:not(:first-child){
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+}

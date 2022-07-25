@@ -1,0 +1,13 @@
+.side-menu-user-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.side-menu-user-preview > .picture {
+  border-radius: 50%;
+}
+
+.side-menu-user-preview > .username {
+  font-size: 1.5em;
+}

@@ -1,0 +1,30 @@
+li.user-preview {
+  display: flex;
+  align-items: center;
+}
+
+li.user-preview > .user-picture {
+  border-radius: 50%;
+}
+
+li.user-preview > .user-info {
+  margin-right: auto;
+  margin-left: 1em;
+}
+
+li.user-preview > .user-info > span {
+  display: block;
+}
+
+li.user-preview > button {
+  width: 25px;
+  height: 25px;
+}
+
+li.user-preview > button.following {
+  background-color: var(--Follow-Button-Color);
+}
+
+li.user-preview > button.not-following {
+  background-color: var(--Default-Button-Color);
+}

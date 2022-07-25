@@ -1,0 +1,9 @@
+.under-construction-modal-contents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.under-construction-modal-contents > .under-construction-text {
+  white-space: pre-line;
+}

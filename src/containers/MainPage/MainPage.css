@@ -1,0 +1,140 @@
+.app-intro .hero-image {
+  width: 100%;
+  height: 300px;
+}
+
+.app-intro > h1 {
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.app-intro br,
+.app-conclusion br {
+  display: block;
+  margin-top: .5rem;
+}
+
+.app-intro p {
+  width: var(--Width-Small);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .app-intro p {
+    width: var(--Width-Medium);
+  } 
+}
+
+@media screen and (min-width: 868px) {
+  .app-intro p {
+    width: var(--Width-Large);
+  }
+}
+
+.app-intro > .basic-button,
+.app-conclusion > .basic-button {
+  display: block;
+  margin: 1rem auto 2rem auto;
+}
+
+section:not(:first-of-type) {
+  margin-top: 2rem;
+}
+
+section > :last-child {
+  padding-bottom: .5rem;
+}
+
+section ul.tabs {
+  position: sticky;
+  top: 2.5rem;
+  z-index: 7;
+  background-color: var(--Main-Color);
+}
+
+@media screen and (hover:none) {
+  section ul.tabs {
+    display: none;
+  }
+}
+
+section ul.tabs a {
+  text-decoration: none;
+}
+
+.feature {
+  background-color: var(--Color-Light-05);
+}
+
+.feature > *:not(:first-child) {
+  overflow: hidden;
+  padding-top: .5rem;
+  padding-right: .5rem;
+  padding-left: .5rem;
+}
+
+.feature h2 {
+  margin-top: 0;
+  margin-bottom: .5rem;
+}
+
+.compare-feature > .music-library {
+  margin-top: 1.5rem;
+}
+
+.compare-feature > .music-library > .basic-playlist {
+  box-shadow: none;
+}
+
+.compare-feature .basic-playlist .list {
+  max-height: 200px;
+}
+
+.collaborative-feature > .user-images {
+  margin-bottom: .5rem;
+}
+
+.collaborative-feature .basic-playlist .list,
+.follow-feature .basic-playlist .list {
+  max-height: 300px;
+}
+
+.follow-feature .profile-back-button .icon {
+  height: 30px;
+  width: 30px;
+}
+
+.follow-feature .comparison {
+  padding-bottom: .5rem;
+}
+
+.app-conclusion > h2,
+.contact > h2 {
+  margin-top: 0;
+  margin-bottom: .5rem;
+}
+
+#compare-libraries-section,
+#collab-playlists-section,
+#follow-users-section,
+#contact {
+  scroll-margin-top: 2.5rem;
+}
+
+.contact-content {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-content > .icon {
+  height: 3rem;
+  width: 3rem;
+  color: var(--Text-Color-Light);
+}
+
+.contact-content > .contact-info {
+  margin-left: .5rem;
+}

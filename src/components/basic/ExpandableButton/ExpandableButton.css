@@ -1,0 +1,73 @@
+.expandable-button {
+  display: inline-flex;
+  position: relative;
+}
+
+.expandable-button > .icon-button {
+  width: var(--icon-width);
+  height: var(--icon-height);
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.expandable-button .icon {
+  width: var(--icon-width);
+  height: var(--icon-height);
+}
+
+.expandable-button.expand-up {
+  flex-direction: column-reverse;
+}
+
+.expandable-button.expand-right {
+  flex-direction: row;
+}
+
+.expandable-button.expand-down {
+  flex-direction: column;
+}
+
+.expandable-button.expand-left {
+  flex-direction: row-reverse;
+}
+
+.expandable-button > .expanded-options{
+  position: absolute;
+}
+
+.expandable-button > .expanded-options button:active {
+  filter: brightness(.9);
+}
+
+.expandable-button.expand-up > .expanded-options {
+  bottom: 100%;
+}
+
+.expandable-button.expand-right > .expanded-options {
+  left: 100%; 
+}
+
+.expandable-button.expand-down > .expanded-options {
+  top: 100%;
+}
+
+.expandable-button.expand-left > .expanded-options {
+  right: 100%;
+}
+
+.expandable-button.direction-left > .expanded-options {
+  right: calc(100% - var(--icon-width));
+}
+
+.expandable-button.direction-right > .expanded-options {
+  left: 0;
+}
+
+.expandable-button.direction-up > .expanded-options {
+  bottom: calc(100% - var(--icon-height));
+}
+
+.expandable-button.direction-down > .expanded-options {
+  top: calc(100% - var(--icon-height));
+}

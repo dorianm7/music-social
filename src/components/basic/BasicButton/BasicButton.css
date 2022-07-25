@@ -1,0 +1,11 @@
+button.basic-button {
+  padding: .4em .8em;
+}
+
+button.basic-button.outline {
+  border: 1px solid var(--Color-Dark-3);
+}
+
+button.basic-button:active {
+  filter: brightness(.9);
+}

@@ -1,0 +1,57 @@
+.select {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.select button { 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  border: 0;
+  text-align: left;
+}
+
+.select button:hover {
+  cursor: pointer;
+}
+
+.select > .selected-option-button {
+  border-radius: .2em;
+  height: 2em;
+}
+
+.select > .selected-option-button > .icon {
+  width: 15px;
+  height: 15px;
+}
+
+.select > .selected-option-button > .icon {
+  margin-left: .5em;
+}
+
+.select > .selected-option-button.open {
+  border-radius: .2em .2em 0 0;
+}
+
+.select > .selected-option-button.open > .icon {
+  transform: rotate(.5turn);
+}
+
+.select > ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  position: absolute;
+  top: 100%;
+  min-width: 100%;
+}
+
+.select > ul.closed {
+  display: none;
+}
+
+.select > ul > li:last-child > button {
+  border-radius: 0 0 .2em .2em;
+}

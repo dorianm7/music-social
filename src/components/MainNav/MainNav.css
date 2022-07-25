@@ -1,0 +1,30 @@
+nav.main-nav {
+  display: flex;
+  align-items: center;
+  height: 2.5rem;
+  color: var(--Text-Color-Light);
+  white-space: nowrap;
+}
+
+nav.main-nav a {
+  color: var(--Text-Color-Light);
+  text-decoration: none;
+}
+
+nav.main-nav > .nav-menu {
+  display: flex;
+  align-items: center;
+  margin: 0 0 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+@media screen and (max-width: 430px) {
+  nav.main-nav > .nav-menu > *:first-child {
+    display: none;
+  }
+}
+
+nav.main-nav > .nav-menu > li {
+  margin-left: 1rem;
+}

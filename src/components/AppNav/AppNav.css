@@ -1,0 +1,7 @@
+nav.app-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 2.5rem;
+  color: var(--Text-Color-Light);
+}

@@ -1,0 +1,9 @@
+.confirm-email-modal-contents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.confirm-email-modal-contents > .confirm-text {
+  text-align: center;
+}

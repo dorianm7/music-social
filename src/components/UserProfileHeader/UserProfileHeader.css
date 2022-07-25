@@ -1,0 +1,50 @@
+.user-profile-header > .profile-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: .2em;
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.user-profile-header > .profile-main > .user-picture {
+  border-radius: 50%;
+  margin-bottom: .2em;
+}
+
+.user-profile-header > .profile-main > .username-follow-option {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 90%;
+  justify-content: center;
+}
+
+.user-profile-header > .profile-main > .username-follow-option > button.following {
+  background-color: var(--Follow-Button-Color);
+}
+
+.user-profile-header > .profile-main > .username-follow-option > button.not-following {
+  background-color: var(--Default-Button-Color);
+}
+
+.user-profile-header > .profile-main > .username-follow-option > .expandable-button {
+  margin-left: .2em;
+}
+
+.user-profile-header > .profile-main > .username-follow-option > .username {
+  font-size: 1.2em;
+  margin-right: .4em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-profile-header > .profile-main > .user-info {
+  margin-top: .2em;
+  margin-bottom: .2em;
+}
+
+.user-profile-header > .follow-info {
+  font-size: .8em;
+}

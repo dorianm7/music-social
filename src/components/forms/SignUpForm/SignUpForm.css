@@ -1,0 +1,50 @@
+.sign-up-form > form {
+  display: flex;
+  flex-direction: column;
+}
+
+.sign-up-form > form > *:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.sign-up-form > form > label > .label-bar {
+  margin: 0 0 .2em 0;
+  display: inline-flex;
+  flex-direction: row;
+}
+
+.sign-up-form > form > label > .label-bar > .label-text {
+  margin: 0 .4em 0 0;
+}
+
+.sign-up-form > form > label > .label-bar .icon {
+  width: 15px;
+  height: 15px;
+}
+
+.sign-up-form > form > label > .text-input > .input-requirements .requirement {
+  font-size: .8em;
+}
+
+.sign-up-form > form > .sign-up-button {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.sign-up-form > form > .error-message {
+  font-size: .4em;
+}
+
+.sign-up-form .percent-gauge {
+  animation: rotate 2s linear infinite;
+  margin: auto;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,16 @@
+.user-compatibility-preview {
+  display: flex;
+  align-items: center;
+}
+
+.user-compatibility-preview > .user-info {
+  margin-left: 1em;
+}
+
+.user-compatibility-preview > .user-info > span {
+  display: block;
+}
+
+.user-compatibility-preview > .user-info > span.username {
+  font-size: 1.25em;
+}

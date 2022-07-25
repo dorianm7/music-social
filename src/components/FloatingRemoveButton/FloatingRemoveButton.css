@@ -1,0 +1,23 @@
+.floating-remove-button {
+  position: fixed;
+  bottom: 3%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+  box-shadow: 0 5px 7px rgba(0,0,0,30%);
+  background-color: var(--Light-Button-Color);
+  z-index: 10;
+}
+
+.floating-remove-button > .remove-icon{
+  border-radius: .2em 0 0 .2em;
+  background-color: var(--Color-Dark-1);
+  color: white;
+}
+
+.floating-remove-button > .remove-text {
+  margin: 0 .5em;
+  background-color: inherit;
+}

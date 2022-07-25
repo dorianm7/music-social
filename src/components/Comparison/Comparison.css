@@ -1,0 +1,24 @@
+.comparison .comparison-user > img {
+  border-radius: 50%;
+}
+
+.comparison > .comparison-users {
+  margin-bottom: 1rem;
+}
+
+.comparison > .comparison-users > .comparison-user {
+  overflow: hidden;
+}
+
+.comparison > .comparison-users > .comparison-user > .comparison-username {
+  --CIRCLE_SIZE: 90px;
+  width: var(--CIRCLE_SIZE); 
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.comparison > .comparison-summary .summary-title {
+  font-size: 1.25em;
+  margin-bottom: .25em;
+}

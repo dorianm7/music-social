@@ -18,10 +18,20 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "testing-library"
     ],
     "rules": {
         "react/jsx-filename-extension": [1, {"extensions": [".js", ".jsx"] }],
+        "jsx-a11y/label-has-associated-control": [2, {
+            "controlComponents": ["TextInput"]
+        }],
         "no-multi-spaces": ["error", {"ignoreEOLComments": true}]
-    }
+    },
+    "overrides": [
+        {
+            "files": ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
+            "extends": ["plugin:testing-library/react"]
+        }
+    ]
 }

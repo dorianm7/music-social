@@ -1,0 +1,81 @@
+.side-menu {
+  position: fixed;
+  width: 15em;
+  height: 100%;
+  background-color: var(--Color-Dark-3);
+}
+
+.side-menu > .side-menu-user-preview {
+  margin-top: 1em;
+  color: var(--Text-Color-Light);
+}
+
+.side-menu > button.view-profile {
+  margin: 1em auto;
+}
+
+.side-menu > nav .nav-bottom {
+  margin-top: auto;
+}
+
+.side-menu > nav {
+  height: inherit;
+}
+
+.side-menu > nav > ul {
+  margin: 0;
+}
+
+.side-menu > nav .nav-top > li:first-child,
+.side-menu > nav .nav-bottom > li:first-child {
+  border-radius: .2em .2em 0 0;
+}
+
+.side-menu > nav .nav-top > li:last-child,
+.side-menu > nav .nav-bottom > li:last-child{
+  border-radius: 0 0 .2em .2em;
+}
+
+.side-menu > nav .nav-top > li,
+.side-menu > nav .nav-bottom > li{
+  background-color: var(--Light-Button-Color);
+}
+
+.side-menu > nav > ul li {
+  transition: 80ms ease;
+  transition-property: filter;
+}
+
+.side-menu > nav > ul li:hover {
+  filter: brightness(85%);
+}
+
+.side-menu > nav > ul {
+  height: inherit;
+  padding: 0;
+}
+
+.side-menu > nav > ul li > a,
+.side-menu > nav > ul li button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: .5em 10%;
+  text-decoration: none;
+  color: var(--Text-Color-Default);
+}
+
+
+.side-menu > nav > ul li .icon {
+  margin-right: 1em;
+  height: 25px;
+  width: 25px;
+}
+
+.side-menu > nav > ul hr {
+  margin: 0 auto;
+  height: 2px;
+  border: 0;
+  background: linear-gradient(90deg, var(--Light-Button-Color) 0% 10%, var(--Color-Dark-3) 10% 90%, var(--Light-Button-Color) 90% 100%);
+}

@@ -1,0 +1,35 @@
+.user-images {
+  --IMAGE-SIZE: 100px;
+  display: flex;
+  flex-direction: row;
+  overflow: auto;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.user-images.space-around {
+  justify-content: space-around;
+}
+
+.user-images.margin {
+  justify-content: space-between;
+  padding-bottom: 1rem;
+}
+
+.user-images.margin > .user:not(:last-child) {
+  margin-right: .5em;
+}
+
+.user-images > li.user {
+  width: var(--IMAGE-SIZE);
+  list-style: none;
+}
+
+.user-images > li.user > span {
+  display: block;
+  width: var(--IMAGE-SIZE);
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
