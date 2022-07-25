@@ -8,12 +8,10 @@ import { EXCLAMATION_NAME } from '../../Icons';
 const defaultIconWidth = '20px';
 const defaultIconHeight = '20px';
 
-function renderIconButton(icon, iconWidth, iconHeight, rounded, onClick) {
+function renderIconButton(icon, rounded, onClick) {
   return (
     <IconButton
       icon={icon}
-      iconWidth={iconWidth}
-      iconHeight={iconHeight}
       rounded={rounded}
       onClick={onClick}
     />
@@ -43,7 +41,7 @@ function getIndicatorStyle(iconWidth, iconHeight) {
 }
 
 function renderContent(on, icon, iconWidth, iconHeight, rounded, onClick) {
-  const iconButton = renderIconButton(icon, iconWidth, iconHeight, rounded, onClick);
+  const iconButton = renderIconButton(icon, rounded, onClick);
   if (on) {
     return (
       <>

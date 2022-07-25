@@ -13,10 +13,8 @@ import {
 
 function AppNav(props) {
   const {
-    menuButtonSize,
     menuButtonOnClick,
     navText,
-    notificationsButtonSize,
     notificationsButtonOnClick,
     notificationsIndicatorOn,
   } = props;
@@ -25,16 +23,14 @@ function AppNav(props) {
     <nav className="app-nav">
       <IconButton
         icon={HAMBURGER_MENU_NAME}
-        iconWidth={menuButtonSize}
-        iconHeight={menuButtonSize}
         onClick={menuButtonOnClick}
         rounded="none"
       />
       <span className="app-nav-text">{navText}</span>
       <IndicatorIcon
         icon={EXCLAMATION_NAME}
-        iconWidth={notificationsButtonSize}
-        iconHeight={notificationsButtonSize}
+        iconWidth="20px"
+        iconHeight="20px"
         rounded="all"
         onClick={notificationsButtonOnClick}
         on={notificationsIndicatorOn}
@@ -44,19 +40,15 @@ function AppNav(props) {
 }
 
 AppNav.propTypes = {
-  menuButtonSize: PropTypes.string,
   menuButtonOnClick: PropTypes.func,
   navText: PropTypes.string,
-  notificationsButtonSize: PropTypes.string,
   notificationsButtonOnClick: PropTypes.func,
   notificationsIndicatorOn: PropTypes.bool,
 };
 
 AppNav.defaultProps = {
-  menuButtonSize: '20px',
   menuButtonOnClick: () => {},
   navText: 'Nav Text',
-  notificationsButtonSize: '20px',
   notificationsButtonOnClick: () => {},
   notificationsIndicatorOn: false,
 };
