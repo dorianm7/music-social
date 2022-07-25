@@ -2,9 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import './UserPreview.css';
+
 import ToggleIconButton from '../basic/ToggleIconButton/ToggleIconButton';
 
-import { PLUS_NAME, CHECK_NAME } from '../../Icons';
+import {
+  PLUS_NAME,
+  CHECK_NAME,
+} from '../../Icons';
 import defaultImg from '../../images/help-rhombus-outline.svg';
 
 function UserPreview(props) {
