@@ -110,8 +110,6 @@ function SignUpForm(props) {
               toggle={showPassword}
               initialIcon={CLOSED_EYE_NAME}
               subsequentIcon={OPEN_EYE_NAME}
-              iconWidth="15px"
-              iconHeight="15px"
               initialOnClick={handlePasswordToggleIcon}
               subsequentOnClick={handlePasswordToggleIcon}
               initialTransparent
@@ -139,8 +137,6 @@ function SignUpForm(props) {
                 toggle={showConfirmPassword}
                 initialIcon={CLOSED_EYE_NAME}
                 subsequentIcon={OPEN_EYE_NAME}
-                iconWidth="15px"
-                iconHeight="15px"
                 initialOnClick={handleConfirmPasswordToggleIcon}
                 subsequentOnClick={handleConfirmPasswordToggleIcon}
                 initialTransparent

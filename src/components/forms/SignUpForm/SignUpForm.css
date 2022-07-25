@@ -17,6 +17,11 @@
   margin: 0 .4em 0 0;
 }
 
+.sign-up-form > form > label > .label-bar .icon {
+  width: 15px;
+  height: 15px;
+}
+
 .sign-up-form > form > label > .text-input > .input-requirements .requirement {
   font-size: .8em;
 }
