@@ -166,12 +166,12 @@ function renderChildren(iconName) {
   return children;
 }
 
-function renderIcon(iconName, iconWidth = '20px', iconHeight = '20px', className = '') {
+function renderIcon(iconName, className = '') {
   return React.createElement(
     'svg',
     {
-      width: iconWidth,
-      height: iconHeight,
+      width: '20px',
+      height: '20px',
       viewBox: '0 0 24 24',
       className: `icon ${className}`,
     },
