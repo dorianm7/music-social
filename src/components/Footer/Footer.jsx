@@ -3,7 +3,9 @@ import { nanoid } from 'nanoid';
 
 import './Footer.css';
 
-import { Icons } from '../../Icons';
+import {
+  Icons,
+} from '../../Icons';
 
 function Footer() {
   return (

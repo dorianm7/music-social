@@ -2,7 +2,9 @@ import React from 'react';
 
 import './UnderConstructionModalContents.css';
 
-import { Icons } from '../../../Icons';
+import {
+  Icons,
+} from '../../../Icons';
 
 function UnderConstructionModalContents() {
   return (

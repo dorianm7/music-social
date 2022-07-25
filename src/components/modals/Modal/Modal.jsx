@@ -5,7 +5,9 @@ import './Modal.css';
 
 import IconButton from '../../basic/IconButton/IconButton';
 
-import { X_NAME } from '../../../Icons';
+import {
+  X_NAME,
+} from '../../../Icons';
 
 function Modal(props) {
   const {

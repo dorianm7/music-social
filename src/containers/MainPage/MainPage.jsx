@@ -41,7 +41,9 @@ import playlistListReverse from '../../local_data/Users_Playlists_Reverse.json';
 import usersList from '../../local_data/users.json';
 import playlist from '../../local_data/Playlist_0.json';
 import playlistReverse from '../../local_data/Playlist_0_Reverse.json';
-import { Icons } from '../../Icons';
+import {
+  Icons,
+} from '../../Icons';
 
 function MainPage(props) {
   const {

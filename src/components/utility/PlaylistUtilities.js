@@ -5,7 +5,9 @@ import { nanoid } from 'nanoid';
 import ExpandableButton from '../basic/ExpandableButton/ExpandableButton';
 import MusicItem from '../MusicItem/MusicItem';
 
-import { VERTICAL_DOTS_NAME } from '../../Icons';
+import {
+  VERTICAL_DOTS_NAME,
+} from '../../Icons';
 
 // Generic playlist items render
 // Takes getSearchableString which creates a searchable string

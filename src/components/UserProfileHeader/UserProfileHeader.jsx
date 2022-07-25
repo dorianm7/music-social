@@ -8,7 +8,10 @@ import ToggleIconButton from '../basic/ToggleIconButton/ToggleIconButton';
 import UserProfileOptions from '../UserProfileOptions/UserProfileOptions';
 
 import defaultImg from '../../images/help-rhombus-outline.svg';
-import { PLUS_NAME, CHECK_NAME } from '../../Icons';
+import {
+  PLUS_NAME,
+  CHECK_NAME,
+} from '../../Icons';
 
 function UserProfileHeader(props) {
   const {

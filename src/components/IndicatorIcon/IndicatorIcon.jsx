@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 
 import IconButton from '../basic/IconButton/IconButton';
 
-import { EXCLAMATION_NAME } from '../../Icons';
+import {
+  EXCLAMATION_NAME,
+} from '../../Icons';
 
 const defaultIconWidth = '20px';
 const defaultIconHeight = '20px';
