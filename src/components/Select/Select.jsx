@@ -4,7 +4,10 @@ import { nanoid } from 'nanoid';
 
 import './Select.css';
 
-import { renderIcon, CHEVRON_DOWN_NAME } from '../../Icons';
+import {
+  renderIcon,
+  CHEVRON_DOWN_NAME,
+} from '../../Icons';
 
 const NBSP_UNICODE = '\u00A0';
 
@@ -56,7 +59,7 @@ function Select(props) {
       >
         {selected.replace(' ', NBSP_UNICODE)}
         {options.length > 1
-          && renderIcon(CHEVRON_DOWN_NAME, '15px', '15px', stateString)}
+          && renderIcon(CHEVRON_DOWN_NAME, stateString)}
       </button>
       {options.length > 1
         && (

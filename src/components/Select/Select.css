@@ -23,6 +23,11 @@
 }
 
 .select > .selected-option-button > .icon {
+  width: 15px;
+  height: 15px;
+}
+
+.select > .selected-option-button > .icon {
   margin-left: .5em;
 }
 

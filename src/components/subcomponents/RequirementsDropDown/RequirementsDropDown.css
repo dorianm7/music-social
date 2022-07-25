@@ -6,4 +6,6 @@
 
 .requirements-drop-down .requirement > .icon {
   margin-left: auto;
+  width: 20px;
+  height: 20px;
 }

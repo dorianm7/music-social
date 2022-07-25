@@ -5,7 +5,9 @@ import './DividerAddButton.css';
 
 import IconButton from '../basic/IconButton/IconButton';
 
-import { PLUS_NAME } from '../../Icons';
+import {
+  PLUS_NAME,
+} from '../../Icons';
 
 function DividerAddButton(props) {
   const { onClick } = props;

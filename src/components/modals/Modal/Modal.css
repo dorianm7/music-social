@@ -23,6 +23,11 @@
   color: white;
 }
 
+.modal > .modal-close-btn > .icon {
+  width: 40px;
+  height: 40px;
+}
+
 .modal > .modal-heading {
   margin: 0;
   padding: 2rem 0;

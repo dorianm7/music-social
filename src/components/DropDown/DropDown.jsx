@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 
 import './DropDown.css';
 
-import { renderIcon } from '../../Icons';
+import {
+  renderIcon,
+} from '../../Icons';
 
 function DropDown(props) {
   const {
@@ -26,8 +28,8 @@ function DropDown(props) {
         onClick={onTitleBarClick}
       >
         <span className="title">{title}</span>
-        {renderIcon('triangle', '10px', '10px', `expand-collapse-icon ${triangleOrientation}`)}
-        {showTitleBarIcon && !open && renderIcon(titleBarIconName, '20px', '20px', `title-bar-icon ${titleBarIconClassName}`)}
+        {renderIcon('triangle', `expand-collapse-icon ${triangleOrientation}`)}
+        {showTitleBarIcon && !open && renderIcon(titleBarIconName, `title-bar-icon ${titleBarIconClassName}`)}
       </button>
       {open && (
         <div className="content">

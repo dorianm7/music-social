@@ -8,6 +8,11 @@
   margin: 0 1em;
 }
 
+.divider-add-button > .icon-button > .icon {
+  width: 20px;
+  height: 20px;
+}
+
 .divider-add-button > hr {
   width: 50%;
 }

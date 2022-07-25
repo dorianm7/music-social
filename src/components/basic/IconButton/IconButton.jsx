@@ -5,7 +5,10 @@ import './IconButton.css';
 
 import BasicButton from '../BasicButton/BasicButton';
 
-import { renderIcon, DEFAULT_NAME } from '../../../Icons';
+import {
+  renderIcon,
+  DEFAULT_NAME,
+} from '../../../Icons';
 
 function validateRoundedProp(rounded) {
   if (rounded !== 'all'
@@ -22,8 +25,6 @@ function IconButton(props) {
   const {
     className,
     icon,
-    iconWidth,
-    iconHeight,
     onClick,
     rounded,
     transparentBackground,
@@ -39,7 +40,7 @@ function IconButton(props) {
       className={`icon-button rounded-${validRounded}${transparentBackgroundClass} ${className}`}
       hasOutline={hasOutline}
     >
-      {renderIcon(icon, iconWidth, iconHeight)}
+      {renderIcon(icon)}
     </BasicButton>
   );
 }
@@ -47,8 +48,6 @@ function IconButton(props) {
 IconButton.propTypes = {
   className: PropTypes.string,
   icon: PropTypes.string,
-  iconWidth: PropTypes.string,
-  iconHeight: PropTypes.string,
   rounded: PropTypes.string,
   transparentBackground: PropTypes.bool,
   hasOutline: PropTypes.bool,
@@ -58,8 +57,6 @@ IconButton.propTypes = {
 IconButton.defaultProps = {
   className: '',
   icon: DEFAULT_NAME,
-  iconWidth: '20px',
-  iconHeight: '20px',
   rounded: 'none',
   transparentBackground: false,
   hasOutline: false,

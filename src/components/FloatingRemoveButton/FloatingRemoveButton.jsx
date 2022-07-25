@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 
 import './FloatingRemoveButton.css';
 
-import { renderIcon, X_NAME } from '../../Icons';
+import {
+  renderIcon,
+  X_NAME,
+} from '../../Icons';
 
 function FloatingRemoveButton(props) {
   const { onClick } = props;
@@ -13,7 +16,7 @@ function FloatingRemoveButton(props) {
       className="floating-remove-button rounded-all"
       onClick={onClick}
     >
-      {renderIcon(X_NAME, '20px', '20px', 'remove-icon')}
+      {renderIcon(X_NAME, 'remove-icon')}
       <span className="remove-text">Remove</span>
     </button>
   );

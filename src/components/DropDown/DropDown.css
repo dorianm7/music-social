@@ -11,6 +11,8 @@
 .drop-down > .title-bar > .expand-collapse-icon {
   margin-left: .5em;
   margin-right: auto;
+  width: 10px;
+  height: 10px;
 }
 
 .drop-down > .title-bar > .expand-collapse-icon.down {

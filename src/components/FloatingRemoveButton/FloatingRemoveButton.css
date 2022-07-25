@@ -12,7 +12,6 @@
 
 .floating-remove-button > .remove-icon{
   border-radius: .2em 0 0 .2em;
-  height: 20px;
   background-color: var(--Color-Dark-1);
   color: white;
 }

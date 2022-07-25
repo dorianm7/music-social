@@ -6,7 +6,10 @@ import './AppNav.css';
 import IconButton from '../basic/IconButton/IconButton';
 import IndicatorIcon from '../IndicatorIcon/IndicatorIcon';
 
-import { HAMBURGER_MENU_NAME, EXCLAMATION_NAME } from '../../Icons';
+import {
+  HAMBURGER_MENU_NAME,
+  EXCLAMATION_NAME,
+} from '../../Icons';
 
 function AppNav(props) {
   const {

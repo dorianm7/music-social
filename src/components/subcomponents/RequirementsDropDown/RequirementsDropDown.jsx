@@ -6,7 +6,10 @@ import './RequirementsDropDown.css';
 
 import DropDown from '../../DropDown/DropDown';
 
-import { renderIcon, CHECK_NAME, X_NAME } from '../../../Icons';
+import {
+  renderIcon,
+  CHECK_NAME, X_NAME,
+} from '../../../Icons';
 
 function renderRequirement(text, valid) {
   const validityClassName = valid ? 'valid' : 'invalid';
@@ -14,7 +17,7 @@ function renderRequirement(text, valid) {
   return (
     <>
       <span className="requirement-text">{text}</span>
-      {renderIcon(iconName, '20px', '20px', validityClassName)}
+      {renderIcon(iconName, validityClassName)}
     </>
   );
 }

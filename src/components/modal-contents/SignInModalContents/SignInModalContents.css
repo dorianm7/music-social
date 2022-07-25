@@ -16,6 +16,11 @@
   margin: 0 auto;
 }
 
+.sign-in-modal-contents > .basic-button > .icon {
+  width: 15px;
+  height: 15px;
+}
+
 .sign-in-modal-contents > .basic-button > .text {
   font-size: .8em;
   margin: 0 auto;

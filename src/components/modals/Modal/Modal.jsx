@@ -21,8 +21,6 @@ function Modal(props) {
         <IconButton
           className="modal-close-btn top-right"
           icon={X_NAME}
-          iconWidth="40px"
-          iconHeight="40px"
           rounded="all"
           onClick={closeHandler}
         />

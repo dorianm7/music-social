@@ -27,7 +27,7 @@ function SignInModalContents(props) {
       <BasicButton
         onClick={googleSignInOnClick}
       >
-        {renderIcon(GOOGLE_COLOR_ICON_NAME, '15px', '15px')}
+        {renderIcon(GOOGLE_COLOR_ICON_NAME)}
         <span className="text">Google&nbsp;Sign&nbsp;In</span>
       </BasicButton>
       <span className="move-to-sign-up">
