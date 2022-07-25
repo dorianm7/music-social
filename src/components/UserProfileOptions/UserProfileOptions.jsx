@@ -19,7 +19,7 @@ function UserProfileOptions(props) {
     navigator.clipboard.writeText(userLink)
       .then(() => {})
       .catch(() => {
-        window.alert('Couldnt share profile');
+        // TODO Add feedback when fail
       });
   };
 
