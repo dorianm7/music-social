@@ -3,6 +3,19 @@
   position: relative;
 }
 
+.expandable-button > .icon-button {
+  width: var(--icon-width);
+  height: var(--icon-height);
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.expandable-button .icon {
+  width: var(--icon-width);
+  height: var(--icon-height);
+}
+
 .expandable-button.expand-up {
   flex-direction: column-reverse;
 }

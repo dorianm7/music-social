@@ -8,9 +8,12 @@ import PropTypes from 'prop-types';
 import './ExpandableButton.css';
 
 import { RefExpandedOptions } from '../../subcomponents/ExpandedOptions/ExpandedOptions';
-import IconButton from '../IconButton/IconButton';
 
-import { DEFAULT_NAME, X_NAME } from '../../../Icons';
+import {
+  DEFAULT_NAME,
+  X_NAME,
+  renderIcon,
+} from '../../../Icons';
 
 function getIconRoundedProp(expand) {
   let rounded;
@@ -74,6 +77,10 @@ function ExpandableButton(props) {
   const [hasOpened, setHasOpened] = useState(false); // Used to set style once
 
   const expandedOptionsRef = useRef(null);
+  const iconButtonRef = useRef(null);
+
+  const roundedClass = isOpen ? getIconRoundedProp(expand) : 'all';
+  const transparentClass = initialIconTransparent && !isOpen ? 'transparent-background' : '';
 
   const addCloseOnClick = (func) => (
     () => {
@@ -90,7 +97,11 @@ function ExpandableButton(props) {
   }
 
   useEffect(() => {
-    if (expandedOptionsRef.current !== null && !hasOpened) {
+    if (iconButtonRef && !hasOpened) {
+      iconButtonRef.current.style.setProperty('--icon-width', iconWidth);
+      iconButtonRef.current.style.setProperty('--icon-height', iconHeight);
+    }
+    if (expandedOptionsRef.current && !hasOpened) {
       expandedOptionsRef.current.style.setProperty('--icon-width', iconWidth);
       expandedOptionsRef.current.style.setProperty('--icon-height', iconHeight);
       setHasOpened(true);
@@ -99,15 +110,14 @@ function ExpandableButton(props) {
 
   return (
     <div className={`expandable-button expand-${expand} direction-${direction}`}>
-      <IconButton
-        icon={isOpen ? subsequentIcon : initialIcon}
-        iconWidth={iconWidth}
-        iconHeight={iconHeight}
-        rounded={isOpen ? getIconRoundedProp(expand) : 'all'}
-        transparentBackground={isOpen ? false : initialIconTransparent}
+      <button
+        type="button"
+        ref={iconButtonRef}
         onClick={() => setIsOpen(!isOpen)}
-        onKeyUp={() => setIsOpen(!isOpen)}
-      />
+        className={`icon-button ${transparentClass} rounded-${roundedClass}`}
+      >
+        {renderIcon(isOpen ? subsequentIcon : initialIcon, '')}
+      </button>
       <RefExpandedOptions
         className={isOpen ? '' : 'hide'}
         title={optionsTitle}
