@@ -444,7 +444,8 @@ function MainPage(props) {
               {!showProfileCompatibility && (
                 <UserProfileHeader
                   imageSrc={usersList.users['002u'].profile_img}
-                  name={usersList.users['002u'].username}
+                  username={usersList.users['002u'].username}
+                  userLink={usersList.users['002u'].profile_url}
                   infoText={usersList.users['002u'].profile_description}
                   numFollowers={profileNumFollowers}
                   numFollowing={usersList.users['002u'].num_following}
