@@ -8,6 +8,7 @@
     "extends": [
         "plugin:react/recommended",
         "plugin:cypress/recommended",
+        "plugin:storybook/recommended",
         "airbnb"
     ],
     "parserOptions": {
