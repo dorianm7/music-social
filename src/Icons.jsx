@@ -205,9 +205,37 @@ const Icons = {
   BACK: renderIcon(BACK_NAME),
 };
 
+const IconNames = {
+  check: CHECK_NAME,
+  x: X_NAME,
+  verticalDots: VERTICAL_DOTS_NAME,
+  exclamation: EXCLAMATION_NAME,
+  hamburgerMenu: HAMBURGER_MENU_NAME,
+  plus: PLUS_NAME,
+  triangle: TRIANGLE_NAME,
+  openEye: OPEN_EYE_NAME,
+  closedEye: CLOSED_EYE_NAME,
+  google: GOOGLE_ICON_NAME,
+  googleColor: GOOGLE_COLOR_ICON_NAME,
+  home: HOME_NAME,
+  followers: FOLLOWERS_NAME,
+  following: FOLLOWING_NAME,
+  comparisons: COMPARISONS_NAME,
+  settings: SETTINGS_NAME,
+  logOut: LOG_OUT_NAME,
+  chevronDown: CHEVRON_DOWN_NAME,
+  github: GITHUB_NAME,
+  web: WEB_NAME,
+  linkedin: LINKEDIN_NAME,
+  email: EMAIL_NAME,
+  back: BACK_NAME,
+  default: DEFAULT_NAME,
+};
+
 export {
   renderIcon,
   Icons,
+  IconNames,
   CHECK_NAME,
   X_NAME,
   VERTICAL_DOTS_NAME,
