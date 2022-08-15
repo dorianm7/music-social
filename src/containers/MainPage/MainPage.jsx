@@ -279,7 +279,7 @@ function MainPage(props) {
 
   // Change number profile followers
   const profileNumFollowers = (isFollowingProfile)
-    ? usersList.users['002u'].num_followers
+    ? Number(usersList.users['002u'].num_followers)
     : (Number(usersList.users['002u'].num_followers) - 1);
 
   return (
@@ -330,9 +330,9 @@ function MainPage(props) {
                 firstUsername={usersList.users['000u'].username}
                 secondUserImg={usersList.users['001u'].profile_img}
                 secondUsername={usersList.users['001u'].username}
-                artistPercent={usersList.users['000u'].comparisons['001u'].most_recent.artists_score}
-                albumPercent={usersList.users['000u'].comparisons['001u'].most_recent.albums_score}
-                playlistPercent={usersList.users['000u'].comparisons['001u'].most_recent.playlists_score}
+                artistPercent={Number(usersList.users['000u'].comparisons['001u'].most_recent.artists_score)}
+                albumPercent={Number(usersList.users['000u'].comparisons['001u'].most_recent.albums_score)}
+                playlistPercent={Number(usersList.users['000u'].comparisons['001u'].most_recent.playlists_score)}
               />
               <MusicLibrary>
                 <BasicPlaylist
@@ -448,7 +448,7 @@ function MainPage(props) {
                   userLink={usersList.users['002u'].profile_url}
                   infoText={usersList.users['002u'].profile_description}
                   numFollowers={profileNumFollowers}
-                  numFollowing={usersList.users['002u'].num_following}
+                  numFollowing={Number(usersList.users['002u'].num_following)}
                   isFollowing={isFollowingProfile}
                   followButtonOnClick={() => {
                     setIsFollowingProfile(true);
@@ -482,9 +482,9 @@ function MainPage(props) {
                     firstUsername={usersList.users['006u'].username}
                     secondUserImg={usersList.users['002u'].profile_img}
                     secondUsername={usersList.users['002u'].username}
-                    albumPercent="20"
-                    artistPercent="40"
-                    playlistPercent="23"
+                    albumPercent={20}
+                    artistPercent={40}
+                    playlistPercent={23}
                   />
                 </>
               )}
