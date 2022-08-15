@@ -1,5 +1,18 @@
 {
   "projects": {
     "default": "music-compatibility-478eb"
-  }
+  },
+  "targets": {
+    "music-compatibility-478eb": {
+      "hosting": {
+        "app": [
+          "music-compatibility-478eb"
+        ],
+        "storybook": [
+          "music-social-storybook"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
