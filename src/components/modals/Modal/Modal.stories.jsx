@@ -6,6 +6,9 @@ import Modal from './Modal';
 export default {
   title: 'Components/Modals/Modal',
   component: Modal,
+  parameters: {
+    layout: 'centered',
+  },
 };
 
 const Template = (args) => <Modal {...args} />;

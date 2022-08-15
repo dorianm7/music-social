@@ -8,6 +8,9 @@ export default {
   title: 'Components/Modals/SignInModal',
   component: SignInModal,
   subcomponents: { SignInModalContents },
+  parameters: {
+    layout: 'centered',
+  },
 };
 
 const Template = (args) => <SignInModal {...args} />;

@@ -8,6 +8,9 @@ export default {
   title: 'Components/Modals/SignUpModal',
   component: SignUpModal,
   subcomponents: { SignUpModalContents },
+  parameters: {
+    layout: 'centered',
+  },
 };
 
 const Template = (args) => <SignUpModal {...args} />;
