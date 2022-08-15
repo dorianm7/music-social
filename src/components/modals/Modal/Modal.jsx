@@ -5,9 +5,7 @@ import './Modal.css';
 
 import IconButton from '../../basic/IconButton/IconButton';
 
-import {
-  X_NAME,
-} from '../../../Icons';
+import { IconNames } from '../../../Icons';
 
 function Modal(props) {
   const {
@@ -22,7 +20,7 @@ function Modal(props) {
       <div className="modal">
         <IconButton
           className="modal-close-btn top-right"
-          icon={X_NAME}
+          icon={IconNames.X}
           rounded="all"
           onClick={closeHandler}
         />

@@ -7,10 +7,7 @@ import PercentGauge from '../../basic/PercentGauge/PercentGauge';
 import TextInput from '../../TextInput/TextInput';
 import ToggleIconButton from '../../basic/ToggleIconButton/ToggleIconButton';
 
-import {
-  OPEN_EYE_NAME,
-  CLOSED_EYE_NAME,
-} from '../../../Icons';
+import { IconNames } from '../../../Icons';
 import {
   VALID_EMAIL_REGEXP,
   HAS_NUM_REGEXP,
@@ -108,8 +105,8 @@ function SignUpForm(props) {
             <span className="label-text">Password</span>
             <ToggleIconButton
               toggle={showPassword}
-              initialIcon={CLOSED_EYE_NAME}
-              subsequentIcon={OPEN_EYE_NAME}
+              initialIcon={IconNames.CLOSED_EYE}
+              subsequentIcon={IconNames.OPEN_EYE}
               initialOnClick={handlePasswordToggleIcon}
               subsequentOnClick={handlePasswordToggleIcon}
               initialTransparent
@@ -135,8 +132,8 @@ function SignUpForm(props) {
               <span className="label-text">Confirm Password</span>
               <ToggleIconButton
                 toggle={showConfirmPassword}
-                initialIcon={CLOSED_EYE_NAME}
-                subsequentIcon={OPEN_EYE_NAME}
+                initialIcon={IconNames.CLOSED_EYE}
+                subsequentIcon={IconNames.OPEN_EYE}
                 initialOnClick={handleConfirmPasswordToggleIcon}
                 subsequentOnClick={handleConfirmPasswordToggleIcon}
                 initialTransparent

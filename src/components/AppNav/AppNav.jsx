@@ -6,10 +6,7 @@ import './AppNav.css';
 import IconButton from '../basic/IconButton/IconButton';
 import IndicatorIcon from '../IndicatorIcon/IndicatorIcon';
 
-import {
-  HAMBURGER_MENU_NAME,
-  EXCLAMATION_NAME,
-} from '../../Icons';
+import { IconNames } from '../../Icons';
 
 function AppNav(props) {
   const {
@@ -22,13 +19,13 @@ function AppNav(props) {
   return (
     <nav className="app-nav">
       <IconButton
-        icon={HAMBURGER_MENU_NAME}
+        icon={IconNames.HAMBURGER_MENU}
         onClick={menuButtonOnClick}
         rounded="none"
       />
       <span className="app-nav-text">{navText}</span>
       <IndicatorIcon
-        icon={EXCLAMATION_NAME}
+        icon={IconNames.EXCLAMATION}
         iconWidth="20px"
         iconHeight="20px"
         rounded="all"

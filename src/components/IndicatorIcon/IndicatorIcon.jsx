@@ -3,10 +3,7 @@ import PropTypes from 'prop-types';
 
 import IconButton from '../basic/IconButton/IconButton';
 
-import {
-  EXCLAMATION_NAME,
-  IconNames,
-} from '../../Icons';
+import { IconNames } from '../../Icons';
 
 const defaultIconWidth = '20px';
 const defaultIconHeight = '20px';
@@ -96,7 +93,7 @@ IndicatorIcon.propTypes = {
 };
 
 IndicatorIcon.defaultProps = {
-  icon: EXCLAMATION_NAME,
+  icon: IconNames.EXCLAMATION,
   iconWidth: defaultIconWidth,
   iconHeight: defaultIconHeight,
   rounded: 'all',

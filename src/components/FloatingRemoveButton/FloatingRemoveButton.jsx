@@ -5,7 +5,7 @@ import './FloatingRemoveButton.css';
 
 import {
   renderIcon,
-  X_NAME,
+  IconNames,
 } from '../../Icons';
 
 function FloatingRemoveButton(props) {
@@ -16,7 +16,7 @@ function FloatingRemoveButton(props) {
       className="floating-remove-button rounded-all"
       onClick={onClick}
     >
-      {renderIcon(X_NAME, 'remove-icon')}
+      {renderIcon(IconNames.X, 'remove-icon')}
       <span className="remove-text">Remove</span>
     </button>
   );

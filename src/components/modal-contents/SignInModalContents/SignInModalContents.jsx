@@ -8,7 +8,7 @@ import BasicButton from '../../basic/BasicButton/BasicButton';
 
 import {
   renderIcon,
-  GOOGLE_COLOR_ICON_NAME,
+  IconNames,
 } from '../../../Icons';
 
 function SignInModalContents(props) {
@@ -27,7 +27,7 @@ function SignInModalContents(props) {
       <BasicButton
         onClick={googleSignInOnClick}
       >
-        {renderIcon(GOOGLE_COLOR_ICON_NAME)}
+        {renderIcon(IconNames.GOOGLE_COLOR_ICON)}
         <span className="text">Google&nbsp;Sign&nbsp;In</span>
       </BasicButton>
       <span className="move-to-sign-up">

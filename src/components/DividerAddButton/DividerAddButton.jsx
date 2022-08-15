@@ -5,9 +5,7 @@ import './DividerAddButton.css';
 
 import IconButton from '../basic/IconButton/IconButton';
 
-import {
-  PLUS_NAME,
-} from '../../Icons';
+import { IconNames } from '../../Icons';
 
 function DividerAddButton(props) {
   const { onClick } = props;
@@ -15,7 +13,7 @@ function DividerAddButton(props) {
     <div className="divider-add-button">
       <hr />
       <IconButton
-        icon={PLUS_NAME}
+        icon={IconNames.PLUS}
         rounded="all"
         onClick={onClick}
       />

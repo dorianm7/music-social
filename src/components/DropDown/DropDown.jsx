@@ -29,7 +29,7 @@ function DropDown(props) {
         onClick={onTitleBarClick}
       >
         <span className="title">{title}</span>
-        {renderIcon('triangle', `expand-collapse-icon ${triangleOrientation}`)}
+        {renderIcon(IconNames.TRIANGLE, `expand-collapse-icon ${triangleOrientation}`)}
         {showTitleBarIcon && !open && renderIcon(titleBarIconName, `title-bar-icon ${titleBarIconClassName}`)}
       </button>
       {open && (

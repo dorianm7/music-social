@@ -10,8 +10,6 @@ import './ExpandableButton.css';
 import { RefExpandedOptions } from '../../subcomponents/ExpandedOptions/ExpandedOptions';
 
 import {
-  DEFAULT_NAME,
-  X_NAME,
   renderIcon,
   IconNames,
 } from '../../../Icons';
@@ -167,8 +165,8 @@ ExpandableButton.propTypes = {
 };
 
 ExpandableButton.defaultProps = {
-  initialIcon: DEFAULT_NAME,
-  subsequentIcon: X_NAME,
+  initialIcon: IconNames.DEFAULT,
+  subsequentIcon: IconNames.X,
   iconWidth: '20px',
   iconHeight: '20px',
   initialIconTransparent: false,
