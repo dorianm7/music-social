@@ -8,10 +8,7 @@ import ToggleIconButton from '../basic/ToggleIconButton/ToggleIconButton';
 import UserProfileOptions from '../UserProfileOptions/UserProfileOptions';
 
 import defaultImg from '../../images/help-rhombus-outline.svg';
-import {
-  PLUS_NAME,
-  CHECK_NAME,
-} from '../../Icons';
+import { IconNames } from '../../Icons';
 
 function UserProfileHeader(props) {
   const {
@@ -45,10 +42,10 @@ function UserProfileHeader(props) {
           <ToggleIconButton
             toggle={isFollowing}
             initialClassName="not-following"
-            initialIcon={PLUS_NAME}
+            initialIcon={IconNames.PLUS}
             initialOnClick={followButtonOnClick}
             subsequentClassName="following"
-            subsequentIcon={CHECK_NAME}
+            subsequentIcon={IconNames.CHECK}
             subsequentOnClick={unfollowButtonOnClick}
             iconWidth="20px"
             iconHeight="20px"

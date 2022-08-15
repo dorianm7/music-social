@@ -5,9 +5,7 @@ import { nanoid } from 'nanoid';
 import ExpandableButton from '../basic/ExpandableButton/ExpandableButton';
 import MusicItem from '../MusicItem/MusicItem';
 
-import {
-  VERTICAL_DOTS_NAME,
-} from '../../Icons';
+import { IconNames } from '../../Icons';
 
 // Generic playlist items render
 // Takes getSearchableString which creates a searchable string
@@ -73,7 +71,7 @@ function renderTrackPlaylistMusicItem(item) {
           optionsOnClicks={[() => { window.open(item.track.external_urls.spotify); }]}
           expand="left"
           direction="down"
-          initialIcon={VERTICAL_DOTS_NAME}
+          initialIcon={IconNames.VERTICAL_DOTS}
           initialIconTransparent
         />
       )}
@@ -116,7 +114,7 @@ function renderTrackCollaborativePlaylistMusicItem(item) {
           optionsOnClicks={[() => { window.open(item.track.external_urls.spotify); }]}
           expand="left"
           direction="down"
-          initialIcon={VERTICAL_DOTS_NAME}
+          initialIcon={IconNames.VERTICAL_DOTS}
           initialIconTransparent
         />
       )}
@@ -159,7 +157,7 @@ function renderArtistPlaylistMusicItem(item) {
           optionsOnClicks={[() => { window.open(item.external_urls.spotify); }]}
           expand="left"
           direction="down"
-          initialIcon={VERTICAL_DOTS_NAME}
+          initialIcon={IconNames.VERTICAL_DOTS}
           initialIconTransparent
         />
       )}
@@ -214,7 +212,7 @@ function renderAlbumPlaylistMusicItem(item) {
           optionsOnClicks={[() => { window.open(item.external_urls.spotify); }]}
           expand="left"
           direction="down"
-          initialIcon={VERTICAL_DOTS_NAME}
+          initialIcon={IconNames.VERTICAL_DOTS}
           initialIconTransparent
         />
       )}
@@ -258,7 +256,7 @@ function renderPlaylistPlaylistMusicItem(item) {
           optionsOnClicks={[() => { window.open(item.external_urls.spotify); }]}
           expand="left"
           direction="down"
-          initialIcon={VERTICAL_DOTS_NAME}
+          initialIcon={IconNames.VERTICAL_DOTS}
           initialIconTransparent
         />
       )}

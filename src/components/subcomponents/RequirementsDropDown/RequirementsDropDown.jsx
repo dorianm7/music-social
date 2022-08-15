@@ -8,13 +8,12 @@ import DropDown from '../../DropDown/DropDown';
 
 import {
   renderIcon,
-  CHECK_NAME,
-  X_NAME,
+  IconNames,
 } from '../../../Icons';
 
 function renderRequirement(text, valid) {
   const validityClassName = valid ? 'valid' : 'invalid';
-  const iconName = valid ? CHECK_NAME : X_NAME;
+  const iconName = valid ? IconNames.CHECK : IconNames.X;
   return (
     <>
       <span className="requirement-text">{text}</span>
@@ -57,7 +56,7 @@ function RequirementsDropDown(props) {
   } = props;
 
   const allValid = !requirementValidities.includes(false);
-  const titleBarValidityIcon = allValid ? CHECK_NAME : X_NAME;
+  const titleBarValidityIcon = allValid ? IconNames.CHECK : IconNames.X;
   const titleBarValidityClassName = allValid ? 'valid' : 'invalid';
 
   return (

@@ -7,7 +7,6 @@ import BasicButton from '../BasicButton/BasicButton';
 
 import {
   renderIcon,
-  DEFAULT_NAME,
   IconNames,
 } from '../../../Icons';
 
@@ -64,7 +63,7 @@ IconButton.propTypes = {
 
 IconButton.defaultProps = {
   className: '',
-  icon: DEFAULT_NAME,
+  icon: IconNames.DEFAULT,
   rounded: 'none',
   transparentBackground: false,
   hasOutline: false,

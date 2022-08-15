@@ -5,10 +5,7 @@ import './UserPreview.css';
 
 import ToggleIconButton from '../basic/ToggleIconButton/ToggleIconButton';
 
-import {
-  PLUS_NAME,
-  CHECK_NAME,
-} from '../../Icons';
+import { IconNames } from '../../Icons';
 import defaultImg from '../../images/help-rhombus-outline.svg';
 
 function UserPreview(props) {
@@ -42,10 +39,10 @@ function UserPreview(props) {
       <ToggleIconButton
         toggle={isFollowing}
         initialClassName="not-following"
-        initialIcon={PLUS_NAME}
+        initialIcon={IconNames.PLUS}
         initialOnClick={followButtonOnClick}
         subsequentClassName="following"
-        subsequentIcon={CHECK_NAME}
+        subsequentIcon={IconNames.CHECK}
         subsequentOnClick={unfollowButtonOnClick}
       />
     </li>

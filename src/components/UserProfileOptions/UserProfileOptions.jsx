@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 
 import ExpandableButton from '../basic/ExpandableButton/ExpandableButton';
 
-import {
-  VERTICAL_DOTS_NAME,
-} from '../../Icons';
+import { IconNames } from '../../Icons';
 
 function UserProfileOptions(props) {
   const {
@@ -25,7 +23,7 @@ function UserProfileOptions(props) {
 
   return (
     <ExpandableButton
-      initialIcon={VERTICAL_DOTS_NAME}
+      initialIcon={IconNames.VERTICAL_DOTS}
       iconWidth="15px"
       iconHeight="20px"
       expand="right"

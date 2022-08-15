@@ -3,11 +3,7 @@ import PropTypes from 'prop-types';
 
 import IconButton from '../IconButton/IconButton';
 
-import {
-  VERTICAL_DOTS_NAME,
-  X_NAME,
-  IconNames,
-} from '../../../Icons';
+import { IconNames } from '../../../Icons';
 
 function ToggleIconButton(props) {
   const {
@@ -71,11 +67,11 @@ ToggleIconButton.propTypes = {
 ToggleIconButton.defaultProps = {
   toggle: false,
   initialClassName: 'initial',
-  initialIcon: VERTICAL_DOTS_NAME,
+  initialIcon: IconNames.VERTICAL_DOTS,
   initialOnClick: () => {},
   initialTransparent: false,
   subsequentClassName: 'subsequent',
-  subsequentIcon: X_NAME,
+  subsequentIcon: IconNames.X,
   subsequentOnClick: () => {},
   subsequentTransparent: false,
   rounded: 'all',

@@ -7,10 +7,7 @@ import './SignInForm.css';
 
 import ToggleIconButton from '../../basic/ToggleIconButton/ToggleIconButton';
 
-import {
-  CLOSED_EYE_NAME,
-  OPEN_EYE_NAME,
-} from '../../../Icons';
+import { IconNames } from '../../../Icons';
 
 function SignInForm(props) {
   const {
@@ -55,8 +52,8 @@ function SignInForm(props) {
             <span className="label-text">Password</span>
             <ToggleIconButton
               toggle={showPassword}
-              initialIcon={CLOSED_EYE_NAME}
-              subsequentIcon={OPEN_EYE_NAME}
+              initialIcon={IconNames.CLOSED_EYE}
+              subsequentIcon={IconNames.OPEN_EYE}
               initialOnClick={handlePasswordToggleIcon}
               subsequentOnClick={handlePasswordToggleIcon}
               initialTransparent
