@@ -6,7 +6,7 @@ import CompareLibraryPage from './CompareLibaryPage';
 import CompareLibraryPageContents from '../page-contents/CompareLibraryPageContents/CompareLibraryPageContents';
 
 export default {
-  title: 'Containers/CompareLibraryPage',
+  title: 'Containers/Pages/CompareLibraryPage',
   component: CompareLibraryPage,
   subcomponents: { CompareLibraryPageContents },
   parameters: {

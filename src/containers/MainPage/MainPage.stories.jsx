@@ -6,7 +6,7 @@ import MainNav from '../../components/MainNav/MainNav';
 import Footer from '../../components/Footer/Footer';
 
 export default {
-  title: 'Containers/MainPage',
+  title: 'Containers/Pages/MainPage',
   component: MainPage,
   subcomponents: {
     MainNav,

@@ -6,7 +6,7 @@ import CollaborativePlaylistPage from './CollaborativePlaylistPage';
 import CollaborativePlaylistPageContents from '../page-contents/CollaborativePlaylistPageContents/CollaborativePlaylistPageContents';
 
 export default {
-  title: 'Containers/CollaborativePlaylistPage',
+  title: 'Containers/Pages/CollaborativePlaylistPage',
   component: CollaborativePlaylistPage,
   subcomponents: { CollaborativePlaylistPageContents },
   parameters: {
