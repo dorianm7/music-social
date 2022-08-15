@@ -8,6 +8,9 @@ export default {
   title: 'Components/UserProfileOptions',
   component: UserProfileOptions,
   subcomponents: { ExpandableButton },
+  parameters: {
+    layout: 'centered',
+  },
 };
 
 const Template = (args) => <UserProfileOptions {...args} />;
