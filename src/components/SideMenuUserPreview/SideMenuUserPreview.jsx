@@ -32,15 +32,15 @@ function SideMenuUserPreview(props) {
 SideMenuUserPreview.propTypes = {
   imageSrc: PropTypes.string,
   username: PropTypes.string,
-  followers: PropTypes.string,
-  following: PropTypes.string,
+  followers: PropTypes.number,
+  following: PropTypes.number,
 };
 
 SideMenuUserPreview.defaultProps = {
   imageSrc: defaultImg,
   username: 'Username',
-  followers: '1',
-  following: '1',
+  followers: 1,
+  following: 1,
 };
 
 export default SideMenuUserPreview;
