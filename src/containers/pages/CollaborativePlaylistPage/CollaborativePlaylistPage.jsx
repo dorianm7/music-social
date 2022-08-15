@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import CollaborativePlaylistPageContents from '../page-contents/CollaborativePlaylistPageContents/CollaborativePlaylistPageContents';
-import InAppPage from '../InAppPage/InAppPage';
+import CollaborativePlaylistPageContents from '../../page-contents/CollaborativePlaylistPageContents/CollaborativePlaylistPageContents';
+import InAppPage from '../../InAppPage/InAppPage';
 
-import localPlaylist from '../../local_data/Playlist_0.json';
+import localPlaylist from '../../../local_data/Playlist_0.json';
 
 function CollaborativePlaylistPage(props) {
   const {

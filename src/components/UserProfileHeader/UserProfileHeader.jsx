@@ -5,7 +5,7 @@ import './UserProfileHeader.css';
 
 import BasicButton from '../basic/BasicButton/BasicButton';
 import ToggleIconButton from '../basic/ToggleIconButton/ToggleIconButton';
-import UserProfileOptions from '../UserProfileOptions/UserProfileOptions';
+import UserProfileOptions from '../subcomponents/UserProfileOptions/UserProfileOptions';
 
 import defaultImg from '../../images/help-rhombus-outline.svg';
 import { IconNames } from '../../Icons';
