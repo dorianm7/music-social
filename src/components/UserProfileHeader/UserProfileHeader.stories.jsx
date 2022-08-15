@@ -20,3 +20,9 @@ const Template = (args) => <UserProfileHeader {...args} />;
 
 export const Default = Template.bind({});
 Default.args = UserProfileHeader.defaultProps;
+
+export const Following = Template.bind({});
+Following.args = {
+  ...Default.args,
+  isFollowing: true,
+};
