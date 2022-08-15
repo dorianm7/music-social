@@ -91,7 +91,13 @@ function BasicPlaylist(props) {
 }
 
 BasicPlaylist.propTypes = {
-  type: PropTypes.string,
+  type: PropTypes.oneOf([
+    'album',
+    'artist',
+    'collaborative',
+    'playlist',
+    'track',
+  ]),
   playlistHeader: PropTypes.node,
   selectOptions: PropTypes.arrayOf(PropTypes.string),
   onSelectOptionClick: PropTypes.func,
