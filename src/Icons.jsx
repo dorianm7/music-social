@@ -231,6 +231,7 @@ const IconNames = {
   EMAIL: EMAIL_NAME,
   BACK: BACK_NAME,
   DEFAULT: DEFAULT_NAME,
+  NONE: 'none',
 };
 
 export {
