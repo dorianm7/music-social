@@ -61,7 +61,14 @@ function PlaylistHeader(props) {
 }
 
 PlaylistHeader.propTypes = {
-  headingType: PropTypes.string,
+  headingType: PropTypes.oneOf([
+    'h1',
+    'h2',
+    'h3',
+    'h4',
+    'h5',
+    'h6',
+  ]),
   playlistName: PropTypes.string,
   totalItems: PropTypes.number,
   totalRunningTime: PropTypes.number,
