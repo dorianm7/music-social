@@ -4,7 +4,7 @@ import React from 'react';
 import UserProfileHeader from './UserProfileHeader';
 import BasicButton from '../basic/BasicButton/BasicButton';
 import ToggleIconButton from '../basic/ToggleIconButton/ToggleIconButton';
-import UserProfileOptions from '../UserProfileOptions/UserProfileOptions';
+import UserProfileOptions from '../subcomponents/UserProfileOptions/UserProfileOptions';
 
 export default {
   title: 'Components/UserProfileHeader',
