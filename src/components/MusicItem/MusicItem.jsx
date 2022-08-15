@@ -55,6 +55,7 @@ MusicItem.propTypes = {
   type: PropTypes.oneOf([
     'album',
     'artist',
+    'playlist',
     'track',
   ]),
   labelColor: PropTypes.string,
