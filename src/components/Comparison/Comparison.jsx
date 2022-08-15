@@ -78,9 +78,9 @@ Comparison.propTypes = {
   firstUserImg: PropTypes.string,
   secondUsername: PropTypes.string,
   secondUserImg: PropTypes.string,
-  artistPercent: PropTypes.string,
-  albumPercent: PropTypes.string,
-  playlistPercent: PropTypes.string,
+  artistPercent: PropTypes.number,
+  albumPercent: PropTypes.number,
+  playlistPercent: PropTypes.number,
 };
 
 Comparison.defaultProps = {
@@ -88,9 +88,9 @@ Comparison.defaultProps = {
   firstUserImg: defaultImg,
   secondUsername: 'User2',
   secondUserImg: defaultImg,
-  artistPercent: '50',
-  albumPercent: '50',
-  playlistPercent: '50',
+  artistPercent: 50,
+  albumPercent: 50,
+  playlistPercent: 50,
 };
 
 export default Comparison;

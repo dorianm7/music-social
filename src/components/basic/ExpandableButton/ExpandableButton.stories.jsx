@@ -24,7 +24,6 @@ export default {
     },
     expand: {
       options: [
-        'none',
         'up',
         'right',
         'down',
@@ -34,11 +33,10 @@ export default {
     },
     direction: {
       options: [
-        'none',
         'up',
+        'right',
         'down',
         'left',
-        'right',
       ],
       control: { type: 'select' },
     },

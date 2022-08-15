@@ -87,8 +87,8 @@ TextInput.propTypes = {
   requirementValidities: PropTypes.arrayOf(PropTypes.bool),
   onChange: PropTypes.func,
   pattern: PropTypes.string,
-  minLength: PropTypes.string,
-  maxLength: PropTypes.string,
+  minLength: PropTypes.number,
+  maxLength: PropTypes.number,
   required: PropTypes.bool,
 };
 

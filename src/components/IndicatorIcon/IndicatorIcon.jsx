@@ -5,6 +5,7 @@ import IconButton from '../basic/IconButton/IconButton';
 
 import {
   EXCLAMATION_NAME,
+  IconNames,
 } from '../../Icons';
 
 const defaultIconWidth = '20px';
@@ -79,10 +80,17 @@ function IndicatorIcon(props) {
 }
 
 IndicatorIcon.propTypes = {
-  icon: PropTypes.string,
+  icon: PropTypes.oneOf(Object.values(IconNames)),
   iconWidth: PropTypes.string,
   iconHeight: PropTypes.string,
-  rounded: PropTypes.string,
+  rounded: PropTypes.oneOf([
+    'none',
+    'all',
+    'top',
+    'right',
+    'bottom',
+    'left',
+  ]),
   onClick: PropTypes.func,
   on: PropTypes.bool,
 };

@@ -54,7 +54,14 @@ CollaborativePlaylistPageContents.propTypes = {
   userImages: PropTypes.arrayOf(PropTypes.string),
   usernames: PropTypes.arrayOf(PropTypes.string),
   userIds: PropTypes.arrayOf(PropTypes.string),
-  playlistHeadingType: PropTypes.string,
+  playlistHeadingType: PropTypes.oneOf([
+    'h1',
+    'h2',
+    'h3',
+    'h4',
+    'h5',
+    'h6',
+  ]),
   playlistName: PropTypes.string,
   playlistRunningTime: PropTypes.number,
   playlist: PropTypes.shape({

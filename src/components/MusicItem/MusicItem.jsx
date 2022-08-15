@@ -7,7 +7,7 @@ import defaultImg from '../../images/help-rhombus-outline.svg';
 
 function MusicItem(props) {
   const {
-    type, // track, album, artist
+    type,
     labelColor,
     imgSrc,
     imgAlt,
@@ -52,7 +52,12 @@ function MusicItem(props) {
 }
 
 MusicItem.propTypes = {
-  type: PropTypes.string,
+  type: PropTypes.oneOf([
+    'album',
+    'artist',
+    'playlist',
+    'track',
+  ]),
   labelColor: PropTypes.string,
   imgSrc: PropTypes.string,
   imgAlt: PropTypes.string,

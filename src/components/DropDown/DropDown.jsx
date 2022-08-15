@@ -5,6 +5,7 @@ import './DropDown.css';
 
 import {
   renderIcon,
+  IconNames,
 } from '../../Icons';
 
 function DropDown(props) {
@@ -43,7 +44,7 @@ function DropDown(props) {
 DropDown.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
-  titleBarIconName: PropTypes.string,
+  titleBarIconName: PropTypes.oneOf(Object.values(IconNames)),
   titleBarIconClassName: PropTypes.string,
   onTitleBarClick: PropTypes.func,
   showTitleBarIcon: PropTypes.bool,

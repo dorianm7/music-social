@@ -6,6 +6,7 @@ import IconButton from '../IconButton/IconButton';
 import {
   VERTICAL_DOTS_NAME,
   X_NAME,
+  IconNames,
 } from '../../../Icons';
 
 function ToggleIconButton(props) {
@@ -50,14 +51,21 @@ function ToggleIconButton(props) {
 ToggleIconButton.propTypes = {
   toggle: PropTypes.bool,
   initialClassName: PropTypes.string,
-  initialIcon: PropTypes.string,
+  initialIcon: PropTypes.oneOf(Object.values(IconNames)),
   initialOnClick: PropTypes.func,
   initialTransparent: PropTypes.bool,
   subsequentClassName: PropTypes.string,
-  subsquentIcon: PropTypes.string,
+  subsequentIcon: PropTypes.oneOf(Object.values(IconNames)),
   subsequentOnClick: PropTypes.func,
   subsequentTransparent: PropTypes.bool,
-  rounded: PropTypes.string,
+  rounded: PropTypes.oneOf([
+    'none',
+    'all',
+    'top',
+    'right',
+    'bottom',
+    'left',
+  ]),
 };
 
 ToggleIconButton.defaultProps = {

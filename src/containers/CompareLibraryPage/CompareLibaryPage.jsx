@@ -16,7 +16,7 @@ function CompareLibraryPage(props) {
     secondUsername,
     artistPercent,
     albumPercent,
-    songPercent,
+    playlistPercent,
     artistList,
     albumList,
     playlistList,
@@ -39,7 +39,7 @@ function CompareLibraryPage(props) {
         secondUsername={secondUsername}
         artistPercent={artistPercent}
         albumPercent={albumPercent}
-        songPercent={songPercent}
+        playlistPercent={playlistPercent}
         artistList={artistList}
         albumList={albumList}
         playlistList={playlistList}
@@ -53,9 +53,9 @@ CompareLibraryPage.propTypes = {
   firstUsername: PropTypes.string,
   secondUserImg: PropTypes.string,
   secondUsername: PropTypes.string,
-  artistPercent: PropTypes.string,
-  albumPercent: PropTypes.string,
-  songPercent: PropTypes.string,
+  artistPercent: PropTypes.number,
+  albumPercent: PropTypes.number,
+  playlistPercent: PropTypes.number,
   artistList: PropTypes.shape({
     artists: PropTypes.shape({
       href: PropTypes.string,
@@ -97,9 +97,9 @@ CompareLibraryPage.defaultProps = {
   firstUsername: 'User1',
   secondUserImg: 'https://www.thispersondoesnotexist.com/image',
   secondUsername: 'User2',
-  artistPercent: '50',
-  albumPercent: '50',
-  songPercent: '50',
+  artistPercent: 50,
+  albumPercent: 50,
+  playlistPercent: 50,
   artistList: usersArtists,
   albumList: usersAlbums,
   playlistList: usersPlaylists,

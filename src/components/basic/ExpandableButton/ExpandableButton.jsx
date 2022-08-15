@@ -13,6 +13,7 @@ import {
   DEFAULT_NAME,
   X_NAME,
   renderIcon,
+  IconNames,
 } from '../../../Icons';
 
 function getIconRoundedProp(expand) {
@@ -133,17 +134,35 @@ function ExpandableButton(props) {
 }
 
 ExpandableButton.propTypes = {
-  initialIcon: PropTypes.string,
-  subsequentIcon: PropTypes.string,
+  initialIcon: PropTypes.oneOf(Object.values(IconNames)),
+  subsequentIcon: PropTypes.oneOf(Object.values(IconNames)),
   iconWidth: PropTypes.string,
   iconHeight: PropTypes.string,
   initialIconTransparent: PropTypes.bool,
-  expand: PropTypes.string,
-  direction: PropTypes.string,
+  expand: PropTypes.oneOf([
+    'up',
+    'right',
+    'down',
+    'left',
+  ]),
+  direction: PropTypes.oneOf([
+    'up',
+    'right',
+    'down',
+    'left',
+  ]),
   optionsTitle: PropTypes.string,
-  alignOptionsTitle: PropTypes.string,
+  alignOptionsTitle: PropTypes.oneOf([
+    'left',
+    'center',
+    'right',
+  ]),
   options: PropTypes.arrayOf(PropTypes.node),
-  alignOptions: PropTypes.string,
+  alignOptions: PropTypes.oneOf([
+    'left',
+    'center',
+    'right',
+  ]),
   optionsOnClicks: PropTypes.arrayOf(PropTypes.func),
 };
 

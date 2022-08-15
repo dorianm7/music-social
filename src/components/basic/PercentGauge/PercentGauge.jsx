@@ -103,7 +103,7 @@ function PercentGauge(props) {
 
 PercentGauge.propTypes = {
   size: PropTypes.string,
-  percentFilled: PropTypes.string,
+  percentFilled: PropTypes.number,
   innerCircleColor: PropTypes.string,
   emptyGaugeColor: PropTypes.string,
   filledGaugeColor: PropTypes.string,
@@ -116,7 +116,7 @@ PercentGauge.propTypes = {
 
 PercentGauge.defaultProps = {
   size: '100px',
-  percentFilled: '50',
+  percentFilled: 50,
   innerCircleColor: 'white',
   emptyGaugeColor: 'hsl(0, 0%, 70%)',
   filledGaugeColor: 'hsl(0, 0%, 40%)',
