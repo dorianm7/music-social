@@ -5,7 +5,7 @@ import UserProfileOptions from './UserProfileOptions';
 import ExpandableButton from '../basic/ExpandableButton/ExpandableButton';
 
 export default {
-  title: 'Components/UserProfileOptions',
+  title: 'Components/Subcomponents/UserProfileOptions',
   component: UserProfileOptions,
   subcomponents: { ExpandableButton },
   parameters: {
