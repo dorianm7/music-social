@@ -19,7 +19,7 @@ function UserImages(props) {
     users.push(
       <li key={nanoid()} className="user">
         <PercentGauge
-          percentFilled="100"
+          percentFilled={100}
           filledGaugeColor={stc(userIds[i])}
           imageSrc={imgSrcs[i]}
           imageAlt={usernames[i]}
