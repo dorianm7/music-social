@@ -8,6 +8,7 @@ import BasicButton from '../BasicButton/BasicButton';
 import {
   renderIcon,
   DEFAULT_NAME,
+  IconNames,
 } from '../../../Icons';
 
 function validateRoundedProp(rounded) {
@@ -47,8 +48,15 @@ function IconButton(props) {
 
 IconButton.propTypes = {
   className: PropTypes.string,
-  icon: PropTypes.string,
-  rounded: PropTypes.string,
+  icon: PropTypes.oneOf(Object.values(IconNames)),
+  rounded: PropTypes.oneOf([
+    'none',
+    'all',
+    'top',
+    'right',
+    'bottom',
+    'left',
+  ]),
   transparentBackground: PropTypes.bool,
   hasOutline: PropTypes.bool,
   onClick: PropTypes.func,
