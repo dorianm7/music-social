@@ -23,7 +23,7 @@ function UserProfileOptions(props) {
 
   return (
     <ExpandableButton
-      initialIcon={IconNames.VERTICAL_DOTS_NAME}
+      initialIcon={IconNames.VERTICAL_DOTS}
       iconWidth="15px"
       iconHeight="20px"
       expand="right"
