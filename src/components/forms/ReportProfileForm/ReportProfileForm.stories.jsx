@@ -4,7 +4,7 @@ import React from 'react';
 import ReportProfileForm from './ReportProfileForm';
 
 export default {
-  title: 'Components/ReportProfileForm',
+  title: 'Components/forms/ReportProfileForm',
   component: ReportProfileForm,
 };
 
