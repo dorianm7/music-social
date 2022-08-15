@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import ExpandableButton from '../basic/ExpandableButton/ExpandableButton';
+import ExpandableButton from '../../basic/ExpandableButton/ExpandableButton';
 
-import { IconNames } from '../../Icons';
+import { IconNames } from '../../../Icons';
 
 function UserProfileOptions(props) {
   const {

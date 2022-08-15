@@ -2,7 +2,7 @@
 import React from 'react';
 
 import UserProfileOptions from './UserProfileOptions';
-import ExpandableButton from '../basic/ExpandableButton/ExpandableButton';
+import ExpandableButton from '../../basic/ExpandableButton/ExpandableButton';
 
 export default {
   title: 'Components/Subcomponents/UserProfileOptions',
