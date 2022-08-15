@@ -80,11 +80,26 @@ function ExpandedOptions(props) {
 ExpandedOptions.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
-  alignTitle: PropTypes.string,
+  alignTitle: PropTypes.oneOf([
+    'none',
+    'left',
+    'center',
+    'right',
+  ]),
   options: PropTypes.arrayOf(PropTypes.node),
-  alignOptions: PropTypes.string,
+  alignOptions: PropTypes.oneOf([
+    'none',
+    'left',
+    'center',
+    'right',
+  ]),
   optionsOnClicks: PropTypes.arrayOf(PropTypes.func),
-  corner: PropTypes.string,
+  corner: PropTypes.oneOf([
+    'top-left',
+    'top-right',
+    'bottom-left',
+    'bottom-right',
+  ]),
 };
 
 ExpandedOptions.defaultProps = {
@@ -125,11 +140,26 @@ const RefExpandedOptions = React.forwardRef((props, ref) => {
 RefExpandedOptions.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
-  alignTitle: PropTypes.string,
+  alignTitle: PropTypes.oneOf([
+    'none',
+    'left',
+    'center',
+    'right',
+  ]),
   options: PropTypes.arrayOf(PropTypes.node),
-  alignOptions: PropTypes.string,
+  alignOptions: PropTypes.oneOf([
+    'none',
+    'left',
+    'center',
+    'right',
+  ]),
   optionsOnClicks: PropTypes.arrayOf(PropTypes.func),
-  corner: PropTypes.string,
+  corner: PropTypes.oneOf([
+    'top-left',
+    'top-right',
+    'bottom-left',
+    'bottom-right',
+  ]),
 };
 
 RefExpandedOptions.defaultProps = {
