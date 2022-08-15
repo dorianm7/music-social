@@ -1,0 +1,26 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Components/ComponentsDoc" />
+
+# Components Introduction
+
+## Basic Folder 
+Holds the most basic components
+
+## Forms Folder
+Holds the forms used throughout the app
+
+## ModalContents Folder
+Holds the contents that will be placed inside a _Modal_.  
+Placing _ModalContents_ in a _Modal_ through its _contents_ prop is **preferred** compared
+to using its own premade _Modal_ component.  
+
+## Modals Folder
+Holds the modals used throughout the App.  
+It is **easier** to switch the content of the modal through the _contents_
+prop **rather** than rendering a new _Modal_ since components displaying a modal are wrapped with the _ModalContainer_ HOC.  
+The _ModalContainer_ HOC uses a **singular** _Modal_ displaying the contents passed through its _contents_ prop making it
+easier than closing and rendering a new _Modal_ each time content needs to be changed.
+
+## Subcomponents Folder
+Holds components specifically used to help create other components.
