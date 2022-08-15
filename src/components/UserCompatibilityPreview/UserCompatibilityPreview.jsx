@@ -28,13 +28,13 @@ function UserCompatibilityPreview(props) {
 UserCompatibilityPreview.propTypes = {
   imageSrc: PropTypes.string,
   username: PropTypes.string,
-  percentCompatible: PropTypes.string,
+  percentCompatible: PropTypes.number,
 };
 
 UserCompatibilityPreview.defaultProps = {
   imageSrc: defaultImage,
   username: 'Username',
-  percentCompatible: '40',
+  percentCompatible: 40,
 };
 
 export default UserCompatibilityPreview;
