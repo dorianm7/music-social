@@ -3,9 +3,12 @@ import React from 'react';
 
 import CompareLibraryPage from './CompareLibaryPage';
 
+import CompareLibraryPageContents from '../page-contents/CompareLibraryPageContents/CompareLibraryPageContents';
+
 export default {
   title: 'Containers/CompareLibraryPage',
   component: CompareLibraryPage,
+  subcomponents: { CompareLibraryPageContents },
   parameters: {
     layout: 'fullscreen',
   },
