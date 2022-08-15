@@ -10,6 +10,9 @@ export default {
   title: 'Components/Basic/ExpandableButton',
   component: ExpandableButton,
   subcomponents: { ToggleIconButton },
+  parameters: {
+    layout: 'centered',
+  },
   argTypes: {
     initialIcon: {
       options: Object.values(IconNames),
@@ -62,8 +65,6 @@ const Template = (args) => <ExpandableButton {...args} />;
 
 export const Default = Template.bind({});
 Default.args = ExpandableButton.defaultProps;
-Default.args.expand = 'right';
-Default.args.direction = 'down';
 
 export const OptionsTitle = Template.bind({});
 OptionsTitle.args = {
