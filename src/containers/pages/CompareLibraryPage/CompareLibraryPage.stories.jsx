@@ -3,7 +3,7 @@ import React from 'react';
 
 import CompareLibraryPage from './CompareLibaryPage';
 
-import CompareLibraryPageContents from '../page-contents/CompareLibraryPageContents/CompareLibraryPageContents';
+import CompareLibraryPageContents from '../../page-contents/CompareLibraryPageContents/CompareLibraryPageContents';
 
 export default {
   title: 'Containers/Pages/CompareLibraryPage',

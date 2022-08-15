@@ -3,7 +3,7 @@ import React from 'react';
 
 import CollaborativePlaylistPage from './CollaborativePlaylistPage';
 
-import CollaborativePlaylistPageContents from '../page-contents/CollaborativePlaylistPageContents/CollaborativePlaylistPageContents';
+import CollaborativePlaylistPageContents from '../../page-contents/CollaborativePlaylistPageContents/CollaborativePlaylistPageContents';
 
 export default {
   title: 'Containers/Pages/CollaborativePlaylistPage',
