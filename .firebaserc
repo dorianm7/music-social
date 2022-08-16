@@ -5,11 +5,11 @@
   "targets": {
     "music-compatibility-478eb": {
       "hosting": {
-        "app": [
-          "music-compatibility-478eb"
+        "music-compatibility-478eb": [
+          "app"
         ],
-        "storybook": [
-          "music-social-storybook"
+        "music-social-storybook": [
+          "storybook"
         ]
       }
     }
