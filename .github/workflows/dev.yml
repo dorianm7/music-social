@@ -30,10 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        targets: [
-          "music-compatibility-478eb"
-          "music-social-storybook"
-        ]
+        targets: [music-compatibility-478eb, music-social-storybook]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
