@@ -61,4 +61,8 @@ jobs:
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_MUSIC_COMPATIBILITY_478EB }}'
+          target: [
+            "music-compatibility-478eb"
+            "music-social-storybook"
+          ]
           projectId: music-compatibility-478eb
