@@ -1,7 +1,7 @@
 {
   "hosting": [
     {
-      "target": "music-compatibility-478eb",
+      "target": "app",
       "public": "build",
       "ignore": [
         "firebase.json",
@@ -16,7 +16,7 @@
       ]
     },
     {
-      "target": "music-social-storybook",
+      "target": "storybook",
       "public": "storybook-static",
       "ignore": [
         "firebase.json",

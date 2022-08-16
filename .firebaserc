@@ -8,7 +8,7 @@
         "app": [
           "music-compatibility-478eb"
         ],
-        "music-social-storybook": [
+        "storybook": [
           "music-social-storybook"
         ]
       }
