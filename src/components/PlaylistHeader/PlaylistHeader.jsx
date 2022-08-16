@@ -29,9 +29,34 @@ function renderHeadingElement(headingType, playlistName) {
 }
 
 function getReadableTime(timeMS) {
-  const hrs = Math.floor(timeMS / (1000 * 60 * 60));
-  const mins = Math.floor((timeMS - (hrs * 1000 * 60 * 60)) / (1000 * 60));
-  return `${hrs}hrs ${mins}m`;
+  const minMs = 1000 * 60;
+  const hrMs = minMs * 60;
+  const dayMs = hrMs * 24;
+
+  const days = Math.floor(timeMS / dayMs);
+  const timeMinusDaysMs = timeMS - (days * dayMs);
+
+  const hrs = Math.floor(timeMinusDaysMs / hrMs);
+  const timeMinusDaysHrsMs = timeMinusDaysMs - (hrs * hrMs);
+
+  const mins = Math.floor(timeMinusDaysHrsMs / minMs);
+
+  let timeString = '';
+  if (days === 1) {
+    timeString += `${days}day`;
+  } else if (days > 0) {
+    timeString += `${days}days`;
+  }
+  if (hrs === 1) {
+    timeString += ` ${hrs}hr`;
+  } else if (hrs > 0) {
+    timeString += ` ${hrs}hrs`;
+  }
+  if (mins > 0) {
+    timeString += ` ${mins}m`;
+  }
+
+  return timeString.trim();
 }
 
 // Will render running time if totalRunningTime > 0
