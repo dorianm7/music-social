@@ -56,13 +56,17 @@ jobs:
       # Build storybook
       - run: yarn build-storybook
 
+      strategy:
+        matrix:
+          targets: [
+            "music-compatibility-478eb"
+            "music-social-storybook"
+          ]
+
       # Deploy to Firebase preview channel
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_MUSIC_COMPATIBILITY_478EB }}'
-          target: [
-            "music-compatibility-478eb"
-            "music-social-storybook"
-          ]
+          target: ${{ matrix.targets }}
           projectId: music-compatibility-478eb
