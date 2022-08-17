@@ -18,12 +18,12 @@
 
 ### Dev Website
 
-https://music-compatibility-478eb.web.app/
+https://music-compatibility-478eb.web.app/ \
 View the app as it is being constructed here.
 
 ### Storybook
-[![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@main/badge/badge-storybook.svg)](https://music-social-storybook.web.app/)
-https://music-social-storybook.web.app/
+[![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@main/badge/badge-storybook.svg)](https://music-social-storybook.web.app/) \
+https://music-social-storybook.web.app/ \
 View all the components and pages used throughout the app in isolation.
 
 <hr />
@@ -71,10 +71,10 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 Runs a local Storybook instance at [http://localhost:6006](http://localhost:6006)
 
-Use this when editing and developing new components.
+Use this when editing and developing new components. \
 It is **preferred** to develop containers, pages, or components with styled positions outside of Storybook.
 
 ### `yarn build-storybook`
 
-Runs the storybook build command packaging your Storybook files into the `storybook-static` directory.
+Runs the storybook build command packaging your Storybook files into the `storybook-static` directory. \
 The `storybook-static` directory can used to host your Storybook.
