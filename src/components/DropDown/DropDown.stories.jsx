@@ -32,10 +32,3 @@ Open.args = {
   ...Default.args,
   open: true,
 };
-
-export const OpenShowIcon = Template.bind({});
-OpenShowIcon.args = {
-  ...Default.args,
-  open: true,
-  showTitleBarIcon: true,
-};

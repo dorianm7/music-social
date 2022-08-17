@@ -33,6 +33,16 @@ function Footer() {
                 Github
               </a>
             </li>
+            <li key={nanoid()}>
+              <a
+                href="https://music-social-storybook.web.app/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {Icons.STORYBOOK}
+                Storybook
+              </a>
+            </li>
           </ul>
         </li>
         <li className="creator-links-section">

@@ -7,19 +7,30 @@ import './SideMenu.css';
 import BasicButton from '../basic/BasicButton/BasicButton';
 import SideMenuUserPreview from '../SideMenuUserPreview/SideMenuUserPreview';
 
+import defaultImg from '../../images/help-rhombus-outline.svg';
+
 import {
   Icons,
 } from '../../Icons';
 
 function SideMenu(props) {
   const {
+    imgSrc,
     viewProfileOnClick,
     signOutOnClick,
+    userName,
+    followers,
+    following,
   } = props;
 
   return (
     <div className="side-menu flex-column">
-      <SideMenuUserPreview />
+      <SideMenuUserPreview
+        imageSrc={imgSrc}
+        username={userName}
+        followers={followers}
+        following={following}
+      />
       <BasicButton
         className="view-profile"
         onClick={viewProfileOnClick}
@@ -82,13 +93,21 @@ function SideMenu(props) {
 }
 
 SideMenu.propTypes = {
+  imgSrc: PropTypes.string,
   viewProfileOnClick: PropTypes.func,
   signOutOnClick: PropTypes.func,
+  userName: PropTypes.string,
+  followers: PropTypes.number,
+  following: PropTypes.number,
 };
 
 SideMenu.defaultProps = {
+  imgSrc: defaultImg,
   viewProfileOnClick: () => {},
   signOutOnClick: () => {},
+  userName: 'Username',
+  followers: 4,
+  following: 6,
 };
 
 export default SideMenu;
