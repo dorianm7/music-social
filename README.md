@@ -1,6 +1,34 @@
-# Getting Started with Create React App
+<h1 style="text-align: center;">Music Social</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src="/public/logo.png" alt="Music Social Logo" width="50%" height="50%" style="display: block; margin: 0 auto;">
+<span style="display: block; text-align: right;">
+  Logo made by
+  <strong>
+    <a
+      href="https://instagram.com/j_hor_dan"
+      rel="noreferrer"
+      target="_blank"
+    >
+      @j_hor_dan
+    </a>
+  </strong>
+</span>
+  
+## Links
+
+### Dev Website
+
+https://music-compatibility-478eb.web.app/
+View the app as it is being constructed here.
+
+### Storybook
+[![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@main/badge/badge-storybook.svg)](https://music-social-storybook.web.app/)
+https://music-social-storybook.web.app/
+View all the components and pages used throughout the app in isolation.
+
+<hr />
+
+**This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).**
 
 ## Available Scripts
 
@@ -39,32 +67,14 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+### `yarn storybook`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Runs a local Storybook instance at [http://localhost:6006](http://localhost:6006)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Use this when editing and developing new components.
+It is **preferred** to develop containers, pages, or components with styled positions outside of Storybook.
 
-### Code Splitting
+### `yarn build-storybook`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Runs the storybook build command packaging your Storybook files into the `storybook-static` directory.
+The `storybook-static` directory can used to host your Storybook.
