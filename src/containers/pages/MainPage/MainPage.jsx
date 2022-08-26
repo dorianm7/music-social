@@ -474,6 +474,7 @@ function MainPage(props) {
                     onClick={() => {
                       setShowProfileCompatibility(false);
                     }}
+                    ariaLabel="Back to User Profile"
                   >
                     {Icons.BACK}
                   </BasicButton>
