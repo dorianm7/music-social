@@ -16,6 +16,7 @@ function DividerAddButton(props) {
         icon={IconNames.PLUS}
         rounded="all"
         onClick={onClick}
+        ariaLabel="Add item"
       />
       <hr />
     </div>

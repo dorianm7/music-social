@@ -23,6 +23,7 @@ function Modal(props) {
           icon={IconNames.X}
           rounded="all"
           onClick={closeHandler}
+          ariaLabel="Close modal"
         />
         <h1 className="modal-heading">{heading}</h1>
         <div className="modal-content">
