@@ -53,7 +53,9 @@ function SignInForm(props) {
             <ToggleIconButton
               toggle={showPassword}
               initialIcon={IconNames.CLOSED_EYE}
+              initialIconAriaLabel="View password"
               subsequentIcon={IconNames.OPEN_EYE}
+              subsequentIconAriaLabel="Obscure password"
               initialOnClick={handlePasswordToggleIcon}
               subsequentOnClick={handlePasswordToggleIcon}
               initialTransparent
