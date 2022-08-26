@@ -10,10 +10,12 @@ function ToggleIconButton(props) {
     toggle,
     initialClassName,
     initialIcon,
+    initialIconAriaLabel,
     initialOnClick,
     initialTransparent,
     subsequentClassName,
     subsequentIcon,
+    subsequentIconAriaLabel,
     subsequentOnClick,
     subsequentTransparent,
     rounded,
@@ -27,6 +29,7 @@ function ToggleIconButton(props) {
         onClick={subsequentOnClick}
         rounded={rounded}
         transparentBackground={subsequentTransparent}
+        ariaLabel={subsequentIconAriaLabel}
       />
     )
     : (
@@ -36,6 +39,7 @@ function ToggleIconButton(props) {
         onClick={initialOnClick}
         rounded={rounded}
         transparentBackground={initialTransparent}
+        ariaLabel={initialIconAriaLabel}
       />
     );
 
@@ -48,10 +52,12 @@ ToggleIconButton.propTypes = {
   toggle: PropTypes.bool,
   initialClassName: PropTypes.string,
   initialIcon: PropTypes.oneOf(Object.values(IconNames)),
+  initialIconAriaLabel: PropTypes.string,
   initialOnClick: PropTypes.func,
   initialTransparent: PropTypes.bool,
   subsequentClassName: PropTypes.string,
   subsequentIcon: PropTypes.oneOf(Object.values(IconNames)),
+  subsequentIconAriaLabel: PropTypes.string,
   subsequentOnClick: PropTypes.func,
   subsequentTransparent: PropTypes.bool,
   rounded: PropTypes.oneOf([
@@ -68,10 +74,12 @@ ToggleIconButton.defaultProps = {
   toggle: false,
   initialClassName: 'initial',
   initialIcon: IconNames.VERTICAL_DOTS,
+  initialIconAriaLabel: 'Expand options',
   initialOnClick: () => {},
   initialTransparent: false,
   subsequentClassName: 'subsequent',
   subsequentIcon: IconNames.X,
+  subsequentIconAriaLabel: 'Hide options',
   subsequentOnClick: () => {},
   subsequentTransparent: false,
   rounded: 'all',
