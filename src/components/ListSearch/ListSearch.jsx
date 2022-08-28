@@ -10,11 +10,13 @@ function ListSearch(props) {
   } = props;
   return (
     <div className="list-search">
-      <span className="text">Search</span>
-      <input
-        type="text"
-        onChange={(e) => onInputChange(e.target.value)}
-      />
+      <label className="text">
+        Search
+        <input
+          type="search"
+          onChange={(e) => onInputChange(e.target.value)}
+        />
+      </label>
     </div>
   );
 }

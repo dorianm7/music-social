@@ -4,10 +4,7 @@
   align-items: center;
 }
 
-.list-search > .text {
-  margin-right: .5em;
-}
-
-.list-search > input {
+.list-search > label > input {
   width: 10em;
+  margin-left: .5em;
 }
