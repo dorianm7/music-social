@@ -18,7 +18,6 @@ function BasicButton(props) {
   const noAriaProps = {
     className: `basic-button ${className} round-corners${outlineClass}`,
     onClick,
-    onKeyUp: onClick,
   };
 
   const buttonProps = ariaLabel ? {
