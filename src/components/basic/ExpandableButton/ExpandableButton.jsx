@@ -108,6 +108,7 @@ function ExpandableButton(props) {
       setHasOpened(true);
     }
   });
+  const ariaLabel = isOpen ? subsequentIconAriaLabel : initialIconAriaLabel;
 
   return (
     <div className={`expandable-button expand-${expand} direction-${direction}`}>
@@ -116,9 +117,10 @@ function ExpandableButton(props) {
         ref={iconButtonRef}
         onClick={() => setIsOpen(!isOpen)}
         className={`icon-button ${transparentClass} rounded-${roundedClass}`}
-        aria-label={isOpen ? subsequentIconAriaLabel : initialIconAriaLabel}
+        aria-label={ariaLabel}
       >
         {renderIcon(isOpen ? subsequentIcon : initialIcon, '')}
+        <span className="a11y-hide-visually">{ariaLabel}</span>
       </button>
       <RefExpandedOptions
         className={isOpen ? '' : 'hide'}

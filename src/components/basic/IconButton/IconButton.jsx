@@ -43,6 +43,7 @@ function IconButton(props) {
       ariaLabel={ariaLabel}
     >
       {renderIcon(icon)}
+      <span className="a11y-hide-visually">{ariaLabel}</span>
     </BasicButton>
   );
 }

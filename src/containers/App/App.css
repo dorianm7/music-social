@@ -81,6 +81,16 @@ button:enabled:hover {
   text-decoration: underline;
 }
 
+/* A11y Classes */
+.a11y-hide-visually {
+  position: absolute;
+  left: -150%;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 /* Helper Classes */
 /* Round Corner Classes */
 .round-corners {
