@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -7,7 +8,15 @@ import './ListSearch.css';
 function ListSearch(props) {
   const {
     onInputChange,
+    ariaLabel,
   } = props;
+
+  const inputAriaProps = {
+    'aria-label': ariaLabel,
+  };
+
+  const ariaProps = ariaLabel ? inputAriaProps : {};
+
   return (
     <div className="list-search">
       <label className="text">
@@ -15,6 +24,7 @@ function ListSearch(props) {
         <input
           type="search"
           onChange={(e) => onInputChange(e.target.value)}
+          {...ariaProps}
         />
       </label>
     </div>
@@ -23,10 +33,12 @@ function ListSearch(props) {
 
 ListSearch.propTypes = {
   onInputChange: PropTypes.func,
+  ariaLabel: PropTypes.string,
 };
 
 ListSearch.defaultProps = {
   onInputChange: (value) => value,
+  ariaLabel: '',
 };
 
 export default ListSearch;
