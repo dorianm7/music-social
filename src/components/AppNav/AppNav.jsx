@@ -27,6 +27,8 @@ function AppNav(props) {
       <span className="app-nav-text">{navText}</span>
       <IndicatorIcon
         icon={IconNames.EXCLAMATION}
+        iconAriaLabel="Notifications"
+        iconOnAriaLabel="New Notifications"
         iconWidth="20px"
         iconHeight="20px"
         rounded="all"
