@@ -334,7 +334,9 @@ function MainPage(props) {
                 albumPercent={Number(usersList.users['000u'].comparisons['001u'].most_recent.albums_score)}
                 playlistPercent={Number(usersList.users['000u'].comparisons['001u'].most_recent.playlists_score)}
               />
-              <MusicLibrary>
+              <MusicLibrary
+                searchAriaLabel={`Search ${usersList.users['000u'].username} and ${usersList.users['001u'].username} combined library`}
+              >
                 <BasicPlaylist
                   type="artist"
                   playlistHeader={(
@@ -497,6 +499,7 @@ function MainPage(props) {
                 onSelectOptionClick={(option) => {
                   setProfilePlaylistOrdering(option);
                 }}
+                searchAriaLabel={`Search ${usersList.users['006u'].username} artists`}
               />
             </div>
           </section>

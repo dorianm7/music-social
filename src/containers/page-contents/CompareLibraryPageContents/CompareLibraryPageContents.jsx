@@ -40,7 +40,9 @@ function CompareLibraryPageContents(props) {
         albumPercent={albumPercent}
         playlistPercent={playlistPercent}
       />
-      <MusicLibrary>
+      <MusicLibrary
+        searchAriaLabel={`Search ${firstUsername} and ${secondUsername} combined library`}
+      >
         <BasicPlaylist
           type="artist"
           playlistHeader={(
