@@ -36,39 +36,37 @@ function SignInForm(props) {
   return (
     <div className="sign-in-form">
       <form onSubmit={handleSubmit}>
-        <label>
-          <div className="label-bar">
-            <span className="label-text">Email</span>
-          </div>
-          <input
-            className="full-width-input"
-            type="text"
-            name="email"
-            required
+        <label htmlFor="sign-in-form-email-input">
+          Email
+        </label>
+        <input
+          id="sign-in-form-email-input"
+          className="full-width-input"
+          type="text"
+          name="email"
+          required
+        />
+        <label htmlFor="sign-in-form-password-input">
+          Password
+          <ToggleIconButton
+            toggle={showPassword}
+            initialIcon={IconNames.CLOSED_EYE}
+            initialIconAriaLabel="View password"
+            subsequentIcon={IconNames.OPEN_EYE}
+            subsequentIconAriaLabel="Obscure password"
+            initialOnClick={handlePasswordToggleIcon}
+            subsequentOnClick={handlePasswordToggleIcon}
+            initialTransparent
+            subsequentTransparent
           />
         </label>
-        <label>
-          <div className="label-bar">
-            <span className="label-text">Password</span>
-            <ToggleIconButton
-              toggle={showPassword}
-              initialIcon={IconNames.CLOSED_EYE}
-              initialIconAriaLabel="View password"
-              subsequentIcon={IconNames.OPEN_EYE}
-              subsequentIconAriaLabel="Obscure password"
-              initialOnClick={handlePasswordToggleIcon}
-              subsequentOnClick={handlePasswordToggleIcon}
-              initialTransparent
-              subsequentTransparent
-            />
-          </div>
-          <input
-            className="full-width-input"
-            type={passwordInputType}
-            name="password"
-            required
-          />
-        </label>
+        <input
+          id="sign-in-form-password-input"
+          className="full-width-input"
+          type={passwordInputType}
+          name="password"
+          required
+        />
         <button
           className="sign-in-button basic-button"
           type="submit"

@@ -3,7 +3,7 @@
   flex-direction: column;
 }
 
-.sign-in-form > form > *:not(:last-child) {
+.sign-in-form > form > input {
   margin-bottom: 10px;
 }
 
@@ -11,19 +11,17 @@
   display: block;
 }
 
-.sign-in-form > form > label > .label-bar {
+.sign-in-form > form > label {
   margin: 0 0 .2em 0;
   display: inline-flex;
   flex-direction: row;
+  align-items: center;
 }
 
-.sign-in-form > form > label > .label-bar > .label-text {
-  margin: 0 .4em 0 0;
-}
-
-.sign-in-form > form > label > .label-bar .icon {
+.sign-in-form > form > label .icon {
   width: 15px;
   height: 15px;
+  margin-left: .4em;
 }
 
 .sign-in-form > form > .sign-in-button {
