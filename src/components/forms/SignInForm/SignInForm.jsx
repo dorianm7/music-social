@@ -34,50 +34,51 @@ function SignInForm(props) {
   const passwordInputType = showPassword ? 'text' : 'password';
 
   return (
-    <div className="sign-in-form">
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="sign-in-form-email-input">
-          Email
-        </label>
-        <input
-          id="sign-in-form-email-input"
-          className="full-width-input"
-          type="text"
-          name="email"
-          required
+    <form
+      className="sign-in-form"
+      onSubmit={handleSubmit}
+    >
+      <label htmlFor="sign-in-form-email-input">
+        Email
+      </label>
+      <input
+        id="sign-in-form-email-input"
+        className="full-width-input"
+        type="text"
+        name="email"
+        required
+      />
+      <label htmlFor="sign-in-form-password-input">
+        Password
+        <ToggleIconButton
+          toggle={showPassword}
+          initialIcon={IconNames.CLOSED_EYE}
+          initialIconAriaLabel="View password"
+          subsequentIcon={IconNames.OPEN_EYE}
+          subsequentIconAriaLabel="Obscure password"
+          initialOnClick={handlePasswordToggleIcon}
+          subsequentOnClick={handlePasswordToggleIcon}
+          initialTransparent
+          subsequentTransparent
         />
-        <label htmlFor="sign-in-form-password-input">
-          Password
-          <ToggleIconButton
-            toggle={showPassword}
-            initialIcon={IconNames.CLOSED_EYE}
-            initialIconAriaLabel="View password"
-            subsequentIcon={IconNames.OPEN_EYE}
-            subsequentIconAriaLabel="Obscure password"
-            initialOnClick={handlePasswordToggleIcon}
-            subsequentOnClick={handlePasswordToggleIcon}
-            initialTransparent
-            subsequentTransparent
-          />
-        </label>
-        <input
-          id="sign-in-form-password-input"
-          className="full-width-input"
-          type={passwordInputType}
-          name="password"
-          required
-        />
-        <button
-          className="sign-in-button basic-button"
-          type="submit"
-        >
-          Sign In
-        </button>
-        {error && (
-          <span className="error-message center-text">{error.message}</span>
-        )}
-      </form>
-    </div>
+      </label>
+      <input
+        id="sign-in-form-password-input"
+        className="full-width-input"
+        type={passwordInputType}
+        name="password"
+        required
+      />
+      <button
+        className="sign-in-button basic-button"
+        type="submit"
+      >
+        Sign In
+      </button>
+      {error && (
+        <span className="error-message center-text">{error.message}</span>
+      )}
+    </form>
   );
 }
 
