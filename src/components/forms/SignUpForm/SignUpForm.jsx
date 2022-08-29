@@ -119,6 +119,7 @@ function SignUpForm(props) {
         id="sign-up-form-password-input"
         type={passwordInputType}
         name="password"
+        title="Must be at least 10 characters, include 1 number and 1 special character"
         onChange={handlePasswordChange}
         requirementTexts={[
           'Must be at least 10 characters',
