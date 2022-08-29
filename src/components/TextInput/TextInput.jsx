@@ -14,6 +14,7 @@ function TextInput(props) {
   const [showDropDown, setShowDropDown] = useState(true);
   const [showRequirements, setShowRequirements] = useState(false);
   const {
+    id,
     type,
     name,
     requirementTexts,
@@ -56,6 +57,7 @@ function TextInput(props) {
   return (
     <div className="text-input">
       <input
+        id={id}
         type={type}
         name={name}
         onChange={inputOnChange}
@@ -81,6 +83,7 @@ function TextInput(props) {
 }
 
 TextInput.propTypes = {
+  id: PropTypes.string,
   type: PropTypes.string,
   name: PropTypes.string,
   requirementTexts: PropTypes.arrayOf(PropTypes.string),
@@ -93,6 +96,7 @@ TextInput.propTypes = {
 };
 
 TextInput.defaultProps = {
+  id: '',
   type: 'text',
   name: '',
   requirementTexts: ['Requirement 1', 'Requirement 2'],

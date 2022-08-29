@@ -1,41 +1,38 @@
-.sign-up-form > form {
+form.sign-up-form {
   display: flex;
   flex-direction: column;
 }
 
-.sign-up-form > form > *:not(:last-child) {
+form.sign-up-form > .text-input {
   margin-bottom: 10px;
 }
 
-.sign-up-form > form > label > .label-bar {
+form.sign-up-form > label {
   margin: 0 0 .2em 0;
   display: inline-flex;
   flex-direction: row;
 }
 
-.sign-up-form > form > label > .label-bar > .label-text {
-  margin: 0 .4em 0 0;
-}
-
-.sign-up-form > form > label > .label-bar .icon {
+form.sign-up-form > label .icon {
   width: 15px;
   height: 15px;
+  margin-left: .4em;
 }
 
-.sign-up-form > form > label > .text-input > .input-requirements .requirement {
+form.sign-up-form > .text-input > .input-requirements .requirement {
   font-size: .8em;
 }
 
-.sign-up-form > form > .sign-up-button {
+form.sign-up-form > .sign-up-button {
   width: 50%;
   margin: 0 auto;
 }
 
-.sign-up-form > form > .error-message {
+form.sign-up-form > .error-message {
   font-size: .4em;
 }
 
-.sign-up-form .percent-gauge {
+form.sign-up-form .percent-gauge {
   animation: rotate 2s linear infinite;
   margin: auto;
 }

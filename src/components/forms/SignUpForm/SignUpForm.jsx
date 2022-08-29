@@ -85,93 +85,93 @@ function SignUpForm(props) {
     && passwordMatches;
 
   return (
-    <div className="sign-up-form">
-      <form onSubmit={handleSubmit}>
-        <label>
-          <div className="label-bar">
-            <span className="label-text">Email</span>
-          </div>
-          <TextInput
-            type="email"
-            name="email"
-            onChange={handleEmailChange}
-            requirementTexts={['Enter a valid email address']}
-            requirementValidities={emailValidities}
-            required
-          />
-        </label>
-        <label>
-          <div className="label-bar">
-            <span className="label-text">Password</span>
+    <form
+      className="sign-up-form"
+      onSubmit={handleSubmit}
+    >
+      <label htmlFor="sign-up-form-email-input">
+        Email
+      </label>
+      <TextInput
+        id="sign-up-form-email-input"
+        type="email"
+        name="email"
+        onChange={handleEmailChange}
+        requirementTexts={['Enter a valid email address']}
+        requirementValidities={emailValidities}
+        required
+      />
+      <label htmlFor="sign-up-form-password-input">
+        Password
+        <ToggleIconButton
+          toggle={showPassword}
+          initialIcon={IconNames.CLOSED_EYE}
+          initialIconAriaLabel="View password"
+          subsequentIcon={IconNames.OPEN_EYE}
+          subsequentIconAriaLabel="Obscure password"
+          initialOnClick={handlePasswordToggleIcon}
+          subsequentOnClick={handlePasswordToggleIcon}
+          initialTransparent
+          subsequentTransparent
+        />
+      </label>
+      <TextInput
+        id="sign-up-form-password-input"
+        type={passwordInputType}
+        name="password"
+        onChange={handlePasswordChange}
+        requirementTexts={[
+          'Must be at least 10 characters',
+          'Must include 1 number',
+          'Must include 1 special character',
+        ]}
+        requirementValidities={passwordValidities}
+        required
+      />
+      {showConfirmPasswordInput && (
+        <>
+          <label htmlFor="sign-up-form-confirm-password-input">
+            Confirm Password
             <ToggleIconButton
-              toggle={showPassword}
+              toggle={showConfirmPassword}
               initialIcon={IconNames.CLOSED_EYE}
               initialIconAriaLabel="View password"
               subsequentIcon={IconNames.OPEN_EYE}
               subsequentIconAriaLabel="Obscure password"
-              initialOnClick={handlePasswordToggleIcon}
-              subsequentOnClick={handlePasswordToggleIcon}
+              initialOnClick={handleConfirmPasswordToggleIcon}
+              subsequentOnClick={handleConfirmPasswordToggleIcon}
               initialTransparent
               subsequentTransparent
             />
-          </div>
+          </label>
           <TextInput
-            type={passwordInputType}
-            name="password"
-            onChange={handlePasswordChange}
-            requirementTexts={[
-              'Must be at least 10 characters',
-              'Must include 1 number',
-              'Must include 1 special character',
-            ]}
-            requirementValidities={passwordValidities}
+            id="sign-up-form-confirm-password-input"
+            type={confirmPasswordInputType}
+            onChange={handleConfirmPassword}
+            requirementTexts={['Passwords must match']}
+            requirementValidities={[passwordMatches]}
             required
           />
-        </label>
-        {showConfirmPasswordInput && (
-          <label>
-            <div className="label-bar">
-              <span className="label-text">Confirm Password</span>
-              <ToggleIconButton
-                toggle={showConfirmPassword}
-                initialIcon={IconNames.CLOSED_EYE}
-                initialIconAriaLabel="View password"
-                subsequentIcon={IconNames.OPEN_EYE}
-                subsequentIconAriaLabel="Obscure password"
-                initialOnClick={handleConfirmPasswordToggleIcon}
-                subsequentOnClick={handleConfirmPasswordToggleIcon}
-                initialTransparent
-                subsequentTransparent
-              />
-            </div>
-            <TextInput
-              type={confirmPasswordInputType}
-              onChange={handleConfirmPassword}
-              requirementTexts={['Passwords must match']}
-              requirementValidities={[passwordMatches]}
-              required
-            />
-          </label>
-        )}
-        {!isLoading && (
-          <input
-            className="sign-up-button basic-button"
-            type="submit"
-            value="Sign Up"
-            disabled={!canSubmit}
-          />
-        )}
-        {isLoading && (
-          <PercentGauge
-            percentFilled={10}
-            size="1rem"
-          />
-        )}
-        {error && (
-          <span className="error-message center-text">{error.message}</span>
-        )}
-      </form>
-    </div>
+        </>
+      )}
+      {!isLoading && (
+        <input
+          className="sign-up-button basic-button"
+          type="submit"
+          value="Sign Up"
+          disabled={!canSubmit}
+        />
+      )}
+      {isLoading && (
+        <PercentGauge
+          percentFilled={10}
+          size="1rem"
+        />
+      )}
+      {error && (
+        <span className="error-message center-text">{error.message}</span>
+      )}
+    </form>
   );
 }
 
