@@ -499,7 +499,7 @@ function MainPage(props) {
                 onSelectOptionClick={(option) => {
                   setProfilePlaylistOrdering(option);
                 }}
-                searchAriaLabel={`Search ${usersList.users['006u'].username} artists`}
+                searchAriaLabel={`Search ${usersList.users['002u'].username} artists`}
               />
             </div>
           </section>
