@@ -63,7 +63,6 @@ const GOOGLE_COLOR_ICON_PATHS = (
 function renderIconPathElement(pathData, args = {
   fill: 'currentColor',
 }) {
-// function renderIconPathElement(pathData, args) {
   return React.createElement(
     'path',
     {
@@ -171,7 +170,12 @@ function renderChildren(iconName) {
       break;
   }
 
-  return children;
+  return (
+    <>
+      <title>{iconName}</title>
+      {children}
+    </>
+  );
 }
 
 function renderIcon(
