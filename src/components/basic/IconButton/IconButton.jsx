@@ -42,7 +42,7 @@ function IconButton(props) {
       hasOutline={hasOutline}
       ariaLabel={ariaLabel}
     >
-      {renderIcon(icon)}
+      {renderIcon(icon, '', ariaLabel)}
       <span className="a11y-hide-visually">{ariaLabel}</span>
     </BasicButton>
   );
