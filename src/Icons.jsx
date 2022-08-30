@@ -217,7 +217,7 @@ const Icons = {
   OPEN_EYE: renderIcon(OPEN_EYE_NAME),
   PLUS: renderIcon(PLUS_NAME),
   SETTINGS: renderIcon(SETTINGS_NAME),
-  STORYBOOK: renderIcon(STORYBOOK_NAME, '', '0 0 83 103'),
+  STORYBOOK: renderIcon(STORYBOOK_NAME, '', '', '0 0 83 103'),
   TRIANGLE: renderIcon(TRIANGLE_NAME),
   VERTICAL_DOTS: renderIcon(VERTICAL_DOTS_NAME),
   WEB: renderIcon(WEB_NAME),
