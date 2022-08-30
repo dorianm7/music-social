@@ -159,7 +159,7 @@ function nameToPathData(iconName) {
   return pathData;
 }
 
-function renderChildren(iconName) {
+function renderChildren(iconName, title) {
   let children;
   switch (iconName) {
     case GOOGLE_COLOR_ICON_NAME:
@@ -172,7 +172,7 @@ function renderChildren(iconName) {
 
   return (
     <>
-      <title>{iconName}</title>
+      <title>{title}</title>
       {children}
     </>
   );
@@ -181,6 +181,7 @@ function renderChildren(iconName) {
 function renderIcon(
   iconName,
   className = '',
+  title = '',
   viewBox = '0 0 24 24',
 ) {
   return React.createElement(
@@ -191,7 +192,7 @@ function renderIcon(
       viewBox,
       className: `icon ${className}`,
     },
-    renderChildren(iconName),
+    renderChildren(iconName, title),
   );
 }
 
