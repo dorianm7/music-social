@@ -47,8 +47,6 @@ import {
 
 function MainPage(props) {
   const {
-    // Modal Container HOC Props
-    modalContainerClassName,
     // Toast Container HOC Props
     toastContainerClassName,
     toastVisible,
@@ -289,7 +287,7 @@ function MainPage(props) {
   return (
     <>
       <div
-        className={`main-page ${modalContainerClassName} ${toastContainerClassName}`}
+        className={`main-page ${toastContainerClassName}`}
         id={TOP_ID}
       >
         <MainNav
@@ -555,9 +553,6 @@ function MainPage(props) {
 }
 
 MainPage.propTypes = {
-  // Modal Container HOC Props
-  modalContainerClassName: PropTypes.string,
-  // modalOpen: PropTypes.bool,
   // Toast Container HOC Props
   toastContainerClassName: PropTypes.string,
   toastVisible: PropTypes.bool,
@@ -568,8 +563,6 @@ MainPage.propTypes = {
 };
 
 MainPage.defaultProps = {
-  modalContainerClassName: 'modal-container',
-  // modalOpen: false,
   toastContainerClassName: 'toast-container',
   toastVisible: false,
   toast: () => {},
