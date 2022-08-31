@@ -19,6 +19,13 @@ function Select(props) {
 
   const [selected, setSelected] = useState(options[0]);
   const [open, setOpen] = useState(false);
+  const [id, setId] = useState('');
+  const [hasId, setHasId] = useState(false);
+
+  if (!hasId) {
+    setId(nanoid());
+    setHasId(true);
+  }
 
   function renderListItemButton(option) {
     return (
@@ -55,7 +62,12 @@ function Select(props) {
       <button
         type="button"
         className={`selected-option-button ${stateString}`}
-        onClick={() => { setOpen(!open); }}
+        onClick={() => {
+          setOpen(!open);
+        }}
+        role="combobox"
+        aria-expanded={open}
+        aria-controls={id}
       >
         {selected.replace(' ', NBSP_UNICODE)}
         {options.length > 1
@@ -63,7 +75,10 @@ function Select(props) {
       </button>
       {options.length > 1
         && (
-          <ul className={stateString}>
+          <ul
+            id={id}
+            className={stateString}
+          >
             {listItemButtonElements}
           </ul>
         )}
