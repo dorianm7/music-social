@@ -27,6 +27,7 @@ function DropDown(props) {
         type="button"
         className="title-bar center-row"
         onClick={onTitleBarClick}
+        aria-expanded={open}
       >
         <span className="title">{title}</span>
         {renderIcon(IconNames.TRIANGLE, `expand-collapse-icon ${triangleOrientation}`)}
