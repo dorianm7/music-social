@@ -1,4 +1,7 @@
-import React, { useState } from 'react';
+import React, {
+  useState,
+  useEffect,
+} from 'react';
 import PropTypes from 'prop-types';
 
 import './SignUpForm.css';
@@ -18,6 +21,12 @@ function SignUpForm(props) {
   const {
     onSubmit,
   } = props;
+
+  useEffect(() => {
+    const emailInputEl = document.getElementById('sign-up-form-email-input');
+    emailInputEl.focus();
+  });
+
   const [emailValidities, setEmailValidities] = useState([false]);
   const [passwordValidities, setPasswordValidities] = useState([false, false, false]);
   const [password, setPassword] = useState('');

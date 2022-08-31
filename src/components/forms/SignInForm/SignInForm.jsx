@@ -1,5 +1,6 @@
 import React, {
   useState,
+  useEffect,
 } from 'react';
 import PropTypes from 'prop-types';
 
@@ -13,6 +14,12 @@ function SignInForm(props) {
   const {
     onSubmit,
   } = props;
+
+  useEffect(() => {
+    const emailInputEl = document.getElementById('sign-in-form-email-input');
+    emailInputEl.focus();
+  });
+
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(false);
 
