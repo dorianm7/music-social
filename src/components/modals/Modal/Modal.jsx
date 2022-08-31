@@ -21,6 +21,8 @@ function Modal(props) {
       <dialog
         open={open}
         className="modal"
+        aria-modal={String(open)}
+        aria-labelledby="modal-heading"
       >
         <IconButton
           className="modal-close-btn top-right"
@@ -29,7 +31,7 @@ function Modal(props) {
           onClick={closeHandler}
           ariaLabel="Close modal"
         />
-        <h1 className="modal-heading">{heading}</h1>
+        <h1 id="modal-heading" className="modal-heading">{heading}</h1>
         <div className="modal-content">
           {contents}
         </div>
