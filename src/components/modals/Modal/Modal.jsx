@@ -12,12 +12,16 @@ function Modal(props) {
     heading,
     contents,
     closeHandler,
+    open,
   } = props;
 
-  return (
+  return !open ? <></> : (
     <>
       <div className="modal-background" />
-      <div className="modal">
+      <dialog
+        open={open}
+        className="modal"
+      >
         <IconButton
           className="modal-close-btn top-right"
           icon={IconNames.X}
@@ -29,7 +33,7 @@ function Modal(props) {
         <div className="modal-content">
           {contents}
         </div>
-      </div>
+      </dialog>
     </>
   );
 }
@@ -38,6 +42,7 @@ Modal.propTypes = {
   heading: PropTypes.string,
   contents: PropTypes.node,
   closeHandler: PropTypes.func,
+  open: PropTypes.bool,
 };
 
 Modal.defaultProps = {
@@ -50,6 +55,7 @@ Modal.defaultProps = {
     </>
   ),
   closeHandler: () => {},
+  open: false,
 };
 
 export default Modal;

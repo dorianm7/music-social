@@ -15,3 +15,4 @@ const Template = (args) => <Modal {...args} />;
 
 export const Default = Template.bind({});
 Default.args = Modal.defaultProps;
+Default.args.open = true;

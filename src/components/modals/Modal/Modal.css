@@ -8,27 +8,30 @@
   z-index: 14;
 }
 
-.modal {
+dialog.modal {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+  border: none;
   background: white;
   border-radius: 20px 20px 10px 10px;
   z-index: 15;
 }
 
-.modal > .modal-close-btn {
+dialog.modal > .modal-close-btn {
   background-color: var(--Color-Dark-2);
   color: white;
 }
 
-.modal > .modal-close-btn > .icon {
+dialog.modal > .modal-close-btn > .icon {
   width: 40px;
   height: 40px;
 }
 
-.modal > .modal-heading {
+dialog.modal > .modal-heading {
   margin: 0;
   padding: 2rem 0;
   text-align: center;
@@ -37,20 +40,20 @@
   border-radius: 10px 10px 0 0;
 }
 
-.modal > .modal-content {
+dialog.modal > .modal-content {
   margin: 0 auto;
   padding: 10% 0;
   width: 80%;
 }
 
 @media (max-width: 480px) {
-  .modal {
+  dialog.modal {
     width: 100%;
   }
 }
 
 @media (min-width: 480px) {
-  .modal {
+  dialog.modal {
     width: 350px;
   }
 }
