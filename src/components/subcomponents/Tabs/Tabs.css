@@ -17,6 +17,10 @@ ul.tabs li.tab {
   font-size: .85rem;
 }
 
+ul.tabs > li.tab:not([class*="selected"]) {
+  color: var(--Text-Color-Light);
+}
+
 @media screen and (max-width: 530px) {
   ul.tabs li.tab {
     width: 8rem;
