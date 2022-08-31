@@ -74,7 +74,7 @@ footer > ul.links-section > li > ul a {
   flex-direction: row;
   align-items: center;
   text-decoration: none;
-  color: grey;
+  color: #ABABAB;
 }
 
 footer > ul.links-section > li > ul a > .icon {
