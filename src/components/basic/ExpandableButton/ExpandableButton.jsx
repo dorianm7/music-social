@@ -4,6 +4,7 @@ import React, {
   useEffect,
 } from 'react';
 import PropTypes from 'prop-types';
+import { nanoid } from 'nanoid';
 
 import './ExpandableButton.css';
 
@@ -76,6 +77,7 @@ function ExpandableButton(props) {
   } = props;
   const [isOpen, setIsOpen] = useState(false);
   const [hasOpened, setHasOpened] = useState(false); // Used to set style once
+  const [id, setId] = useState('');
 
   const expandedOptionsRef = useRef(null);
   const iconButtonRef = useRef(null);
@@ -101,6 +103,7 @@ function ExpandableButton(props) {
     if (iconButtonRef && !hasOpened) {
       iconButtonRef.current.style.setProperty('--icon-width', iconWidth);
       iconButtonRef.current.style.setProperty('--icon-height', iconHeight);
+      setId(nanoid());
     }
     if (expandedOptionsRef.current && !hasOpened) {
       expandedOptionsRef.current.style.setProperty('--icon-width', iconWidth);
@@ -120,11 +123,14 @@ function ExpandableButton(props) {
         onClick={() => setIsOpen(!isOpen)}
         className={`icon-button ${transparentClass} rounded-${roundedClass}`}
         aria-label={ariaLabel}
+        aria-expanded={isOpen}
+        aria-controls={id}
       >
         {renderIcon(icon, '', iconTitle)}
         <span className="a11y-hide-visually">{ariaLabel}</span>
       </button>
       <RefExpandedOptions
+        id={id}
         className={isOpen ? '' : 'hide'}
         title={optionsTitle}
         alignTitle={alignOptionsTitle}

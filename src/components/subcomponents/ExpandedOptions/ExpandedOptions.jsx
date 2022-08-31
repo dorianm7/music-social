@@ -6,6 +6,7 @@ import './ExpandedOptions.css';
 
 import { spaceToNbsp } from '../../../utility/StringUtilities';
 
+const DEFAULT_ID = '';
 const DEFAULT_CLASSNAME = '';
 const DEFAULT_TITLE = 'Title';
 const DEFAULT_ALIGN_TITLE = 'center';
@@ -53,6 +54,7 @@ function createListElements(
 
 function ExpandedOptions(props) {
   const {
+    id,
     className,
     title,
     alignTitle,
@@ -71,13 +73,17 @@ function ExpandedOptions(props) {
   );
 
   return (
-    <ul className={`expanded-options ${cornerClassName} ${className}`}>
+    <ul
+      id={id}
+      className={`expanded-options ${cornerClassName} ${className}`}
+    >
       {listItems}
     </ul>
   );
 }
 
 ExpandedOptions.propTypes = {
+  id: PropTypes.string,
   className: PropTypes.string,
   title: PropTypes.string,
   alignTitle: PropTypes.oneOf([
@@ -103,6 +109,7 @@ ExpandedOptions.propTypes = {
 };
 
 ExpandedOptions.defaultProps = {
+  id: DEFAULT_ID,
   className: DEFAULT_CLASSNAME,
   title: DEFAULT_TITLE,
   alignTitle: DEFAULT_ALIGN_TITLE,
@@ -114,6 +121,7 @@ ExpandedOptions.defaultProps = {
 
 const RefExpandedOptions = React.forwardRef((props, ref) => {
   const {
+    id,
     className,
     title,
     alignTitle,
@@ -131,13 +139,18 @@ const RefExpandedOptions = React.forwardRef((props, ref) => {
     optionsOnClicks,
   );
   return (
-    <ul ref={ref} className={`expanded-options ${cornerClassName} ${className}`}>
+    <ul
+      ref={ref}
+      id={id}
+      className={`expanded-options ${cornerClassName} ${className}`}
+    >
       {listItems}
     </ul>
   );
 });
 
 RefExpandedOptions.propTypes = {
+  id: PropTypes.string,
   className: PropTypes.string,
   title: PropTypes.string,
   alignTitle: PropTypes.oneOf([
@@ -163,6 +176,7 @@ RefExpandedOptions.propTypes = {
 };
 
 RefExpandedOptions.defaultProps = {
+  id: '',
   className: DEFAULT_CLASSNAME,
   title: DEFAULT_TITLE,
   alignTitle: DEFAULT_ALIGN_TITLE,
