@@ -29,5 +29,5 @@ Default.args = PlaylistHeader.defaultProps;
 export const RunningTime = Template.bind({});
 RunningTime.args = {
   ...Default.args,
-  totalRunningTime: '10000',
+  totalRunningTime: '99900000',
 };
