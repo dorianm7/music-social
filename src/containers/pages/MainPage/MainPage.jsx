@@ -49,8 +49,6 @@ function MainPage(props) {
   const {
     // Modal Container HOC Props
     modalContainerClassName,
-    modalOpen,
-    toggleHandler,
     // Toast Container HOC Props
     toastContainerClassName,
     toastVisible,
@@ -59,8 +57,14 @@ function MainPage(props) {
     // Regular Props
     userSignedIn,
   } = props;
+  // Modal states and functions
   const [modalHeader, setModalHeader] = useState('modal');
   const [modalContents, setModalContents] = useState(<span>Default</span>);
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const toggleModal = () => {
+    setModalOpen(!modalOpen);
+  };
 
   // States for feature sections
   // Playlist Select states
@@ -189,13 +193,13 @@ function MainPage(props) {
   const navSignInClickHandler = () => {
     setModalHeader('Sign In');
     setModalContents(signInModalContents);
-    toggleHandler();
+    toggleModal();
   };
 
   const openSignUpOnClick = () => {
     setModalHeader('Sign Up');
     setModalContents(signUpModalContents);
-    toggleHandler();
+    toggleModal();
   };
 
   // TODO Add report submit functionality
@@ -214,7 +218,7 @@ function MainPage(props) {
         onSubmit={openAfterReportModal}
       />
     ));
-    toggleHandler();
+    toggleModal();
   };
 
   // TODO Move to App
@@ -537,13 +541,12 @@ function MainPage(props) {
         </main>
         <Footer />
       </div>
-      {modalOpen && (
-        <Modal
-          heading={modalHeader}
-          contents={modalContents}
-          closeHandler={toggleHandler}
-        />
-      )}
+      <Modal
+        heading={modalHeader}
+        contents={modalContents}
+        closeHandler={toggleModal}
+        open={modalOpen}
+      />
       {toastVisible && (
         <Toast message={toastMessage} />
       )}
@@ -554,8 +557,7 @@ function MainPage(props) {
 MainPage.propTypes = {
   // Modal Container HOC Props
   modalContainerClassName: PropTypes.string,
-  modalOpen: PropTypes.bool,
-  toggleHandler: PropTypes.func,
+  // modalOpen: PropTypes.bool,
   // Toast Container HOC Props
   toastContainerClassName: PropTypes.string,
   toastVisible: PropTypes.bool,
@@ -567,8 +569,7 @@ MainPage.propTypes = {
 
 MainPage.defaultProps = {
   modalContainerClassName: 'modal-container',
-  modalOpen: false,
-  toggleHandler: () => {},
+  // modalOpen: false,
   toastContainerClassName: 'toast-container',
   toastVisible: false,
   toast: () => {},

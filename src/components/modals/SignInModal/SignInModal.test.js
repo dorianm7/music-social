@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import SignInModal from './SignInModal';
 
 it('renders', () => {
-  render(<SignInModal />);
+  render(<SignInModal open />);
 
   expect(screen.getByRole('heading')).not.toBeNull();
 });
