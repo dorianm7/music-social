@@ -1,4 +1,7 @@
-import React, { useState } from 'react';
+import React, {
+  useState,
+  useEffect,
+} from 'react';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 
@@ -21,6 +24,14 @@ function Select(props) {
   const [open, setOpen] = useState(false);
   const [id, setId] = useState('');
   const [hasId, setHasId] = useState(false);
+
+  useEffect(() => {
+    if (open) {
+      const optionsUl = document.getElementById(id);
+      const firstOption = optionsUl.querySelector('button');
+      firstOption.focus();
+    }
+  });
 
   if (!hasId) {
     setId(nanoid());
