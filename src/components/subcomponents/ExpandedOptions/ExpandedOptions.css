@@ -15,6 +15,7 @@ ul.expanded-options > li *:first-child{
 ul.expanded-options > li.options-title {
   padding-bottom: .2em;
   background-color: var(--Color-Dark-1);
+  color: var(--Text-Color-Light);
 }
 
 ul.expanded-options .align-center {
