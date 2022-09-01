@@ -52,6 +52,7 @@ class TabbedContainer extends React.Component {
         <Tabs
           tabSelected={tabSelected}
           role="tablist"
+          ariaLabelledBy={tabTitles[tabSelected]}
         >
           {buttons}
         </Tabs>

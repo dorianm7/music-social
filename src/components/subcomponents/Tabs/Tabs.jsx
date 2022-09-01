@@ -43,12 +43,17 @@ class Tabs extends React.Component {
   }
 
   render() {
-    const { role } = this.props;
+    const {
+      role,
+      ariaLabelledBy,
+    } = this.props;
     const roleAttr = !role ? {} : { role };
+    const ariaLabelledByAttr = !ariaLabelledBy ? {} : { 'aria-labelledby': ariaLabelledBy };
     return (
       <ul
         className="tabs"
         {...roleAttr}
+        {...ariaLabelledByAttr}
       >
         {this.renderTabs()}
       </ul>
@@ -63,6 +68,7 @@ Tabs.propTypes = {
   ]),
   tabSelected: PropTypes.number,
   role: PropTypes.string,
+  ariaLabelledBy: PropTypes.string,
 };
 
 Tabs.defaultProps = {
@@ -72,6 +78,7 @@ Tabs.defaultProps = {
   ],
   tabSelected: 0,
   role: '',
+  ariaLabelledBy: '',
 };
 
 export default Tabs;
