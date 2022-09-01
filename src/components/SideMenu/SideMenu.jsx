@@ -63,8 +63,8 @@ function SideMenu(props) {
               Comparisons
             </a>
           </li>
-	</ul>
-	<ul className="flex-column nav-top">
+        </ul>
+        <ul className="flex-column nav-top">
           <li key={nanoid()} className="center-row">
             <a href="#settings">
               {Icons.SETTINGS}
