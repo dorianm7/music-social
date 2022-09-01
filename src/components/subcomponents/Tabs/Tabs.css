@@ -1,4 +1,4 @@
-ul.tabs {
+.tabs {
   display: flex;
   flex-direction: row;
   list-style: none;
@@ -6,7 +6,7 @@ ul.tabs {
   margin: 0;
 }
 
-ul.tabs li.tab {
+.tabs .tab {
   border-radius: .4em .4em 0 0;
   display: flex;
   justify-content: center;
@@ -17,22 +17,22 @@ ul.tabs li.tab {
   font-size: .85rem;
 }
 
-ul.tabs > li.tab:not([class*="selected"]) {
+.tabs > .tab:not([class*="selected"]) {
   color: var(--Text-Color-Light);
 }
 
 @media screen and (max-width: 530px) {
-  ul.tabs li.tab {
+  .tabs .tab {
     width: 8rem;
   }
 }
 
-ul.tabs > li.tab.selected {
+.tabs > .tab.selected {
   background-color: var(--Color-Light-05);
   text-decoration: underline;
 }
 
-ul.tabs > li.tab > *:first-child {
+.tabs > .tab > *:first-child {
   border-radius: inherit;
   display: flex;
   justify-content: center;

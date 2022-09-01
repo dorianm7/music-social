@@ -12,17 +12,27 @@ class Tabs extends React.Component {
       children,
       tabSelected,
       role,
+      ariaControlsList,
     } = this.props;
 
     const tabRole = !role ? {} : { role: 'tab' };
+
+    const ariaControlsAttrs = [];
+    ariaControlsList.forEach((ariaControl) => {
+      ariaControlsAttrs.push({
+        'aria-controls': ariaControl,
+      });
+    });
     if (!children.length) {
       return (
-        <li
+        <div
           className="tab selected"
           {...tabRole}
+          {...ariaControlsAttrs[0]}
+          aria-selected
         >
           {children}
-        </li>
+        </div>
       );
     }
 
@@ -30,12 +40,15 @@ class Tabs extends React.Component {
     for (let i = 0; i < children.length; i += 1) {
       const selectedClass = i === tabSelected ? ' selected' : '';
       tabs.push(
-        <li
+        <div
           key={nanoid()}
           className={`tab${selectedClass}`}
+          aria-selected={i === tabSelected}
+          {...tabRole}
+          {...ariaControlsAttrs[i]}
         >
           {children[i]}
-        </li>,
+        </div>,
       );
     }
 
@@ -50,13 +63,13 @@ class Tabs extends React.Component {
     const roleAttr = !role ? {} : { role };
     const ariaLabelledByAttr = !ariaLabelledBy ? {} : { 'aria-labelledby': ariaLabelledBy };
     return (
-      <ul
+      <div
         className="tabs"
         {...roleAttr}
         {...ariaLabelledByAttr}
       >
         {this.renderTabs()}
-      </ul>
+      </div>
     );
   }
 }
@@ -69,6 +82,7 @@ Tabs.propTypes = {
   tabSelected: PropTypes.number,
   role: PropTypes.string,
   ariaLabelledBy: PropTypes.string,
+  ariaControlsList: PropTypes.arrayOf(PropTypes.string),
 };
 
 Tabs.defaultProps = {
@@ -79,6 +93,7 @@ Tabs.defaultProps = {
   tabSelected: 0,
   role: '',
   ariaLabelledBy: '',
+  ariaControlsList: [],
 };
 
 export default Tabs;
