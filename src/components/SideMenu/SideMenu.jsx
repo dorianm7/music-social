@@ -38,54 +38,48 @@ function SideMenu(props) {
         View Profile
       </BasicButton>
       <nav>
-        <ul className="flex-column">
-          <div className="nav-top">
-            <li key={nanoid()} className="center-row">
-              <a href="#home">
-                {Icons.HOME}
-                Home
-              </a>
-            </li>
-            <hr />
-            <li key={nanoid()} className="center-row">
-              <a href="#followers">
-                {Icons.FOLLOWERS}
-                Followers
-              </a>
-            </li>
-            <hr />
-            <li key={nanoid()} className="center-row">
-              <a href="#following">
-                {Icons.FOLLOWING}
-                Following
-              </a>
-            </li>
-            <hr />
-            <li key={nanoid()} className="center-row">
-              <a href="#comparisons">
-                {Icons.COMPARISONS}
-                Comparisons
-              </a>
-            </li>
-          </div>
-          <div className="nav-bottom">
-            <li key={nanoid()} className="center-row">
-              <a href="#settings">
-                {Icons.SETTINGS}
-                Settings
-              </a>
-            </li>
-            <hr />
-            <li key={nanoid()} className="center-row">
-              <button
-                type="button"
-                onClick={signOutOnClick}
-              >
-                {Icons.LOG_OUT}
-                Sign Out
-              </button>
-            </li>
-          </div>
+        <ul className="flex-column nav-top">
+          <li key={nanoid()} className="center-row">
+            <a href="#home">
+              {Icons.HOME}
+              Home
+            </a>
+          </li>
+          <li key={nanoid()} className="center-row">
+            <a href="#followers">
+              {Icons.FOLLOWERS}
+              Followers
+            </a>
+          </li>
+          <li key={nanoid()} className="center-row">
+            <a href="#following">
+              {Icons.FOLLOWING}
+              Following
+            </a>
+          </li>
+          <li key={nanoid()} className="center-row">
+            <a href="#comparisons">
+              {Icons.COMPARISONS}
+              Comparisons
+            </a>
+          </li>
+	</ul>
+	<ul className="flex-column nav-top">
+          <li key={nanoid()} className="center-row">
+            <a href="#settings">
+              {Icons.SETTINGS}
+              Settings
+            </a>
+          </li>
+          <li key={nanoid()} className="center-row">
+            <button
+              type="button"
+              onClick={signOutOnClick}
+            >
+              {Icons.LOG_OUT}
+              Sign Out
+            </button>
+          </li>
         </ul>
       </nav>
     </div>

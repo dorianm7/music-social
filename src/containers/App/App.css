@@ -54,7 +54,8 @@ html {
 }
 
 /* Nav styling */
-nav {
+nav.main-nav,
+nav.app-nav {
   padding: 0 1rem;
   position: sticky;
   top: 0;
