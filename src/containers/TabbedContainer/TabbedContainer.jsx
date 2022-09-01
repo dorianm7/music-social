@@ -51,10 +51,14 @@ class TabbedContainer extends React.Component {
       <div className="tabbed-container">
         <Tabs
           tabSelected={tabSelected}
+          role="tablist"
         >
           {buttons}
         </Tabs>
-        <div className="tab-content">
+        <div
+          className="tab-content"
+          role="tabpanel"
+        >
           {this.renderTab()}
         </div>
       </div>

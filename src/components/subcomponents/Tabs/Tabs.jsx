@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
@@ -7,10 +8,19 @@ import './Tabs.css';
 // children are preferably buttons or strings
 class Tabs extends React.Component {
   renderTabs() {
-    const { children, tabSelected } = this.props;
+    const {
+      children,
+      tabSelected,
+      role,
+    } = this.props;
+
+    const tabRole = !role ? {} : { role: 'tab' };
     if (!children.length) {
       return (
-        <li className="tab selected">
+        <li
+          className="tab selected"
+          {...tabRole}
+        >
           {children}
         </li>
       );
@@ -33,8 +43,13 @@ class Tabs extends React.Component {
   }
 
   render() {
+    const { role } = this.props;
+    const roleAttr = !role ? {} : { role };
     return (
-      <ul className="tabs">
+      <ul
+        className="tabs"
+        {...roleAttr}
+      >
         {this.renderTabs()}
       </ul>
     );
@@ -47,6 +62,7 @@ Tabs.propTypes = {
     PropTypes.node,
   ]),
   tabSelected: PropTypes.number,
+  role: PropTypes.string,
 };
 
 Tabs.defaultProps = {
@@ -55,6 +71,7 @@ Tabs.defaultProps = {
     'Tab 2',
   ],
   tabSelected: 0,
+  role: '',
 };
 
 export default Tabs;
