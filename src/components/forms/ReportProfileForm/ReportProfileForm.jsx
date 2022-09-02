@@ -1,5 +1,6 @@
 import React, {
   useState,
+  useEffect,
 } from 'react';
 import PropTypes from 'prop-types';
 
@@ -18,6 +19,12 @@ function ReportProfileForm(props) {
     reportedUsername,
     onSubmit,
   } = props;
+
+  useEffect(() => {
+    const radioEl = document.querySelector('.report-profile-form input');
+    radioEl.focus();
+  });
+
   const [showDescription, setShowDescription] = useState(false);
   const [descriptionCharCount, setDescriptionCharCount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);

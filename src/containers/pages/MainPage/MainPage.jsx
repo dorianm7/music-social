@@ -47,10 +47,6 @@ import {
 
 function MainPage(props) {
   const {
-    // Modal Container HOC Props
-    modalContainerClassName,
-    modalOpen,
-    toggleHandler,
     // Toast Container HOC Props
     toastContainerClassName,
     toastVisible,
@@ -59,8 +55,14 @@ function MainPage(props) {
     // Regular Props
     userSignedIn,
   } = props;
+  // Modal states and functions
   const [modalHeader, setModalHeader] = useState('modal');
   const [modalContents, setModalContents] = useState(<span>Default</span>);
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const toggleModal = () => {
+    setModalOpen(!modalOpen);
+  };
 
   // States for feature sections
   // Playlist Select states
@@ -189,13 +191,13 @@ function MainPage(props) {
   const navSignInClickHandler = () => {
     setModalHeader('Sign In');
     setModalContents(signInModalContents);
-    toggleHandler();
+    toggleModal();
   };
 
   const openSignUpOnClick = () => {
     setModalHeader('Sign Up');
     setModalContents(signUpModalContents);
-    toggleHandler();
+    toggleModal();
   };
 
   // TODO Add report submit functionality
@@ -214,7 +216,7 @@ function MainPage(props) {
         onSubmit={openAfterReportModal}
       />
     ));
-    toggleHandler();
+    toggleModal();
   };
 
   // TODO Move to App
@@ -285,7 +287,7 @@ function MainPage(props) {
   return (
     <>
       <div
-        className={`main-page ${modalContainerClassName} ${toastContainerClassName}`}
+        className={`main-page ${toastContainerClassName}`}
         id={TOP_ID}
       >
         <MainNav
@@ -334,7 +336,9 @@ function MainPage(props) {
                 albumPercent={Number(usersList.users['000u'].comparisons['001u'].most_recent.albums_score)}
                 playlistPercent={Number(usersList.users['000u'].comparisons['001u'].most_recent.playlists_score)}
               />
-              <MusicLibrary>
+              <MusicLibrary
+                searchAriaLabel={`Search ${usersList.users['000u'].username} and ${usersList.users['001u'].username} combined library`}
+              >
                 <BasicPlaylist
                   type="artist"
                   playlistHeader={(
@@ -474,6 +478,7 @@ function MainPage(props) {
                     onClick={() => {
                       setShowProfileCompatibility(false);
                     }}
+                    ariaLabel="Back to User Profile"
                   >
                     {Icons.BACK}
                   </BasicButton>
@@ -496,6 +501,7 @@ function MainPage(props) {
                 onSelectOptionClick={(option) => {
                   setProfilePlaylistOrdering(option);
                 }}
+                searchAriaLabel={`Search ${usersList.users['002u'].username} artists`}
               />
             </div>
           </section>
@@ -533,13 +539,12 @@ function MainPage(props) {
         </main>
         <Footer />
       </div>
-      {modalOpen && (
-        <Modal
-          heading={modalHeader}
-          contents={modalContents}
-          closeHandler={toggleHandler}
-        />
-      )}
+      <Modal
+        heading={modalHeader}
+        contents={modalContents}
+        closeHandler={toggleModal}
+        open={modalOpen}
+      />
       {toastVisible && (
         <Toast message={toastMessage} />
       )}
@@ -548,10 +553,6 @@ function MainPage(props) {
 }
 
 MainPage.propTypes = {
-  // Modal Container HOC Props
-  modalContainerClassName: PropTypes.string,
-  modalOpen: PropTypes.bool,
-  toggleHandler: PropTypes.func,
   // Toast Container HOC Props
   toastContainerClassName: PropTypes.string,
   toastVisible: PropTypes.bool,
@@ -562,9 +563,6 @@ MainPage.propTypes = {
 };
 
 MainPage.defaultProps = {
-  modalContainerClassName: 'modal-container',
-  modalOpen: false,
-  toggleHandler: () => {},
   toastContainerClassName: 'toast-container',
   toastVisible: false,
   toast: () => {},

@@ -12,23 +12,30 @@ function Modal(props) {
     heading,
     contents,
     closeHandler,
+    open,
   } = props;
 
-  return (
+  return !open ? <></> : (
     <>
       <div className="modal-background" />
-      <div className="modal">
+      <dialog
+        open={open}
+        className="modal"
+        aria-modal={String(open)}
+        aria-labelledby="modal-heading"
+      >
         <IconButton
           className="modal-close-btn top-right"
           icon={IconNames.X}
           rounded="all"
           onClick={closeHandler}
+          ariaLabel="Close modal"
         />
-        <h1 className="modal-heading">{heading}</h1>
+        <h1 id="modal-heading" className="modal-heading">{heading}</h1>
         <div className="modal-content">
           {contents}
         </div>
-      </div>
+      </dialog>
     </>
   );
 }
@@ -37,6 +44,7 @@ Modal.propTypes = {
   heading: PropTypes.string,
   contents: PropTypes.node,
   closeHandler: PropTypes.func,
+  open: PropTypes.bool,
 };
 
 Modal.defaultProps = {
@@ -49,6 +57,7 @@ Modal.defaultProps = {
     </>
   ),
   closeHandler: () => {},
+  open: false,
 };
 
 export default Modal;

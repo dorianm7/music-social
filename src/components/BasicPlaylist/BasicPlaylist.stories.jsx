@@ -31,6 +31,7 @@ const Template = (args) => <BasicPlaylist {...args} />;
 
 export const Default = Template.bind({});
 Default.args = BasicPlaylist.defaultProps;
+Default.args.searchAriaLabel = 'Search playlist';
 
 export const ShowSearch = Template.bind({});
 ShowSearch.args = {

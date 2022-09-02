@@ -24,3 +24,4 @@ const Template = (args) => (
 
 export const Default = Template.bind({});
 Default.args = MusicLibrary.defaultProps;
+Default.args.searchAriaLabel = 'Search library';

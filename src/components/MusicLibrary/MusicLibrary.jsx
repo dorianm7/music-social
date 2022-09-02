@@ -12,6 +12,7 @@ import ListSearch from '../ListSearch/ListSearch';
 function MusicLibrary(props) {
   const {
     children,
+    searchAriaLabel,
   } = props;
 
   const [searchText, setSearchText] = useState('');
@@ -34,6 +35,7 @@ function MusicLibrary(props) {
     <div className="music-library">
       <ListSearch
         onInputChange={setSearchText}
+        ariaLabel={searchAriaLabel}
       />
       {updatedChildren}
     </div>
@@ -42,6 +44,7 @@ function MusicLibrary(props) {
 
 MusicLibrary.propTypes = {
   children: PropTypes.node,
+  searchAriaLabel: PropTypes.string,
 };
 
 MusicLibrary.defaultProps = {
@@ -51,6 +54,7 @@ MusicLibrary.defaultProps = {
       <BasicPlaylist />
     </>
   ),
+  searchAriaLabel: '',
 };
 
 export default MusicLibrary;

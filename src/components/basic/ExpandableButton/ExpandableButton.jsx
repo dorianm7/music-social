@@ -4,6 +4,7 @@ import React, {
   useEffect,
 } from 'react';
 import PropTypes from 'prop-types';
+import { nanoid } from 'nanoid';
 
 import './ExpandableButton.css';
 
@@ -60,7 +61,9 @@ function getCorner(expand, direction) {
 function ExpandableButton(props) {
   const {
     initialIcon,
+    initialIconAriaLabel,
     subsequentIcon,
+    subsequentIconAriaLabel,
     iconWidth,
     iconHeight,
     initialIconTransparent,
@@ -74,6 +77,7 @@ function ExpandableButton(props) {
   } = props;
   const [isOpen, setIsOpen] = useState(false);
   const [hasOpened, setHasOpened] = useState(false); // Used to set style once
+  const [id, setId] = useState('');
 
   const expandedOptionsRef = useRef(null);
   const iconButtonRef = useRef(null);
@@ -99,6 +103,7 @@ function ExpandableButton(props) {
     if (iconButtonRef && !hasOpened) {
       iconButtonRef.current.style.setProperty('--icon-width', iconWidth);
       iconButtonRef.current.style.setProperty('--icon-height', iconHeight);
+      setId(nanoid());
     }
     if (expandedOptionsRef.current && !hasOpened) {
       expandedOptionsRef.current.style.setProperty('--icon-width', iconWidth);
@@ -106,6 +111,9 @@ function ExpandableButton(props) {
       setHasOpened(true);
     }
   });
+  const ariaLabel = isOpen ? subsequentIconAriaLabel : initialIconAriaLabel;
+  const icon = isOpen ? subsequentIcon : initialIcon;
+  const iconTitle = isOpen ? subsequentIconAriaLabel : initialIconAriaLabel;
 
   return (
     <div className={`expandable-button expand-${expand} direction-${direction}`}>
@@ -114,10 +122,15 @@ function ExpandableButton(props) {
         ref={iconButtonRef}
         onClick={() => setIsOpen(!isOpen)}
         className={`icon-button ${transparentClass} rounded-${roundedClass}`}
+        aria-label={ariaLabel}
+        aria-expanded={isOpen}
+        aria-controls={id}
       >
-        {renderIcon(isOpen ? subsequentIcon : initialIcon, '')}
+        {renderIcon(icon, '', iconTitle)}
+        <span className="a11y-hide-visually">{ariaLabel}</span>
       </button>
       <RefExpandedOptions
+        id={id}
         className={isOpen ? '' : 'hide'}
         title={optionsTitle}
         alignTitle={alignOptionsTitle}
@@ -133,7 +146,9 @@ function ExpandableButton(props) {
 
 ExpandableButton.propTypes = {
   initialIcon: PropTypes.oneOf(Object.values(IconNames)),
+  initialIconAriaLabel: PropTypes.string,
   subsequentIcon: PropTypes.oneOf(Object.values(IconNames)),
+  subsequentIconAriaLabel: PropTypes.string,
   iconWidth: PropTypes.string,
   iconHeight: PropTypes.string,
   initialIconTransparent: PropTypes.bool,
@@ -166,7 +181,9 @@ ExpandableButton.propTypes = {
 
 ExpandableButton.defaultProps = {
   initialIcon: IconNames.DEFAULT,
+  initialIconAriaLabel: 'Expand options',
   subsequentIcon: IconNames.X,
+  subsequentIconAriaLabel: 'Hide options',
   iconWidth: '20px',
   iconHeight: '20px',
   initialIconTransparent: false,

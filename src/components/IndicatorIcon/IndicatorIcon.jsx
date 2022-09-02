@@ -8,12 +8,13 @@ import { IconNames } from '../../Icons';
 const defaultIconWidth = '20px';
 const defaultIconHeight = '20px';
 
-function renderIconButton(icon, rounded, onClick) {
+function renderIconButton(icon, rounded, onClick, ariaLabel) {
   return (
     <IconButton
       icon={icon}
       rounded={rounded}
       onClick={onClick}
+      ariaLabel={ariaLabel}
     />
   );
 }
@@ -40,8 +41,22 @@ function getIndicatorStyle(iconWidth, iconHeight) {
   };
 }
 
-function renderContent(on, icon, iconWidth, iconHeight, rounded, onClick) {
-  const iconButton = renderIconButton(icon, rounded, onClick);
+function renderContent(
+  on,
+  iconOnAriaLabel,
+  icon,
+  iconAriaLabel,
+  iconWidth,
+  iconHeight,
+  rounded,
+  onClick,
+) {
+  const iconButton = renderIconButton(
+    icon,
+    rounded,
+    onClick,
+    on ? iconOnAriaLabel : iconAriaLabel,
+  );
   if (on) {
     return (
       <>
@@ -59,11 +74,13 @@ function renderContent(on, icon, iconWidth, iconHeight, rounded, onClick) {
 function IndicatorIcon(props) {
   const {
     icon,
+    iconAriaLabel,
     iconWidth,
     iconHeight,
     rounded,
     onClick,
     on,
+    iconOnAriaLabel,
   } = props;
 
   return (
@@ -71,13 +88,25 @@ function IndicatorIcon(props) {
       className="indicator-icon"
       style={getIconStyle(iconWidth, iconHeight)}
     >
-      {renderContent(on, icon, iconWidth, iconHeight, rounded, onClick)}
+      {
+        renderContent(
+          on,
+          iconOnAriaLabel,
+          icon,
+          iconAriaLabel,
+          iconWidth,
+          iconHeight,
+          rounded,
+          onClick,
+        )
+      }
     </div>
   );
 }
 
 IndicatorIcon.propTypes = {
   icon: PropTypes.oneOf(Object.values(IconNames)),
+  iconAriaLabel: PropTypes.string,
   iconWidth: PropTypes.string,
   iconHeight: PropTypes.string,
   rounded: PropTypes.oneOf([
@@ -90,15 +119,18 @@ IndicatorIcon.propTypes = {
   ]),
   onClick: PropTypes.func,
   on: PropTypes.bool,
+  iconOnAriaLabel: PropTypes.string,
 };
 
 IndicatorIcon.defaultProps = {
   icon: IconNames.EXCLAMATION,
+  iconAriaLabel: 'Indicator',
   iconWidth: defaultIconWidth,
   iconHeight: defaultIconHeight,
   rounded: 'all',
   onClick: () => {},
   on: false,
+  iconOnAriaLabel: 'Indicator on',
 };
 
 export default IndicatorIcon;

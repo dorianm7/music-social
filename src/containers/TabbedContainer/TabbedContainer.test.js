@@ -5,5 +5,5 @@ import TabbedContainer from './TabbedContainer';
 it('renders', () => {
   render(<TabbedContainer />);
 
-  expect(screen.getByRole('list')).not.toBeNull();
+  expect(screen.getByRole('tablist')).not.toBeNull();
 });

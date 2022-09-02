@@ -8,6 +8,7 @@ function SignInModal(props) {
   const {
     onClose,
     formOnSubmit,
+    open,
   } = props;
 
   return (
@@ -19,6 +20,7 @@ function SignInModal(props) {
         />
       )}
       closeHandler={onClose}
+      open={open}
     />
   );
 }
@@ -26,11 +28,13 @@ function SignInModal(props) {
 SignInModal.propTypes = {
   onClose: PropTypes.func,
   formOnSubmit: PropTypes.func,
+  open: PropTypes.bool,
 };
 
 SignInModal.defaultProps = {
   onClose: () => {},
   formOnSubmit: () => {},
+  open: false,
 };
 
 export default SignInModal;

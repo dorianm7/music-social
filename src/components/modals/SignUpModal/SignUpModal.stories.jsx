@@ -17,3 +17,4 @@ const Template = (args) => <SignUpModal {...args} />;
 
 export const Default = Template.bind({});
 Default.args = SignUpModal.defaultProps;
+Default.args.open = true;

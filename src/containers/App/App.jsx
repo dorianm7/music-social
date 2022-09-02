@@ -2,15 +2,14 @@ import React from 'react';
 import './App.css';
 
 import MainPage from '../pages/MainPage/MainPage';
-import ModalContainer from '../../components/hocs/ModalContainer';
 import ToastContainer from '../../components/hocs/ToastContainer';
 
 function App() {
-  const MainPageModalToastContainer = ToastContainer(ModalContainer(MainPage));
+  const MainPageToastContainer = ToastContainer(MainPage);
 
   return (
     <div className="App">
-      <MainPageModalToastContainer />
+      <MainPageToastContainer />
     </div>
   );
 }

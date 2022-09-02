@@ -54,7 +54,8 @@ html {
 }
 
 /* Nav styling */
-nav {
+nav.main-nav,
+nav.app-nav {
   padding: 0 1rem;
   position: sticky;
   top: 0;
@@ -79,6 +80,16 @@ button:enabled:hover {
 .anchor-like {
   background-color: transparent;
   text-decoration: underline;
+}
+
+/* A11y Classes */
+.a11y-hide-visually {
+  position: absolute;
+  left: -2000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 /* Helper Classes */

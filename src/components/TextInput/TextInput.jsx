@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React, {
   useState,
 } from 'react';
@@ -14,8 +15,10 @@ function TextInput(props) {
   const [showDropDown, setShowDropDown] = useState(true);
   const [showRequirements, setShowRequirements] = useState(false);
   const {
+    id,
     type,
     name,
+    title,
     requirementTexts,
     requirementValidities,
     onChange,
@@ -53,11 +56,15 @@ function TextInput(props) {
     }
   };
 
+  const titleParam = !title ? {} : { title };
+
   return (
     <div className="text-input">
       <input
+        id={id}
         type={type}
         name={name}
+        {...titleParam}
         onChange={inputOnChange}
         onBlur={handleBlur}
         onFocus={handleFocus}
@@ -81,8 +88,10 @@ function TextInput(props) {
 }
 
 TextInput.propTypes = {
+  id: PropTypes.string,
   type: PropTypes.string,
   name: PropTypes.string,
+  title: PropTypes.string,
   requirementTexts: PropTypes.arrayOf(PropTypes.string),
   requirementValidities: PropTypes.arrayOf(PropTypes.bool),
   onChange: PropTypes.func,
@@ -93,8 +102,10 @@ TextInput.propTypes = {
 };
 
 TextInput.defaultProps = {
+  id: '',
   type: 'text',
   name: '',
+  title: '',
   requirementTexts: ['Requirement 1', 'Requirement 2'],
   requirementValidities: [true, false],
   onChange: () => {},

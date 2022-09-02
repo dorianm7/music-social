@@ -29,6 +29,7 @@ function IconButton(props) {
     rounded,
     transparentBackground,
     hasOutline,
+    ariaLabel,
   } = props;
 
   const validRounded = validateRoundedProp(rounded);
@@ -39,8 +40,10 @@ function IconButton(props) {
       onClick={onClick}
       className={`icon-button rounded-${validRounded}${transparentBackgroundClass} ${className}`}
       hasOutline={hasOutline}
+      ariaLabel={ariaLabel}
     >
-      {renderIcon(icon)}
+      {renderIcon(icon, '', ariaLabel)}
+      <span className="a11y-hide-visually">{ariaLabel}</span>
     </BasicButton>
   );
 }
@@ -59,6 +62,7 @@ IconButton.propTypes = {
   transparentBackground: PropTypes.bool,
   hasOutline: PropTypes.bool,
   onClick: PropTypes.func,
+  ariaLabel: PropTypes.string,
 };
 
 IconButton.defaultProps = {
@@ -68,6 +72,7 @@ IconButton.defaultProps = {
   transparentBackground: false,
   hasOutline: false,
   onClick: () => {},
+  ariaLabel: 'default',
 };
 
 export default IconButton;

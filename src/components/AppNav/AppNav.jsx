@@ -22,10 +22,13 @@ function AppNav(props) {
         icon={IconNames.HAMBURGER_MENU}
         onClick={menuButtonOnClick}
         rounded="none"
+        ariaLabel="Open side menu"
       />
       <span className="app-nav-text">{navText}</span>
       <IndicatorIcon
         icon={IconNames.EXCLAMATION}
+        iconAriaLabel="Notifications"
+        iconOnAriaLabel="New Notifications"
         iconWidth="20px"
         iconHeight="20px"
         rounded="all"

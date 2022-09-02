@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -8,19 +9,26 @@ function BasicButton(props) {
     className,
     children,
     hasOutline,
+    ariaLabel,
     onClick,
   } = props;
 
   const outlineClass = hasOutline ? ' outline' : '';
 
+  const noAriaProps = {
+    className: `basic-button ${className} round-corners${outlineClass}`,
+    onClick,
+  };
+
+  const buttonProps = ariaLabel ? {
+    ...noAriaProps,
+    'aria-label': ariaLabel,
+  } : noAriaProps;
+
   return (
     <button
       type="button"
-      className={
-        `basic-button ${className} round-corners${outlineClass}`
-      }
-      onClick={onClick}
-      onKeyUp={onClick}
+      {...buttonProps}
     >
       {children}
     </button>
@@ -31,6 +39,7 @@ BasicButton.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
   hasOutline: PropTypes.bool,
+  ariaLabel: PropTypes.string,
   onClick: PropTypes.func,
 };
 
@@ -38,6 +47,7 @@ BasicButton.defaultProps = {
   className: '',
   children: <span>Children</span>,
   hasOutline: false,
+  ariaLabel: '',
   onClick: (e) => e,
 };
 

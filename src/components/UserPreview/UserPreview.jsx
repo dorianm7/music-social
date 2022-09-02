@@ -40,9 +40,11 @@ function UserPreview(props) {
         toggle={isFollowing}
         initialClassName="not-following"
         initialIcon={IconNames.PLUS}
+        initialIconAriaLabel="Follow user"
         initialOnClick={followButtonOnClick}
         subsequentClassName="following"
         subsequentIcon={IconNames.CHECK}
+        subsequentIconAriaLabel="Unfollow user"
         subsequentOnClick={unfollowButtonOnClick}
       />
     </li>

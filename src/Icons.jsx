@@ -63,7 +63,6 @@ const GOOGLE_COLOR_ICON_PATHS = (
 function renderIconPathElement(pathData, args = {
   fill: 'currentColor',
 }) {
-// function renderIconPathElement(pathData, args) {
   return React.createElement(
     'path',
     {
@@ -160,7 +159,7 @@ function nameToPathData(iconName) {
   return pathData;
 }
 
-function renderChildren(iconName) {
+function renderChildren(iconName, title) {
   let children;
   switch (iconName) {
     case GOOGLE_COLOR_ICON_NAME:
@@ -171,12 +170,18 @@ function renderChildren(iconName) {
       break;
   }
 
-  return children;
+  return (
+    <>
+      <title>{title}</title>
+      {children}
+    </>
+  );
 }
 
 function renderIcon(
   iconName,
   className = '',
+  title = '',
   viewBox = '0 0 24 24',
 ) {
   return React.createElement(
@@ -187,7 +192,7 @@ function renderIcon(
       viewBox,
       className: `icon ${className}`,
     },
-    renderChildren(iconName),
+    renderChildren(iconName, title),
   );
 }
 
@@ -212,7 +217,7 @@ const Icons = {
   OPEN_EYE: renderIcon(OPEN_EYE_NAME),
   PLUS: renderIcon(PLUS_NAME),
   SETTINGS: renderIcon(SETTINGS_NAME),
-  STORYBOOK: renderIcon(STORYBOOK_NAME, '', '0 0 83 103'),
+  STORYBOOK: renderIcon(STORYBOOK_NAME, '', '', '0 0 83 103'),
   TRIANGLE: renderIcon(TRIANGLE_NAME),
   VERTICAL_DOTS: renderIcon(VERTICAL_DOTS_NAME),
   WEB: renderIcon(WEB_NAME),

@@ -31,6 +31,22 @@ class TabbedContainer extends React.Component {
     return tabContents[tabSelected];
   }
 
+  renderUpdatedPanels(tabIds, tabSelected) {
+    const { tabPanels } = this.props;
+    const updatedPanels = [];
+    tabPanels.forEach((panel, index) => {
+      const classVal = index === tabSelected ? '' : 'hide';
+      const updatedPanel = React.cloneElement(panel, {
+        key: nanoid(),
+        className: classVal,
+        role: 'tabpanel',
+        'aria-labelledby': tabIds[index],
+      });
+      updatedPanels.push(updatedPanel);
+    });
+    return updatedPanels;
+  }
+
   render() {
     const { tabSelected } = this.state;
     const { tabTitles } = this.props;
@@ -47,16 +63,24 @@ class TabbedContainer extends React.Component {
       ),
     );
 
+    const tabIds = [];
+    tabTitles.forEach(() => {
+      tabIds.push(nanoid());
+    });
+
     return (
       <div className="tabbed-container">
         <Tabs
+          ids={tabIds}
           tabSelected={tabSelected}
+          role="tablist"
+          ariaLabelledBy={tabTitles[tabSelected]}
+          ariaControlsList={tabIds}
+          useAriaSelected
         >
           {buttons}
         </Tabs>
-        <div className="tab-content">
-          {this.renderTab()}
-        </div>
+        {this.renderUpdatedPanels(tabIds, tabSelected)}
       </div>
     );
   }
@@ -65,11 +89,20 @@ class TabbedContainer extends React.Component {
 TabbedContainer.propTypes = {
   tabTitles: PropTypes.arrayOf(PropTypes.string),
   tabContents: PropTypes.arrayOf(PropTypes.node),
+  tabPanels: PropTypes.arrayOf(PropTypes.node),
 };
 
 TabbedContainer.defaultProps = {
   tabTitles: ['Tab 0', 'Tab 1'],
   tabContents: [<span>Tab 0 contents</span>, <span>Tab 1 Contents</span>],
+  tabPanels: [
+    <div>
+      Tab 0 contents
+    </div>,
+    <div>
+      Tab 1 contents
+    </div>,
+  ],
 };
 
 export default TabbedContainer;

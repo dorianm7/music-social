@@ -45,6 +45,7 @@ function CollaborativePlaylistPageContents(props) {
         selectOptions={['Recent', 'Oldest']}
         onSelectOptionClick={onPlaylistSelectOptionClick}
         playlist={playlist}
+        searchAriaLabel={`Search collaborative playlist ${playlistName}`}
       />
     </>
   );

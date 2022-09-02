@@ -67,6 +67,8 @@ function renderTrackPlaylistMusicItem(item) {
       title={title}
       rightComponent={(
         <ExpandableButton
+          initialIconAriaLabel="Expand track options"
+          subsequentIconAriaLabel="Hide track options"
           options={['Spotify Link']}
           optionsOnClicks={[() => { window.open(item.track.external_urls.spotify); }]}
           expand="left"
@@ -110,6 +112,8 @@ function renderTrackCollaborativePlaylistMusicItem(item) {
       title={title}
       rightComponent={(
         <ExpandableButton
+          initialIconAriaLabel="Expand track options"
+          subsequentIconAriaLabel="Hide track options"
           options={['Spotify Link']}
           optionsOnClicks={[() => { window.open(item.track.external_urls.spotify); }]}
           expand="left"
@@ -153,6 +157,8 @@ function renderArtistPlaylistMusicItem(item) {
       creator={item.name}
       rightComponent={(
         <ExpandableButton
+          initialIconAriaLabel="Expand artist options"
+          subsequentIconAriaLabel="Hide artist options"
           options={['Spotify Link']}
           optionsOnClicks={[() => { window.open(item.external_urls.spotify); }]}
           expand="left"
@@ -208,6 +214,8 @@ function renderAlbumPlaylistMusicItem(item) {
       title={item.name}
       rightComponent={(
         <ExpandableButton
+          initialIconAriaLabel="Expand album options"
+          subsequentIconAriaLabel="Hide album options"
           options={['Spotify Link']}
           optionsOnClicks={[() => { window.open(item.external_urls.spotify); }]}
           expand="left"
@@ -252,6 +260,8 @@ function renderPlaylistPlaylistMusicItem(item) {
       title={item.name}
       rightComponent={(
         <ExpandableButton
+          initialIconAriaLabel="Expand playlist item options"
+          subsequentIconAriaLabel="Hide playlist item options"
           options={['Spotify Link']}
           optionsOnClicks={[() => { window.open(item.external_urls.spotify); }]}
           expand="left"

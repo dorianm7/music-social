@@ -27,6 +27,7 @@ function BasicPlaylist(props) {
     searchVal,
     onSearchStringChange,
     showSearch,
+    searchAriaLabel,
   } = props;
   const [searchString, setSearchString] = useState('');
 
@@ -79,6 +80,7 @@ function BasicPlaylist(props) {
           {showSearch && (
             <ListSearch
               onInputChange={onInputChange}
+              ariaLabel={searchAriaLabel}
             />
           )}
         </div>
@@ -104,6 +106,7 @@ BasicPlaylist.propTypes = {
   searchVal: PropTypes.string,
   onSearchStringChange: PropTypes.func,
   showSearch: PropTypes.bool,
+  searchAriaLabel: PropTypes.string,
   playlist: PropTypes.oneOfType([
     // Track Playlist
     PropTypes.shape({
@@ -160,6 +163,7 @@ BasicPlaylist.defaultProps = {
   searchVal: '',
   onSearchStringChange: () => {},
   showSearch: false,
+  searchAriaLabel: '',
   playlist: localPlaylist,
 };
 
