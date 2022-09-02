@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import Tabs from './Tabs';
 
 it('renders', () => {
-  render(<Tabs />);
+  render(<Tabs role="tablist" />);
 
-  expect(screen.getByRole('list')).not.toBeNull();
+  expect(screen.getByRole('tablist')).not.toBeNull();
 });
