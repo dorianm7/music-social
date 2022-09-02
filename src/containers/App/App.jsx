@@ -1,4 +1,10 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from 'react-router-dom';
+
 import './App.css';
 
 import MainPage from '../pages/MainPage/MainPage';
@@ -9,7 +15,16 @@ function App() {
 
   return (
     <div className="App">
-      <MainPageToastContainer />
+      <Router
+        baseName="/"
+      >
+        <Routes>
+          <Route
+            path="/"
+            element={<MainPageToastContainer />}
+          />
+        </Routes>
+      </Router>
     </div>
   );
 }
