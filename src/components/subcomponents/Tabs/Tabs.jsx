@@ -13,6 +13,7 @@ class Tabs extends React.Component {
       ids,
       tabSelected,
       role,
+      useAriaSelected,
       ariaControlsList,
     } = this.props;
 
@@ -25,6 +26,7 @@ class Tabs extends React.Component {
       });
     });
     if (!children.length) {
+      const ariaSelectedAttr = useAriaSelected ? { 'aria-selected': true } : {};
       return (
         <div
           key={nanoid()}
@@ -32,7 +34,7 @@ class Tabs extends React.Component {
           className="tab selected"
           {...tabRole}
           {...ariaControlsAttrs[0]}
-          aria-selected
+          {...ariaSelectedAttr}
         >
           {children}
         </div>
@@ -42,12 +44,13 @@ class Tabs extends React.Component {
     const tabs = [];
     for (let i = 0; i < children.length; i += 1) {
       const selectedClass = i === tabSelected ? ' selected' : '';
+      const ariaSelectedAttr = useAriaSelected ? { 'aria-selected': i === tabSelected } : {};
       tabs.push(
         <div
           key={nanoid()}
           id={ids[i]}
           className={`tab${selectedClass}`}
-          aria-selected={i === tabSelected}
+          {...ariaSelectedAttr}
           {...tabRole}
           {...ariaControlsAttrs[i]}
         >
@@ -86,6 +89,7 @@ Tabs.propTypes = {
   ]),
   tabSelected: PropTypes.number,
   role: PropTypes.string,
+  useAriaSelected: PropTypes.bool,
   ariaLabelledBy: PropTypes.string,
   ariaControlsList: PropTypes.arrayOf(PropTypes.string),
 };
@@ -98,6 +102,7 @@ Tabs.defaultProps = {
   ],
   tabSelected: 0,
   role: '',
+  useAriaSelected: false,
   ariaLabelledBy: '',
   ariaControlsList: [],
 };
