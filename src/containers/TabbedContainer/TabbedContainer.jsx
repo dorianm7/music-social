@@ -76,17 +76,11 @@ class TabbedContainer extends React.Component {
           role="tablist"
           ariaLabelledBy={tabTitles[tabSelected]}
           ariaControlsList={tabIds}
-          // ariaControlsList should have ids of the tabpanels
+          useAriaSelected
         >
           {buttons}
         </Tabs>
         {this.renderUpdatedPanels(tabIds, tabSelected)}
-        {/* <div
-          className="tab-content"
-          role="tabpanel"
-        >
-          {this.renderTab()}
-        </div> */}
       </div>
     );
   }
