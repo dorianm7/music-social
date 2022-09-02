@@ -10,6 +10,7 @@ class Tabs extends React.Component {
   renderTabs() {
     const {
       children,
+      ids,
       tabSelected,
       role,
       ariaControlsList,
@@ -26,6 +27,8 @@ class Tabs extends React.Component {
     if (!children.length) {
       return (
         <div
+          key={nanoid()}
+          id={ids[0]}
           className="tab selected"
           {...tabRole}
           {...ariaControlsAttrs[0]}
@@ -42,6 +45,7 @@ class Tabs extends React.Component {
       tabs.push(
         <div
           key={nanoid()}
+          id={ids[i]}
           className={`tab${selectedClass}`}
           aria-selected={i === tabSelected}
           {...tabRole}
@@ -75,6 +79,7 @@ class Tabs extends React.Component {
 }
 
 Tabs.propTypes = {
+  ids: PropTypes.arrayOf(PropTypes.string),
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
@@ -86,6 +91,7 @@ Tabs.propTypes = {
 };
 
 Tabs.defaultProps = {
+  ids: ['tab1id', 'tab2id'],
   children: [
     'Tab 1',
     'Tab 2',
