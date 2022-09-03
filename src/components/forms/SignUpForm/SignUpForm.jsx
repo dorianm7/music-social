@@ -25,7 +25,7 @@ function SignUpForm(props) {
   useEffect(() => {
     const emailInputEl = document.getElementById('sign-up-form-email-input');
     emailInputEl.focus();
-  });
+  }, []);
 
   const [emailValidities, setEmailValidities] = useState([false]);
   const [passwordValidities, setPasswordValidities] = useState([false, false, false]);

@@ -23,7 +23,7 @@ function ReportProfileForm(props) {
   useEffect(() => {
     const radioEl = document.querySelector('.report-profile-form input');
     radioEl.focus();
-  });
+  }, []);
 
   const [showDescription, setShowDescription] = useState(false);
   const [descriptionCharCount, setDescriptionCharCount] = useState(0);

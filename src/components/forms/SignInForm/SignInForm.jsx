@@ -18,7 +18,7 @@ function SignInForm(props) {
   useEffect(() => {
     const emailInputEl = document.getElementById('sign-in-form-email-input');
     emailInputEl.focus();
-  });
+  }, []);
 
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(false);
