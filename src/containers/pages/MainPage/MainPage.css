@@ -46,7 +46,7 @@ section > :last-child {
   padding-bottom: .5rem;
 }
 
-section ul.tabs {
+section .tabs {
   position: sticky;
   top: 2.5rem;
   z-index: 7;
@@ -54,12 +54,12 @@ section ul.tabs {
 }
 
 @media screen and (hover:none) {
-  section ul.tabs {
+  section .tabs {
     display: none;
   }
 }
 
-section ul.tabs a {
+section .tabs a {
   text-decoration: none;
 }
 
