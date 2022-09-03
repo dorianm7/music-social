@@ -7,7 +7,9 @@ import {
 
 import './App.css';
 
+import { UserContextProvider } from '../../contexts/UserContext';
 import MainPage from '../pages/MainPage/MainPage';
+import CompareLibraryPage from '../pages/CompareLibraryPage/CompareLibaryPage';
 import ToastContainer from '../../components/hocs/ToastContainer';
 
 function App() {
@@ -15,16 +17,28 @@ function App() {
 
   return (
     <div className="App">
-      <Router
-        baseName="/"
-      >
-        <Routes>
-          <Route
-            path="/"
-            element={<MainPageToastContainer />}
-          />
-        </Routes>
-      </Router>
+      <UserContextProvider>
+        <Router
+          baseName="/"
+        >
+          <Routes>
+            <Route
+              index
+              path="/"
+              element={<MainPageToastContainer />}
+            />
+            {/* Need to make protected routes */}
+            <Route
+              path="/compare"
+              element={<CompareLibraryPage />}
+            />
+            <Route
+              path="*"
+              element={<>404 Not Found</>}
+            />
+          </Routes>
+        </Router>
+      </UserContextProvider>
     </div>
   );
 }

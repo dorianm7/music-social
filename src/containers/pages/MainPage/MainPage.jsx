@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React, {
   useState,
 } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { nanoid } from 'nanoid';
 
 import './MainPage.css';
@@ -76,6 +77,9 @@ function MainPage(props) {
   const [isFollowingProfile, setIsFollowingProfile] = useState(true);
   const [showProfileCompatibility, setShowProfileCompatibility] = useState(false);
 
+  // Hooks
+  const navigate = useNavigate();
+
   let signInModalContents;
   let signUpModalContents;
   // let confirmEmailModalContents;
@@ -112,10 +116,10 @@ function MainPage(props) {
       email,
       password,
       (user) => { //  Success
-        // Move to App
+        // TODO Move to App
+        navigate('/compare');
         const noop = () => {};
         noop(user);
-        moveToUnderConstruction();
       },
       (err) => { // Error
         error = err;
@@ -133,6 +137,7 @@ function MainPage(props) {
     googleSignIn(
       (user) => { // Success
         noop(user);
+        navigate('/compare');
         moveToUnderConstruction();
       },
       (error) => { // Error
@@ -148,8 +153,9 @@ function MainPage(props) {
       email,
       password,
       () => { // Success
+        // TODO Need to confirm email before actually signing in
         // moveToConfirmEmail();
-        moveToUnderConstruction();
+        moveToSignIn();
       },
       (err) => { // Error
         error = err;
