@@ -19,11 +19,15 @@ function ReportProfileForm(props) {
     reportedUsername,
     onSubmit,
   } = props;
+  const [hasFocused, setHasFocused] = useState(false);
 
   useEffect(() => {
-    const radioEl = document.querySelector('.report-profile-form input');
-    radioEl.focus();
-  });
+    if (!hasFocused) {
+      const radioEl = document.querySelector('.report-profile-form input');
+      radioEl.focus();
+      setHasFocused(true);
+    }
+  }, []);
 
   const [showDescription, setShowDescription] = useState(false);
   const [descriptionCharCount, setDescriptionCharCount] = useState(0);
