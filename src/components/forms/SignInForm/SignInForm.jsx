@@ -14,11 +14,15 @@ function SignInForm(props) {
   const {
     onSubmit,
   } = props;
+  const [hasFocused, setHasFocused] = useState(false);
 
   useEffect(() => {
-    const emailInputEl = document.getElementById('sign-in-form-email-input');
-    emailInputEl.focus();
-  });
+    if (!hasFocused) {
+      const emailInputEl = document.getElementById('sign-in-form-email-input');
+      emailInputEl.focus();
+      setHasFocused(true);
+    }
+  }, []);
 
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(false);
