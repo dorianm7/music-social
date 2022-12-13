@@ -11,6 +11,7 @@ import { UserContextProvider } from '../../contexts/UserContext';
 import MainPage from '../pages/MainPage/MainPage';
 import CompareLibraryPage from '../pages/CompareLibraryPage/CompareLibaryPage';
 import ToastContainer from '../../components/hocs/ToastContainer';
+import PrivateRoute from '../../components/routing/PrivateRoute/PrivateRoute';
 
 function App() {
   const MainPageToastContainer = ToastContainer(MainPage);
@@ -27,11 +28,9 @@ function App() {
               path="/"
               element={<MainPageToastContainer />}
             />
-            {/* Need to make protected routes */}
-            <Route
-              path="/compare"
-              element={<CompareLibraryPage />}
-            />
+            <Route element={<PrivateRoute />}>
+              <Route path="/compare" element={<CompareLibraryPage />} />
+            </Route>
             <Route
               path="*"
               element={<>404 Not Found</>}
