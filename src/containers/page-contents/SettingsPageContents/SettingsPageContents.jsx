@@ -8,11 +8,16 @@ import BasicButton from '../../../components/basic/BasicButton/BasicButton';
 function SettingsPageContents(props) {
   const {
     authorizedSpotify,
+    authorizeSpotifyOnClick,
+    deauthorizeSpotifyOnClick,
   } = props;
   const authorizeButtonText = authorizedSpotify ? 'Deauthorize Spotify' : 'Authorize Spotify';
+  const authorizeButtonOnClick = authorizedSpotify
+    ? deauthorizeSpotifyOnClick
+    : authorizeSpotifyOnClick;
   return (
     <>
-      <BasicButton>
+      <BasicButton onClick={authorizeButtonOnClick}>
         {authorizeButtonText}
       </BasicButton>
       <BasicButton>
@@ -24,10 +29,14 @@ function SettingsPageContents(props) {
 
 SettingsPageContents.propTypes = {
   authorizedSpotify: PropTypes.bool,
+  authorizeSpotifyOnClick: PropTypes.func,
+  deauthorizeSpotifyOnClick: PropTypes.func,
 };
 
 SettingsPageContents.defaultProps = {
   authorizedSpotify: false,
+  authorizeSpotifyOnClick: () => {},
+  deauthorizeSpotifyOnClick: () => {},
 };
 
 export default SettingsPageContents;
