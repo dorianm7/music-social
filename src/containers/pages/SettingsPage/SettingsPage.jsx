@@ -3,12 +3,25 @@ import PropTypes from 'prop-types';
 import InAppPage from '../../InAppPage/InAppPage';
 import SettingsPageContents from '../../page-contents/SettingsPageContents/SettingsPageContents';
 
+import { deleteUserAccount } from '../../../firebase/auth-firebase';
+
 function SettingsPage(props) {
   const {
     sideMenuOnClick,
     notificationsOnClick,
     hasNotification,
   } = props;
+
+  const deleteAccountHandler = async () => {
+    await deleteUserAccount(
+      () => {
+        // Delete from Mongo
+      },
+      () => {
+        // Toast: Error Deleting Account. Try again
+      },
+    );
+  };
 
   return (
     <InAppPage
@@ -17,7 +30,9 @@ function SettingsPage(props) {
       notificationsOnClick={notificationsOnClick}
       hasNotification={hasNotification}
     >
-      <SettingsPageContents />
+      <SettingsPageContents
+        deleteAccountOnClick={deleteAccountHandler}
+      />
     </InAppPage>
   );
 }
