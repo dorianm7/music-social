@@ -1,10 +1,33 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import './SettingsPageContents.css';
 
-function SettingsPageContents() {
+import BasicButton from '../../../components/basic/BasicButton/BasicButton';
+
+function SettingsPageContents(props) {
+  const {
+    authorizedSpotify,
+  } = props;
+  const authorizeButtonText = authorizedSpotify ? 'Deauthorize Spotify' : 'Authorize Spotify';
   return (
-    <div>Settings Page content</div>
+    <>
+      <BasicButton>
+        {authorizeButtonText}
+      </BasicButton>
+      <BasicButton>
+        Delete Account
+      </BasicButton>
+    </>
   );
 }
+
+SettingsPageContents.propTypes = {
+  authorizedSpotify: PropTypes.bool,
+};
+
+SettingsPageContents.defaultProps = {
+  authorizedSpotify: false,
+};
 
 export default SettingsPageContents;

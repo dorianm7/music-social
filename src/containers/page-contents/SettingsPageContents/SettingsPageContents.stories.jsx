@@ -3,10 +3,12 @@ import React from 'react';
 
 import SettingsPageContents from './SettingsPageContents';
 
+import BasicButton from '../../../components/basic/BasicButton/BasicButton';
+
 export default {
   title: 'Containers/PageContents/SettingsPageContents',
   subcomponents: {
-    // nothing atm
+    BasicButton,
   },
   argTypes: {
     // nothing atm
