@@ -10,6 +10,7 @@ function SettingsPageContents(props) {
     authorizedSpotify,
     authorizeSpotifyOnClick,
     deauthorizeSpotifyOnClick,
+    deleteAccountOnClick,
   } = props;
   const authorizeButtonText = authorizedSpotify ? 'Deauthorize Spotify' : 'Authorize Spotify';
   const authorizeButtonOnClick = authorizedSpotify
@@ -20,7 +21,7 @@ function SettingsPageContents(props) {
       <BasicButton onClick={authorizeButtonOnClick}>
         {authorizeButtonText}
       </BasicButton>
-      <BasicButton>
+      <BasicButton onClick={deleteAccountOnClick}>
         Delete Account
       </BasicButton>
     </>
@@ -31,12 +32,14 @@ SettingsPageContents.propTypes = {
   authorizedSpotify: PropTypes.bool,
   authorizeSpotifyOnClick: PropTypes.func,
   deauthorizeSpotifyOnClick: PropTypes.func,
+  deleteAccountOnClick: PropTypes.func,
 };
 
 SettingsPageContents.defaultProps = {
   authorizedSpotify: false,
   authorizeSpotifyOnClick: () => {},
   deauthorizeSpotifyOnClick: () => {},
+  deleteAccountOnClick: () => {},
 };
 
 export default SettingsPageContents;
