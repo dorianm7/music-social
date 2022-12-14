@@ -23,7 +23,7 @@ function InAppPage(props) {
           notificationsButtonSize="25px"
           notificationsButtonOnClick={notificationsOnClick}
           notificationsIndicatorOn={hasNotification}
-          navText="Temp App Name"
+          navText="Music Social"
         />
       </header>
       <main>
