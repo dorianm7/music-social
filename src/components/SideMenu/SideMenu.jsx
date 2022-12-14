@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
+import { Link } from 'react-router-dom';
 
 import './SideMenu.css';
 
@@ -40,10 +41,10 @@ function SideMenu(props) {
       <nav>
         <ul className="flex-column nav-top">
           <li key={nanoid()} className="center-row">
-            <a href="#home">
+            <Link to="/home">
               {Icons.HOME}
               Home
-            </a>
+            </Link>
           </li>
           <li key={nanoid()} className="center-row">
             <a href="#followers">
@@ -66,10 +67,10 @@ function SideMenu(props) {
         </ul>
         <ul className="flex-column nav-top">
           <li key={nanoid()} className="center-row">
-            <a href="#settings">
+            <Link to="/settings">
               {Icons.SETTINGS}
               Settings
-            </a>
+            </Link>
           </li>
           <li key={nanoid()} className="center-row">
             <button
