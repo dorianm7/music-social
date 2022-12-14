@@ -24,7 +24,6 @@ import SignInModalContents from '../../../components/modal-contents/SignInModalC
 import SignUpModalContents from '../../../components/modal-contents/SignUpModalContents/SignUpModalContents';
 import Tabs from '../../../components/subcomponents/Tabs/Tabs';
 import Toast from '../../../components/Toast/Toast';
-import UnderConstructionModalContents from '../../../components/modal-contents/UnderConstructionModalContents/UnderConstructionModalContents';
 import UserProfileHeader from '../../../components/UserProfileHeader/UserProfileHeader';
 
 import {
@@ -82,10 +81,11 @@ function MainPage(props) {
   // Hooks
   const navigate = useNavigate();
 
+  const openApp = () => { navigate('/home'); };
+
   let signInModalContents;
   let signUpModalContents;
   // let confirmEmailModalContents;
-  let underConstructionModalContents;
 
   // Change modal functions
   const moveToSignIn = () => {
@@ -103,11 +103,6 @@ function MainPage(props) {
   //   setModalContents(confirmEmailModalContents);
   // };
 
-  const moveToUnderConstruction = () => {
-    setModalHeader('Under Construction');
-    setModalContents(underConstructionModalContents);
-  };
-
   // Modal form handlers
 
   // Sign in form handlers
@@ -118,10 +113,9 @@ function MainPage(props) {
       email,
       password,
       (user) => { //  Success
-        // TODO Move to App
-        navigate('/compare');
         const noop = () => {};
         noop(user);
+        openApp();
       },
       (err) => { // Error
         error = err;
@@ -139,8 +133,7 @@ function MainPage(props) {
     googleSignIn(
       (user) => { // Success
         noop(user);
-        navigate('/compare');
-        moveToUnderConstruction();
+        openApp();
       },
       (error) => { // Error
         noop(error);
@@ -191,10 +184,6 @@ function MainPage(props) {
   //   />
   // );
 
-  underConstructionModalContents = (
-    <UnderConstructionModalContents />
-  );
-
   // Component click handlers
   const navSignInClickHandler = () => {
     setModalHeader('Sign In');
@@ -226,8 +215,6 @@ function MainPage(props) {
     ));
     toggleModal();
   };
-
-  const openApp = () => { navigate('/home'); };
 
   const APP_NAME = 'Music Social';
   const TOP_ID = 'top';
