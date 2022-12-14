@@ -12,6 +12,7 @@ import ToastContainer from '../../components/hocs/ToastContainer';
 import PrivateRoute from '../../components/routing/PrivateRoute/PrivateRoute';
 import MainPage from '../pages/MainPage/MainPage';
 import HomePage from '../pages/HomePage/HomePage';
+import SettingsPage from '../pages/SettingsPage/SettingsPage';
 
 function App() {
   const MainPageToastContainer = ToastContainer(MainPage);
@@ -30,6 +31,7 @@ function App() {
             />
             <Route element={<PrivateRoute />}>
               <Route path="/home" element={<HomePage />} />
+              <Route path="/settings" element={<SettingsPage />} />
             </Route>
             <Route
               path="*"
