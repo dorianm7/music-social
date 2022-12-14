@@ -1,5 +1,6 @@
 import { React, useState } from 'react';
 import PropTypes from 'prop-types';
+import { userSignOut } from '../../firebase/auth-firebase';
 
 import './InAppPage.css';
 
@@ -31,7 +32,11 @@ function InAppPage(props) {
           navText="Music Social"
         />
       </header>
-      {sideMenuVisible && <SideMenu />}
+      {sideMenuVisible && (
+        <SideMenu
+          signOutOnClick={userSignOut}
+        />
+      )}
       <main>
         <h1>{pageTitle}</h1>
         {children}
