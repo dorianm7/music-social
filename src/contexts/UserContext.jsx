@@ -14,17 +14,21 @@ const useUserContext = () => useContext(UserContext); // Returns current context
 
 function UserContextProvider(props) {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
   const { children } = props;
 
   useEffect(() => {
     handleAuthStateChange(
-      (userObj) => setUser(userObj),
+      (userObj) => {
+        setUser(userObj);
+        setLoading(false);
+      },
     );
-  });
+  }, []);
 
   return (
     <UserContext.Provider value={user}>
-      { children }
+      { !loading && children }
     </UserContext.Provider>
   );
 }
