@@ -45,6 +45,7 @@ import playlistReverse from '../../../local_data/Playlist_0_Reverse.json';
 import {
   Icons,
 } from '../../../Icons';
+import { useUserContext } from '../../../contexts/UserContext';
 
 function MainPage(props) {
   const {
@@ -54,8 +55,9 @@ function MainPage(props) {
     toast,
     toastMessage,
     // Regular Props
-    userSignedIn,
   } = props;
+  const userFromContext = useUserContext();
+  const userSignedIn = !!userFromContext;
   // Modal states and functions
   const [modalHeader, setModalHeader] = useState('modal');
   const [modalContents, setModalContents] = useState(<span>Default</span>);
@@ -225,8 +227,7 @@ function MainPage(props) {
     toggleModal();
   };
 
-  // TODO Move to App
-  const openApp = () => {};
+  const openApp = () => { navigate('/home'); };
 
   const APP_NAME = 'Music Social';
   const TOP_ID = 'top';
@@ -263,6 +264,7 @@ function MainPage(props) {
     + ' library and share with others on the platform.';
 
   const navButtonOnClick = userSignedIn ? openApp : navSignInClickHandler;
+  const tryTodayButtonOnClick = userSignedIn ? openApp : openSignUpOnClick;
 
   // Change order of playlists
   const compareArtistList = compareArtistOrdering === 'Recent'
@@ -318,9 +320,10 @@ function MainPage(props) {
             {APP_DESCRIPTION_P2}
           </p>
           <BasicButton
-            onClick={openSignUpOnClick}
+            onClick={tryTodayButtonOnClick}
           >
-            Try it today
+            {userSignedIn && (<>Open App</>)}
+            {!userSignedIn && (<>Try it today</>)}
           </BasicButton>
         </header>
         <main>
@@ -519,9 +522,10 @@ function MainPage(props) {
               {APP_DESCRIPTION_P2}
             </p>
             <BasicButton
-              onClick={openSignUpOnClick}
+              onClick={tryTodayButtonOnClick}
             >
-              Try it today
+              {userSignedIn && (<>Open App</>)}
+              {!userSignedIn && (<>Try it today</>)}
             </BasicButton>
           </section>
           <section id="contact" className="contact">
@@ -565,7 +569,6 @@ MainPage.propTypes = {
   toast: PropTypes.func,
   toastMessage: PropTypes.string,
   // Regular Props
-  userSignedIn: PropTypes.bool,
 };
 
 MainPage.defaultProps = {
@@ -573,7 +576,6 @@ MainPage.defaultProps = {
   toastVisible: false,
   toast: () => {},
   toastMessage: 'Toast message',
-  userSignedIn: false,
 };
 
 export default MainPage;
