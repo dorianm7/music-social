@@ -8,10 +8,10 @@ import {
 import './App.css';
 
 import { UserContextProvider } from '../../contexts/UserContext';
-import MainPage from '../pages/MainPage/MainPage';
-import CompareLibraryPage from '../pages/CompareLibraryPage/CompareLibaryPage';
 import ToastContainer from '../../components/hocs/ToastContainer';
 import PrivateRoute from '../../components/routing/PrivateRoute/PrivateRoute';
+import MainPage from '../pages/MainPage/MainPage';
+import HomePage from '../pages/HomePage/HomePage';
 
 function App() {
   const MainPageToastContainer = ToastContainer(MainPage);
@@ -29,7 +29,7 @@ function App() {
               element={<MainPageToastContainer />}
             />
             <Route element={<PrivateRoute />}>
-              <Route path="/compare" element={<CompareLibraryPage />} />
+              <Route path="/home" element={<HomePage />} />
             </Route>
             <Route
               path="*"
