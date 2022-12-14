@@ -17,14 +17,14 @@ function SettingsPageContents(props) {
     ? deauthorizeSpotifyOnClick
     : authorizeSpotifyOnClick;
   return (
-    <>
+    <div className="settings-page-contents">
       <BasicButton onClick={authorizeButtonOnClick}>
         {authorizeButtonText}
       </BasicButton>
       <BasicButton onClick={deleteAccountOnClick}>
         Delete Account
       </BasicButton>
-    </>
+    </div>
   );
 }
 
