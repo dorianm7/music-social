@@ -16,6 +16,7 @@ import SettingsPage from '../pages/SettingsPage/SettingsPage';
 
 function App() {
   const MainPageToastContainer = ToastContainer(MainPage);
+  const SettingsPageToastContainer = ToastContainer(SettingsPage);
 
   return (
     <div className="App">
@@ -31,7 +32,7 @@ function App() {
             />
             <Route element={<PrivateRoute />}>
               <Route path="/home" element={<HomePage />} />
-              <Route path="/settings" element={<SettingsPage />} />
+              <Route path="/settings" element={<SettingsPageToastContainer />} />
             </Route>
             <Route
               path="*"
