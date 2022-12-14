@@ -10,9 +10,6 @@ export default {
   subcomponents: {
     BasicButton,
   },
-  argTypes: {
-    // nothing atm
-  },
 };
 
 const Template = (args) => <SettingsPageContents {...args} />;
