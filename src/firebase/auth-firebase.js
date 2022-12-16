@@ -97,20 +97,7 @@ const userSignUp = async (
   }
 };
 
-// Initial implementation ONLY used for testing
-// errorCallback should take an error argument
-const deleteUserAccount = (
-  successCallback = () => {},
-  errorCallback = () => {},
-) => {
-  if (!auth.currentUser) {
-    errorCallback(new Error('Can\'t delete user because no user is signed in'));
-  } else {
-    deleteUser(auth.currentUser)
-      .then(() => successCallback())
-      .catch((err) => errorCallback(err));
-  }
-};
+const deleteUserAccount = () => deleteUser(auth.currentUser);
 
 // successCallback should take a user argument
 // errorCallback should take an error argument
