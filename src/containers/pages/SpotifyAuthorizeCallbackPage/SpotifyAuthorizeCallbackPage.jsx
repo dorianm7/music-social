@@ -1,12 +1,22 @@
-import React from 'react';
-// import { useNavigate } from 'react-router-dom';
+import {
+  React,
+  useEffect,
+} from 'react';
+import {
+  useNavigate,
+  useSearchParams,
+} from 'react-router-dom';
 
 function SpotifyAuthorizeCallbackPage() {
-  // get access_token from querystring
-  // get fromUri from querystring
-  // set localstorage access_token
-  // navigate back to settings page
-  return <>Placeholder</>;
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+  useEffect(() => {
+    const accessToken = searchParams.get('access_token');
+    const fromPath = searchParams.get('fromPath');
+    localStorage.setItem('spotify_access_token', accessToken);
+    navigate(fromPath);
+  }, []);
+  return <></>;
 }
 
 export default SpotifyAuthorizeCallbackPage;
