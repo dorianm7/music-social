@@ -59,7 +59,7 @@ const accessTokenValid = () => {
   return (timePassed / 1000) > expiresIn;
 };
 
-module.exports = {
+export {
   SPOTIFY_LOCAL_STORAGE_KEYS,
   SPOTIFY_LOCAL_STORAGE_VALUES,
   getAuthorizeHref,
