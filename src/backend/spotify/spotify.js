@@ -6,7 +6,9 @@
 import axios from 'axios';
 import {
   SPOTIFY_LOCAL_STORAGE_KEYS,
+  SPOTIFY_LOCAL_STORAGE_VALUES,
   getRefreshTokenHref,
+  accessTokenValid,
 } from './spotify-helpers';
 
 /**
@@ -26,4 +28,20 @@ const refreshTokens = async (uid) => {
   localStorage.setItem(timestamp, Date.now());
 };
 
-export default refreshTokens;
+/**
+ * Get the Spotify access token
+ * @param {string} uid The user's uid
+ * @returns The Spotify access token
+ */
+const getAccessToken = async (uid) => {
+  if (!accessTokenValid()) {
+    await refreshTokens(uid);
+  }
+
+  return SPOTIFY_LOCAL_STORAGE_VALUES.accessToken;
+};
+
+module.exports = {
+  refreshTokens,
+  getAccessToken,
+};
