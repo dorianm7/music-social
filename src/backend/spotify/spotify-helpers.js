@@ -3,6 +3,8 @@
  * @module spotify-helpers
  */
 
+const SPOTIFY_BACKEND_ENDPOINT = `${process.env.REACT_APP_BACKEND_HTTP_SERVER}/spotify`;
+
 /**
  * Returns the backend spotify authorization endpoint
  * @param {string} uid The user's uid
@@ -15,7 +17,7 @@ const getAuthorizeHref = (uid, fromPath) => {
     fromPath: encodeURIComponent(fromPath),
   };
   const queryString = new URLSearchParams(queryObj);
-  return `${process.env.REACT_APP_BACKEND_HTTP_SERVER}/spotify/authorize/?${queryString}`;
+  return `${SPOTIFY_BACKEND_ENDPOINT}/authorize/?${queryString}`;
 };
 
 /**
@@ -28,7 +30,7 @@ const getRefreshTokenHref = (uid) => {
     uid,
   };
   const queryString = new URLSearchParams(queryObj);
-  return `${process.env.REACT_APP_BACKEND_HTTP_SERVER}/spotify/refresh_token/?${queryString}`;
+  return `${SPOTIFY_BACKEND_ENDPOINT}/refresh_token/?${queryString}`;
 };
 
 /**
