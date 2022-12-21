@@ -49,6 +49,6 @@ const accessTokenValid = () => {
 
 module.exports = {
   getAuthorizeHref,
-  getRefreshTokensHref: getRefreshTokenHref,
+  getRefreshTokenHref,
   accessTokenValid,
 };
