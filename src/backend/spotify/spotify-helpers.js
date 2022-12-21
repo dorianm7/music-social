@@ -18,4 +18,21 @@ const getAuthorizeHref = (uid, fromPath) => {
   return `${process.env.REACT_APP_BACKEND_HTTP_SERVER}/spotify/authorize/?${queryString}`;
 };
 
-export default getAuthorizeHref;
+/**
+ * Checks if access token stored is valid
+ * @returns {boolean} Access token validity
+ */
+const accessTokenValid = () => {
+  const expiresIn = localStorage.getItem('expires_in');
+  const timestamp = localStorage.getItem('timestamp');
+  if (!expiresIn || !timestamp) {
+    return false;
+  }
+  const timePassed = Date.now() - timestamp;
+  return (timePassed / 1000) > expiresIn;
+};
+
+module.exports = {
+  getAuthorizeHref,
+  accessTokenValid,
+};
