@@ -19,6 +19,19 @@ const getAuthorizeHref = (uid, fromPath) => {
 };
 
 /**
+ * Returns the backend spotify refresh token endpoint
+ * @param {string} uid The user's uid
+ * @returns {string} Backend endpoint to refresh tokens
+ */
+const getRefreshTokenHref = (uid) => {
+  const queryObj = {
+    uid,
+  };
+  const queryString = new URLSearchParams(queryObj);
+  return `${process.env.REACT_APP_BACKEND_HTTP_SERVER}/spotify/refresh_token/?${queryString}`;
+};
+
+/**
  * Checks if access token stored is valid
  * @returns {boolean} Access token validity
  */
@@ -34,5 +47,6 @@ const accessTokenValid = () => {
 
 module.exports = {
   getAuthorizeHref,
+  getRefreshTokensHref: getRefreshTokenHref,
   accessTokenValid,
 };
