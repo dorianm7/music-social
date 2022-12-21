@@ -4,6 +4,11 @@
  */
 
 const SPOTIFY_BACKEND_ENDPOINT = `${process.env.REACT_APP_BACKEND_HTTP_SERVER}/spotify`;
+const SPOTIFY_LOCAL_STORAGE_KEYS = {
+  accessToken: 'spotify_access_token',
+  expiresIn: 'spotify_access_token_expires_in',
+  timestamp: 'spotify_access_token_timestamp',
+};
 
 /**
  * Returns the backend spotify authorization endpoint
@@ -48,6 +53,7 @@ const accessTokenValid = () => {
 };
 
 module.exports = {
+  SPOTIFY_LOCAL_STORAGE_KEYS,
   getAuthorizeHref,
   getRefreshTokenHref,
   accessTokenValid,

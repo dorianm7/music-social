@@ -4,7 +4,10 @@
  */
 
 import axios from 'axios';
-import { getRefreshTokenHref } from './spotify-helpers';
+import {
+  SPOTIFY_LOCAL_STORAGE_KEYS,
+  getRefreshTokenHref,
+} from './spotify-helpers';
 
 /**
  * Refreshes the Spotify tokens
@@ -12,10 +15,15 @@ import { getRefreshTokenHref } from './spotify-helpers';
  */
 const refreshTokens = async (uid) => {
   const refreshTokenEndpoint = getRefreshTokenHref(uid);
+  const {
+    accessToken,
+    expiresIn,
+    timestamp,
+  } = SPOTIFY_LOCAL_STORAGE_KEYS;
   const refreshTokenRes = await axios.post(refreshTokenEndpoint);
-  localStorage.setItem('spotify_access_token', refreshTokenRes.data.access_token);
-  localStorage.setItem('spotify_access_token_expires_in', refreshTokenRes.data.expires_in);
-  localStorage.setItem('spotify_access_token_timestamp', Date.now());
+  localStorage.setItem(accessToken, refreshTokenRes.data.access_token);
+  localStorage.setItem(expiresIn, refreshTokenRes.data.expires_in);
+  localStorage.setItem(timestamp, Date.now());
 };
 
 export default refreshTokens;
