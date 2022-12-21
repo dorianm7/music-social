@@ -9,6 +9,11 @@ const SPOTIFY_LOCAL_STORAGE_KEYS = {
   expiresIn: 'spotify_access_token_expires_in',
   timestamp: 'spotify_access_token_timestamp',
 };
+const SPOTIFY_LOCAL_STORAGE_VALUES = {
+  accessToken: localStorage.getItem(SPOTIFY_LOCAL_STORAGE_KEYS.accessToken),
+  expiresIn: localStorage.getItem(SPOTIFY_LOCAL_STORAGE_KEYS.expiresIn),
+  timestamp: localStorage.getItem(SPOTIFY_LOCAL_STORAGE_KEYS.timestamp),
+};
 
 /**
  * Returns the backend spotify authorization endpoint
@@ -43,8 +48,10 @@ const getRefreshTokenHref = (uid) => {
  * @returns {boolean} Access token validity
  */
 const accessTokenValid = () => {
-  const expiresIn = localStorage.getItem('expires_in');
-  const timestamp = localStorage.getItem('timestamp');
+  const {
+    expiresIn,
+    timestamp,
+  } = SPOTIFY_LOCAL_STORAGE_VALUES;
   if (!expiresIn || !timestamp) {
     return false;
   }
@@ -54,6 +61,7 @@ const accessTokenValid = () => {
 
 module.exports = {
   SPOTIFY_LOCAL_STORAGE_KEYS,
+  SPOTIFY_LOCAL_STORAGE_VALUES,
   getAuthorizeHref,
   getRefreshTokenHref,
   accessTokenValid,
