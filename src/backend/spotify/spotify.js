@@ -41,7 +41,14 @@ const getAccessToken = async (uid) => {
   return SPOTIFY_LOCAL_STORAGE_VALUES.accessToken;
 };
 
-module.exports = {
+/**
+ * Check if user has authorized Spotify
+ * @returns {boolean} Whether user has authorized Spotify
+ */
+const isAuthorized = () => !!SPOTIFY_LOCAL_STORAGE_VALUES.accessToken;
+
+export {
   refreshTokens,
   getAccessToken,
+  isAuthorized,
 };
