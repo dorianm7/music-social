@@ -12,7 +12,8 @@ function SpotifyAuthorizeCallbackPage() {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   useEffect(() => {
-    const fromPath = searchParams.get('fromPath');
+    const fromPathSearchParam = searchParams.get('fromPath');
+    const fromPath = decodeURIComponent(fromPathSearchParam);
     const error = searchParams.get('error');
     let redirectPath;
     if (error) {
