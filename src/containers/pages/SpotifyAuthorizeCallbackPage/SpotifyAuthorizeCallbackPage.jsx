@@ -39,6 +39,7 @@ function SpotifyAuthorizeCallbackPage() {
       redirectPath = fromPath;
     }
     navigate(redirectPath);
+    navigate(0);
   }, []);
   return <></>;
 }
