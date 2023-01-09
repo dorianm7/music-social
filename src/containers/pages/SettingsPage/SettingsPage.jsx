@@ -16,6 +16,7 @@ import {
 } from '../../../firebase/auth-firebase';
 import { useUserContext } from '../../../contexts/UserContext';
 import deleteUser from '../../../backend/user/user';
+import { isAuthorized } from '../../../backend/spotify/spotify';
 
 function SettingsPage(props) {
   const {
@@ -32,6 +33,7 @@ function SettingsPage(props) {
 
   // TODO Figure out how/where to store correct uid
   const user = useUserContext();
+  const authorizedSpotify = isAuthorized();
 
   const deleteFromFirebase = () => deleteUserAccount()
     .catch((err) => {
@@ -89,6 +91,7 @@ function SettingsPage(props) {
       >
         <SettingsPageContents
           deleteAccountOnClick={() => setModalOpen(true)}
+          authorizedSpotify={authorizedSpotify}
         />
       </InAppPage>
       <Modal
