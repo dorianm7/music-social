@@ -4,7 +4,8 @@
  */
 
 import axios from 'axios';
+import { USERS_BACKEND_ENDPOINT } from '../users/users-helpers';
 
-const deleteUser = (userId) => axios.delete(`${process.env.REACT_APP_BACKEND_HTTP_SERVER}/users/${userId}`);
+const deleteUser = (userId) => axios.delete(`${USERS_BACKEND_ENDPOINT}/${userId}`);
 
 export default deleteUser;
