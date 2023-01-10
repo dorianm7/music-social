@@ -1,0 +1,15 @@
+a.anchor-button {
+  padding: .4em .8em;
+  background-color: #D8E6F6;
+  text-decoration: none;
+  color: black;
+  font-size: .83rem;
+}
+
+a.anchor-button.outline {
+  border: 1px solid var(--Color-Dark-3);
+}
+
+a.anchor-button:active {
+  filter: brightness(.9);
+}
