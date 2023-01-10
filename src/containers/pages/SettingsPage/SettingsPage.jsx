@@ -17,6 +17,7 @@ import {
 import { useUserContext } from '../../../contexts/UserContext';
 import deleteUser from '../../../backend/user/user';
 import { isAuthorized } from '../../../backend/spotify/spotify';
+import { getAuthorizeHref } from '../../../backend/spotify/spotify-helpers';
 
 function SettingsPage(props) {
   const {
@@ -35,11 +36,15 @@ function SettingsPage(props) {
   const user = useUserContext();
   const authorizedSpotify = isAuthorized();
 
+  // TODO Use correct user's uid
+  const authorizeSpotifyHref = getAuthorizeHref(user.uid, '/settings');
+
   const deleteFromFirebase = () => deleteUserAccount()
     .catch((err) => {
       throw new Error(err.code);
     });
 
+  // TODO Use correct user's uid
   const deleteFromMongo = () => deleteUser(user.uid)
     .catch((err) => {
       let errorMsg;
@@ -90,6 +95,7 @@ function SettingsPage(props) {
         hasNotification={hasNotification}
       >
         <SettingsPageContents
+          authorizeSpotifyHref={authorizeSpotifyHref}
           deleteAccountOnClick={() => setModalOpen(true)}
           authorizedSpotify={authorizedSpotify}
         />
