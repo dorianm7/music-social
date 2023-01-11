@@ -90,9 +90,10 @@ function SettingsPage(props) {
     .then(() => deleteFromFirebase())
     .catch((err) => toast(err.message, 4000));
 
-  // TODO Create/use re-sign in Modal
   const signInModalContents = (
     <SignInModalContents
+      resigningIn
+      providerId={user.providerData[0].providerId}
       formOnSubmit={async (email, password) => {
         await emailPasswordSignIn(
           email,
