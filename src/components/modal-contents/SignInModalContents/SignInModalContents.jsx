@@ -35,12 +35,12 @@ function SignInModalContents(props) {
       {showGoogleSignIn && (
         <BasicButton onClick={googleSignInOnClick}>
           {renderIcon(IconNames.GOOGLE_COLOR_ICON)}
-          <span className="text">Google&nbsp;Sign&nbsp;In</span>
+          <span className="text">Google Sign In</span>
         </BasicButton>
       )}
       {!resigningIn && (
         <span className="move-to-sign-up">
-          Dont have an account?&nbsp;
+          Dont have an account?
           <button
             type="button"
             className="anchor-like"
