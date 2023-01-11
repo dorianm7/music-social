@@ -2,6 +2,7 @@ import {
   React,
   useState,
 } from 'react';
+import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import InAppPage from '../../InAppPage/InAppPage';
 import SettingsPageContents from '../../page-contents/SettingsPageContents/SettingsPageContents';
@@ -15,8 +16,8 @@ import {
   googleSignIn,
 } from '../../../firebase/auth-firebase';
 import { useUserContext } from '../../../contexts/UserContext';
-import deleteUser from '../../../backend/user/user';
-import { isAuthorized } from '../../../backend/spotify/spotify';
+import { deleteUser } from '../../../backend/user/user';
+import { isAuthorized, removeTokens } from '../../../backend/spotify/spotify';
 import { getAuthorizeHref } from '../../../backend/spotify/spotify-helpers';
 
 function SettingsPage(props) {
@@ -31,6 +32,7 @@ function SettingsPage(props) {
     toastMessage,
   } = props;
   const [modalOpen, setModalOpen] = useState(false);
+  const navigate = useNavigate();
 
   // TODO Figure out how/where to store correct uid
   const user = useUserContext();
@@ -38,6 +40,28 @@ function SettingsPage(props) {
 
   // TODO Use correct user's uid
   const authorizeSpotifyHref = getAuthorizeHref(user.uid, '/settings');
+
+  const deauthorizeSpotify = (uid) => removeTokens(uid)
+    .catch((err) => {
+      let errorMsg;
+      if (err.response) {
+        if (err.response.status === 400) {
+          errorMsg = err.response.data.title;
+        } else {
+          errorMsg = 'Internal error. Try again';
+        }
+      } else if (err.request) {
+        errorMsg = 'Didn\'t receive response from server';
+      } else {
+        errorMsg = 'Something weird happened. Try again';
+      }
+      throw new Error(errorMsg);
+    });
+
+  // TODO Use correct user's uid
+  const deauthorizeSpotifyOnClick = () => deauthorizeSpotify(user.uid)
+    .then(() => navigate(0))
+    .catch((err) => toast(err.message, 4000));
 
   const deleteFromFirebase = () => deleteUserAccount()
     .catch((err) => {
@@ -97,6 +121,7 @@ function SettingsPage(props) {
         <SettingsPageContents
           authorizeSpotifyHref={authorizeSpotifyHref}
           deleteAccountOnClick={() => setModalOpen(true)}
+          deauthorizeSpotifyOnClick={deauthorizeSpotifyOnClick}
           authorizedSpotify={authorizedSpotify}
         />
       </InAppPage>
