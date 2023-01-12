@@ -77,24 +77,25 @@ const passwordValidityMessage = (password) => {
 
 const passwordValid = (password) => passwordValidityMessage(password) === 'valid';
 
-// successCallback should take a user argument
-// errorCallback should take an error argument
+/**
+ * Sign up and return Firebase user
+ * @param {string} email Email of the user
+ * @param {string} password Password of the user
+ * @returns {Promise<User>} Promise of a Firebase user
+ * @see {@link https://firebase.google.com/docs/reference/js/auth.user.md?authuser=1#user_interface}
+ */
 const userSignUp = async (
   email,
   password,
-  successCallback = () => {},
-  errorCallback = () => {},
 ) => {
   if (!emailValid(email)) {
-    errorCallback(new Error('Invalid email format'));
-  } else if (!passwordValid(password)) {
-    errorCallback(new Error(passwordValidityMessage(password)));
-  } else {
-    await createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => userCredential.user)
-      .then((user) => successCallback(user))
-      .catch((err) => errorCallback(err));
+    return Promise.reject(new Error('Invalid email format'));
   }
+  if (!passwordValid(password)) {
+    return Promise.reject(new Error(passwordValidityMessage(password)));
+  }
+  return createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => userCredential.user);
 };
 
 const deleteUserAccount = () => deleteUser(auth.currentUser);
