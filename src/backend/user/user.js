@@ -4,7 +4,29 @@
  */
 
 import axios from 'axios';
-import { userEndpoint } from '../users/users-helpers';
+import {
+  USERS_BACKEND_ENDPOINT,
+  userEndpoint,
+} from '../users/users-helpers';
+
+/**
+ * Create user in database
+ * @param {string} uid Id of user
+ * @param {string} userEmail Email of user
+ * @returns {Promise<Object>} Promise of an object containing uid,email properties
+ */
+const createUser = (uid, userEmail) => axios.post(
+  USERS_BACKEND_ENDPOINT,
+  {
+    uid,
+    email: userEmail,
+  },
+  {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  },
+);
 
 /**
  * Deletes user from the database
@@ -30,6 +52,7 @@ const patchUser = (userId, patchBody) => axios.patch(
 );
 
 export {
+  createUser,
   deleteUser,
   patchUser,
 };
