@@ -45,6 +45,7 @@ import {
   Icons,
 } from '../../../Icons';
 import { useUserContext } from '../../../contexts/UserContext';
+import { createUser } from '../../../backend/user/user';
 
 function MainPage(props) {
   const {
@@ -142,25 +143,10 @@ function MainPage(props) {
   };
 
   // Sign up Form Handler
-  const signUpHandler = async (email, password) => {
-    let error = null;
-    await userSignUp(
-      email,
-      password,
-      () => { // Success
-        // TODO Need to confirm email before actually signing in
-        // moveToConfirmEmail();
-        moveToSignIn();
-      },
-      (err) => { // Error
-        error = err;
-      },
-    );
-
-    if (error) {
-      throw new Error(error);
-    }
-  };
+  const signUpHandler = (email, password) => userSignUp(email, password)
+    .then((user) => createUser(user.uid, user.providerData[0].email))
+    .then(() => moveToSignIn())
+    .catch(() => Promise.reject(new Error('Sign up error')));
 
   // Modal Contents
   signUpModalContents = (
