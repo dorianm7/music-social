@@ -137,19 +137,16 @@ const handleAuthStateChange = (
   return unsub;
 };
 
-// successCallback should take no arguments
-// errorCallback should take an error argument
-const userSignOut = async (
-  successCallback = () => {},
-  errorCallback = () => {},
-) => {
+/**
+ * Signs out the Firebase user
+ * @returns {Promise<void>} Promise the user was signed out
+ */
+const userSignOut = () => {
   if (!auth.currentUser) {
-    errorCallback(new Error('No user is signed in'));
-  } else {
-    await signOut(auth)
-      .then(() => successCallback())
-      .catch((err) => errorCallback(err));
+    Promise.reject(new Error('Sign out error. No user'));
   }
+  return signOut(auth)
+    .catch(() => Promise.reject(new Error('Sign out error. Try again.')));
 };
 
 // successCallback should take a user argument

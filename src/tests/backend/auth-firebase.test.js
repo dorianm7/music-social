@@ -113,7 +113,12 @@ describe('signs in user, signs out user', () => {
   });
 
   it('signs out user', async () => {
-    await userSignOut(successCallback, errorCallback);
+    try {
+      await userSignOut();
+      successCallback();
+    } catch (err) {
+      errorCallback();
+    }
     expect(successCallback).toHaveBeenCalled();
     expect(errorCallback).not.toHaveBeenCalled();
     expect(auth.currentUser).toBe(null);
