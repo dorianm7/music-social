@@ -149,18 +149,16 @@ const userSignOut = () => {
     .catch(() => Promise.reject(new Error('Sign out error. Try again.')));
 };
 
-// successCallback should take a user argument
-// errorCallback should take an error argument
-// Throws: auth/popup-closed-by-user error
-const googleSignIn = (
-  successCallback = () => {},
-  errorCallback = () => {},
-) => {
+/**
+ * Sign in user with Google account and return Firebase user
+ * @returns {Promise<User>} Promise of a user
+ * @see {@link https://firebase.google.com/docs/reference/js/auth.user.md?authuser=1#user_interface}
+ */
+const googleSignIn = () => {
   const authProvider = new GoogleAuthProvider();
-  signInWithPopup(auth, authProvider, browserPopupRedirectResolver)
+  return signInWithPopup(auth, authProvider, browserPopupRedirectResolver)
     .then((userCredential) => userCredential.user)
-    .then((user) => successCallback(user))
-    .catch((err) => errorCallback(err));
+    .catch((err) => Promise.reject(err));
 };
 
 export {
