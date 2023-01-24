@@ -107,26 +107,15 @@ function MainPage(props) {
   // Modal form handlers
 
   // Sign in form handlers
-  // TODO Move to App after sign in
-  const signInHandler = async (email, password) => {
-    let error = null;
-    await emailPasswordSignIn(
-      email,
-      password,
-      (user) => { //  Success
-        const noop = () => {};
-        noop(user);
-        openApp();
-      },
-      (err) => { // Error
-        error = err;
-      },
-    );
-
-    if (error) {
-      throw new Error(error);
-    }
-  };
+  const signInHandler = (email, password) => emailPasswordSignIn(
+    email,
+    password,
+  )
+    .then(() => openApp())
+    .catch((err) => {
+      toast(err.message, 4000);
+      return Promise.reject(err);
+    });
 
   // TODO Move to App after sign in
   const googleSignInHandler = () => {
