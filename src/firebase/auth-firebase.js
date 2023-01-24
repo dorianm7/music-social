@@ -157,8 +157,7 @@ const userSignOut = () => {
 const googleSignIn = () => {
   const authProvider = new GoogleAuthProvider();
   return signInWithPopup(auth, authProvider, browserPopupRedirectResolver)
-    .then((userCredential) => userCredential.user)
-    .catch((err) => Promise.reject(err));
+    .then((userCredential) => userCredential.user);
 };
 
 export {
