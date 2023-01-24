@@ -46,7 +46,21 @@ const createUser = (uid, userEmail) => axios.post(
  * @param {string} userId Id of user
  * @returns {Promise} promise of a successful delete
  */
-const deleteUser = (userId) => axios.delete(userEndpoint(userId));
+const deleteUser = (userId) => axios.delete(userEndpoint(userId))
+  .catch((err) => {
+    if (err.response) {
+      if (err.response.status > 499) {
+        return Promise.reject(new Error('Internal error. Try again.'));
+      }
+      if (err.response.status === 404) {
+        return Promise.reject(new Error('Error. User not found'));
+      }
+    }
+    if (err.request) {
+      return Promise.reject(new Error('Error from server. Try again'));
+    }
+    return Promise.reject(new Error('Error. Try again'));
+  });
 
 /**
  * Patch user in the database
