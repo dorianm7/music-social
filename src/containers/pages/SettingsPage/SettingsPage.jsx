@@ -64,27 +64,31 @@ function SettingsPage(props) {
     .catch((err) => toast(err.message, 4000));
 
   const deleteAccounts = () => deleteUser(user.uid)
-    .then(() => deleteUserAccount())
-    .catch((err) => toast(err.message, 4000));
+    .then(() => deleteUserAccount());
+
+  const emailPasswordDeleteAccount = (email, password) => emailPasswordSignIn(
+    email,
+    password,
+  )
+    .then(() => deleteAccounts())
+    .catch((err) => {
+      toast(err.message, 4000);
+      return Promise.reject(err);
+    });
+
+  const googleDeleteAccount = () => googleSignIn()
+    .then(() => deleteAccounts())
+    .catch((err) => {
+      toast(err.message, 4000);
+      return Promise.reject(err);
+    });
 
   const signInModalContents = (
     <SignInModalContents
       resigningIn
       providerId={user.providerData[0].providerId}
-      formOnSubmit={async (email, password) => {
-        await emailPasswordSignIn(
-          email,
-          password,
-          deleteAccounts,
-          (err) => toast(err.message, 4000),
-        );
-      }}
-      googleSignInOnClick={() => {
-        googleSignIn(
-          deleteAccounts,
-          (err) => toast(err.message, 4000),
-        );
-      }}
+      formOnSubmit={emailPasswordDeleteAccount}
+      googleSignInOnClick={googleDeleteAccount}
     />
   );
 
