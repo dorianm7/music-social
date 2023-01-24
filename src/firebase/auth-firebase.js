@@ -100,28 +100,25 @@ const userSignUp = async (
 
 /**
  * Deletes the Firebase user
- * @returns{Promise<void>} Promise the user was deleted
+ * @returns {Promise<void>} Promise the user was deleted
  */
 const deleteUserAccount = () => deleteUser(auth.currentUser);
 
-// successCallback should take a user argument
-// errorCallback should take an error argument
-const emailPasswordSignIn = async (
-  email,
-  password,
-  successCallback = () => {},
-  errorCallback = () => {},
-) => {
-  if (!emailValid(email)) {
-    errorCallback(new Error('Invalid email format'));
-  } else if (!passwordValid(password)) {
-    errorCallback(new Error(passwordValidityMessage(password)));
-  } else {
-    await signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => userCredential.user)
-      .then((user) => successCallback(user))
-      .catch((err) => errorCallback(err));
+/**
+ * Sign in user with credentials given and return Firebase user
+ * @param {string} email Email of the user
+ * @param {string} password Password of the user
+ * @returns {Promise<User>} Promise of a Firebase user
+ * @see {@link https://firebase.google.com/docs/reference/js/auth.user.md?authuser=1#user_interface}
+ */
+const emailPasswordSignIn = (email, password) => {
+  const failMessage = 'Sign in failed. Email or password is incorrect.';
+  if (!emailValid(email) || !passwordValid(password)) {
+    Promise.reject(new Error(failMessage));
   }
+  return signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => userCredential.user)
+    .catch(() => Promise.reject(new Error(failMessage)));
 };
 
 // onChangeCallback should take a user argument

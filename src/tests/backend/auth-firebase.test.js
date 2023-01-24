@@ -98,12 +98,15 @@ describe('signs in user, signs out user', () => {
   });
 
   it('signs in user', async () => {
-    await emailPasswordSignIn(
-      process.env.REACT_APP_TEST_USER_EMAIL,
-      process.env.REACT_APP_TEST_USER_PASSWORD,
-      successCallback,
-      errorCallback,
-    );
+    try {
+      await emailPasswordSignIn(
+        process.env.REACT_APP_TEST_USER_EMAIL,
+        process.env.REACT_APP_TEST_USER_PASSWORD,
+      );
+      successCallback();
+    } catch (err) {
+      errorCallback();
+    }
     expect(successCallback).toHaveBeenCalled();
     expect(errorCallback).not.toHaveBeenCalled();
     expect(auth.currentUser).not.toBe(null);
