@@ -146,7 +146,10 @@ function MainPage(props) {
   const signUpHandler = (email, password) => userSignUp(email, password)
     .then((user) => createUser(user.uid, user.providerData[0].email))
     .then(() => moveToSignIn())
-    .catch(() => Promise.reject(new Error('Sign up error')));
+    .catch((err) => {
+      toast(err.message, 4000);
+      return Promise.reject(err);
+    });
 
   // Modal Contents
   signUpModalContents = (
