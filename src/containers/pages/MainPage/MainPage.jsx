@@ -117,19 +117,12 @@ function MainPage(props) {
       return Promise.reject(err);
     });
 
-  // TODO Move to App after sign in
-  const googleSignInHandler = () => {
-    const noop = () => {};
-    googleSignIn(
-      (user) => { // Success
-        noop(user);
-        openApp();
-      },
-      (error) => { // Error
-        noop(error);
-      },
-    );
-  };
+  const googleSignInHandler = () => googleSignIn()
+    .then(() => openApp())
+    .catch((err) => {
+      toast(err.message, 4000);
+      return Promise.reject(err);
+    });
 
   // Sign up Form Handler
   const signUpHandler = (email, password) => userSignUp(email, password)
