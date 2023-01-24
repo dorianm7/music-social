@@ -4,7 +4,42 @@
  */
 
 import axios from 'axios';
-import { userEndpoint } from '../users/users-helpers';
+import {
+  USERS_BACKEND_ENDPOINT,
+  userEndpoint,
+} from '../users/users-helpers';
+
+/**
+ * Create user in database
+ * @param {string} uid Id of user
+ * @param {string} userEmail Email of user
+ * @returns {Promise<Object>} Promise of an object containing uid,email properties
+ */
+const createUser = (uid, userEmail) => axios.post(
+  USERS_BACKEND_ENDPOINT,
+  {
+    uid,
+    email: userEmail,
+  },
+  {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  },
+).catch((err) => {
+  if (err.response) {
+    if (err.response.status > 499) {
+      return Promise.reject(new Error('Internal error. Try again.'));
+    }
+    if (err.response.status > 399) {
+      return Promise.reject(new Error('Error in request body. Try again.'));
+    }
+  }
+  if (err.request) {
+    return Promise.reject(new Error('Error from server. Try again.'));
+  }
+  return Promise.reject(new Error('Error. Try again.'));
+});
 
 /**
  * Deletes user from the database
@@ -30,6 +65,7 @@ const patchUser = (userId, patchBody) => axios.patch(
 );
 
 export {
+  createUser,
   deleteUser,
   patchUser,
 };
