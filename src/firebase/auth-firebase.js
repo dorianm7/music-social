@@ -98,6 +98,10 @@ const userSignUp = async (
     .then((userCredential) => userCredential.user);
 };
 
+/**
+ * Deletes the Firebase user
+ * @returns{Promise<void>} Promise the user was deleted
+ */
 const deleteUserAccount = () => deleteUser(auth.currentUser);
 
 // successCallback should take a user argument

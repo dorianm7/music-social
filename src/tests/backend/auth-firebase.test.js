@@ -32,60 +32,60 @@ describe('Signs up user', () => {
   });
 
   it('fails to sign up user: invalid email', async () => {
-    await userSignUp(
-      email.invalid,
-      password.valid,
-      successCallback,
-      errorCallback,
-    );
+    try {
+      await userSignUp(email.invalid, password.valid);
+      successCallback();
+    } catch (err) {
+      errorCallback();
+    }
     expect(successCallback).not.toHaveBeenCalled();
     expect(errorCallback).toHaveBeenCalled();
     expect(auth.currentUser).toBe(null);
   });
 
   it('fails to sign up user: password wrong length', async () => {
-    await userSignUp(
-      email.valid,
-      password.invalidLength,
-      successCallback,
-      errorCallback,
-    );
+    try {
+      await userSignUp(email.valid, password.invalidLength);
+      successCallback();
+    } catch (err) {
+      errorCallback();
+    }
     expect(successCallback).not.toHaveBeenCalled();
     expect(errorCallback).toHaveBeenCalled();
     expect(auth.currentUser).toBe(null);
   });
 
   it('fails to sign up user: password missing number', async () => {
-    await userSignUp(
-      email.valid,
-      password.invalidNum,
-      successCallback,
-      errorCallback,
-    );
+    try {
+      await userSignUp(email.valid, password.invalidNum);
+      successCallback();
+    } catch (err) {
+      errorCallback();
+    }
     expect(successCallback).not.toHaveBeenCalled();
     expect(errorCallback).toHaveBeenCalled();
     expect(auth.currentUser).toBe(null);
   });
 
   it('fails to sign up user: password missing special character', async () => {
-    await userSignUp(
-      email.valid,
-      password.invalidChar,
-      successCallback,
-      errorCallback,
-    );
+    try {
+      await userSignUp(email.valid, password.invalidChar);
+      successCallback();
+    } catch (err) {
+      errorCallback();
+    }
     expect(successCallback).not.toHaveBeenCalled();
     expect(errorCallback).toHaveBeenCalled();
     expect(auth.currentUser).toBe(null);
   });
 
   it('signs up user', async () => {
-    await userSignUp(
-      email.valid,
-      password.valid,
-      successCallback,
-      errorCallback,
-    );
+    try {
+      await userSignUp(email.valid, password.valid);
+      successCallback();
+    } catch (err) {
+      errorCallback();
+    }
     expect(successCallback).toHaveBeenCalled();
     expect(errorCallback).not.toHaveBeenCalled();
     expect(auth.currentUser).not.toBe(null);
