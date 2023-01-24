@@ -63,31 +63,8 @@ function SettingsPage(props) {
     .then(() => navigate(0))
     .catch((err) => toast(err.message, 4000));
 
-  const deleteFromFirebase = () => deleteUserAccount()
-    .catch((err) => {
-      throw new Error(err.code);
-    });
-
-  // TODO Use correct user's uid
-  const deleteFromMongo = () => deleteUser(user.uid)
-    .catch((err) => {
-      let errorMsg;
-      if (err.response) {
-        if (err.response.status === 400) {
-          errorMsg = err.response.data.detail;
-        } else {
-          errorMsg = 'Internal error. Try again';
-        }
-      } else if (err.request) {
-        errorMsg = 'Didn\'t receive response from server';
-      } else {
-        errorMsg = 'Something weird happened. Try again';
-      }
-      throw new Error(errorMsg);
-    });
-
-  const deleteAccounts = () => deleteFromMongo()
-    .then(() => deleteFromFirebase())
+  const deleteAccounts = () => deleteUser(user.uid)
+    .then(() => deleteUserAccount())
     .catch((err) => toast(err.message, 4000));
 
   const signInModalContents = (
