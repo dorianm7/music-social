@@ -37,6 +37,10 @@
   margin-left: auto;
 }
 
+.sign-in-modal-contents > span.error-message {
+  font-size: .4em;
+}
+
 .sign-in-modal-contents > .move-to-sign-up {
   margin-top: 1em;
   font-size: .8em;
