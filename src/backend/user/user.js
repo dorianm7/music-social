@@ -26,7 +26,20 @@ const createUser = (uid, userEmail) => axios.post(
       'Content-Type': 'application/json',
     },
   },
-);
+).catch((err) => {
+  if (err.response) {
+    if (err.response.status > 499) {
+      return Promise.reject(new Error('Internal error. Try again.'));
+    }
+    if (err.response.status > 399) {
+      return Promise.reject(new Error('Error in request body. Try again.'));
+    }
+  }
+  if (err.request) {
+    return Promise.reject(new Error('Error from server. Try again.'));
+  }
+  return Promise.reject(new Error('Error. Try again.'));
+});
 
 /**
  * Deletes user from the database
