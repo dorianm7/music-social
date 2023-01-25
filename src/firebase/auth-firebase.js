@@ -38,6 +38,11 @@ import {
   HAS_SPECIAL_CHAR_REGEXP,
 } from '../RegExps';
 
+/**
+ * @callback onChangeCallback
+ * @param {User} user Current value of user
+ */
+
 const auth = getAuth(app);
 
 const VALID_PASSWORD_LENGTH = 10;
@@ -121,18 +126,17 @@ const emailPasswordSignIn = (email, password) => {
     .catch(() => Promise.reject(new Error(failMessage)));
 };
 
-// onChangeCallback should take a user argument
-// Returns unsubscribe
+/**
+ * Calls onChangeCallback on auth state change and return unsubscribe
+ * @param {onChangeCallback} onChangeCallback Callback function that takes a user
+ * @returns {function} Function used to unsubscribe from changes to auth state
+ */
 const handleAuthStateChange = (
   onChangeCallback,
-  errorCallback = () => {},
-  completedCallback = () => {},
 ) => {
   const unsub = onAuthStateChanged(
     auth,
     (user) => onChangeCallback(user),
-    errorCallback,
-    completedCallback,
   );
   return unsub;
 };
