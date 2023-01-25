@@ -209,3 +209,13 @@ button:enabled:hover {
 .valid {
   color: green;
 }
+
+/* Animation */
+@keyframes rotate-360 {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

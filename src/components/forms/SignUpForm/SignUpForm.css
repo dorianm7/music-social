@@ -33,15 +33,6 @@ form.sign-up-form > .error-message {
 }
 
 form.sign-up-form .percent-gauge {
-  animation: rotate 2s linear infinite;
+  animation: rotate-360 2s linear infinite;
   margin: auto;
-}
-
-@keyframes rotate {
-  0% {
-    transform: rotate(0);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }

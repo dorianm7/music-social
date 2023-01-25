@@ -33,3 +33,8 @@ form.sign-in-form > .sign-in-button {
 form.sign-in-form > .error-message {
   font-size: .4em;
 }
+
+form.sign-in-form .percent-gauge {
+  animation: rotate-360 2s linear infinite;
+  margin: auto;
+}
