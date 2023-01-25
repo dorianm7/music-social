@@ -7,7 +7,27 @@ import axios from 'axios';
 import {
   USERS_BACKEND_ENDPOINT,
   userEndpoint,
+  userBaseEndpoint,
 } from '../users/users-helpers';
+
+/**
+ * Get user fields from user in database with given userId
+ * @param {string} uid User id
+ * @param {string[]} fields List of fields
+ * @returns {Promise<user>} Promise of a user containing fields given and id
+ */
+const getUser = (uid, fields = []) => axios.get(userEndpoint(uid, fields))
+  .catch((err) => {
+    if (err.response) {
+      if (err.response.status === 404) {
+        return Promise.reject(new Error('Error. User not found.'));
+      }
+    }
+    if (err.request) {
+      return Promise.reject(new Error('Error from server. Try again.'));
+    }
+    return Promise.reject(new Error('Error. Try again.'));
+  });
 
 /**
  * Create user in database
@@ -46,7 +66,7 @@ const createUser = (uid, userEmail) => axios.post(
  * @param {string} userId Id of user
  * @returns {Promise} promise of a successful delete
  */
-const deleteUser = (userId) => axios.delete(userEndpoint(userId))
+const deleteUser = (userId) => axios.delete(userBaseEndpoint(userId))
   .catch((err) => {
     if (err.response) {
       if (err.response.status > 499) {
@@ -69,7 +89,7 @@ const deleteUser = (userId) => axios.delete(userEndpoint(userId))
  * @returns {Promise} Promise of a successful patch
  */
 const patchUser = (userId, patchBody) => axios.patch(
-  userEndpoint(userId),
+  userBaseEndpoint(userId),
   patchBody,
   {
     headers: {
@@ -79,6 +99,7 @@ const patchUser = (userId, patchBody) => axios.patch(
 );
 
 export {
+  getUser,
   createUser,
   deleteUser,
   patchUser,

@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import './SignInForm.css';
 
 import ToggleIconButton from '../../basic/ToggleIconButton/ToggleIconButton';
+import PercentGauge from '../../basic/PercentGauge/PercentGauge';
 
 import { IconNames } from '../../../Icons';
 
@@ -26,6 +27,7 @@ function SignInForm(props) {
 
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handlePasswordToggleIcon = () => {
     setShowPassword(!showPassword);
@@ -33,11 +35,13 @@ function SignInForm(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsLoading(true);
     const email = e.target.email.value;
     const password = e.target.password.value;
 
     onSubmit(email, password)
       .catch((err) => {
+        setIsLoading(false);
         setError(err);
       });
   };
@@ -80,12 +84,20 @@ function SignInForm(props) {
         name="password"
         required
       />
-      <button
-        className="sign-in-button basic-button"
-        type="submit"
-      >
-        Sign In
-      </button>
+      {!isLoading && (
+        <button
+          className="sign-in-button basic-button"
+          type="submit"
+        >
+          Sign In
+        </button>
+      )}
+      {isLoading && (
+        <PercentGauge
+          percentFilled={10}
+          size="1rem"
+        />
+      )}
       {error && (
         <span className="error-message center-text">{error.message}</span>
       )}

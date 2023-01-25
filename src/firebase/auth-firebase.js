@@ -38,6 +38,11 @@ import {
   HAS_SPECIAL_CHAR_REGEXP,
 } from '../RegExps';
 
+/**
+ * @callback onChangeCallback
+ * @param {User} user Current value of user
+ */
+
 const auth = getAuth(app);
 
 const VALID_PASSWORD_LENGTH = 10;
@@ -100,73 +105,63 @@ const userSignUp = async (
 
 /**
  * Deletes the Firebase user
- * @returns{Promise<void>} Promise the user was deleted
+ * @returns {Promise<void>} Promise the user was deleted
  */
 const deleteUserAccount = () => deleteUser(auth.currentUser);
 
-// successCallback should take a user argument
-// errorCallback should take an error argument
-const emailPasswordSignIn = async (
-  email,
-  password,
-  successCallback = () => {},
-  errorCallback = () => {},
-) => {
-  if (!emailValid(email)) {
-    errorCallback(new Error('Invalid email format'));
-  } else if (!passwordValid(password)) {
-    errorCallback(new Error(passwordValidityMessage(password)));
-  } else {
-    await signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => userCredential.user)
-      .then((user) => successCallback(user))
-      .catch((err) => errorCallback(err));
+/**
+ * Sign in user with credentials given and return Firebase user
+ * @param {string} email Email of the user
+ * @param {string} password Password of the user
+ * @returns {Promise<User>} Promise of a Firebase user
+ * @see {@link https://firebase.google.com/docs/reference/js/auth.user.md?authuser=1#user_interface}
+ */
+const emailPasswordSignIn = (email, password) => {
+  const failMessage = 'Sign in failed. Email or password is incorrect.';
+  if (!emailValid(email) || !passwordValid(password)) {
+    Promise.reject(new Error(failMessage));
   }
+  return signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => userCredential.user)
+    .catch(() => Promise.reject(new Error(failMessage)));
 };
 
-// onChangeCallback should take a user argument
-// Returns unsubscribe
+/**
+ * Calls onChangeCallback on auth state change and return unsubscribe
+ * @param {onChangeCallback} onChangeCallback Callback function that takes a user
+ * @returns {function} Function used to unsubscribe from changes to auth state
+ */
 const handleAuthStateChange = (
   onChangeCallback,
-  errorCallback = () => {},
-  completedCallback = () => {},
 ) => {
   const unsub = onAuthStateChanged(
     auth,
     (user) => onChangeCallback(user),
-    errorCallback,
-    completedCallback,
   );
   return unsub;
 };
 
-// successCallback should take no arguments
-// errorCallback should take an error argument
-const userSignOut = async (
-  successCallback = () => {},
-  errorCallback = () => {},
-) => {
+/**
+ * Signs out the Firebase user
+ * @returns {Promise<void>} Promise the user was signed out
+ */
+const userSignOut = () => {
   if (!auth.currentUser) {
-    errorCallback(new Error('No user is signed in'));
-  } else {
-    await signOut(auth)
-      .then(() => successCallback())
-      .catch((err) => errorCallback(err));
+    Promise.reject(new Error('Sign out error. No user'));
   }
+  return signOut(auth)
+    .catch(() => Promise.reject(new Error('Sign out error. Try again.')));
 };
 
-// successCallback should take a user argument
-// errorCallback should take an error argument
-// Throws: auth/popup-closed-by-user error
-const googleSignIn = (
-  successCallback = () => {},
-  errorCallback = () => {},
-) => {
+/**
+ * Sign in user with Google account and return Firebase user
+ * @returns {Promise<User>} Promise of a user
+ * @see {@link https://firebase.google.com/docs/reference/js/auth.user.md?authuser=1#user_interface}
+ */
+const googleSignIn = () => {
   const authProvider = new GoogleAuthProvider();
-  signInWithPopup(auth, authProvider, browserPopupRedirectResolver)
-    .then((userCredential) => userCredential.user)
-    .then((user) => successCallback(user))
-    .catch((err) => errorCallback(err));
+  return signInWithPopup(auth, authProvider, browserPopupRedirectResolver)
+    .then((userCredential) => userCredential.user);
 };
 
 export {
