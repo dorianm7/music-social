@@ -18,7 +18,7 @@ import {
 import { useUserContext } from '../../../contexts/UserContext';
 import { deleteUser } from '../../../backend/user/user';
 import { isAuthorized, removeTokens } from '../../../backend/spotify/spotify-auth';
-import { getAuthorizeHref } from '../../../backend/spotify/spotify-helpers';
+import { getAuthorizeHref } from '../../../backend/spotify/spotify-auth-helpers';
 
 function SettingsPage(props) {
   const {

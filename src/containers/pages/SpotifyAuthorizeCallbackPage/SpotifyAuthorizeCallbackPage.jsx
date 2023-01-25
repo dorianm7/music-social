@@ -6,7 +6,7 @@ import {
   useNavigate,
   useSearchParams,
 } from 'react-router-dom';
-import { SPOTIFY_LOCAL_STORAGE_KEYS } from '../../../backend/spotify/spotify-helpers';
+import { SPOTIFY_LOCAL_STORAGE_KEYS } from '../../../backend/spotify/spotify-auth-helpers';
 
 function SpotifyAuthorizeCallbackPage() {
   const [searchParams] = useSearchParams();

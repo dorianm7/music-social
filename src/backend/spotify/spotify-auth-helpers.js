@@ -1,6 +1,6 @@
 /**
- * Module containing functions to help working with spotify
- * @module spotify-helpers
+ * Module containing functions to help working with spotify-auth
+ * @module spotify-auth-helpers
  */
 
 const SPOTIFY_BACKEND_ENDPOINT = `${process.env.REACT_APP_BACKEND_HTTP_SERVER}/spotify`;

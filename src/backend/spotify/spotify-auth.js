@@ -10,7 +10,7 @@ import {
   SPOTIFY_LOCAL_STORAGE_VALUES,
   getRefreshTokenHref,
   accessTokenValid,
-} from './spotify-helpers';
+} from './spotify-auth-helpers';
 
 /**
  * Refreshes the Spotify tokens
