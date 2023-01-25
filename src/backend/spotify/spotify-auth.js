@@ -1,6 +1,6 @@
 /**
- * Module containing functions to interface with backend server
- * @module spotify
+ * Module containing functions to authorize / deauthorize spotify
+ * @module spotify-auth
  */
 
 import axios from 'axios';
