@@ -23,7 +23,7 @@ const refreshTokens = async (uid) => {
     expiresIn,
     timestamp,
   } = SPOTIFY_LOCAL_STORAGE_KEYS;
-  const refreshTokenRes = await axios.post(refreshTokenEndpoint);
+  const refreshTokenRes = await axios.get(refreshTokenEndpoint);
   localStorage.setItem(accessToken, refreshTokenRes.data.access_token);
   localStorage.setItem(expiresIn, refreshTokenRes.data.expires_in);
   localStorage.setItem(timestamp, Date.now());
