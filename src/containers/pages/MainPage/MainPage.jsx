@@ -45,7 +45,7 @@ import {
   Icons,
 } from '../../../Icons';
 import { useUserContext } from '../../../contexts/UserContext';
-import { createUser } from '../../../backend/user/user';
+import { createUser, getUser } from '../../../backend/user/user';
 
 function MainPage(props) {
   const {
@@ -117,12 +117,34 @@ function MainPage(props) {
       return Promise.reject(err);
     });
 
-  const googleSignInHandler = () => googleSignIn()
-    .then(() => openApp())
-    .catch((err) => {
-      toast(err.message, 4000);
-      return Promise.reject(err);
-    });
+  // Sign in user Google, create user in backend if needed
+  const googleSignInHandler = async () => {
+    const user = await googleSignIn()
+      .catch((err) => {
+        toast(err.message, 4000);
+        return Promise.reject(err);
+      });
+
+    const gottenUser = await getUser(user.uid, ['_id'])
+      .catch((err) => {
+        if (err.message !== 'Error. User not found.') {
+          toast(err.message, 4000);
+          return Promise.reject(err);
+        }
+        return null; // Quiet linter
+      });
+
+    if (gottenUser) {
+      openApp();
+    } else {
+      await createUser(user.uid, user.providerData[0].email)
+        .catch((error) => {
+          toast(error.message, 4000);
+          return Promise.reject(error);
+        });
+      openApp();
+    }
+  };
 
   // Sign up Form Handler
   const signUpHandler = (email, password) => userSignUp(email, password)
