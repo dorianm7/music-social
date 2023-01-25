@@ -33,33 +33,12 @@ function SettingsPage(props) {
   } = props;
   const [modalOpen, setModalOpen] = useState(false);
   const navigate = useNavigate();
-
-  // TODO Figure out how/where to store correct uid
   const user = useUserContext();
-  const authorizedSpotify = isAuthorized();
 
-  // TODO Use correct user's uid
+  const authorizedSpotify = isAuthorized();
   const authorizeSpotifyHref = getAuthorizeHref(user.uid, '/settings');
 
-  const deauthorizeSpotify = (uid) => removeTokens(uid)
-    .catch((err) => {
-      let errorMsg;
-      if (err.response) {
-        if (err.response.status === 400) {
-          errorMsg = err.response.data.title;
-        } else {
-          errorMsg = 'Internal error. Try again';
-        }
-      } else if (err.request) {
-        errorMsg = 'Didn\'t receive response from server';
-      } else {
-        errorMsg = 'Something weird happened. Try again';
-      }
-      throw new Error(errorMsg);
-    });
-
-  // TODO Use correct user's uid
-  const deauthorizeSpotifyOnClick = () => deauthorizeSpotify(user.uid)
+  const deauthorizeSpotifyOnClick = () => removeTokens(user.uid)
     .then(() => navigate(0))
     .catch((err) => toast(err.message, 4000));
 
