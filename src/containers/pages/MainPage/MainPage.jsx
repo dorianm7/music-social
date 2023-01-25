@@ -125,7 +125,7 @@ function MainPage(props) {
         return Promise.reject(err);
       });
 
-    const gottenUser = await getUser(user.uid, ['_id'])
+    const userFromDb = await getUser(user.uid, ['_id'])
       .catch((err) => {
         if (err.message !== 'Error. User not found.') {
           toast(err.message, 4000);
@@ -134,7 +134,7 @@ function MainPage(props) {
         return null; // Quiet linter
       });
 
-    if (gottenUser) {
+    if (userFromDb) {
       openApp();
     } else {
       await createUser(user.uid, user.providerData[0].email)
