@@ -40,7 +40,22 @@ const getArtists = (limit = 50, after = '', accessToken) => {
   );
 };
 
+/**
+ * Return user Spotify profile
+ * @param {string} accessToken Spotify access token
+ * @returns {Promise} Promise of a user Spotify profile object
+ */
+const getProfile = (accessToken) => axios.get(
+  'https://api.spotify.com/v1/me',
+  {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  },
+);
+
 export {
   getAlbums,
   getArtists,
+  getProfile,
 };
