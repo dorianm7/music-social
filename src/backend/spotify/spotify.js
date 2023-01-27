@@ -41,6 +41,22 @@ const getArtists = (limit = 50, after = '', accessToken) => {
 };
 
 /**
+ * Get limit amount of Spotify playlists starting from offset
+ * @param {int} limit Amount of playlists to return
+ * @param {int} offset Index of first item to return
+ * @param {string} accessToken Spotify access token
+ * @returns {Promise} Promise of axios response object containing user spotify playlists
+ */
+const getPlaylists = (limit = 50, offset = 0, accessToken) => axios.get(
+  `https://api.spotify.com/v1/me/playlists?limit=${limit}&offset=${offset}`,
+  {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  },
+);
+
+/**
  * Return user Spotify profile
  * @param {string} accessToken Spotify access token
  * @returns {Promise} Promise of a user Spotify profile object
@@ -57,5 +73,6 @@ const getProfile = (accessToken) => axios.get(
 export {
   getAlbums,
   getArtists,
+  getPlaylists,
   getProfile,
 };
