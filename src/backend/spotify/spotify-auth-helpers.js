@@ -56,7 +56,7 @@ const accessTokenValid = () => {
     return false;
   }
   const timePassed = Date.now() - timestamp;
-  return (timePassed / 1000) > expiresIn;
+  return (timePassed / 1000) < expiresIn;
 };
 
 export {
