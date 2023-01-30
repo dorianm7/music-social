@@ -29,6 +29,23 @@ import axios from 'axios';
  */
 
 /**
+ * Object representing the currrent user's Spotify profile
+ * @typedef {Object} SpotifyCurrentUserProfile
+ * @property {string} country Country of the user as an ISO 3166-1 alpha 2 country code
+ * @property {string} display_name Name displayed on user profile
+ * @property {string} email Email of the user
+ * @property {Object} explicit_content User's expicit content settings
+ * @property {Object} external_urls Known external urls for the user
+ * @property {Object} followers Information about the followers of the user
+ * @property {string} href Link to the web api endpoint for the user
+ * @property {string} id User Spotify id
+ * @property {Object[]} images User's profile image
+ * @property {string} product User's Spotify subscription level
+ * @property {string} type Object type
+ * @property {string} uri User's Spotify uri
+ */
+
+/**
  * Get limit amount of Spotify albums starting from offset
  * @param {int} limit Amount of albums to return
  * @param {int} offset Index of first item to return
@@ -128,9 +145,9 @@ const getPlaylists = (limit = 50, offset = 0, accessToken) => axios.get(
   });
 
 /**
- * Return user Spotify profile
+ * Return user's Spotify profile
  * @param {string} accessToken Spotify access token
- * @returns {Promise} Promise of a user Spotify profile object
+ * @returns {Promise<SpotifyCurrentUserProfile>} Promise of the current user's Spotify profile
  */
 const getProfile = (accessToken) => axios.get(
   'https://api.spotify.com/v1/me',
@@ -139,7 +156,22 @@ const getProfile = (accessToken) => axios.get(
       Authorization: `Bearer ${accessToken}`,
     },
   },
-);
+)
+  .then((res) => res.data)
+  .catch((err) => {
+    if (err.response) {
+      if (err.response.status > 499) {
+        return Promise.reject(new Error('Unexpected error. Try again.'));
+      }
+      if (err.response.status === 429) {
+        return Promise.reject(new Error('Error. Too many requests.'));
+      }
+      if (err.response.status === 401) {
+        return Promise.reject(new Error('Token error. Reauthorize Spotify and try again.'));
+      }
+    }
+    return Promise.reject(new Error('Error. Try again.'));
+  });
 
 export {
   getAlbums,
