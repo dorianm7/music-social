@@ -4,6 +4,12 @@
  */
 
 import axios from 'axios';
+import {
+  CURRENT_USER_ALBUMS_ENDPOINT,
+  CURRENT_USER_FOLLOWING_ENDPOINT,
+  CURRENT_USER_PLAYLISTS_ENDPOINT,
+  CURRENT_USER_PROFILE_ENDPOINT,
+} from './spotify-endpoints';
 
 /**
  * Object representing a Spotify response of limited offset items
@@ -74,7 +80,7 @@ const axiosResponseErrorHandler = (error) => {
  * @see {@link https://developer.spotify.com/documentation/web-api/reference/#/operations/get-users-saved-albums}
  */
 const getAlbums = (limit = 50, offset = 0, accessToken) => axios.get(
-  `https://api.spotify.com/v1/me/albums?limit=${limit}&offset=${offset}`,
+  `${CURRENT_USER_ALBUMS_ENDPOINT}?limit=${limit}&offset=${offset}`,
   {
     headers: {
       Authorization: `Bearer ${accessToken}`,
@@ -95,7 +101,7 @@ const getAlbums = (limit = 50, offset = 0, accessToken) => axios.get(
 const getArtists = (limit = 50, after = '', accessToken) => {
   const afterSearchParam = after ? `&after=${after}` : '';
   return axios.get(
-    `https://api.spotify.com/v1/me/following?type=artist&limit=${limit}${afterSearchParam}`,
+    `${CURRENT_USER_FOLLOWING_ENDPOINT}?type=artist&limit=${limit}${afterSearchParam}`,
     {
       headers: {
         Authorization: `Bearer ${accessToken}`,
@@ -115,7 +121,7 @@ const getArtists = (limit = 50, after = '', accessToken) => {
  * @see {@link https://developer.spotify.com/documentation/web-api/reference/#/operations/get-a-list-of-current-users-playlists}
  */
 const getPlaylists = (limit = 50, offset = 0, accessToken) => axios.get(
-  `https://api.spotify.com/v1/me/playlists?limit=${limit}&offset=${offset}`,
+  `${CURRENT_USER_PLAYLISTS_ENDPOINT}?limit=${limit}&offset=${offset}`,
   {
     headers: {
       Authorization: `Bearer ${accessToken}`,
@@ -131,7 +137,7 @@ const getPlaylists = (limit = 50, offset = 0, accessToken) => axios.get(
  * @returns {Promise<SpotifyCurrentUserProfile>} Promise of the current user's Spotify profile
  */
 const getProfile = (accessToken) => axios.get(
-  'https://api.spotify.com/v1/me',
+  CURRENT_USER_PROFILE_ENDPOINT,
   {
     headers: {
       Authorization: `Bearer ${accessToken}`,
