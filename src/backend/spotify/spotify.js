@@ -63,9 +63,10 @@ const getAlbums = (limit = 50, offset = 0, accessToken) => axios.get(
 /**
  * Get limit amount of Spotify artists from after
  * @param {int} limit Amount of albums to return
- * @param {int} after Id of last artist Id returned from previous request
+ * @param {string} after Id of last artist Id returned from previous request
  * @param {string} accessToken Spotify access token
- * @returns {Promise} Promise of axios response object containing user spotify artists
+ * @returns {Promise<SpotifyLimitCursorResponse>} Promise of response object containing Artists
+ * @see {@link https://developer.spotify.com/documentation/web-api/reference/#/operations/get-followed}
  */
 const getArtists = (limit = 50, after = '', accessToken) => {
   const afterSearchParam = after ? `&after=${after}` : '';
@@ -76,7 +77,22 @@ const getArtists = (limit = 50, after = '', accessToken) => {
         Authorization: `Bearer ${accessToken}`,
       },
     },
-  );
+  )
+    .then((res) => res.data.artists)
+    .catch((err) => {
+      if (err.response) {
+        if (err.response.status > 499) {
+          return Promise.reject(new Error('Unexpected error. Try again'));
+        }
+        if (err.response.status === 429) {
+          return Promise.reject(new Error('Error. Too many requests.'));
+        }
+        if (err.response.status === 401) {
+          return Promise.reject(new Error('Token error. Reauthorize Spotify and try again.'));
+        }
+      }
+      return Promise.reject(new Error('Error. Try again.'));
+    });
 };
 
 /**
