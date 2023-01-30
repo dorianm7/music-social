@@ -59,7 +59,7 @@ function SettingsPage(props) {
           const replaceSpotifyIdOp = {
             op: 'replace',
             path: '/spotify_user_id',
-            value: spotifyIdRes.data.id,
+            value: spotifyIdRes.id,
           };
           await patchUser(user.uid, [replaceSpotifyIdOp]);
         }
