@@ -46,6 +46,26 @@ import axios from 'axios';
  */
 
 /**
+ * Handles a requests failure response
+ * @param {Object} error Axios error object
+ * @returns {Promise<Error>} Promise of an error object
+ */
+const axiosResponseErrorHandler = (error) => {
+  if (error.response) {
+    if (error.response.status > 499) {
+      return Promise.reject(new Error('Unexpected error. Try again.'));
+    }
+    if (error.response.status === 429) {
+      return Promise.reject(new Error('Error. Too many requests.'));
+    }
+    if (error.response.status === 401) {
+      return Promise.reject(new Error('Token error. Reauthorize Spotify and try again.'));
+    }
+  }
+  return Promise.reject(new Error('Error. Try again.'));
+};
+
+/**
  * Get limit amount of Spotify albums starting from offset
  * @param {int} limit Amount of albums to return
  * @param {int} offset Index of first item to return
@@ -62,20 +82,7 @@ const getAlbums = (limit = 50, offset = 0, accessToken) => axios.get(
   },
 )
   .then((res) => res.data)
-  .catch((err) => {
-    if (err.response) {
-      if (err.response.status > 499) {
-        return Promise.reject(new Error('Unexpected error. Try again.'));
-      }
-      if (err.response.status === 429) {
-        return Promise.reject(new Error('Error. Too many requests.'));
-      }
-      if (err.response.status === 401) {
-        return Promise.reject(new Error('Token error. Reauthorize Spotify and try again.'));
-      }
-    }
-    return Promise.reject(new Error('Error. Try again.'));
-  });
+  .catch((err) => axiosResponseErrorHandler(err));
 
 /**
  * Get limit amount of Spotify artists from after
@@ -96,20 +103,7 @@ const getArtists = (limit = 50, after = '', accessToken) => {
     },
   )
     .then((res) => res.data.artists)
-    .catch((err) => {
-      if (err.response) {
-        if (err.response.status > 499) {
-          return Promise.reject(new Error('Unexpected error. Try again'));
-        }
-        if (err.response.status === 429) {
-          return Promise.reject(new Error('Error. Too many requests.'));
-        }
-        if (err.response.status === 401) {
-          return Promise.reject(new Error('Token error. Reauthorize Spotify and try again.'));
-        }
-      }
-      return Promise.reject(new Error('Error. Try again.'));
-    });
+    .catch((err) => axiosResponseErrorHandler(err));
 };
 
 /**
@@ -129,20 +123,7 @@ const getPlaylists = (limit = 50, offset = 0, accessToken) => axios.get(
   },
 )
   .then((res) => res.data)
-  .catch((err) => {
-    if (err.response) {
-      if (err.response.status > 499) {
-        return Promise.reject(new Error('Unexpected error. Try again.'));
-      }
-      if (err.response.status === 429) {
-        return Promise.reject(new Error('Error. Too many requests.'));
-      }
-      if (err.response.status === 401) {
-        return Promise.reject(new Error('Token error. Reauthorize Spotify and try again.'));
-      }
-    }
-    return Promise.reject(new Error('Error. Try again.'));
-  });
+  .catch((err) => axiosResponseErrorHandler(err));
 
 /**
  * Return user's Spotify profile
@@ -158,20 +139,7 @@ const getProfile = (accessToken) => axios.get(
   },
 )
   .then((res) => res.data)
-  .catch((err) => {
-    if (err.response) {
-      if (err.response.status > 499) {
-        return Promise.reject(new Error('Unexpected error. Try again.'));
-      }
-      if (err.response.status === 429) {
-        return Promise.reject(new Error('Error. Too many requests.'));
-      }
-      if (err.response.status === 401) {
-        return Promise.reject(new Error('Token error. Reauthorize Spotify and try again.'));
-      }
-    }
-    return Promise.reject(new Error('Error. Try again.'));
-  });
+  .catch((err) => axiosResponseErrorHandler(err));
 
 export {
   getAlbums,
