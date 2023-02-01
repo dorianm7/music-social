@@ -1,3 +1,4 @@
+/* eslint-disable no-await-in-loop */
 /**
  * Module containing functions to perform Spotify functions
  * @module spotify
@@ -5,10 +6,10 @@
 
 import axios from 'axios';
 import {
-  CURRENT_USER_ALBUMS_ENDPOINT,
-  CURRENT_USER_FOLLOWING_ENDPOINT,
-  CURRENT_USER_PLAYLISTS_ENDPOINT,
   CURRENT_USER_PROFILE_ENDPOINT,
+  getUsersAlbumsHref,
+  getUsersArtistsHref,
+  getUsersPlaylistsHref,
 } from './spotify-endpoints';
 
 /**
@@ -72,7 +73,7 @@ const axiosResponseErrorHandler = (error) => {
 };
 
 /**
- * Get limit amount of Spotify albums starting from offset
+ * Get limit amount of user's Spotify albums starting from offset
  * @param {int} limit Amount of albums to return
  * @param {int} offset Index of first item to return
  * @param {string} accessToken Spotify access token
@@ -80,7 +81,7 @@ const axiosResponseErrorHandler = (error) => {
  * @see {@link https://developer.spotify.com/documentation/web-api/reference/#/operations/get-users-saved-albums}
  */
 const getAlbums = (limit = 50, offset = 0, accessToken) => axios.get(
-  `${CURRENT_USER_ALBUMS_ENDPOINT}?limit=${limit}&offset=${offset}`,
+  getUsersAlbumsHref(limit, offset),
   {
     headers: {
       Authorization: `Bearer ${accessToken}`,
@@ -91,29 +92,26 @@ const getAlbums = (limit = 50, offset = 0, accessToken) => axios.get(
   .catch((err) => axiosResponseErrorHandler(err));
 
 /**
- * Get limit amount of Spotify artists from after
+ * Get limit amount of user's Spotify artists from after
  * @param {int} limit Amount of albums to return
  * @param {string} after Id of last artist Id returned from previous request
  * @param {string} accessToken Spotify access token
  * @returns {Promise<SpotifyLimitCursorResponse>} Promise of response object containing Artists
  * @see {@link https://developer.spotify.com/documentation/web-api/reference/#/operations/get-followed}
  */
-const getArtists = (limit = 50, after = '', accessToken) => {
-  const afterSearchParam = after ? `&after=${after}` : '';
-  return axios.get(
-    `${CURRENT_USER_FOLLOWING_ENDPOINT}?type=artist&limit=${limit}${afterSearchParam}`,
-    {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
+const getArtists = (limit = 50, after = '', accessToken) => axios.get(
+  getUsersArtistsHref(limit, after),
+  {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
     },
-  )
-    .then((res) => res.data.artists)
-    .catch((err) => axiosResponseErrorHandler(err));
-};
+  },
+)
+  .then((res) => res.data.artists)
+  .catch((err) => axiosResponseErrorHandler(err));
 
 /**
- * Get limit amount of Spotify playlists starting from offset
+ * Get limit amount of user's Spotify playlists starting from offset
  * @param {int} limit Amount of playlists to return
  * @param {int} offset Index of first item to return
  * @param {string} accessToken Spotify access token
@@ -121,7 +119,7 @@ const getArtists = (limit = 50, after = '', accessToken) => {
  * @see {@link https://developer.spotify.com/documentation/web-api/reference/#/operations/get-a-list-of-current-users-playlists}
  */
 const getPlaylists = (limit = 50, offset = 0, accessToken) => axios.get(
-  `${CURRENT_USER_PLAYLISTS_ENDPOINT}?limit=${limit}&offset=${offset}`,
+  getUsersPlaylistsHref(limit, offset),
   {
     headers: {
       Authorization: `Bearer ${accessToken}`,
