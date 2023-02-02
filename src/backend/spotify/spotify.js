@@ -145,9 +145,50 @@ const getProfile = (accessToken) => axios.get(
   .then((res) => res.data)
   .catch((err) => axiosResponseErrorHandler(err));
 
+/**
+ * Returns all the items of the type specified (albums, playlists)
+ * @param {string} type Type of items to return
+ * @param {string} accessToken Spotify access token
+ * @returns {Promise<Object[]>} Promise of objects of the specified type
+ */
+const getLimitOffsetItems = async (type, accessToken) => {
+  let initialRes;
+  const limit = 50;
+  let offset = 0;
+  const items = [];
+  if (type === 'albums') {
+    initialRes = await getAlbums(limit, offset, accessToken);
+  } else if (type === 'playlists') {
+    initialRes = await getPlaylists(limit, offset, accessToken);
+  } else {
+    Promise.reject(new Error('Invalid type entered.'));
+  }
+
+  items.push(...initialRes.items);
+
+  const promises = [];
+  for (let i = 1; i < Math.ceil(initialRes.total / limit); i += 1) {
+    let newPromise;
+    offset += limit;
+    if (type === 'albums') {
+      newPromise = getAlbums(limit, offset, accessToken);
+    } else {
+      newPromise = getPlaylists(limit, offset, accessToken);
+    }
+    promises.push(newPromise);
+  }
+
+  const responses = await Promise.all(promises);
+
+  responses.forEach((response) => items.push(...response.items));
+
+  return Promise.resolve(items);
+};
+
 export {
   getAlbums,
   getArtists,
   getPlaylists,
   getProfile,
+  getLimitOffsetItems,
 };
