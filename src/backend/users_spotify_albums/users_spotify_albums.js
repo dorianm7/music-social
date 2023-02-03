@@ -32,7 +32,7 @@ const createUsersSpotifyAlbums = (uid) => axios.post(
  * @param {Object[]} patchBody Array of patch object operations
  * @returns {Promise<void>} Promise of a successful patch
  */
-const patchUsersSpotifyAlbums = (uid, patchBody) => axios.post(
+const patchUsersSpotifyAlbums = (uid, patchBody) => axios.patch(
   usersSpotifyAlbumsBaseEndpoint(uid),
   patchBody,
   {
