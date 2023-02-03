@@ -6,7 +6,10 @@
 import ObjectID from 'bson-objectid';
 import { getLimitOffsetItems } from '../spotify/spotify';
 import { getUser } from '../user/user';
-import createUsersSpotifyAlbums from '../users_spotify_albums/users_spotify_albums';
+import {
+  createUsersSpotifyAlbums,
+  patchUsersSpotifyAlbums,
+} from '../users_spotify_albums/users_spotify_albums';
 import {
   formatAlbum,
 } from './spotify-helpers';
@@ -20,6 +23,7 @@ const syncAlbums = async (uid, accessToken) => {
   const itemsForDb = items.map((item) => formatAlbum(item));
   const userSpotifyAlbums = user.spotify_albums;
   let spotifyAlbumsId;
+  const promises = [];
   if (userSpotifyAlbums.last_updated === (new Date(0).toISOString())) {
     spotifyAlbumsId = ObjectID();
     await createUsersSpotifyAlbums(spotifyAlbumsId);
@@ -31,9 +35,17 @@ const syncAlbums = async (uid, accessToken) => {
     // promises.push PATCH users/uid/
     //   spotify_albums.last_updated
   }
-  // promises.push PATCH user_spotify_albums/id
-  //   items
-  // await Promise.all(promises)
+  promises.push(patchUsersSpotifyAlbums(
+    spotifyAlbumsId,
+    [
+      {
+        op: 'replace',
+        path: '/items',
+        value: itemsForDb,
+      },
+    ],
+  ));
+  await Promise.all(promises);
 };
 
 export default syncAlbums;
