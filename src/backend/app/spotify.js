@@ -21,13 +21,13 @@ import {
  * @returns {Promise<void>} Promise of a successful operation
  */
 const syncAlbums = async (uid, accessToken) => {
-  const [items, userRes] = await Promise.all([
+  const [albumsListItems, userRes] = await Promise.all([
     getLimitOffsetItems('albums', accessToken),
     getUser(uid, ['spotify_albums']),
   ]);
 
   const user = userRes.data;
-  const itemsForDb = items.map((item) => formatAlbum(item));
+  const itemsForDb = albumsListItems.map((albumsListItem) => formatAlbum(albumsListItem.album));
   const userSpotifyAlbums = user.spotify_albums;
   let spotifyAlbumsId;
   const promises = [];
