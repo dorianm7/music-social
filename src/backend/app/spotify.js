@@ -5,7 +5,7 @@
 
 import ObjectID from 'bson-objectid';
 import { getLimitOffsetItems } from '../spotify/spotify';
-import { getUser } from '../user/user';
+import { getUser, patchUser } from '../user/user';
 import {
   createUsersSpotifyAlbums,
   patchUsersSpotifyAlbums,
@@ -14,12 +14,19 @@ import {
   formatAlbum,
 } from './spotify-helpers';
 
+/**
+ * Sync users spotify albums to backend
+ * @param {string} uid Id of user
+ * @param {string} accessToken Spotify access token
+ * @returns {Promise<void>} Promise of a successful operation
+ */
 const syncAlbums = async (uid, accessToken) => {
-  const [items, user] = await Promise.all([
+  const [items, userRes] = await Promise.all([
     getLimitOffsetItems('albums', accessToken),
     getUser(uid, ['spotify_albums']),
   ]);
 
+  const user = userRes.data;
   const itemsForDb = items.map((item) => formatAlbum(item));
   const userSpotifyAlbums = user.spotify_albums;
   let spotifyAlbumsId;
@@ -27,13 +34,33 @@ const syncAlbums = async (uid, accessToken) => {
   if (userSpotifyAlbums.last_updated === (new Date(0).toISOString())) {
     spotifyAlbumsId = ObjectID();
     await createUsersSpotifyAlbums(spotifyAlbumsId);
-    // promises.push PATCH users/uid/
-    //   spotify_albums.items_id
-    //   spotify_albums.last_updated
+    promises.push(patchUser(
+      uid,
+      [
+        {
+          op: 'replace',
+          path: '/spotify_albums/items_id',
+          value: spotifyAlbumsId.toHexString(),
+        },
+        {
+          op: 'replace',
+          path: '/spotify_albums/last_updated',
+          value: (new Date()).toISOString(),
+        },
+      ],
+    ));
   } else {
     spotifyAlbumsId = userSpotifyAlbums.items_id;
-    // promises.push PATCH users/uid/
-    //   spotify_albums.last_updated
+    promises.push(patchUser(
+      uid,
+      [
+        {
+          op: 'replace',
+          path: '/spotify_albums/last_updated',
+          value: (new Date()).toISOString(),
+        },
+      ],
+    ));
   }
   promises.push(patchUsersSpotifyAlbums(
     spotifyAlbumsId,
@@ -45,6 +72,7 @@ const syncAlbums = async (uid, accessToken) => {
       },
     ],
   ));
+
   await Promise.all(promises);
 };
 
