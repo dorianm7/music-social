@@ -13,10 +13,42 @@ import {
 } from './spotify-endpoints';
 
 /**
+ * Object representing a Spotify album
+ * @typedef {Object} SpotifyAlbum
+ * @property {string} album_type Type of album
+ * @property {Object[]} artists Artists of the album
+ * @property {string[]} available_markets Markets album is available in
+ * @property {Object[]} copyrights Copyright statements of album
+ * @property {Object} external_ids External ids for album
+ * @property {Object} external_urls External URLs for album
+ * @property {string[]} genres List of genres album associated with
+ * @property {string} href Link to Spotify Web API endpoint
+ * @property {string} id Spotify id for album
+ * @property {Object[]} images Cover art for album in various sizes
+ * @property {string} label Label associated with album
+ * @property {string} name Name of album
+ * @property {int} popularity Popularity of album
+ * @property {string} release_date Date album first released
+ * @property {string} release_date_precision Precision for release_data
+ * @property {Object} restrictions Content restrictions applied to album
+ * @property {int} total_tracks Number tracks on album
+ * @property {Object} tracks Tracks object containing tracks data
+ * @property {string} type Object type. "album"
+ * @property {string} uri Spotify URI for album
+ */
+
+/**
+ * Object representing a Spotify response of album in list
+ * @typedef {Object} SpotifyAlbumListItem
+ * @property {string<date-time>} added_at Time object was saved
+ * @property {SpotifyAlbum} album Album object
+ */
+
+/**
  * Object representing a Spotify response of limited offset items
  * @typedef {Object} SpotifyLimitOffsetResponse
  * @property {string} href Link to the Web API endpoint returning the full result of the request
- * @property {Object[]} items Requested content
+ * @property {SpotifyAlbumListItem[] |Object[]} items Requested content
  * @property {int} limit Maximum number of items in the response
  * @property {string | null} next Url to the next page of items
  * @property {int} offset Offset of the items returned
@@ -149,7 +181,7 @@ const getProfile = (accessToken) => axios.get(
  * Returns all the items of the type specified (albums, playlists)
  * @param {string} type Type of items to return
  * @param {string} accessToken Spotify access token
- * @returns {Promise<Object[]>} Promise of objects of the specified type
+ * @returns {Promise<SpotifyAlbumListItem[] | Object[]>} Promise of objects of the specified type
  */
 const getLimitOffsetItems = async (type, accessToken) => {
   let initialRes;
