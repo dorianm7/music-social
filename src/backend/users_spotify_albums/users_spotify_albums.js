@@ -4,7 +4,10 @@
  */
 
 import axios from 'axios';
-import USERS_SPOTIFY_ALBUMS_BACKEND_ENDPOINT from './users_spotify_albums-helpers';
+import {
+  USERS_SPOTIFY_ALBUMS_BACKEND_ENDPOINT,
+  usersSpotifyAlbumsBaseEndpoint,
+} from './users_spotify_albums-helpers';
 
 /**
  * Create users_spotify_albums document in database with given uid
@@ -23,4 +26,23 @@ const createUsersSpotifyAlbums = (uid) => axios.post(
   },
 );
 
-export default createUsersSpotifyAlbums;
+/**
+ * Patch document in the database with given operations in patchBody
+ * @param {string} uid Id of the document
+ * @param {Object[]} patchBody Array of patch object operations
+ * @returns {Promise<void>} Promise of a successful patch
+ */
+const patchUsersSpotifyAlbums = (uid, patchBody) => axios.post(
+  usersSpotifyAlbumsBaseEndpoint(uid),
+  patchBody,
+  {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  },
+);
+
+export {
+  createUsersSpotifyAlbums,
+  patchUsersSpotifyAlbums,
+};

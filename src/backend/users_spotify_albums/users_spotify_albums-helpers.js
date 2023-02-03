@@ -5,4 +5,14 @@
 
 const USERS_SPOTIFY_ALBUMS_BACKEND_ENDPOINT = `${process.env.REACT_APP_BACKEND_HTTP_SERVER}/users_spotify_albums`;
 
-export default USERS_SPOTIFY_ALBUMS_BACKEND_ENDPOINT;
+/**
+ * Returns the backend endpoint of document with given uid
+ * @param {string} uid Id of the document
+ * @returns {string} Endpoint of the document
+ */
+const usersSpotifyAlbumsBaseEndpoint = (uid) => `${USERS_SPOTIFY_ALBUMS_BACKEND_ENDPOINT}/${uid}`;
+
+export {
+  USERS_SPOTIFY_ALBUMS_BACKEND_ENDPOINT,
+  usersSpotifyAlbumsBaseEndpoint,
+};
