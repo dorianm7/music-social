@@ -4,18 +4,20 @@
  */
 
 import ObjectID from 'bson-objectid';
-import { getLimitOffsetItems } from '../spotify/spotify';
+import { getLimitCursorItems, getLimitOffsetItems } from '../spotify/spotify';
 import { getUser, patchUser } from '../user/user';
 import {
   createUsersSpotifyAlbums,
   patchUsersSpotifyAlbums,
 } from '../users_spotify_albums/users_spotify_albums';
+import { createUsersSpotifyArtists, patchUsersSpotifyArtists } from '../users_spotify_artists/users_spotify_artists';
 import {
   createUsersSpotifyPlaylists,
   patchUsersSpotifyPlaylists,
 } from '../users_spotify_playlists/users_spotify_playlists';
 import {
   formatAlbum,
+  formatArtist,
   formatPlaylist,
 } from './spotify-helpers';
 
@@ -142,7 +144,71 @@ const syncPlaylists = async (uid, accessToken) => {
   await Promise.all(promises);
 };
 
+/**
+ * Sync users Spotify artists to backend
+ * @param {string} uid Id of user
+ * @param {string} accessToken Spotify access token
+ * @returns {Promise<void>} Promise of a successful operation
+ */
+const syncArtists = async (uid, accessToken) => {
+  const [artistsItems, userRes] = await Promise.all([
+    getLimitCursorItems('artists', accessToken),
+    getUser(uid, ['spotify_artists']),
+  ]);
+
+  const user = userRes.data;
+  const itemsForDb = artistsItems.map((artistItem) => formatArtist(artistItem));
+  const userSpotifyArtists = user.spotify_artists;
+  let spotifyArtistsId;
+  const promises = [];
+  if (userSpotifyArtists.last_updated === (new Date(0).toISOString())) {
+    spotifyArtistsId = ObjectID();
+    await createUsersSpotifyArtists(spotifyArtistsId);
+    promises.push(patchUser(
+      uid,
+      [
+        {
+          op: 'replace',
+          path: '/spotify_artists/items_id',
+          value: spotifyArtistsId.toHexString(),
+        },
+        {
+          op: 'replace',
+          path: '/spotify_artists/last_updated',
+          value: (new Date()).toISOString(),
+        },
+      ],
+    ));
+  } else {
+    spotifyArtistsId = userSpotifyArtists.items_id;
+    promises.push(patchUser(
+      uid,
+      [
+        {
+          op: 'replace',
+          path: '/spotify_artists/last_updated',
+          value: (new Date()).toISOString(),
+        },
+      ],
+    ));
+  }
+
+  promises.push(patchUsersSpotifyArtists(
+    spotifyArtistsId,
+    [
+      {
+        op: 'replace',
+        path: '/items',
+        value: itemsForDb,
+      },
+    ],
+  ));
+
+  await Promise.all(promises);
+};
+
 export {
   syncAlbums,
   syncPlaylists,
+  syncArtists,
 };
