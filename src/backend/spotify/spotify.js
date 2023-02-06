@@ -38,6 +38,21 @@ import {
  */
 
 /**
+ * Object representing a Spotify artist
+ * @typedef {Object} SpotifyArtist
+ * @property {Object} external_urls External URLs for artist
+ * @property {Object} followers Info of artists followers
+ * @property {string[]} genres Genres associated with artist
+ * @property {string} href Linke to Spotify Web API endpoint
+ * @property {string} id Spotify id for artist
+ * @property {Object[]} images Images of artist
+ * @property {string} name Name of artist
+ * @property {int} popularity Popularity of artist
+ * @property {string} type Object type. "artist"
+ * @property {string} uri Spotify URI for artist
+ */
+
+/**
  * Object representing a Spotify playlist owned or followed by current user
  * @typedef {Object} CurrentUserSpotifyPlaylistListItem
  * @property {boolean} collaborative Whether other users can modify playlist
@@ -199,7 +214,8 @@ const getProfile = (accessToken) => axios.get(
  * Returns all the items of the type specified (albums, playlists)
  * @param {string} type Type of items to return
  * @param {string} accessToken Spotify access token
- * @returns {Promise<SpotifyAlbumListItem[] | Object[]>} Promise of objects of the specified type
+ * @returns {Promise<SpotifyAlbumListItem[] | CurrentUserSpotifyPlaylistListItem[]>} Promise
+ * of objects of the specified type
  */
 const getLimitOffsetItems = async (type, accessToken) => {
   let initialRes;
@@ -235,10 +251,34 @@ const getLimitOffsetItems = async (type, accessToken) => {
   return Promise.resolve(items);
 };
 
+/**
+ * Returns all the items of the type specified (artists)
+ * @param {string} type Type of items to return
+ * @param {string} accessToken Spotify access token
+ * @returns {Promise<SpotifyArtist[] | Object[]} Promise of objects of specified type
+ */
+const getLimitCursorItems = async (type, accessToken) => {
+  let after = '';
+  const items = [];
+  do {
+    let itemsRes;
+    if (type === 'artists') {
+      itemsRes = await getArtists(50, after, accessToken);
+    } else {
+      return Promise.reject(new Error('Invalid type entered'));
+    }
+    items.push(...itemsRes.items);
+    after = itemsRes.cursors.after;
+  } while (after);
+
+  return items;
+};
+
 export {
   getAlbums,
   getArtists,
   getPlaylists,
   getProfile,
   getLimitOffsetItems,
+  getLimitCursorItems,
 };
