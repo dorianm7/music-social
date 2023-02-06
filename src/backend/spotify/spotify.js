@@ -73,7 +73,7 @@ import {
 /**
  * Object representing a Spotify response of album in list
  * @typedef {Object} SpotifyAlbumListItem
- * @property {string<date-time>} added_at Time object was saved
+ * @property {string} added_at ISO date-time object was saved
  * @property {SpotifyAlbum} album Album object
  */
 
