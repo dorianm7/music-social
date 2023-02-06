@@ -32,14 +32,25 @@ const formatArtist = (artist) => ({
  * Formats Spotify playlist object for backend use
  * @param {Object} playlist Spotify playlist object
  */
-const formatPlaylist = (playlist) => ({
-  spotify_api_href: playlist.href,
-  spotify_href: playlist.external_urls.spotify,
-  spotify_id: playlist.id,
-  img: playlist.images[1].url,
-  name: playlist.name,
-  creators: [playlist.owner.display_name],
-});
+const formatPlaylist = (playlist) => {
+  const res = {
+    spotify_api_href: playlist.href,
+    spotify_href: playlist.external_urls.spotify,
+    spotify_id: playlist.id,
+    name: playlist.name,
+    creators: [playlist.owner.display_name],
+  };
+
+  if (playlist.images.length === 0) {
+    res.img = '';
+  } else if (playlist.images.length === 1) {
+    res.img = playlist.images[0].url;
+  } else {
+    res.img = playlist.images[1].url;
+  }
+
+  return res;
+};
 
 export {
   formatAlbum,
