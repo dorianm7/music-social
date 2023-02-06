@@ -10,6 +10,8 @@
  * @typedef {import('../spotify/spotify').SpotifyAlbumListItem} SpotifyAlbumListItem
  * @typedef {import('../users_spotify_albums/users_spotify_albums').UsersSpotifyAlbumsItem}
  * UsersSpotifyAlbumsItem
+ * @typedef {import('../users_spotify_artists/users_spotify_artists').UsersSpotifyArtistsItem}
+ * UsersSpotifyArtistsItem
  */
 
 /**
@@ -27,7 +29,7 @@ const formatAlbum = (album) => ({
 
 /**
  * Format albums into form used in backend
- * @param {SpotifyAlbumListItem[]} albums Albums from a list
+ * @param {SpotifyAlbumListItem[]} albums Albums from a Spotify list
  * @returns {UsersSpotifyAlbumsItem[]} List of formatted albums
  */
 const formatAlbums = (albums) => albums.map((item) => formatAlbum(item.album));
@@ -54,6 +56,13 @@ const formatArtist = (artist) => {
 
   return res;
 };
+
+/**
+ * Format artists into form used in backend
+ * @param {SpotifyArtist[]} artists List of SpotifyArtists
+ * @returns {UsersSpotifyArtistsItem[]} List of formatted artists
+ */
+const formatArtists = (artists) => artists.map((item) => formatArtist(item));
 
 /**
  * Formats Spotify playlist object for backend use
@@ -83,5 +92,6 @@ export {
   formatAlbum,
   formatAlbums,
   formatArtist,
+  formatArtists,
   formatPlaylist,
 };

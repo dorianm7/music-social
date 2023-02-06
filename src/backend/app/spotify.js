@@ -26,7 +26,7 @@ import {
 } from '../users_spotify_playlists/users_spotify_playlists';
 import {
   formatAlbums,
-  formatArtist,
+  formatArtists,
   formatPlaylist,
 } from './spotify-helpers';
 
@@ -166,7 +166,7 @@ const syncArtists = async (uid, accessToken) => {
   ]);
 
   const user = userRes.data;
-  const itemsForDb = artistsItems.map((artistItem) => formatArtist(artistItem));
+  const itemsForDb = formatArtists(artistsItems);
   const userSpotifyArtists = user.spotify_artists;
   let spotifyArtistsId;
   const promises = [];
