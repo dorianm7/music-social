@@ -11,7 +11,12 @@ import {
   patchUsersSpotifyAlbums,
 } from '../users_spotify_albums/users_spotify_albums';
 import {
+  createUsersSpotifyPlaylists,
+  patchUsersSpotifyPlaylists,
+} from '../users_spotify_playlists/users_spotify_playlists';
+import {
   formatAlbum,
+  formatPlaylist,
 } from './spotify-helpers';
 
 /**
@@ -76,4 +81,68 @@ const syncAlbums = async (uid, accessToken) => {
   await Promise.all(promises);
 };
 
-export default syncAlbums;
+/**
+ * Sync users spotify playlists to backend
+ * @param {string} uid Id of user
+ * @param {string} accessToken Spotify access token
+ */
+const syncPlaylists = async (uid, accessToken) => {
+  const [playlistsListItems, userRes] = await Promise.all([
+    getLimitOffsetItems('playlists', accessToken),
+    getUser(uid, ['spotify_playlists']),
+  ]);
+
+  const user = userRes.data;
+  const itemsForDb = playlistsListItems.map((playlistListItem) => formatPlaylist(playlistListItem));
+  const userSpotifyPlaylists = user.spotify_playlists;
+  let spotifyPlaylistsId;
+  const promises = [];
+  if (userSpotifyPlaylists.last_updated === (new Date(0).toISOString())) {
+    spotifyPlaylistsId = ObjectID();
+    await createUsersSpotifyPlaylists(spotifyPlaylistsId);
+    promises.push(patchUser(
+      uid,
+      [
+        {
+          op: 'replace',
+          path: '/spotify_playlists/items_id',
+          value: spotifyPlaylistsId.toHexString(),
+        },
+        {
+          op: 'replace',
+          path: '/spotify_playlists/last_updated',
+          value: (new Date()).toISOString(),
+        },
+      ],
+    ));
+  } else {
+    spotifyPlaylistsId = userSpotifyPlaylists.items_id;
+    promises.push(patchUser(
+      uid,
+      [
+        {
+          op: 'replace',
+          path: '/spotify_playlists/last_updated',
+          value: (new Date()).toISOString(),
+        },
+      ],
+    ));
+  }
+  promises.push(patchUsersSpotifyPlaylists(
+    spotifyPlaylistsId,
+    [
+      {
+        op: 'replace',
+        path: '/items',
+        value: itemsForDb,
+      },
+    ],
+  ));
+
+  await Promise.all(promises);
+};
+
+export {
+  syncAlbums,
+  syncPlaylists,
+};
