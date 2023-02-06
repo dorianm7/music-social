@@ -38,6 +38,24 @@ import {
  */
 
 /**
+ * Object representing a Spotify playlist owned or followed by current user
+ * @typedef {Object} CurrentUserSpotifyPlaylistListItem
+ * @property {boolean} collaborative Whether other users can modify playlist
+ * @property {string | null} description Description of playlist
+ * @property {Object} external_urls External URLs for playlist
+ * @property {string} href Link to Spotify Web API endpoint
+ * @property {string} id Spotify id for playlist
+ * @property {Object[]} images Cover art for playlist in various sizes
+ * @property {string} name Name of playlist
+ * @property {Object} owner User who owns the playlist
+ * @property {boolean} public Whether public or private
+ * @property {string} snapshot_id Version id for current playlist (Used to target specific version)
+ * @property {Object} tracks Object containing link and total tracks contained
+ * @property {string} type Object type. "playlist"
+ * @property {string} uri Spotify URI for playlist
+ */
+
+/**
  * Object representing a Spotify response of album in list
  * @typedef {Object} SpotifyAlbumListItem
  * @property {string<date-time>} added_at Time object was saved
@@ -48,7 +66,7 @@ import {
  * Object representing a Spotify response of limited offset items
  * @typedef {Object} SpotifyLimitOffsetResponse
  * @property {string} href Link to the Web API endpoint returning the full result of the request
- * @property {SpotifyAlbumListItem[] |Object[]} items Requested content
+ * @property {SpotifyAlbumListItem[] | CurrentUserSpotifyPlaylistListItem[]} items Requested content
  * @property {int} limit Maximum number of items in the response
  * @property {string | null} next Url to the next page of items
  * @property {int} offset Offset of the items returned
