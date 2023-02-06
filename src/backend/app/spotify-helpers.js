@@ -2,10 +2,16 @@
  * Module containing functions to help with Spotify App functions
  * @module spotify-helpers
  */
+/**
+ * @typedef {import('../spotify/spotify').SpotifyAlbum} SpotifyAlbum
+ * @typedef {import('../spotify/spotify').SpotifyArtist} SpotifyArtist
+ * @typedef {import('../spotify/spotify').CurrentUserSpotifyPlaylistListItem}
+ * CurrentUserSpotifyPlaylistListItem
+ */
 
 /**
  * Formats Spotify album object for backend use
- * @param {Object} album Spotify album object
+ * @param {SpotifyAlbum} album Spotify album object
  */
 const formatAlbum = (album) => ({
   spotify_api_href: album.href,
@@ -18,7 +24,7 @@ const formatAlbum = (album) => ({
 
 /**
  * Formats Spotify artist object for backend use
- * @param {Object} artist Spotify artist object
+ * @param {SpotifyArtist} artist Spotify artist object
  */
 const formatArtist = (artist) => {
   const res = {
@@ -41,7 +47,7 @@ const formatArtist = (artist) => {
 
 /**
  * Formats Spotify playlist object for backend use
- * @param {Object} playlist Spotify playlist object
+ * @param {CurrentUserSpotifyPlaylistListItem} playlist Spotify playlist object
  */
 const formatPlaylist = (playlist) => {
   const res = {
