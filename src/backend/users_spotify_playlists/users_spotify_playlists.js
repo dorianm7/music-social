@@ -10,6 +10,17 @@ import {
 } from './users_spotify_playlists-helpers';
 
 /**
+ * Object representing playlist item found in users_spotify_playlists document
+ * @typedef {Object} UsersSpotifyPlaylistsItem
+ * @property {string} spotify_api_href Link to spotify Web API endpoint
+ * @property {string} spotify_href Link to Spotify url
+ * @property {string} spotify_id Spotify id for playlist
+ * @property {string} img Link to playlist cover art
+ * @property {string} name Playlist name
+ * @property {string[]} creators List of creators of playlist
+ */
+
+/**
  * Create users_spotify_playlists document in database with given uid
  * @param {string} uid Id for the document
  * @returns {Promise<void>} Promise of a successful document creation
