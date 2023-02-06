@@ -20,13 +20,24 @@ const formatAlbum = (album) => ({
  * Formats Spotify artist object for backend use
  * @param {Object} artist Spotify artist object
  */
-const formatArtist = (artist) => ({
-  spotify_api_href: artist.href,
-  spotify_href: artist.external_urls.spotify,
-  spotify_id: artist.id,
-  img: artist.images[1].url,
-  name: artist.name,
-});
+const formatArtist = (artist) => {
+  const res = {
+    spotify_api_href: artist.href,
+    spotify_href: artist.external_urls.spotify,
+    spotify_id: artist.id,
+    name: artist.name,
+  };
+
+  if (artist.images.length === 0) {
+    res.img = '';
+  } else if (artist.images.length === 1) {
+    res.img = artist.images[0].url;
+  } else {
+    res.img = artist.images[1].url;
+  }
+
+  return res;
+};
 
 /**
  * Formats Spotify playlist object for backend use
