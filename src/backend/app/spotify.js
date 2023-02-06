@@ -25,7 +25,7 @@ import {
   patchUsersSpotifyPlaylists,
 } from '../users_spotify_playlists/users_spotify_playlists';
 import {
-  formatAlbum,
+  formatAlbums,
   formatArtist,
   formatPlaylist,
 } from './spotify-helpers';
@@ -43,7 +43,7 @@ const syncAlbums = async (uid, accessToken) => {
   ]);
 
   const user = userRes.data;
-  const itemsForDb = albumsListItems.map((albumsListItem) => formatAlbum(albumsListItem.album));
+  const itemsForDb = formatAlbums(albumsListItems);
   const userSpotifyAlbums = user.spotify_albums;
   let spotifyAlbumsId;
   const promises = [];
