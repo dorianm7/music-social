@@ -207,8 +207,21 @@ const syncArtists = async (uid, accessToken) => {
   await Promise.all(promises);
 };
 
+/**
+ * Sync the users Spotify library (albums,artists,playlists) to backend
+ * @param {string} uid Id of user
+ * @param {string} accessToken Spotify access token
+ * @returns {Promise<void>[]} Array of successful operations
+ */
+const syncLibrary = async (uid, accessToken) => Promise.all([
+  syncAlbums(uid, accessToken),
+  syncArtists(uid, accessToken),
+  syncPlaylists(uid, accessToken),
+]);
+
 export {
   syncAlbums,
   syncPlaylists,
   syncArtists,
+  syncLibrary,
 };
