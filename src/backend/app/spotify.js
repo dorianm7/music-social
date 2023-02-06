@@ -4,13 +4,22 @@
  */
 
 import ObjectID from 'bson-objectid';
-import { getLimitCursorItems, getLimitOffsetItems } from '../spotify/spotify';
-import { getUser, patchUser } from '../user/user';
+import {
+  getLimitCursorItems,
+  getLimitOffsetItems,
+} from '../spotify/spotify';
+import {
+  getUser,
+  patchUser,
+} from '../user/user';
 import {
   createUsersSpotifyAlbums,
   patchUsersSpotifyAlbums,
 } from '../users_spotify_albums/users_spotify_albums';
-import { createUsersSpotifyArtists, patchUsersSpotifyArtists } from '../users_spotify_artists/users_spotify_artists';
+import {
+  createUsersSpotifyArtists,
+  patchUsersSpotifyArtists,
+} from '../users_spotify_artists/users_spotify_artists';
 import {
   createUsersSpotifyPlaylists,
   patchUsersSpotifyPlaylists,
