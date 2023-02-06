@@ -12,6 +12,8 @@
  * UsersSpotifyAlbumsItem
  * @typedef {import('../users_spotify_artists/users_spotify_artists').UsersSpotifyArtistsItem}
  * UsersSpotifyArtistsItem
+ * @typedef {import('../users_spotify_playlists/users_spotify_playlists').UsersSpotifyPlaylistsItem}
+ * UsersSpotifyPlaylistsItem
  */
 
 /**
@@ -88,10 +90,15 @@ const formatPlaylist = (playlist) => {
   return res;
 };
 
+/**
+ * Format playlists into form used in backend
+ * @param {CurrentUserSpotifyPlaylistListItem[]} playlists List of current users Spotify playlists
+ * @returns  {UsersSpotifyPlaylistsItem} List of formatted user spotify playlists
+ */
+const formatPlaylists = (playlists) => playlists.map((item) => formatPlaylist(item));
+
 export {
-  formatAlbum,
   formatAlbums,
-  formatArtist,
   formatArtists,
-  formatPlaylist,
+  formatPlaylists,
 };
