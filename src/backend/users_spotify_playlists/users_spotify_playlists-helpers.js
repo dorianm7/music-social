@@ -5,14 +5,4 @@
 
 const USERS_SPOTIFY_PLAYLISTS_BACKEND_ENDPOINT = `${process.env.REACT_APP_BACKEND_HTTP_SERVER}/users_spotify_playlists`;
 
-/**
- * Returns the backend endpoint of document with given uid
- * @param {string} uid Id of the document
- * @returns {string} Endpoint of the document
- */
-const usersSpotifyPlaylistsBaseEndpoint = (uid) => `${USERS_SPOTIFY_PLAYLISTS_BACKEND_ENDPOINT}/${uid}`;
-
-export {
-  USERS_SPOTIFY_PLAYLISTS_BACKEND_ENDPOINT,
-  usersSpotifyPlaylistsBaseEndpoint,
-};
+export default USERS_SPOTIFY_PLAYLISTS_BACKEND_ENDPOINT;

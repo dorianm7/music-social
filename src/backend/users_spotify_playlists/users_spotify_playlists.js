@@ -4,10 +4,7 @@
  */
 
 import axios from 'axios';
-import {
-  USERS_SPOTIFY_PLAYLISTS_BACKEND_ENDPOINT,
-  usersSpotifyPlaylistsBaseEndpoint,
-} from './users_spotify_playlists-helpers';
+import USERS_SPOTIFY_PLAYLISTS_BACKEND_ENDPOINT from './users_spotify_playlists-helpers';
 
 /**
  * Object representing playlist item found in users_spotify_playlists document
@@ -20,13 +17,17 @@ import {
  * @property {string[]} creators List of creators of playlist
  */
 
+const UsersSpotifyPlaylistsClient = axios.create({
+  baseURL: USERS_SPOTIFY_PLAYLISTS_BACKEND_ENDPOINT,
+});
+
 /**
  * Create users_spotify_playlists document in database with given uid
  * @param {string} uid Id for the document
  * @returns {Promise<void>} Promise of a successful document creation
  */
-const createUsersSpotifyPlaylists = (uid) => axios.post(
-  USERS_SPOTIFY_PLAYLISTS_BACKEND_ENDPOINT,
+const createUsersSpotifyPlaylists = (uid) => UsersSpotifyPlaylistsClient.post(
+  '/',
   {
     id: uid,
   },
@@ -43,8 +44,8 @@ const createUsersSpotifyPlaylists = (uid) => axios.post(
  * @param {Object[]} patchBody Array of patch object operations
  * @returns {Promise<void>} Promise of a successful patch
  */
-const patchUsersSpotifyPlaylists = (uid, patchBody) => axios.patch(
-  usersSpotifyPlaylistsBaseEndpoint(uid),
+const patchUsersSpotifyPlaylists = (uid, patchBody) => UsersSpotifyPlaylistsClient.patch(
+  `/${uid}`,
   patchBody,
   {
     headers: {

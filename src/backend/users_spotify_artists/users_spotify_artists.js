@@ -4,10 +4,11 @@
  */
 
 import axios from 'axios';
-import {
-  usersSpotifyArtistsBaseEndpoint,
-  USERS_SPOTIFY_ARTISTS_BACKEND_ENDPOINT,
-} from './users_spotify_artists-helpers';
+import USERS_SPOTIFY_ARTISTS_BACKEND_ENDPOINT from './users_spotify_artists-helpers';
+
+const UsersSpotifyArtistsClient = axios.create({
+  baseURL: USERS_SPOTIFY_ARTISTS_BACKEND_ENDPOINT,
+});
 
 /**
  * Object representing artist item found in users_spotify_artists document
@@ -24,8 +25,8 @@ import {
  * @param {string} uid Id for the document
  * @returns {Promise<void>} Promise of a successful document creation
  */
-const createUsersSpotifyArtists = (uid) => axios.post(
-  USERS_SPOTIFY_ARTISTS_BACKEND_ENDPOINT,
+const createUsersSpotifyArtists = (uid) => UsersSpotifyArtistsClient.post(
+  '/',
   {
     id: uid,
   },
@@ -42,8 +43,8 @@ const createUsersSpotifyArtists = (uid) => axios.post(
  * @param {Object[]} patchBody Array of patch object operations
  * @returns {Promise<void>} Promise of a successful patch
  */
-const patchUsersSpotifyArtists = (uid, patchBody) => axios.patch(
-  usersSpotifyArtistsBaseEndpoint(uid),
+const patchUsersSpotifyArtists = (uid, patchBody) => UsersSpotifyArtistsClient.patch(
+  `/${uid}`,
   patchBody,
   {
     headers: {
