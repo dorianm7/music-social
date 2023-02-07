@@ -6,34 +6,13 @@
 const USERS_BACKEND_ENDPOINT = `${process.env.REACT_APP_BACKEND_HTTP_SERVER}/users`;
 
 /**
- * Returns the backend endpoint of user with given userId
- * @param {string} userId Id of user
- * @returns {string} Endpoint of user with given userId
- */
-const userBaseEndpoint = (userId) => `${USERS_BACKEND_ENDPOINT}/${userId}`;
-
-/**
- * Returns the param string for fields given list of fields
+ * Get query string with fields given
  * @param {string[]} fields List of fields
- * @returns {string} Search param string for fields
+ * @returns {string} Query string for fields or empty string
  */
-const fieldsSearchParam = (fields) => `fields=${fields.toString()}`;
-
-/**
- * Return backend endpoint that will return fields of user with given userId
- * @param {string} userId User id
- * @param {string[]} fields List fields
- * @returns {string} Endpoint of user with given userId containing properties in fields
- */
-const userEndpoint = (userId, fields) => {
-  const userBase = userBaseEndpoint(userId);
-  return (fields.length > 0)
-    ? `${userBase}/?${fieldsSearchParam(fields)}`
-    : userBase;
-};
+const getFieldsQueryString = (fields) => (fields.length > 0 ? `fields=${fields.toString()}` : '');
 
 export {
   USERS_BACKEND_ENDPOINT,
-  userBaseEndpoint,
-  userEndpoint,
+  getFieldsQueryString,
 };
