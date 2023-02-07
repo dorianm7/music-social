@@ -6,10 +6,12 @@
 
 import axios from 'axios';
 import {
-  CURRENT_USER_PROFILE_ENDPOINT,
-  getUsersAlbumsHref,
-  getUsersArtistsHref,
-  getUsersPlaylistsHref,
+  SPOTIFY_API_ENDPOINT,
+  CURRENT_USER_PROFILE_ROUTE,
+  CURRENT_USER_PLAYLISTS_ROUTE,
+  CURRENT_USER_ALBUMS_ROUTE,
+  CURRENT_USER_FOLLOWING_ROUTE,
+  getLimitCursorQueryParams,
 } from './spotify-endpoints';
 
 /**
@@ -117,6 +119,10 @@ import {
  * @property {string} uri User's Spotify uri
  */
 
+const SpotifyClient = axios.create({
+  baseURL: SPOTIFY_API_ENDPOINT,
+});
+
 /**
  * Handles a requests failure response
  * @param {Object} error Axios error object
@@ -145,8 +151,8 @@ const axiosResponseErrorHandler = (error) => {
  * @returns {Promise<SpotifyLimitOffsetResponse>} Promise of response object containing Albums
  * @see {@link https://developer.spotify.com/documentation/web-api/reference/#/operations/get-users-saved-albums}
  */
-const getAlbums = (limit = 50, offset = 0, accessToken) => axios.get(
-  getUsersAlbumsHref(limit, offset),
+const getAlbums = (limit = 50, offset = 0, accessToken) => SpotifyClient.get(
+  `${CURRENT_USER_ALBUMS_ROUTE}?limit=${limit}&offset=${offset}`,
   {
     headers: {
       Authorization: `Bearer ${accessToken}`,
@@ -164,8 +170,8 @@ const getAlbums = (limit = 50, offset = 0, accessToken) => axios.get(
  * @returns {Promise<SpotifyLimitCursorResponse>} Promise of response object containing Artists
  * @see {@link https://developer.spotify.com/documentation/web-api/reference/#/operations/get-followed}
  */
-const getArtists = (limit = 50, after = '', accessToken) => axios.get(
-  getUsersArtistsHref(limit, after),
+const getArtists = (limit = 50, after = '', accessToken) => SpotifyClient.get(
+  `${CURRENT_USER_FOLLOWING_ROUTE}?type=artist&${getLimitCursorQueryParams(limit, after)}`,
   {
     headers: {
       Authorization: `Bearer ${accessToken}`,
@@ -183,8 +189,8 @@ const getArtists = (limit = 50, after = '', accessToken) => axios.get(
  * @returns {Promise<SpotifyLimitOffsetResponse>} Promise of response object containing Playlists
  * @see {@link https://developer.spotify.com/documentation/web-api/reference/#/operations/get-a-list-of-current-users-playlists}
  */
-const getPlaylists = (limit = 50, offset = 0, accessToken) => axios.get(
-  getUsersPlaylistsHref(limit, offset),
+const getPlaylists = (limit = 50, offset = 0, accessToken) => SpotifyClient.get(
+  `${CURRENT_USER_PLAYLISTS_ROUTE}?limit=${limit}&offset=${offset}`,
   {
     headers: {
       Authorization: `Bearer ${accessToken}`,
@@ -199,8 +205,8 @@ const getPlaylists = (limit = 50, offset = 0, accessToken) => axios.get(
  * @param {string} accessToken Spotify access token
  * @returns {Promise<SpotifyCurrentUserProfile>} Promise of the current user's Spotify profile
  */
-const getProfile = (accessToken) => axios.get(
-  CURRENT_USER_PROFILE_ENDPOINT,
+const getProfile = (accessToken) => SpotifyClient.get(
+  CURRENT_USER_PROFILE_ROUTE,
   {
     headers: {
       Authorization: `Bearer ${accessToken}`,
