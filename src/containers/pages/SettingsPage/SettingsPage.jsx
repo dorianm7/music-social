@@ -1,6 +1,7 @@
 import {
   React,
   useState,
+  useEffect,
 } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -16,9 +17,18 @@ import {
   googleSignIn,
 } from '../../../firebase/auth-firebase';
 import { useUserContext } from '../../../contexts/UserContext';
-import { deleteUser } from '../../../backend/user/user';
-import { isAuthorized, removeTokens } from '../../../backend/spotify/spotify';
-import { getAuthorizeHref } from '../../../backend/spotify/spotify-helpers';
+import {
+  deleteUser,
+  getUser,
+  patchUser,
+} from '../../../backend/user/user';
+import {
+  isAuthorized,
+  removeTokens,
+  getAccessToken,
+} from '../../../backend/spotify/spotify-auth';
+import { getAuthorizeHref } from '../../../backend/spotify/spotify-auth-helpers';
+import { getProfile } from '../../../backend/spotify/spotify';
 
 function SettingsPage(props) {
   const {
@@ -36,6 +46,29 @@ function SettingsPage(props) {
   const user = useUserContext();
 
   const authorizedSpotify = isAuthorized();
+
+  useEffect(async () => {
+    if (authorizedSpotify) {
+      try {
+        const userRes = await getUser(user.uid, ['spotify_user_id']);
+        const spotifyId = userRes.data.spotify_user_id;
+        if (!spotifyId) {
+          const spotifyAccessToken = await getAccessToken(user.uid);
+          const spotifyIdRes = await getProfile(spotifyAccessToken);
+
+          const replaceSpotifyIdOp = {
+            op: 'replace',
+            path: '/spotify_user_id',
+            value: spotifyIdRes.id,
+          };
+          await patchUser(user.uid, [replaceSpotifyIdOp]);
+        }
+      } catch (err) {
+        toast(err.message, 4000);
+      }
+    }
+  }, []);
+
   const authorizeSpotifyHref = getAuthorizeHref(user.uid, '/settings');
 
   const deauthorizeSpotifyOnClick = () => removeTokens(user.uid)

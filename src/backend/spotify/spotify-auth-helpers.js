@@ -1,6 +1,6 @@
 /**
- * Module containing functions to help working with spotify
- * @module spotify-helpers
+ * Module containing functions to help working with spotify-auth
+ * @module spotify-auth-helpers
  */
 
 const SPOTIFY_BACKEND_ENDPOINT = `${process.env.REACT_APP_BACKEND_HTTP_SERVER}/spotify`;
@@ -56,7 +56,7 @@ const accessTokenValid = () => {
     return false;
   }
   const timePassed = Date.now() - timestamp;
-  return (timePassed / 1000) > expiresIn;
+  return (timePassed / 1000) < expiresIn;
 };
 
 export {
