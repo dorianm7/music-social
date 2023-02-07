@@ -27,7 +27,7 @@ import {
 } from '../../../backend/spotify/spotify-auth';
 import { getAuthorizeHref } from '../../../backend/spotify/spotify-auth-helpers';
 import { getProfile } from '../../../backend/spotify/spotify';
-import deleteUser from '../../../backend/app/user';
+import { deleteUser } from '../../../backend/app/user';
 
 function SettingsPage(props) {
   const {

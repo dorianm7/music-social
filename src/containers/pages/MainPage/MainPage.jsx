@@ -27,7 +27,6 @@ import Toast from '../../../components/Toast/Toast';
 import UserProfileHeader from '../../../components/UserProfileHeader/UserProfileHeader';
 
 import {
-  userSignUp,
   emailPasswordSignIn,
   googleSignIn,
 } from '../../../firebase/auth-firebase';
@@ -45,7 +44,11 @@ import {
   Icons,
 } from '../../../Icons';
 import { useUserContext } from '../../../contexts/UserContext';
-import { createUser, getUser } from '../../../backend/users/users';
+import {
+  createUser as createUserInDb,
+  getUser,
+} from '../../../backend/users/users';
+import { createUser } from '../../../backend/app/user';
 
 function MainPage(props) {
   const {
@@ -137,7 +140,7 @@ function MainPage(props) {
     if (userFromDb) {
       openApp();
     } else {
-      await createUser(user.uid, user.providerData[0].email)
+      await createUserInDb(user.uid, user.providerData[0].email)
         .catch((error) => {
           toast(error.message, 4000);
           return Promise.reject(error);
@@ -147,8 +150,7 @@ function MainPage(props) {
   };
 
   // Sign up Form Handler
-  const signUpHandler = (email, password) => userSignUp(email, password)
-    .then((user) => createUser(user.uid, user.providerData[0].email))
+  const signUpHandler = (email, password) => createUser(email, password)
     .then(() => moveToSignIn())
     .catch((err) => {
       toast(err.message, 4000);
