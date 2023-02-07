@@ -6,9 +6,12 @@
 import axios from 'axios';
 import {
   USERS_BACKEND_ENDPOINT,
-  userEndpoint,
-  userBaseEndpoint,
-} from '../users/users-helpers';
+  getFieldsQueryString,
+} from './users-helpers';
+
+const UsersClient = axios.create({
+  baseURL: USERS_BACKEND_ENDPOINT,
+});
 
 /**
  * Get user fields from user in database with given userId
@@ -16,7 +19,9 @@ import {
  * @param {string[]} fields List of fields
  * @returns {Promise<user>} Promise of a user containing fields given and id
  */
-const getUser = (uid, fields = []) => axios.get(userEndpoint(uid, fields))
+const getUser = (uid, fields = []) => UsersClient.get(
+  `/${uid}${fields.length > 0 ? `?${getFieldsQueryString(fields)}` : ''}`,
+)
   .catch((err) => {
     if (err.response) {
       if (err.response.status === 404) {
@@ -35,8 +40,8 @@ const getUser = (uid, fields = []) => axios.get(userEndpoint(uid, fields))
  * @param {string} userEmail Email of user
  * @returns {Promise<Object>} Promise of an object containing uid,email properties
  */
-const createUser = (uid, userEmail) => axios.post(
-  USERS_BACKEND_ENDPOINT,
+const createUser = (uid, userEmail) => UsersClient.post(
+  '/',
   {
     uid,
     email: userEmail,
@@ -66,7 +71,7 @@ const createUser = (uid, userEmail) => axios.post(
  * @param {string} userId Id of user
  * @returns {Promise} promise of a successful delete
  */
-const deleteUser = (userId) => axios.delete(userBaseEndpoint(userId))
+const deleteUser = (userId) => UsersClient.delete(`/${userId}`)
   .catch((err) => {
     if (err.response) {
       if (err.response.status > 499) {
@@ -88,8 +93,8 @@ const deleteUser = (userId) => axios.delete(userBaseEndpoint(userId))
  * @param {object[]} patchBody Array of patch object operations to be executed
  * @returns {Promise} Promise of a successful patch
  */
-const patchUser = (userId, patchBody) => axios.patch(
-  userBaseEndpoint(userId),
+const patchUser = (userId, patchBody) => UsersClient.patch(
+  `/${userId}`,
   patchBody,
   {
     headers: {
