@@ -218,29 +218,25 @@ const getProfile = (accessToken) => axios.get(
  * of objects of the specified type
  */
 const getLimitOffsetItems = async (type, accessToken) => {
-  let initialRes;
   const limit = 50;
   let offset = 0;
+  let getData;
   const items = [];
   if (type === 'albums') {
-    initialRes = await getAlbums(limit, offset, accessToken);
+    getData = getAlbums;
   } else if (type === 'playlists') {
-    initialRes = await getPlaylists(limit, offset, accessToken);
+    getData = getPlaylists;
   } else {
     Promise.reject(new Error('Invalid type entered.'));
   }
 
+  const initialRes = await getData(limit, offset, accessToken);
   items.push(...initialRes.items);
 
   const promises = [];
   for (let i = 1; i < Math.ceil(initialRes.total / limit); i += 1) {
-    let newPromise;
     offset += limit;
-    if (type === 'albums') {
-      newPromise = getAlbums(limit, offset, accessToken);
-    } else {
-      newPromise = getPlaylists(limit, offset, accessToken);
-    }
+    const newPromise = getData(limit, offset, accessToken);
     promises.push(newPromise);
   }
 
