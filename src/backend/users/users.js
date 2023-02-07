@@ -8,7 +8,7 @@ import {
   USERS_BACKEND_ENDPOINT,
   userEndpoint,
   userBaseEndpoint,
-} from '../users/users-helpers';
+} from './users-helpers';
 
 /**
  * Get user fields from user in database with given userId

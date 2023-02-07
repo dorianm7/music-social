@@ -4,7 +4,7 @@
  */
 
 import axios from 'axios';
-import { patchUser } from '../user/user';
+import { patchUser } from '../users/users';
 import {
   SPOTIFY_LOCAL_STORAGE_KEYS,
   SPOTIFY_LOCAL_STORAGE_VALUES,

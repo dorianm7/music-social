@@ -11,7 +11,7 @@ import {
 import {
   getUser,
   patchUser,
-} from '../user/user';
+} from '../users/users';
 import {
   createUsersSpotifyAlbums,
   patchUsersSpotifyAlbums,
