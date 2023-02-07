@@ -21,7 +21,7 @@ import {
   deleteUser,
   getUser,
   patchUser,
-} from '../../../backend/user/user';
+} from '../../../backend/users/users';
 import {
   isAuthorized,
   removeTokens,

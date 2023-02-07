@@ -45,7 +45,7 @@ import {
   Icons,
 } from '../../../Icons';
 import { useUserContext } from '../../../contexts/UserContext';
-import { createUser, getUser } from '../../../backend/user/user';
+import { createUser, getUser } from '../../../backend/users/users';
 
 function MainPage(props) {
   const {
