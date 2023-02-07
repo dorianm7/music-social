@@ -12,13 +12,11 @@ import Modal from '../../../components/modals/Modal/Modal';
 import SignInModalContents from '../../../components/modal-contents/SignInModalContents/SignInModalContents';
 
 import {
-  deleteUserAccount,
   emailPasswordSignIn,
   googleSignIn,
 } from '../../../firebase/auth-firebase';
 import { useUserContext } from '../../../contexts/UserContext';
 import {
-  deleteUser,
   getUser,
   patchUser,
 } from '../../../backend/users/users';
@@ -29,6 +27,7 @@ import {
 } from '../../../backend/spotify/spotify-auth';
 import { getAuthorizeHref } from '../../../backend/spotify/spotify-auth-helpers';
 import { getProfile } from '../../../backend/spotify/spotify';
+import deleteUser from '../../../backend/app/user';
 
 function SettingsPage(props) {
   const {
@@ -75,21 +74,18 @@ function SettingsPage(props) {
     .then(() => navigate(0))
     .catch((err) => toast(err.message, 4000));
 
-  const deleteAccounts = () => deleteUser(user.uid)
-    .then(() => deleteUserAccount());
-
   const emailPasswordDeleteAccount = (email, password) => emailPasswordSignIn(
     email,
     password,
   )
-    .then(() => deleteAccounts())
+    .then(() => deleteUser(user.uid))
     .catch((err) => {
       toast(err.message, 4000);
       return Promise.reject(err);
     });
 
   const googleDeleteAccount = () => googleSignIn()
-    .then(() => deleteAccounts())
+    .then(() => deleteUser(user.uid))
     .catch((err) => {
       toast(err.message, 4000);
       return Promise.reject(err);
