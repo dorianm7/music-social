@@ -53,21 +53,24 @@ const signOutUser = () => {
 };
 
 /**
- * Sign in user using Google, create user in backend if needed
+ * Sign in user, create user in backend if needed, and refresh access tokens if possible
  */
 const signInGoogleUser = async () => {
   const user = await googleSignIn();
-  const userFromDb = await getUserFromDb(user.uid, ['_id'])
-    .catch((err) => {
-      if (err.message !== 'Error. User not found.') {
-        return Promise.reject(err);
-      }
-      return null; // Quiet linter
-    });
-
-  if (!userFromDb) {
-    await createUserInDb(user.uid, user.providerData[0].email);
+  let userFromDbRes;
+  try {
+    userFromDbRes = await getUserFromDb(user.uid, ['_id', 'spotify_refresh_token']);
+    if (userFromDbRes.data.spotify_refresh_token) {
+      await refreshTokens(user.uid);
+    }
+  } catch (err) {
+    if (err.message === 'Error. User not found.') {
+      await createUserInDb(user.uid, user.providerData[0].email);
+    } else {
+      return Promise.reject(err);
+    }
   }
+  return Promise.resolve();
 };
 
 /**
