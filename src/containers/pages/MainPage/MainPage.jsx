@@ -26,6 +26,12 @@ import Tabs from '../../../components/subcomponents/Tabs/Tabs';
 import Toast from '../../../components/Toast/Toast';
 import UserProfileHeader from '../../../components/UserProfileHeader/UserProfileHeader';
 
+import {
+  createUser,
+  signInEmailPasswordUser,
+  signInGoogleUser,
+} from '../../../backend/app/user';
+
 import albumList from '../../../local_data/Users_Albums_0.json';
 import albumListReverse from '../../../local_data/Users_Albums_0_Reverse.json';
 import artistList from '../../../local_data/Users_Artists_0.json';
@@ -39,11 +45,6 @@ import {
   Icons,
 } from '../../../Icons';
 import { useUserContext } from '../../../contexts/UserContext';
-import {
-  createUser,
-  signInEmailPasswordUser,
-  signInGoogleUser,
-} from '../../../backend/app/user';
 
 function MainPage(props) {
   const {
