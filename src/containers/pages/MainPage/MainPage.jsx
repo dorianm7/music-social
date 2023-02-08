@@ -28,7 +28,6 @@ import UserProfileHeader from '../../../components/UserProfileHeader/UserProfile
 
 import {
   emailPasswordSignIn,
-  googleSignIn,
 } from '../../../firebase/auth-firebase';
 
 import albumList from '../../../local_data/Users_Albums_0.json';
@@ -44,11 +43,7 @@ import {
   Icons,
 } from '../../../Icons';
 import { useUserContext } from '../../../contexts/UserContext';
-import {
-  createUser as createUserInDb,
-  getUser,
-} from '../../../backend/users/users';
-import { createUser } from '../../../backend/app/user';
+import { createUser, signInGoogleUser } from '../../../backend/app/user';
 
 function MainPage(props) {
   const {
@@ -120,34 +115,13 @@ function MainPage(props) {
       return Promise.reject(err);
     });
 
-  // Sign in user Google, create user in backend if needed
-  const googleSignInHandler = async () => {
-    const user = await googleSignIn()
-      .catch((err) => {
-        toast(err.message, 4000);
-        return Promise.reject(err);
-      });
-
-    const userFromDb = await getUser(user.uid, ['_id'])
-      .catch((err) => {
-        if (err.message !== 'Error. User not found.') {
-          toast(err.message, 4000);
-          return Promise.reject(err);
-        }
-        return null; // Quiet linter
-      });
-
-    if (userFromDb) {
-      openApp();
-    } else {
-      await createUserInDb(user.uid, user.providerData[0].email)
-        .catch((error) => {
-          toast(error.message, 4000);
-          return Promise.reject(error);
-        });
-      openApp();
-    }
-  };
+  // Sign in user Google
+  const googleSignInHandler = () => signInGoogleUser()
+    .then(() => openApp())
+    .catch((err) => {
+      toast(err.message, 4000);
+      return Promise.reject(err);
+    });
 
   // Sign up Form Handler
   const signUpHandler = (email, password) => createUser(email, password)
