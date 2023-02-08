@@ -3,7 +3,7 @@
  * @module user
  */
 
-import { deleteUserAccount, userSignUp } from '../../firebase/auth-firebase';
+import { deleteUserAccount, userSignOut, userSignUp } from '../../firebase/auth-firebase';
 import { removeAccessToken } from '../spotify/spotify-auth';
 import {
   deleteUser as deleteUserFromDb,
@@ -34,7 +34,16 @@ const createUser = async (email, password) => {
   await createUserInDb(user.uid, email);
 };
 
+/**
+ * Sign out user and remove any local data
+ */
+const signOutUser = () => {
+  removeAccessToken();
+  userSignOut();
+};
+
 export {
   deleteUser,
   createUser,
+  signOutUser,
 };
