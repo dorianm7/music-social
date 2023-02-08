@@ -27,10 +27,10 @@ import Toast from '../../../components/Toast/Toast';
 import UserProfileHeader from '../../../components/UserProfileHeader/UserProfileHeader';
 
 import {
-  userSignUp,
-  emailPasswordSignIn,
-  googleSignIn,
-} from '../../../firebase/auth-firebase';
+  createUser,
+  signInEmailPasswordUser,
+  signInGoogleUser,
+} from '../../../backend/app/user';
 
 import albumList from '../../../local_data/Users_Albums_0.json';
 import albumListReverse from '../../../local_data/Users_Albums_0_Reverse.json';
@@ -45,7 +45,6 @@ import {
   Icons,
 } from '../../../Icons';
 import { useUserContext } from '../../../contexts/UserContext';
-import { createUser, getUser } from '../../../backend/user/user';
 
 function MainPage(props) {
   const {
@@ -107,7 +106,7 @@ function MainPage(props) {
   // Modal form handlers
 
   // Sign in form handlers
-  const signInHandler = (email, password) => emailPasswordSignIn(
+  const signInHandler = (email, password) => signInEmailPasswordUser(
     email,
     password,
   )
@@ -117,38 +116,16 @@ function MainPage(props) {
       return Promise.reject(err);
     });
 
-  // Sign in user Google, create user in backend if needed
-  const googleSignInHandler = async () => {
-    const user = await googleSignIn()
-      .catch((err) => {
-        toast(err.message, 4000);
-        return Promise.reject(err);
-      });
-
-    const userFromDb = await getUser(user.uid, ['_id'])
-      .catch((err) => {
-        if (err.message !== 'Error. User not found.') {
-          toast(err.message, 4000);
-          return Promise.reject(err);
-        }
-        return null; // Quiet linter
-      });
-
-    if (userFromDb) {
-      openApp();
-    } else {
-      await createUser(user.uid, user.providerData[0].email)
-        .catch((error) => {
-          toast(error.message, 4000);
-          return Promise.reject(error);
-        });
-      openApp();
-    }
-  };
+  // Sign in user Google
+  const googleSignInHandler = () => signInGoogleUser()
+    .then(() => openApp())
+    .catch((err) => {
+      toast(err.message, 4000);
+      return Promise.reject(err);
+    });
 
   // Sign up Form Handler
-  const signUpHandler = (email, password) => userSignUp(email, password)
-    .then((user) => createUser(user.uid, user.providerData[0].email))
+  const signUpHandler = (email, password) => createUser(email, password)
     .then(() => moveToSignIn())
     .catch((err) => {
       toast(err.message, 4000);

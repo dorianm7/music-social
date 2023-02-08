@@ -1,6 +1,6 @@
 import { React, useState } from 'react';
 import PropTypes from 'prop-types';
-import { userSignOut } from '../../firebase/auth-firebase';
+import { signOutUser } from '../../backend/app/user';
 
 import './InAppPage.css';
 
@@ -34,7 +34,7 @@ function InAppPage(props) {
       </header>
       {sideMenuVisible && (
         <SideMenu
-          signOutOnClick={userSignOut}
+          signOutOnClick={signOutUser}
         />
       )}
       <main>

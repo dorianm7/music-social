@@ -99,6 +99,7 @@ const isAuthorized = () => !!SPOTIFY_LOCAL_STORAGE_VALUES.accessToken;
 export {
   refreshTokens,
   getAccessToken,
+  removeAccessToken,
   removeTokens,
   isAuthorized,
 };
