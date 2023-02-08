@@ -5,11 +5,15 @@
 
 import {
   deleteUserAccount,
+  emailPasswordSignIn,
   googleSignIn,
   userSignOut,
   userSignUp,
 } from '../../firebase/auth-firebase';
-import { removeAccessToken } from '../spotify/spotify-auth';
+import {
+  refreshTokens,
+  removeAccessToken,
+} from '../spotify/spotify-auth';
 import {
   deleteUser as deleteUserFromDb,
   createUser as createUserInDb,
@@ -66,9 +70,23 @@ const signInGoogleUser = async () => {
   }
 };
 
+/**
+ * Sign in user and refresh access tokens if possible
+ * @param {string} email Email of user
+ * @param {string} password Password of user
+ */
+const signInEmailPasswordUser = async (email, password) => {
+  const user = await emailPasswordSignIn(email, password);
+  const userFromDbRes = await getUserFromDb(user.uid, ['spotify_refresh_token']);
+  if (userFromDbRes.data.spotify_refresh_token) {
+    await refreshTokens(user.uid);
+  }
+};
+
 export {
   deleteUser,
   createUser,
   signOutUser,
   signInGoogleUser,
+  signInEmailPasswordUser,
 };
