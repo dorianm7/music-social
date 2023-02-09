@@ -14,11 +14,11 @@ import { UserContextProvider } from '../../contexts/UserContext';
 import ToastContainer from '../../components/hocs/ToastContainer';
 import PrivateRoute from '../../components/routing/PrivateRoute/PrivateRoute';
 import MainPage from '../pages/MainPage/MainPage';
-import HomePage from '../pages/HomePage/HomePage';
 import SpotifyAuthorizeCallbackPage from '../pages/SpotifyAuthorizeCallbackPage/SpotifyAuthorizeCallbackPage';
 import InAppPage from '../InAppPage/InAppPage';
 import Modal from '../../components/modals/Modal/Modal';
 import SettingsPageContents from '../page-contents/SettingsPageContents/SettingsPageContents';
+import HomePageContents from '../page-contents/HomePageContents/HomePageContents';
 
 function App() {
   const [modalContents, setModalContents] = useState(null);
@@ -39,8 +39,8 @@ function App() {
               element={<MainPageToastContainer />}
             />
             <Route element={<PrivateRoute />}>
-              <Route path="/home" element={<HomePage />} />
               <Route element={<InAppPage />}>
+                <Route path="/home" element={<HomePageContents />} />
                 <Route
                   path="/settings"
                   element={(
