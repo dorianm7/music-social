@@ -1,5 +1,6 @@
 import { React, useState } from 'react';
 import PropTypes from 'prop-types';
+import { Outlet } from 'react-router-dom';
 import { signOutUser } from '../../backend/app/user';
 
 import './InAppPage.css';
@@ -14,7 +15,6 @@ function InAppPage(props) {
     notificationsOnClick,
     hasNotification,
     pageTitle,
-    children,
   } = props;
   const [sideMenuVisible, setSideMenuVisible] = useState(false);
   return (
@@ -39,7 +39,7 @@ function InAppPage(props) {
       )}
       <main>
         <h1>{pageTitle}</h1>
-        {children}
+        <Outlet />
       </main>
       <Footer />
     </div>
@@ -51,7 +51,6 @@ InAppPage.propTypes = {
   notificationsOnClick: PropTypes.func,
   hasNotification: PropTypes.bool,
   pageTitle: PropTypes.string,
-  children: PropTypes.node,
 };
 
 InAppPage.defaultProps = {
@@ -59,7 +58,6 @@ InAppPage.defaultProps = {
   notificationsOnClick: () => {},
   hasNotification: false,
   pageTitle: 'In-app Page',
-  children: <>Children</>,
 };
 
 export default InAppPage;
