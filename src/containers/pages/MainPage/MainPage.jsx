@@ -104,7 +104,10 @@ function MainPage(props) {
     email,
     password,
   )
-    .then(() => openApp())
+    .then(() => {
+      setModalOpen(false);
+      openApp();
+    })
     .catch((err) => {
       toast(err.message, 4000);
       return Promise.reject(err);
@@ -112,7 +115,10 @@ function MainPage(props) {
 
   // Sign in user Google
   const googleSignInHandler = () => signInGoogleUser()
-    .then(() => openApp())
+    .then(() => {
+      setModalOpen(false);
+      openApp();
+    })
     .catch((err) => {
       toast(err.message, 4000);
       return Promise.reject(err);
