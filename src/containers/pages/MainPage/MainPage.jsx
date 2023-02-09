@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React, {
+  useEffect,
   useState,
 } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -53,6 +54,9 @@ function MainPage(props) {
     // Regular Props
     toast,
   } = props;
+  useEffect(() => {
+    document.title = 'Music Social | Share music with friends';
+  });
   const userFromContext = useUserContext();
   const userSignedIn = !!userFromContext;
 

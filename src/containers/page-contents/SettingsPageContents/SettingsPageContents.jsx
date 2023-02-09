@@ -43,6 +43,7 @@ function SettingsPageContents(props) {
 
   useEffect(async () => {
     setInAppPageTitle('Settings');
+    document.title = 'Music Social | Settings';
     if (authorizedSpotify) {
       try {
         const userRes = await getUser(user.uid, ['spotify_user_id']);

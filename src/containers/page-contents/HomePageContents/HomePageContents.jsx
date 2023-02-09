@@ -8,6 +8,7 @@ function HomePageContents(props) {
   const { setInAppPageTitle } = props;
   useEffect(() => {
     setInAppPageTitle('Home');
+    document.title = 'Music Social | Home';
   }, []);
   return (
     <div>Home Page content</div>
