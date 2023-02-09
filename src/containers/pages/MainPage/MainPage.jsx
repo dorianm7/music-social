@@ -22,7 +22,6 @@ import ReportProfileForm from '../../../components/forms/ReportProfileForm/Repor
 import SignInModalContents from '../../../components/modal-contents/SignInModalContents/SignInModalContents';
 import SignUpModalContents from '../../../components/modal-contents/SignUpModalContents/SignUpModalContents';
 import Tabs from '../../../components/subcomponents/Tabs/Tabs';
-import Toast from '../../../components/Toast/Toast';
 import UserProfileHeader from '../../../components/UserProfileHeader/UserProfileHeader';
 
 import {
@@ -47,16 +46,12 @@ import { useUserContext } from '../../../contexts/UserContext';
 
 function MainPage(props) {
   const {
-    // Toast Container HOC Props
-    toastContainerClassName,
-    toastVisible,
-    toast,
-    toastMessage,
     // Modal Props
     setModalContents,
     setModalHeading,
     setModalOpen,
     // Regular Props
+    toast,
   } = props;
   const userFromContext = useUserContext();
   const userSignedIn = !!userFromContext;
@@ -245,28 +240,229 @@ function MainPage(props) {
     : (Number(usersList.users['002u'].num_followers) - 1);
 
   return (
-    <>
-      <div
-        className={`main-page ${toastContainerClassName}`}
-        id={TOP_ID}
-      >
-        <MainNav
-          navText={APP_NAME}
-          topHref={`#${TOP_ID}`}
-          featuresHref={`#${COMPARE_LIBRARIES_SECTION_ID}`}
-          contactHref={`#${CONTACT_SECTION_ID}`}
-          buttonOnClick={navButtonOnClick}
-          userSignedIn={userSignedIn}
+    <div
+      className="main-page"
+      id={TOP_ID}
+    >
+      <MainNav
+        navText={APP_NAME}
+        topHref={`#${TOP_ID}`}
+        featuresHref={`#${COMPARE_LIBRARIES_SECTION_ID}`}
+        contactHref={`#${CONTACT_SECTION_ID}`}
+        buttonOnClick={navButtonOnClick}
+        userSignedIn={userSignedIn}
+      />
+      <header className="app-intro">
+        <img
+          src="https://newyork-dailynews.com/wp-content/uploads/2017/10/Night-Clubs-in-New-York-City-1024x552.jpg"
+          alt="Night club dance floor"
+          className="hero-image"
+          loading="lazy"
         />
-        <header className="app-intro">
-          <img
-            src="https://newyork-dailynews.com/wp-content/uploads/2017/10/Night-Clubs-in-New-York-City-1024x552.jpg"
-            alt="Night club dance floor"
-            className="hero-image"
-            loading="lazy"
-          />
-          <h1>{APP_NAME}</h1>
-          <p className="intro">
+        <h1>{APP_NAME}</h1>
+        <p className="intro">
+          {APP_DESCRIPTION_P1}
+          <br />
+          {APP_DESCRIPTION_P2}
+        </p>
+        <BasicButton
+          onClick={tryTodayButtonOnClick}
+        >
+          {userSignedIn && (<>Open App</>)}
+          {!userSignedIn && (<>Try it today</>)}
+        </BasicButton>
+      </header>
+      <main>
+        <section
+          id={COMPARE_LIBRARIES_SECTION_ID}
+          className="feature"
+        >
+          <Tabs tabSelected={0}>
+            {TAB_ITEMS}
+          </Tabs>
+          <div className="compare-feature">
+            <h2>Compare Music Libraries</h2>
+            <Comparison
+              firstUserImg={usersList.users['000u'].profile_img}
+              firstUsername={usersList.users['000u'].username}
+              secondUserImg={usersList.users['001u'].profile_img}
+              secondUsername={usersList.users['001u'].username}
+              artistPercent={Number(usersList.users['000u'].comparisons['001u'].most_recent.artists_score)}
+              albumPercent={Number(usersList.users['000u'].comparisons['001u'].most_recent.albums_score)}
+              playlistPercent={Number(usersList.users['000u'].comparisons['001u'].most_recent.playlists_score)}
+            />
+            <MusicLibrary
+              searchAriaLabel={`Search ${usersList.users['000u'].username} and ${usersList.users['001u'].username} combined library`}
+            >
+              <BasicPlaylist
+                type="artist"
+                playlistHeader={(
+                  <PlaylistHeader
+                    headingType={PLAYLISTS_HEADING_TYPE}
+                    playlistName="Artists"
+                    totalSongs={artistList.artists.total}
+                    totalRunningTime={-1} // Default Value
+                  />
+                )}
+                playlist={compareArtistList}
+                onSelectOptionClick={(option) => {
+                  setCompareArtistOrdering(option);
+                }}
+              />
+              <BasicPlaylist
+                type="album"
+                playlistHeader={(
+                  <PlaylistHeader
+                    headingType={PLAYLISTS_HEADING_TYPE}
+                    playlistName="Albums"
+                    totalSongs={albumList.total}
+                    totalRunningTime={-1} // Default Value
+                  />
+                )}
+                playlist={compareAlbumList}
+                onSelectOptionClick={(option) => {
+                  setCompareAlbumOrdering(option);
+                }}
+              />
+              <BasicPlaylist
+                type="playlist"
+                playlistHeader={(
+                  <PlaylistHeader
+                    headingType={PLAYLISTS_HEADING_TYPE}
+                    playlistName="Playlists"
+                    totalSongs={playlistList.total}
+                    totalRunningTime={-1} // Default Value
+                  />
+                )}
+                playlist={comparePlaylistList}
+                onSelectOptionClick={(option) => {
+                  setComparePlaylistOrdering(option);
+                }}
+              />
+            </MusicLibrary>
+          </div>
+        </section>
+        <section
+          id={COLLAB_PLAYLISTS_SECTION_ID}
+          className="feature"
+        >
+          <Tabs tabSelected={1}>
+            {TAB_ITEMS}
+          </Tabs>
+          <div className="collaborative-feature">
+            <h2>Collaborative Playlists</h2>
+            <CollaborativePlaylistPageContent
+              playlistHeadingType={PLAYLISTS_HEADING_TYPE}
+              playlistName="Playlist"
+              userImages={[
+                usersList.users['000u'].profile_img,
+                usersList.users['001u'].profile_img,
+                usersList.users['002u'].profile_img,
+                usersList.users['003u'].profile_img,
+                usersList.users['004u'].profile_img,
+                usersList.users['005u'].profile_img,
+                usersList.users['006u'].profile_img,
+                usersList.users['007u'].profile_img,
+              ]}
+              usernames={[
+                `${usersList.users['000u'].username}`,
+                `${usersList.users['001u'].username}`,
+                `${usersList.users['002u'].username}`,
+                `${usersList.users['003u'].username}`,
+                `${usersList.users['004u'].username}`,
+                `${usersList.users['005u'].username}`,
+                `${usersList.users['006u'].username}`,
+                `${usersList.users['007u'].username}`,
+              ]}
+              userIds={[
+                `${usersList.users['000u'].username}`,
+                `${usersList.users['001u'].username}`,
+                `${usersList.users['002u'].username}`,
+                `${usersList.users['003u'].username}`,
+                `${usersList.users['004u'].username}`,
+                `${usersList.users['005u'].username}`,
+                `${usersList.users['006u'].username}`,
+                `${usersList.users['007u'].username}`,
+              ]}
+              playlist={collabPlaylist}
+              onPlaylistSelectOptionClick={(option) => {
+                setCollabPlaylistOrdering(option);
+              }}
+            />
+          </div>
+        </section>
+        <section
+          id={FOLLOW_USERS_SECTION_ID}
+          className="feature"
+        >
+          <Tabs tabSelected={2}>
+            {TAB_ITEMS}
+          </Tabs>
+          <div className="follow-feature">
+            <h2>Follow Users</h2>
+            {!showProfileCompatibility && (
+              <UserProfileHeader
+                imageSrc={usersList.users['002u'].profile_img}
+                username={usersList.users['002u'].username}
+                userLink={usersList.users['002u'].profile_url}
+                infoText={usersList.users['002u'].profile_description}
+                numFollowers={profileNumFollowers}
+                numFollowing={Number(usersList.users['002u'].num_following)}
+                isFollowing={isFollowingProfile}
+                followButtonOnClick={() => {
+                  setIsFollowingProfile(true);
+                }}
+                unfollowButtonOnClick={() => {
+                  setIsFollowingProfile(false);
+                }}
+                shareOptionOnClick={() => {
+                  toast('Link copied to clipboard', 4000);
+                }}
+                reportOptionOnClick={() => {
+                  openReportProfileModal(usersList.users['002u'].username);
+                }}
+                checkCompatOnClick={() => {
+                  setShowProfileCompatibility(true);
+                }}
+              />
+            )}
+            {showProfileCompatibility && (
+              <>
+                <BasicButton
+                  className="profile-back-button transparent-background"
+                  onClick={() => {
+                    setShowProfileCompatibility(false);
+                  }}
+                  ariaLabel="Back to User Profile"
+                >
+                  {Icons.BACK}
+                </BasicButton>
+                <Comparison
+                  firstUserImg={usersList.users['006u'].profile_img}
+                  firstUsername={usersList.users['006u'].username}
+                  secondUserImg={usersList.users['002u'].profile_img}
+                  secondUsername={usersList.users['002u'].username}
+                  albumPercent={20}
+                  artistPercent={40}
+                  playlistPercent={23}
+                />
+              </>
+            )}
+            <BasicPlaylist
+              playlistHeader={<h3>Artists</h3>}
+              type="artist"
+              showSearch
+              playlist={profileArtistList}
+              onSelectOptionClick={(option) => {
+                setProfilePlaylistOrdering(option);
+              }}
+              searchAriaLabel={`Search ${usersList.users['002u'].username} artists`}
+            />
+          </div>
+        </section>
+        <section className="app-conclusion">
+          <h2>{APP_NAME}</h2>
+          <p className="conclusion">
             {APP_DESCRIPTION_P1}
             <br />
             {APP_DESCRIPTION_P2}
@@ -277,258 +473,45 @@ function MainPage(props) {
             {userSignedIn && (<>Open App</>)}
             {!userSignedIn && (<>Try it today</>)}
           </BasicButton>
-        </header>
-        <main>
-          <section
-            id={COMPARE_LIBRARIES_SECTION_ID}
-            className="feature"
-          >
-            <Tabs tabSelected={0}>
-              {TAB_ITEMS}
-            </Tabs>
-            <div className="compare-feature">
-              <h2>Compare Music Libraries</h2>
-              <Comparison
-                firstUserImg={usersList.users['000u'].profile_img}
-                firstUsername={usersList.users['000u'].username}
-                secondUserImg={usersList.users['001u'].profile_img}
-                secondUsername={usersList.users['001u'].username}
-                artistPercent={Number(usersList.users['000u'].comparisons['001u'].most_recent.artists_score)}
-                albumPercent={Number(usersList.users['000u'].comparisons['001u'].most_recent.albums_score)}
-                playlistPercent={Number(usersList.users['000u'].comparisons['001u'].most_recent.playlists_score)}
-              />
-              <MusicLibrary
-                searchAriaLabel={`Search ${usersList.users['000u'].username} and ${usersList.users['001u'].username} combined library`}
-              >
-                <BasicPlaylist
-                  type="artist"
-                  playlistHeader={(
-                    <PlaylistHeader
-                      headingType={PLAYLISTS_HEADING_TYPE}
-                      playlistName="Artists"
-                      totalSongs={artistList.artists.total}
-                      totalRunningTime={-1} // Default Value
-                    />
-                  )}
-                  playlist={compareArtistList}
-                  onSelectOptionClick={(option) => {
-                    setCompareArtistOrdering(option);
-                  }}
-                />
-                <BasicPlaylist
-                  type="album"
-                  playlistHeader={(
-                    <PlaylistHeader
-                      headingType={PLAYLISTS_HEADING_TYPE}
-                      playlistName="Albums"
-                      totalSongs={albumList.total}
-                      totalRunningTime={-1} // Default Value
-                    />
-                  )}
-                  playlist={compareAlbumList}
-                  onSelectOptionClick={(option) => {
-                    setCompareAlbumOrdering(option);
-                  }}
-                />
-                <BasicPlaylist
-                  type="playlist"
-                  playlistHeader={(
-                    <PlaylistHeader
-                      headingType={PLAYLISTS_HEADING_TYPE}
-                      playlistName="Playlists"
-                      totalSongs={playlistList.total}
-                      totalRunningTime={-1} // Default Value
-                    />
-                  )}
-                  playlist={comparePlaylistList}
-                  onSelectOptionClick={(option) => {
-                    setComparePlaylistOrdering(option);
-                  }}
-                />
-              </MusicLibrary>
-            </div>
-          </section>
-          <section
-            id={COLLAB_PLAYLISTS_SECTION_ID}
-            className="feature"
-          >
-            <Tabs tabSelected={1}>
-              {TAB_ITEMS}
-            </Tabs>
-            <div className="collaborative-feature">
-              <h2>Collaborative Playlists</h2>
-              <CollaborativePlaylistPageContent
-                playlistHeadingType={PLAYLISTS_HEADING_TYPE}
-                playlistName="Playlist"
-                userImages={[
-                  usersList.users['000u'].profile_img,
-                  usersList.users['001u'].profile_img,
-                  usersList.users['002u'].profile_img,
-                  usersList.users['003u'].profile_img,
-                  usersList.users['004u'].profile_img,
-                  usersList.users['005u'].profile_img,
-                  usersList.users['006u'].profile_img,
-                  usersList.users['007u'].profile_img,
-                ]}
-                usernames={[
-                  `${usersList.users['000u'].username}`,
-                  `${usersList.users['001u'].username}`,
-                  `${usersList.users['002u'].username}`,
-                  `${usersList.users['003u'].username}`,
-                  `${usersList.users['004u'].username}`,
-                  `${usersList.users['005u'].username}`,
-                  `${usersList.users['006u'].username}`,
-                  `${usersList.users['007u'].username}`,
-                ]}
-                userIds={[
-                  `${usersList.users['000u'].username}`,
-                  `${usersList.users['001u'].username}`,
-                  `${usersList.users['002u'].username}`,
-                  `${usersList.users['003u'].username}`,
-                  `${usersList.users['004u'].username}`,
-                  `${usersList.users['005u'].username}`,
-                  `${usersList.users['006u'].username}`,
-                  `${usersList.users['007u'].username}`,
-                ]}
-                playlist={collabPlaylist}
-                onPlaylistSelectOptionClick={(option) => {
-                  setCollabPlaylistOrdering(option);
-                }}
-              />
-            </div>
-          </section>
-          <section
-            id={FOLLOW_USERS_SECTION_ID}
-            className="feature"
-          >
-            <Tabs tabSelected={2}>
-              {TAB_ITEMS}
-            </Tabs>
-            <div className="follow-feature">
-              <h2>Follow Users</h2>
-              {!showProfileCompatibility && (
-                <UserProfileHeader
-                  imageSrc={usersList.users['002u'].profile_img}
-                  username={usersList.users['002u'].username}
-                  userLink={usersList.users['002u'].profile_url}
-                  infoText={usersList.users['002u'].profile_description}
-                  numFollowers={profileNumFollowers}
-                  numFollowing={Number(usersList.users['002u'].num_following)}
-                  isFollowing={isFollowingProfile}
-                  followButtonOnClick={() => {
-                    setIsFollowingProfile(true);
-                  }}
-                  unfollowButtonOnClick={() => {
-                    setIsFollowingProfile(false);
-                  }}
-                  shareOptionOnClick={() => {
-                    toast('Link copied to clipboard', 4000);
-                  }}
-                  reportOptionOnClick={() => {
-                    openReportProfileModal(usersList.users['002u'].username);
-                  }}
-                  checkCompatOnClick={() => {
-                    setShowProfileCompatibility(true);
-                  }}
-                />
-              )}
-              {showProfileCompatibility && (
-                <>
-                  <BasicButton
-                    className="profile-back-button transparent-background"
-                    onClick={() => {
-                      setShowProfileCompatibility(false);
-                    }}
-                    ariaLabel="Back to User Profile"
-                  >
-                    {Icons.BACK}
-                  </BasicButton>
-                  <Comparison
-                    firstUserImg={usersList.users['006u'].profile_img}
-                    firstUsername={usersList.users['006u'].username}
-                    secondUserImg={usersList.users['002u'].profile_img}
-                    secondUsername={usersList.users['002u'].username}
-                    albumPercent={20}
-                    artistPercent={40}
-                    playlistPercent={23}
-                  />
-                </>
-              )}
-              <BasicPlaylist
-                playlistHeader={<h3>Artists</h3>}
-                type="artist"
-                showSearch
-                playlist={profileArtistList}
-                onSelectOptionClick={(option) => {
-                  setProfilePlaylistOrdering(option);
-                }}
-                searchAriaLabel={`Search ${usersList.users['002u'].username} artists`}
-              />
-            </div>
-          </section>
-          <section className="app-conclusion">
-            <h2>{APP_NAME}</h2>
-            <p className="conclusion">
-              {APP_DESCRIPTION_P1}
+        </section>
+        <section id="contact" className="contact">
+          <h2>Contact</h2>
+          <address className="contact-content">
+            {Icons.EMAIL}
+            <span className="contact-info">
+              Have any questions?
               <br />
-              {APP_DESCRIPTION_P2}
-            </p>
-            <BasicButton
-              onClick={tryTodayButtonOnClick}
-            >
-              {userSignedIn && (<>Open App</>)}
-              {!userSignedIn && (<>Try it today</>)}
-            </BasicButton>
-          </section>
-          <section id="contact" className="contact">
-            <h2>Contact</h2>
-            <address className="contact-content">
-              {Icons.EMAIL}
-              <span className="contact-info">
-                Have any questions?
-                <br />
-                Contact the author on&nbsp;
-                <a
-                  href="https://www.linkedin.com/in/dorian-maldonado/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  LinkedIn
-                </a>
-              </span>
-            </address>
-          </section>
-        </main>
-        <Footer />
-      </div>
-      {toastVisible && (
-        <Toast message={toastMessage} />
-      )}
-    </>
+              Contact the author on&nbsp;
+              <a
+                href="https://www.linkedin.com/in/dorian-maldonado/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                LinkedIn
+              </a>
+            </span>
+          </address>
+        </section>
+      </main>
+      <Footer />
+    </div>
   );
 }
 
 MainPage.propTypes = {
-  // Toast Container HOC Props
-  toastContainerClassName: PropTypes.string,
-  toastVisible: PropTypes.bool,
-  toast: PropTypes.func,
-  toastMessage: PropTypes.string,
   // Modal Props
   setModalContents: PropTypes.func,
-  setModalHeading: PropTypes.string,
-  setModalOpen: PropTypes.bool,
+  setModalHeading: PropTypes.func,
+  setModalOpen: PropTypes.func,
   // Regular Props
+  toast: PropTypes.func,
 };
 
 MainPage.defaultProps = {
-  toastContainerClassName: 'toast-container',
-  toastVisible: false,
-  toast: () => {},
-  toastMessage: 'Toast message',
   setModalContents: () => {},
-  setModalHeading: '',
-  setModalOpen: false,
+  setModalHeading: () => {},
+  setModalOpen: () => {},
+  toast: () => {},
 };
 
 export default MainPage;
