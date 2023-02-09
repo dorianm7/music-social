@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import {
   React,
   useState,
@@ -12,12 +11,12 @@ import {
 import './App.css';
 
 import { UserContextProvider } from '../../contexts/UserContext';
-import ToastContainer from '../../components/hocs/ToastContainer';
 import PrivateRoute from '../../components/routing/PrivateRoute/PrivateRoute';
 import MainPage from '../pages/MainPage/MainPage';
 import SpotifyAuthorizeCallbackPage from '../pages/SpotifyAuthorizeCallbackPage/SpotifyAuthorizeCallbackPage';
 import InAppPage from '../InAppPage/InAppPage';
 import Modal from '../../components/modals/Modal/Modal';
+import Toast from '../../components/Toast/Toast';
 import SettingsPageContents from '../page-contents/SettingsPageContents/SettingsPageContents';
 import HomePageContents from '../page-contents/HomePageContents/HomePageContents';
 
@@ -25,15 +24,25 @@ function App() {
   const [modalContents, setModalContents] = useState(null);
   const [modalHeading, setModalHeading] = useState('');
   const [modalOpen, setModalOpen] = useState(false);
-  const MainPageWithProps = (props) => (
+  const [toastVisible, setToastVisible] = useState(false);
+  const [toastMessage, setToastMessage] = useState('');
+  const toast = (message, time) => {
+    setToastMessage(message);
+    setToastVisible(true);
+    setTimeout(() => {
+      setToastVisible(false);
+    },
+    time);
+  };
+
+  const MainPageWithProps = () => (
     <MainPage
-      {...props}
       setModalContents={setModalContents}
       setModalHeading={setModalHeading}
       setModalOpen={setModalOpen}
+      toast={toast}
     />
   );
-  const MainPageToastContainer = ToastContainer(MainPageWithProps);
 
   return (
     <div className="App">
@@ -46,7 +55,8 @@ function App() {
               index
               path="/"
               element={(
-                <MainPageToastContainer />
+                // <MainPageToastContainer />
+                <MainPageWithProps />
               )}
             />
             <Route element={<PrivateRoute />}>
@@ -59,6 +69,7 @@ function App() {
                       setModalContents={setModalContents}
                       setModalHeading={setModalHeading}
                       setModalOpen={setModalOpen}
+                      toastFunc={toast}
                     />
                   )}
                 />
@@ -78,6 +89,9 @@ function App() {
         open={modalOpen}
         closeHandler={() => setModalOpen(!modalOpen)}
       />
+      {toastVisible && (
+        <Toast message={toastMessage} />
+      )}
     </div>
   );
 }
