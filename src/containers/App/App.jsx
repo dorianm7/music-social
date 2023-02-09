@@ -35,15 +35,6 @@ function App() {
     time);
   };
 
-  const MainPageWithProps = () => (
-    <MainPage
-      setModalContents={setModalContents}
-      setModalHeading={setModalHeading}
-      setModalOpen={setModalOpen}
-      toast={toast}
-    />
-  );
-
   return (
     <div className="App">
       <UserContextProvider>
@@ -55,8 +46,12 @@ function App() {
               index
               path="/"
               element={(
-                // <MainPageToastContainer />
-                <MainPageWithProps />
+                <MainPage
+                  setModalContents={setModalContents}
+                  setModalHeading={setModalHeading}
+                  setModalOpen={setModalOpen}
+                  toast={toast}
+                />
               )}
             />
             <Route element={<PrivateRoute />}>
