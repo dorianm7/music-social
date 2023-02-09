@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import {
   React,
   useState,
@@ -24,7 +25,15 @@ function App() {
   const [modalContents, setModalContents] = useState(null);
   const [modalHeading, setModalHeading] = useState('');
   const [modalOpen, setModalOpen] = useState(false);
-  const MainPageToastContainer = ToastContainer(MainPage);
+  const MainPageWithProps = (props) => (
+    <MainPage
+      {...props}
+      setModalContents={setModalContents}
+      setModalHeading={setModalHeading}
+      setModalOpen={setModalOpen}
+    />
+  );
+  const MainPageToastContainer = ToastContainer(MainPageWithProps);
 
   return (
     <div className="App">
@@ -36,7 +45,9 @@ function App() {
             <Route
               index
               path="/"
-              element={<MainPageToastContainer />}
+              element={(
+                <MainPageToastContainer />
+              )}
             />
             <Route element={<PrivateRoute />}>
               <Route element={<InAppPage />}>

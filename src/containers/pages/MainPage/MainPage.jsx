@@ -16,7 +16,6 @@ import Comparison from '../../../components/Comparison/Comparison';
 //   '../../../components/modal-contents/ConfirmEmailModalContents/ConfirmEmailModalContents';
 import Footer from '../../../components/Footer/Footer';
 import MainNav from '../../../components/MainNav/MainNav';
-import Modal from '../../../components/modals/Modal/Modal';
 import MusicLibrary from '../../../components/MusicLibrary/MusicLibrary';
 import PlaylistHeader from '../../../components/PlaylistHeader/PlaylistHeader';
 import ReportProfileForm from '../../../components/forms/ReportProfileForm/ReportProfileForm';
@@ -53,18 +52,14 @@ function MainPage(props) {
     toastVisible,
     toast,
     toastMessage,
+    // Modal Props
+    setModalContents,
+    setModalHeading,
+    setModalOpen,
     // Regular Props
   } = props;
   const userFromContext = useUserContext();
   const userSignedIn = !!userFromContext;
-  // Modal states and functions
-  const [modalHeader, setModalHeader] = useState('modal');
-  const [modalContents, setModalContents] = useState(<span>Default</span>);
-  const [modalOpen, setModalOpen] = useState(false);
-
-  const toggleModal = () => {
-    setModalOpen(!modalOpen);
-  };
 
   // States for feature sections
   // Playlist Select states
@@ -89,12 +84,12 @@ function MainPage(props) {
 
   // Change modal functions
   const moveToSignIn = () => {
-    setModalHeader('Sign In');
+    setModalHeading('Sign In');
     setModalContents(signInModalContents);
   };
 
   const moveToSignUp = () => {
-    setModalHeader('Sign Up');
+    setModalHeading('Sign Up');
     setModalContents(signUpModalContents);
   };
 
@@ -156,15 +151,15 @@ function MainPage(props) {
 
   // Component click handlers
   const navSignInClickHandler = () => {
-    setModalHeader('Sign In');
+    setModalHeading('Sign In');
     setModalContents(signInModalContents);
-    toggleModal();
+    setModalOpen(true);
   };
 
   const openSignUpOnClick = () => {
-    setModalHeader('Sign Up');
+    setModalHeading('Sign Up');
     setModalContents(signUpModalContents);
-    toggleModal();
+    setModalOpen(true);
   };
 
   // TODO Add report submit functionality
@@ -176,14 +171,14 @@ function MainPage(props) {
   });
 
   const openReportProfileModal = (reportedUser) => {
-    setModalHeader('Report');
+    setModalHeading('Report');
     setModalContents((
       <ReportProfileForm
         reportedUsername={reportedUser}
         onSubmit={openAfterReportModal}
       />
     ));
-    toggleModal();
+    setModalOpen(true);
   };
 
   const APP_NAME = 'Music Social';
@@ -506,12 +501,6 @@ function MainPage(props) {
         </main>
         <Footer />
       </div>
-      <Modal
-        heading={modalHeader}
-        contents={modalContents}
-        closeHandler={toggleModal}
-        open={modalOpen}
-      />
       {toastVisible && (
         <Toast message={toastMessage} />
       )}
@@ -525,6 +514,10 @@ MainPage.propTypes = {
   toastVisible: PropTypes.bool,
   toast: PropTypes.func,
   toastMessage: PropTypes.string,
+  // Modal Props
+  setModalContents: PropTypes.func,
+  setModalHeading: PropTypes.string,
+  setModalOpen: PropTypes.bool,
   // Regular Props
 };
 
@@ -533,6 +526,9 @@ MainPage.defaultProps = {
   toastVisible: false,
   toast: () => {},
   toastMessage: 'Toast message',
+  setModalContents: () => {},
+  setModalHeading: '',
+  setModalOpen: false,
 };
 
 export default MainPage;
