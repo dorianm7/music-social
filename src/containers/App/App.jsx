@@ -64,7 +64,7 @@ function App() {
                       setModalContents={setModalContents}
                       setModalHeading={setModalHeading}
                       setModalOpen={setModalOpen}
-                      toastFunc={toast}
+                      toast={toast}
                     />
                   )}
                 />

@@ -30,7 +30,7 @@ import SignInModalContents from '../../../components/modal-contents/SignInModalC
 
 function SettingsPageContents(props) {
   const {
-    toastFunc,
+    toast,
     setModalHeading,
     setModalContents,
     setModalOpen,
@@ -57,7 +57,7 @@ function SettingsPageContents(props) {
           await patchUser(user.uid, [replaceSpotifyIdOp]);
         }
       } catch (err) {
-        toastFunc(err.message, 4000);
+        toast(err.message, 4000);
       }
     }
   }, []);
@@ -66,7 +66,7 @@ function SettingsPageContents(props) {
 
   const deauthorizeSpotifyOnClick = () => removeTokens(user.uid)
     .then(() => navigate(0))
-    .catch((err) => toastFunc(err.message, 4000));
+    .catch((err) => toast(err.message, 4000));
 
   const emailPasswordDeleteAccount = (email, password) => emailPasswordSignIn(
     email,
@@ -74,14 +74,14 @@ function SettingsPageContents(props) {
   )
     .then(() => deleteUser(user.uid))
     .catch((err) => {
-      toastFunc(err.message, 4000);
+      toast(err.message, 4000);
       return Promise.reject(err);
     });
 
   const googleDeleteAccount = () => googleSignIn()
     .then(() => deleteUser(user.uid))
     .catch((err) => {
-      toastFunc(err.message, 4000);
+      toast(err.message, 4000);
       return Promise.reject(err);
     });
 
@@ -114,14 +114,14 @@ function SettingsPageContents(props) {
 }
 
 SettingsPageContents.propTypes = {
-  toastFunc: PropTypes.func,
+  toast: PropTypes.func,
   setModalHeading: PropTypes.func,
   setModalContents: PropTypes.func,
   setModalOpen: PropTypes.func,
 };
 
 SettingsPageContents.defaultProps = {
-  toastFunc: () => {},
+  toast: () => {},
   setModalHeading: () => {},
   setModalContents: () => {},
   setModalOpen: () => {},
