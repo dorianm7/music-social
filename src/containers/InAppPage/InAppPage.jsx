@@ -1,6 +1,6 @@
 import { React, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { signOutUser } from '../../backend/app/user';
 
 import './InAppPage.css';
@@ -17,6 +17,17 @@ function InAppPage(props) {
     pageTitle,
   } = props;
   const [sideMenuVisible, setSideMenuVisible] = useState(false);
+  const navigate = useNavigate();
+
+  const sideMenuSettingsOnClick = () => {
+    setSideMenuVisible(!sideMenuVisible);
+    navigate('/settings');
+  };
+  const sideMenuHomeOnClick = () => {
+    setSideMenuVisible(!sideMenuVisible);
+    navigate('/home');
+  };
+
   return (
     <div className="in-app-page">
       <header>
@@ -34,6 +45,8 @@ function InAppPage(props) {
       </header>
       {sideMenuVisible && (
         <SideMenu
+          settingsOnClick={sideMenuSettingsOnClick}
+          homeOnClick={sideMenuHomeOnClick}
           signOutOnClick={signOutUser}
         />
       )}
