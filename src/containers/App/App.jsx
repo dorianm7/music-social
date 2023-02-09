@@ -1,4 +1,7 @@
-import React from 'react';
+import {
+  React,
+  useState,
+} from 'react';
 import {
   BrowserRouter as Router,
   Routes,
@@ -12,12 +15,16 @@ import ToastContainer from '../../components/hocs/ToastContainer';
 import PrivateRoute from '../../components/routing/PrivateRoute/PrivateRoute';
 import MainPage from '../pages/MainPage/MainPage';
 import HomePage from '../pages/HomePage/HomePage';
-import SettingsPage from '../pages/SettingsPage/SettingsPage';
 import SpotifyAuthorizeCallbackPage from '../pages/SpotifyAuthorizeCallbackPage/SpotifyAuthorizeCallbackPage';
+import InAppPage from '../InAppPage/InAppPage';
+import Modal from '../../components/modals/Modal/Modal';
+import SettingsPageContents from '../page-contents/SettingsPageContents/SettingsPageContents';
 
 function App() {
+  const [modalContents, setModalContents] = useState(null);
+  const [modalHeading, setModalHeading] = useState('');
+  const [modalOpen, setModalOpen] = useState(false);
   const MainPageToastContainer = ToastContainer(MainPage);
-  const SettingsPageToastContainer = ToastContainer(SettingsPage);
 
   return (
     <div className="App">
@@ -33,7 +40,18 @@ function App() {
             />
             <Route element={<PrivateRoute />}>
               <Route path="/home" element={<HomePage />} />
-              <Route path="/settings" element={<SettingsPageToastContainer />} />
+              <Route element={<InAppPage />}>
+                <Route
+                  path="/settings"
+                  element={(
+                    <SettingsPageContents
+                      setModalContents={setModalContents}
+                      setModalHeading={setModalHeading}
+                      setModalOpen={setModalOpen}
+                    />
+                  )}
+                />
+              </Route>
               <Route path="/spotify-authorize-callback" element={<SpotifyAuthorizeCallbackPage />} />
             </Route>
             <Route
@@ -43,6 +61,12 @@ function App() {
           </Routes>
         </Router>
       </UserContextProvider>
+      <Modal
+        contents={modalContents}
+        heading={modalHeading}
+        open={modalOpen}
+        closeHandler={() => setModalOpen(!modalOpen)}
+      />
     </div>
   );
 }
