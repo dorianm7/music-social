@@ -34,6 +34,7 @@ function SettingsPageContents(props) {
     setModalHeading,
     setModalContents,
     setModalOpen,
+    setInAppPageTitle,
   } = props;
   const navigate = useNavigate();
   const user = useUserContext();
@@ -41,6 +42,7 @@ function SettingsPageContents(props) {
   const authorizedSpotify = isAuthorized();
 
   useEffect(async () => {
+    setInAppPageTitle('Settings');
     if (authorizedSpotify) {
       try {
         const userRes = await getUser(user.uid, ['spotify_user_id']);
@@ -118,6 +120,7 @@ SettingsPageContents.propTypes = {
   setModalHeading: PropTypes.func,
   setModalContents: PropTypes.func,
   setModalOpen: PropTypes.func,
+  setInAppPageTitle: PropTypes.func,
 };
 
 SettingsPageContents.defaultProps = {
@@ -125,6 +128,7 @@ SettingsPageContents.defaultProps = {
   setModalHeading: () => {},
   setModalContents: () => {},
   setModalOpen: () => {},
+  setInAppPageTitle: () => {},
 };
 
 export default SettingsPageContents;

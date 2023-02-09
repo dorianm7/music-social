@@ -26,6 +26,7 @@ function App() {
   const [modalOpen, setModalOpen] = useState(false);
   const [toastVisible, setToastVisible] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
+  const [inAppPageTitle, setInAppPageTitle] = useState('');
   const toast = (message, time) => {
     setToastMessage(message);
     setToastVisible(true);
@@ -55,8 +56,15 @@ function App() {
               )}
             />
             <Route element={<PrivateRoute />}>
-              <Route element={<InAppPage />}>
-                <Route path="/home" element={<HomePageContents />} />
+              <Route element={<InAppPage pageTitle={inAppPageTitle} />}>
+                <Route
+                  path="/home"
+                  element={(
+                    <HomePageContents
+                      setInAppPageTitle={setInAppPageTitle}
+                    />
+                  )}
+                />
                 <Route
                   path="/settings"
                   element={(
@@ -64,6 +72,7 @@ function App() {
                       setModalContents={setModalContents}
                       setModalHeading={setModalHeading}
                       setModalOpen={setModalOpen}
+                      setInAppPageTitle={setInAppPageTitle}
                       toast={toast}
                     />
                   )}
