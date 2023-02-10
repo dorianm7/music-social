@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 import './Modal.css';
 
-import IconButton from '../../basic/IconButton/IconButton';
+import IconButton from '../basic/IconButton/IconButton';
 
-import { IconNames } from '../../../Icons';
+import { IconNames } from '../../Icons';
 
 function Modal(props) {
   const {
