@@ -15,7 +15,7 @@ import PrivateRoute from '../../components/routing/PrivateRoute/PrivateRoute';
 import MainPage from '../pages/MainPage/MainPage';
 import SpotifyAuthorizeCallbackPage from '../pages/SpotifyAuthorizeCallbackPage/SpotifyAuthorizeCallbackPage';
 import InAppPage from '../InAppPage/InAppPage';
-import Modal from '../../components/modals/Modal/Modal';
+import Modal from '../../components/Modal/Modal';
 import Toast from '../../components/Toast/Toast';
 import SettingsPageContents from '../page-contents/SettingsPageContents/SettingsPageContents';
 import HomePageContents from '../page-contents/HomePageContents/HomePageContents';
