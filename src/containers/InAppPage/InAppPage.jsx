@@ -1,5 +1,6 @@
 import { React, useState } from 'react';
 import PropTypes from 'prop-types';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { signOutUser } from '../../backend/app/user';
 
 import './InAppPage.css';
@@ -14,9 +15,19 @@ function InAppPage(props) {
     notificationsOnClick,
     hasNotification,
     pageTitle,
-    children,
   } = props;
   const [sideMenuVisible, setSideMenuVisible] = useState(false);
+  const navigate = useNavigate();
+
+  const sideMenuSettingsOnClick = () => {
+    setSideMenuVisible(!sideMenuVisible);
+    navigate('/settings');
+  };
+  const sideMenuHomeOnClick = () => {
+    setSideMenuVisible(!sideMenuVisible);
+    navigate('/home');
+  };
+
   return (
     <div className="in-app-page">
       <header>
@@ -34,12 +45,14 @@ function InAppPage(props) {
       </header>
       {sideMenuVisible && (
         <SideMenu
+          settingsOnClick={sideMenuSettingsOnClick}
+          homeOnClick={sideMenuHomeOnClick}
           signOutOnClick={signOutUser}
         />
       )}
       <main>
         <h1>{pageTitle}</h1>
-        {children}
+        <Outlet />
       </main>
       <Footer />
     </div>
@@ -51,7 +64,6 @@ InAppPage.propTypes = {
   notificationsOnClick: PropTypes.func,
   hasNotification: PropTypes.bool,
   pageTitle: PropTypes.string,
-  children: PropTypes.node,
 };
 
 InAppPage.defaultProps = {
@@ -59,7 +71,6 @@ InAppPage.defaultProps = {
   notificationsOnClick: () => {},
   hasNotification: false,
   pageTitle: 'In-app Page',
-  children: <>Children</>,
 };
 
 export default InAppPage;

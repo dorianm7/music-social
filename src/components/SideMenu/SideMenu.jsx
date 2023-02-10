@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
-import { Link } from 'react-router-dom';
 
 import './SideMenu.css';
 
@@ -18,6 +17,8 @@ function SideMenu(props) {
   const {
     imgSrc,
     viewProfileOnClick,
+    homeOnClick,
+    settingsOnClick,
     signOutOnClick,
     userName,
     followers,
@@ -41,10 +42,13 @@ function SideMenu(props) {
       <nav>
         <ul className="flex-column nav-top">
           <li key={nanoid()} className="center-row">
-            <Link to="/home">
+            <button
+              type="button"
+              onClick={homeOnClick}
+            >
               {Icons.HOME}
               Home
-            </Link>
+            </button>
           </li>
           <li key={nanoid()} className="center-row">
             <a href="#followers">
@@ -67,10 +71,13 @@ function SideMenu(props) {
         </ul>
         <ul className="flex-column nav-top">
           <li key={nanoid()} className="center-row">
-            <Link to="/settings">
+            <button
+              type="button"
+              onClick={settingsOnClick}
+            >
               {Icons.SETTINGS}
               Settings
-            </Link>
+            </button>
           </li>
           <li key={nanoid()} className="center-row">
             <button
@@ -90,6 +97,8 @@ function SideMenu(props) {
 SideMenu.propTypes = {
   imgSrc: PropTypes.string,
   viewProfileOnClick: PropTypes.func,
+  homeOnClick: PropTypes.func,
+  settingsOnClick: PropTypes.func,
   signOutOnClick: PropTypes.func,
   userName: PropTypes.string,
   followers: PropTypes.number,
@@ -99,6 +108,8 @@ SideMenu.propTypes = {
 SideMenu.defaultProps = {
   imgSrc: defaultImg,
   viewProfileOnClick: () => {},
+  homeOnClick: () => {},
+  settingsOnClick: () => {},
   signOutOnClick: () => {},
   userName: 'Username',
   followers: 4,
