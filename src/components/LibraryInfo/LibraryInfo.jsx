@@ -17,17 +17,17 @@ function LibraryInfo(props) {
     <div className="library-info round-corners">
       <ul>
         <li key={nanoid()} className="center-row">
-          {Icons.DEFAULT}
+          {Icons.ALBUM}
           Albums:
           <span>{albumsTotal}</span>
         </li>
         <li key={nanoid()} className="center-row">
-          {Icons.DEFAULT}
+          {Icons.ARTIST}
           Artists:
           <span>{artistsTotal}</span>
         </li>
         <li key={nanoid()} className="center-row">
-          {Icons.DEFAULT}
+          {Icons.PLAYLIST}
           Playlists:
           <span>{playlistsTotal}</span>
         </li>
