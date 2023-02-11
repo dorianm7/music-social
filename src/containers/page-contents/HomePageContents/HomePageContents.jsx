@@ -48,6 +48,11 @@ function HomePageContents(props) {
         <div className="authorized synced center-column">
           <span>Library info</span>
           <LibraryInfo />
+          <BasicButton>Sync music library</BasicButton>
+          <span>
+            Last sync:
+            {syncData.toLocaleString()}
+          </span>
         </div>
       )}
     </>
