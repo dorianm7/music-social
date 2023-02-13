@@ -82,10 +82,12 @@ function HomePageContents(props) {
             >
               Sync music library
             </BasicButton>
-            <span>
-              Last sync:
-              {syncDate.toLocaleString()}
-            </span>
+            {hasSynced && (
+              <span>
+                Last sync:
+                {syncDate.toLocaleString()}
+              </span>
+            )}
           </div>
         )}
       </>
