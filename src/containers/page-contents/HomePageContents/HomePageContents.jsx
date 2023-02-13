@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import './HomePageContents.css';
 
 import { getUser } from '../../../backend/users/users';
+import { syncLibrary } from '../../../backend/app/spotify';
 import {
   getAccessToken,
   isAuthorized,
@@ -17,7 +18,7 @@ import {
 import BasicButton from '../../../components/basic/BasicButton/BasicButton';
 import { useUserContext } from '../../../contexts/UserContext';
 import LibraryInfo from '../../../components/LibraryInfo/LibraryInfo';
-import { syncLibrary } from '../../../backend/app/spotify';
+import PercentGauge from '../../../components/basic/PercentGauge/PercentGauge';
 
 function HomePageContents(props) {
   const {
@@ -26,7 +27,8 @@ function HomePageContents(props) {
   } = props;
   const [syncDate, setSyncDate] = useState((new Date(0)));
   const [libraryTotals, setLibraryTotals] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [contentLoading, setContentLoading] = useState(true);
+  const [syncing, setSyncing] = useState(false);
   const user = useUserContext();
   const navigate = useNavigate();
   const authorized = isAuthorized();
@@ -45,18 +47,22 @@ function HomePageContents(props) {
       artists: userRes.data.spotify_artists.total,
       playlists: userRes.data.spotify_playlists.total,
     });
-    setLoading(false);
-  }, []);
+    setContentLoading(false);
+  }, [syncing]);
 
-  const syncButtonHandler = () => getAccessToken(user.uid)
-    .then((accessToken) => syncLibrary(user.uid, accessToken))
-    .catch((e) => toast(e.message), 4000);
+  const syncButtonHandler = () => {
+    setSyncing(true);
+    getAccessToken(user.uid)
+      .then((accessToken) => syncLibrary(user.uid, accessToken))
+      .catch((e) => toast(e.message), 4000)
+      .finally(() => setSyncing(false));
+  };
 
   const hasSynced = syncDate.getTime() > (new Date(0)).getTime();
 
   const syncedClassName = hasSynced ? 'synced' : 'not-synced';
 
-  return loading
+  return contentLoading
     ? <></>
     : (
       <>
@@ -83,11 +89,19 @@ function HomePageContents(props) {
                 />
               </>
             )}
-            <BasicButton
-              onClick={syncButtonHandler}
-            >
-              Sync music library
-            </BasicButton>
+            {!syncing && (
+              <BasicButton
+                onClick={syncButtonHandler}
+              >
+                Sync music library
+              </BasicButton>
+            )}
+            {syncing && (
+              <PercentGauge
+                percentFilled={10}
+                size="1em"
+              />
+            )}
             {hasSynced && (
               <span className="sync-text">
                 {`Last sync: ${syncDate.toLocaleString()}`}
