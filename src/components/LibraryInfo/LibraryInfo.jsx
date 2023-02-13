@@ -43,9 +43,9 @@ LibraryInfo.propTypes = {
 };
 
 LibraryInfo.defaultProps = {
-  albumsTotal: '100',
-  artistsTotal: '100',
-  playlistsTotal: '100',
+  albumsTotal: 100,
+  artistsTotal: 100,
+  playlistsTotal: 100,
 };
 
 export default LibraryInfo;
