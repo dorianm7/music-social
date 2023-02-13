@@ -4,6 +4,7 @@ import {
   useState,
 } from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 
 import './HomePageContents.css';
 
@@ -27,6 +28,7 @@ function HomePageContents(props) {
   const [libraryTotals, setLibraryTotals] = useState(null);
   const [loading, setLoading] = useState(true);
   const user = useUserContext();
+  const navigate = useNavigate();
   const authorized = isAuthorized();
 
   useEffect(async () => {
@@ -61,7 +63,11 @@ function HomePageContents(props) {
         {!authorized && (
           <div className="not-authorized center-column">
             <span>Spotify authorization needed to use this app</span>
-            <BasicButton>Open settings</BasicButton>
+            <BasicButton
+              onClick={() => navigate('/settings')}
+            >
+              Open settings
+            </BasicButton>
           </div>
         )}
         {authorized && (
