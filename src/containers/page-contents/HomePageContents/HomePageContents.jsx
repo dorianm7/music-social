@@ -8,11 +8,15 @@ import PropTypes from 'prop-types';
 import './HomePageContents.css';
 
 import { getUser } from '../../../backend/users/users';
-import { isAuthorized } from '../../../backend/spotify/spotify-auth';
+import {
+  getAccessToken,
+  isAuthorized,
+} from '../../../backend/spotify/spotify-auth';
 
 import BasicButton from '../../../components/basic/BasicButton/BasicButton';
 import { useUserContext } from '../../../contexts/UserContext';
 import LibraryInfo from '../../../components/LibraryInfo/LibraryInfo';
+import { syncLibrary } from '../../../backend/app/spotify';
 
 function HomePageContents(props) {
   const { setInAppPageTitle } = props;
@@ -38,6 +42,10 @@ function HomePageContents(props) {
     });
     setLoading(false);
   }, []);
+
+  const syncButtonHandler = () => getAccessToken(user.uid)
+    .then((accessToken) => syncLibrary(user.uid, accessToken))
+    .catch((e) => console.log(e));
 
   const hasSynced = syncDate.getTime() > (new Date(0)).getTime();
 
@@ -65,7 +73,11 @@ function HomePageContents(props) {
               artistsTotal={libraryTotals.artists}
               playlistsTotal={libraryTotals.playlists}
             />
-            <BasicButton>Sync music library</BasicButton>
+            <BasicButton
+              onClick={syncButtonHandler}
+            >
+              Sync music library
+            </BasicButton>
             <span>
               Last sync:
               {syncDate.toLocaleString()}
