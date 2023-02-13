@@ -91,6 +91,7 @@ const syncData = async (type, uid, accessToken) => {
         value: {
           items_id: backendDataId.toHexString(),
           last_updated: (new Date()).toISOString(),
+          total: listItemsForDb.length,
         },
       }],
     ));
@@ -98,20 +99,34 @@ const syncData = async (type, uid, accessToken) => {
     backendDataId = userSpotifyDataObject.items_id;
     promises.push(patchUser(
       uid,
-      [{
-        op: 'replace',
-        path: `/spotify_${type}/last_updated`,
-        value: (new Date()).toISOString(),
-      }],
+      [
+        {
+          op: 'replace',
+          path: `/spotify_${type}/last_updated`,
+          value: (new Date()).toISOString(),
+        },
+        {
+          op: 'replace',
+          path: `/spotify_${type}/total`,
+          value: listItemsForDb.length,
+        },
+      ],
     ));
   }
   promises.push(patchSpotifyDataDocument(
     backendDataId,
-    [{
-      op: 'replace',
-      path: '/items',
-      value: listItemsForDb,
-    }],
+    [
+      {
+        op: 'replace',
+        path: '/items',
+        value: listItemsForDb,
+      },
+      {
+        op: 'replace',
+        path: '/total',
+        value: listItemsForDb.length,
+      },
+    ],
   ));
 
   return Promise.all(promises);
