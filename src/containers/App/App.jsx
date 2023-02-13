@@ -62,6 +62,7 @@ function App() {
                   element={(
                     <HomePageContents
                       setInAppPageTitle={setInAppPageTitle}
+                      toast={toast}
                     />
                   )}
                 />

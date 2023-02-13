@@ -19,7 +19,10 @@ import LibraryInfo from '../../../components/LibraryInfo/LibraryInfo';
 import { syncLibrary } from '../../../backend/app/spotify';
 
 function HomePageContents(props) {
-  const { setInAppPageTitle } = props;
+  const {
+    setInAppPageTitle,
+    toast,
+  } = props;
   const [syncDate, setSyncDate] = useState((new Date(0)));
   const [libraryTotals, setLibraryTotals] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -45,7 +48,7 @@ function HomePageContents(props) {
 
   const syncButtonHandler = () => getAccessToken(user.uid)
     .then((accessToken) => syncLibrary(user.uid, accessToken))
-    .catch((e) => console.log(e));
+    .catch((e) => toast(e.message), 4000);
 
   const hasSynced = syncDate.getTime() > (new Date(0)).getTime();
 
@@ -90,10 +93,12 @@ function HomePageContents(props) {
 
 HomePageContents.propTypes = {
   setInAppPageTitle: PropTypes.func,
+  toast: PropTypes.func,
 };
 
 HomePageContents.defaultProps = {
   setInAppPageTitle: () => {},
+  toast: () => {},
 };
 
 export default HomePageContents;
