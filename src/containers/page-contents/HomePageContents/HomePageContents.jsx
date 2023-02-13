@@ -52,6 +52,8 @@ function HomePageContents(props) {
 
   const hasSynced = syncDate.getTime() > (new Date(0)).getTime();
 
+  const syncedClassName = hasSynced ? 'synced' : 'not-synced';
+
   return loading
     ? <></>
     : (
@@ -62,20 +64,19 @@ function HomePageContents(props) {
             <BasicButton>Open settings</BasicButton>
           </div>
         )}
-        {authorized && !hasSynced && (
-          <div className="authorized not-synced center-column">
-            <span>No library info</span>
-            <BasicButton>Sync music library</BasicButton>
-          </div>
-        )}
-        {authorized && hasSynced && (
-          <div className="authorized synced center-column">
-            <span>Library info</span>
-            <LibraryInfo
-              albumsTotal={libraryTotals.albums}
-              artistsTotal={libraryTotals.artists}
-              playlistsTotal={libraryTotals.playlists}
-            />
+        {authorized && (
+          <div className={`authorized ${syncedClassName} center-column`}>
+            {!hasSynced && (<span>No library info</span>)}
+            {hasSynced && (
+              <>
+                <span>Library info</span>
+                <LibraryInfo
+                  albumsTotal={libraryTotals.albums}
+                  artistsTotal={libraryTotals.artists}
+                  playlistsTotal={libraryTotals.playlists}
+                />
+              </>
+            )}
             <BasicButton
               onClick={syncButtonHandler}
             >
