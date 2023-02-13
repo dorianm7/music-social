@@ -1,3 +1,11 @@
-.authorized.synced .library-info{
+.home-page-contents.authorized.synced .library-info{
   background-color: var(--Color-Light-1);
+}
+
+.home-page-contents.authorized > *:not(:first-child) {
+  margin-bottom: .5em;
+}
+
+.home-page-contents.authorized > .sync-text {
+  font-size: .8em;
 }

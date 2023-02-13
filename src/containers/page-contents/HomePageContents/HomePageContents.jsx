@@ -61,8 +61,8 @@ function HomePageContents(props) {
     : (
       <>
         {!authorized && (
-          <div className="not-authorized center-column">
-            <span>Spotify authorization needed to use this app</span>
+          <div className="home-page-contents not-authorized center-column">
+            <h2>Spotify authorization needed to use this app</h2>
             <BasicButton
               onClick={() => navigate('/settings')}
             >
@@ -71,11 +71,11 @@ function HomePageContents(props) {
           </div>
         )}
         {authorized && (
-          <div className={`authorized ${syncedClassName} center-column`}>
-            {!hasSynced && (<span>No library info</span>)}
+          <div className={`home-page-contents authorized ${syncedClassName} center-column`}>
+            {!hasSynced && (<h2>No library info</h2>)}
             {hasSynced && (
               <>
-                <span>Library info</span>
+                <h2>Library info</h2>
                 <LibraryInfo
                   albumsTotal={libraryTotals.albums}
                   artistsTotal={libraryTotals.artists}
@@ -89,9 +89,8 @@ function HomePageContents(props) {
               Sync music library
             </BasicButton>
             {hasSynced && (
-              <span>
-                Last sync:
-                {syncDate.toLocaleString()}
+              <span className="sync-text">
+                {`Last sync: ${syncDate.toLocaleString()}`}
               </span>
             )}
           </div>
