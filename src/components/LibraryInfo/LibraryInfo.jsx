@@ -37,9 +37,9 @@ function LibraryInfo(props) {
 }
 
 LibraryInfo.propTypes = {
-  albumsTotal: PropTypes.string,
-  artistsTotal: PropTypes.string,
-  playlistsTotal: PropTypes.string,
+  albumsTotal: PropTypes.number,
+  artistsTotal: PropTypes.number,
+  playlistsTotal: PropTypes.number,
 };
 
 LibraryInfo.defaultProps = {
