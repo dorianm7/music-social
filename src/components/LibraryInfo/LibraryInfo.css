@@ -1,0 +1,21 @@
+div.library-info {
+  padding: .5em;
+}
+
+div.library-info > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+div.library-info > ul > li:not(:first-child) {
+  margin-top: .5em;
+}
+
+div.library-info > ul > li > svg {
+  margin-right: .5em;
+}
+
+div.library-info > ul > li > span {
+  margin-left: auto;
+}

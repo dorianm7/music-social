@@ -1,0 +1,15 @@
+div.home-page-contents.authorized.synced .library-info{
+  background-color: var(--Color-Light-1);
+}
+
+div.home-page-contents.authorized > *:not(:first-child) {
+  margin-bottom: .5em;
+}
+
+div.home-page-contents.authorized > .sync-text {
+  font-size: .8em;
+}
+
+div.home-page-contents > .percent-gauge {
+  animation: rotate-360 2s linear infinite;
+}
