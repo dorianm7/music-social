@@ -12,6 +12,7 @@ import SideMenu from '../../components/SideMenu/SideMenu';
 import { getRefreshTokenHref, SPOTIFY_LOCAL_STORAGE_KEYS } from '../../backend/spotify/spotify-auth-helpers';
 import { getUser } from '../../backend/users/users';
 import { useUserContext } from '../../contexts/UserContext';
+import { createSpotifyClient } from '../../backend/spotify/spotify';
 
 function InAppPage(props) {
   const {
@@ -42,6 +43,7 @@ function InAppPage(props) {
     localStorage.setItem(SPOTIFY_LOCAL_STORAGE_KEYS.accessToken, refreshTokenData.access_token);
     localStorage.setItem(SPOTIFY_LOCAL_STORAGE_KEYS.expiresIn, refreshTokenData.expires_in);
     localStorage.setItem(SPOTIFY_LOCAL_STORAGE_KEYS.timestamp, timestamp);
+    return Promise.resolve(refreshTokenData.access_token);
   };
 
   useEffect(async () => {
@@ -80,6 +82,18 @@ function InAppPage(props) {
     }
   }, []);
 
+  const SpotifyClient = createSpotifyClient(spotifyAccessToken);
+  SpotifyClient.interceptors.request.use(async (config) => {
+    const updatedConfig = config;
+    if (!stateTokenIsValid) {
+      const updatedAccessToken = await refreshTokens(user.uid);
+      updatedConfig.headers.Authorization = `Bearer ${updatedAccessToken}`;
+    } else {
+      updatedConfig.headers.Authorization = `Bearer ${spotifyAccessToken}`;
+    }
+    return updatedConfig;
+  });
+
   const sideMenuSettingsOnClick = () => {
     setSideMenuVisible(!sideMenuVisible);
     navigate('/settings');
@@ -113,7 +127,9 @@ function InAppPage(props) {
       )}
       <main>
         <h1>{pageTitle}</h1>
-        <Outlet context={[refreshTokens, spotifyAccessToken]} />
+        <Outlet
+          context={[SpotifyClient]}
+        />
       </main>
       <Footer />
     </div>
