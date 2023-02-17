@@ -93,6 +93,17 @@ function InAppPage(props) {
     }
     return updatedConfig;
   });
+  SpotifyClient.interceptors.response.use(undefined, async (error) => {
+    if (error.response) {
+      if (error.response.status === 401) {
+        const updatedAccessToken = await refreshTokens(user.uid);
+        const updatedConfig = error.config;
+        updatedConfig.headers.Authorization = `Bearer ${updatedAccessToken}`;
+        return axios.request(updatedConfig);
+      }
+    }
+    return error;
+  });
 
   const sideMenuSettingsOnClick = () => {
     setSideMenuVisible(!sideMenuVisible);
