@@ -4,15 +4,15 @@
  */
 
 const SPOTIFY_BACKEND_ENDPOINT = `${process.env.REACT_APP_BACKEND_HTTP_SERVER}/spotify`;
-const SPOTIFY_LOCAL_STORAGE_KEYS = {
+const SPOTIFY_SESSION_STORAGE_KEYS = {
   accessToken: 'spotify_access_token',
   expiresIn: 'spotify_access_token_expires_in',
   timestamp: 'spotify_access_token_timestamp',
 };
-const SPOTIFY_LOCAL_STORAGE_VALUES = {
-  accessToken: localStorage.getItem(SPOTIFY_LOCAL_STORAGE_KEYS.accessToken),
-  expiresIn: localStorage.getItem(SPOTIFY_LOCAL_STORAGE_KEYS.expiresIn),
-  timestamp: localStorage.getItem(SPOTIFY_LOCAL_STORAGE_KEYS.timestamp),
+const SPOTIFY_SESSION_STORAGE_VALUES = {
+  accessToken: sessionStorage.getItem(SPOTIFY_SESSION_STORAGE_KEYS.accessToken),
+  expiresIn: sessionStorage.getItem(SPOTIFY_SESSION_STORAGE_KEYS.expiresIn),
+  timestamp: sessionStorage.getItem(SPOTIFY_SESSION_STORAGE_KEYS.timestamp),
 };
 
 /**
@@ -51,7 +51,7 @@ const accessTokenValid = () => {
   const {
     expiresIn,
     timestamp,
-  } = SPOTIFY_LOCAL_STORAGE_VALUES;
+  } = SPOTIFY_SESSION_STORAGE_VALUES;
   if (!expiresIn || !timestamp) {
     return false;
   }
@@ -60,8 +60,8 @@ const accessTokenValid = () => {
 };
 
 export {
-  SPOTIFY_LOCAL_STORAGE_KEYS,
-  SPOTIFY_LOCAL_STORAGE_VALUES,
+  SPOTIFY_SESSION_STORAGE_KEYS,
+  SPOTIFY_SESSION_STORAGE_VALUES,
   getAuthorizeHref,
   getRefreshTokenHref,
   accessTokenValid,

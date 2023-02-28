@@ -6,8 +6,8 @@
 import axios from 'axios';
 import { patchUser } from '../users/users';
 import {
-  SPOTIFY_LOCAL_STORAGE_KEYS,
-  SPOTIFY_LOCAL_STORAGE_VALUES,
+  SPOTIFY_SESSION_STORAGE_KEYS,
+  SPOTIFY_SESSION_STORAGE_VALUES,
   getRefreshTokenHref,
   accessTokenValid,
 } from './spotify-auth-helpers';
@@ -22,11 +22,11 @@ const refreshTokens = async (uid) => {
     accessToken,
     expiresIn,
     timestamp,
-  } = SPOTIFY_LOCAL_STORAGE_KEYS;
+  } = SPOTIFY_SESSION_STORAGE_KEYS;
   const refreshTokenRes = await axios.get(refreshTokenEndpoint);
-  localStorage.setItem(accessToken, refreshTokenRes.data.access_token);
-  localStorage.setItem(expiresIn, refreshTokenRes.data.expires_in);
-  localStorage.setItem(timestamp, Date.now());
+  sessionStorage.setItem(accessToken, refreshTokenRes.data.access_token);
+  sessionStorage.setItem(expiresIn, refreshTokenRes.data.expires_in);
+  sessionStorage.setItem(timestamp, Date.now());
 };
 
 /**
@@ -39,7 +39,7 @@ const getAccessToken = async (uid) => {
     await refreshTokens(uid);
   }
 
-  return SPOTIFY_LOCAL_STORAGE_VALUES.accessToken;
+  return SPOTIFY_SESSION_STORAGE_VALUES.accessToken;
 };
 
 /**
@@ -50,10 +50,10 @@ const removeAccessToken = () => {
     accessToken,
     expiresIn,
     timestamp,
-  } = SPOTIFY_LOCAL_STORAGE_KEYS;
-  localStorage.removeItem(accessToken);
-  localStorage.removeItem(expiresIn);
-  localStorage.removeItem(timestamp);
+  } = SPOTIFY_SESSION_STORAGE_KEYS;
+  sessionStorage.removeItem(accessToken);
+  sessionStorage.removeItem(expiresIn);
+  sessionStorage.removeItem(timestamp);
 };
 
 /**
@@ -94,7 +94,7 @@ const removeTokens = (uid) => {
  * Check if user has authorized Spotify
  * @returns {boolean} Whether user has authorized Spotify
  */
-const isAuthorized = () => !!SPOTIFY_LOCAL_STORAGE_VALUES.accessToken;
+const isAuthorized = () => !!SPOTIFY_SESSION_STORAGE_VALUES.accessToken;
 
 export {
   refreshTokens,

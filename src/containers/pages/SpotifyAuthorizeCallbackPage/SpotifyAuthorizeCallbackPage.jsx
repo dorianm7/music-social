@@ -6,7 +6,7 @@ import {
   useNavigate,
   useSearchParams,
 } from 'react-router-dom';
-import { SPOTIFY_LOCAL_STORAGE_KEYS } from '../../../backend/spotify/spotify-auth-helpers';
+import { SPOTIFY_SESSION_STORAGE_KEYS } from '../../../backend/spotify/spotify-auth-helpers';
 
 function SpotifyAuthorizeCallbackPage() {
   const [searchParams] = useSearchParams();
@@ -32,10 +32,10 @@ function SpotifyAuthorizeCallbackPage() {
         accessToken,
         expiresIn,
         timestamp,
-      } = SPOTIFY_LOCAL_STORAGE_KEYS;
-      localStorage.setItem(accessToken, accessTokenParam);
-      localStorage.setItem(expiresIn, expiresInParam);
-      localStorage.setItem(timestamp, Date.now());
+      } = SPOTIFY_SESSION_STORAGE_KEYS;
+      sessionStorage.setItem(accessToken, accessTokenParam);
+      sessionStorage.setItem(expiresIn, expiresInParam);
+      sessionStorage.setItem(timestamp, Date.now());
       redirectPath = fromPath;
     }
     navigate(redirectPath);
