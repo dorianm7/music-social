@@ -93,16 +93,9 @@ const removeTokens = (uid) => {
     });
 };
 
-/**
- * Check if user has authorized Spotify
- * @returns {boolean} Whether user has authorized Spotify
- */
-const isAuthorized = () => !!SPOTIFY_SESSION_STORAGE_VALUES.accessToken;
-
 export {
   refreshTokens,
   getAccessToken,
   removeAccessToken,
   removeTokens,
-  isAuthorized,
 };
