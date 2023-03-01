@@ -3,12 +3,11 @@ import {
   useEffect,
 } from 'react';
 import PropTypes from 'prop-types';
-import { useNavigate } from 'react-router-dom';
+import { useOutletContext } from 'react-router-dom';
 import { useUserContext } from '../../../contexts/UserContext';
 import { getAuthorizeHref } from '../../../backend/spotify/spotify-auth-helpers';
 import {
   getAccessToken,
-  isAuthorized,
   removeTokens,
 } from '../../../backend/spotify/spotify-auth';
 import { getProfile } from '../../../backend/spotify/spotify';
@@ -36,15 +35,13 @@ function SettingsPageContents(props) {
     setModalOpen,
     setInAppPageTitle,
   } = props;
-  const navigate = useNavigate();
   const user = useUserContext();
-
-  const authorizedSpotify = isAuthorized();
+  const [hasAuthorizedSpotify, setHasAuthorizedSpotify] = useOutletContext();
 
   useEffect(async () => {
     setInAppPageTitle('Settings');
     document.title = 'Music Social | Settings';
-    if (authorizedSpotify) {
+    if (hasAuthorizedSpotify) {
       try {
         const userRes = await getUser(user.uid, ['spotify_user_id']);
         const spotifyId = userRes.data.spotify_user_id;
@@ -68,7 +65,7 @@ function SettingsPageContents(props) {
   const authorizeSpotifyHref = getAuthorizeHref(user.uid, '/settings');
 
   const deauthorizeSpotifyOnClick = () => removeTokens(user.uid)
-    .then(() => navigate(0))
+    .then(() => setHasAuthorizedSpotify(false))
     .catch((err) => toast(err.message, 4000));
 
   const emailPasswordDeleteAccount = (email, password) => emailPasswordSignIn(
@@ -103,7 +100,7 @@ function SettingsPageContents(props) {
     setModalOpen(true);
   };
 
-  const spotifyAuthorizeButton = authorizedSpotify
+  const spotifyAuthorizeButton = hasAuthorizedSpotify
     ? <BasicButton onClick={deauthorizeSpotifyOnClick}>Deauthorize Spotify</BasicButton>
     : <AnchorButton href={authorizeSpotifyHref} text="Authorize Spotify" />;
   return (
