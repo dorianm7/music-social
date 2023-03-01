@@ -39,6 +39,15 @@ const createUsersSpotifyAlbums = (uid) => UsersSpotifyAlbumsClient.post(
 );
 
 /**
+ * Delete users_spotify_albums document with given uid
+ * @param {string} uid Id of the document
+ * @returns {Promis<void>} Promise of a successful deletion
+ */
+const deleteUsersSpotifyAlbums = (uid) => UsersSpotifyAlbumsClient.delete(
+  `/${uid}`,
+);
+
+/**
  * Patch document in the database with given operations in patchBody
  * @param {string} uid Id of the document
  * @param {Object[]} patchBody Array of patch object operations
@@ -56,5 +65,6 @@ const patchUsersSpotifyAlbums = (uid, patchBody) => UsersSpotifyAlbumsClient.pat
 
 export {
   createUsersSpotifyAlbums,
+  deleteUsersSpotifyAlbums,
   patchUsersSpotifyAlbums,
 };
