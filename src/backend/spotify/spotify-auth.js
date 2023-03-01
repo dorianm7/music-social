@@ -15,6 +15,7 @@ import {
 /**
  * Refreshes the Spotify tokens
  * @param {string} uid The user's uid
+ * @returns {string} Updated access token
  */
 const refreshTokens = async (uid) => {
   const refreshTokenEndpoint = getRefreshTokenHref(uid);
@@ -24,19 +25,21 @@ const refreshTokens = async (uid) => {
     timestamp,
   } = SPOTIFY_SESSION_STORAGE_KEYS;
   const refreshTokenRes = await axios.get(refreshTokenEndpoint);
-  sessionStorage.setItem(accessToken, refreshTokenRes.data.access_token);
+  const newAccessToken = refreshTokenRes.data.access_token;
+  sessionStorage.setItem(accessToken, newAccessToken);
   sessionStorage.setItem(expiresIn, refreshTokenRes.data.expires_in);
   sessionStorage.setItem(timestamp, Date.now());
+  return newAccessToken;
 };
 
 /**
  * Get the Spotify access token
  * @param {string} uid The user's uid
- * @returns The Spotify access token
+ * @returns {string} The Spotify access token
  */
 const getAccessToken = async (uid) => {
   if (!accessTokenValid()) {
-    await refreshTokens(uid);
+    return refreshTokens(uid);
   }
 
   return SPOTIFY_SESSION_STORAGE_VALUES.accessToken;
