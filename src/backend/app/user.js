@@ -10,10 +10,7 @@ import {
   userSignOut,
   userSignUp,
 } from '../../firebase/auth-firebase';
-import {
-  refreshTokens,
-  removeAccessToken,
-} from '../spotify/spotify-auth';
+import { removeAccessToken } from '../spotify/spotify-auth';
 import {
   deleteUser as deleteUserFromDb,
   createUser as createUserInDb,
@@ -53,16 +50,12 @@ const signOutUser = () => {
 };
 
 /**
- * Sign in user, create user in backend if needed, and refresh access tokens if possible
+ * Sign in user and create user in backend if needed
  */
 const signInGoogleUser = async () => {
   const user = await googleSignIn();
-  let userFromDbRes;
   try {
-    userFromDbRes = await getUserFromDb(user.uid, ['_id', 'spotify_refresh_token']);
-    if (userFromDbRes.data.spotify_refresh_token) {
-      await refreshTokens(user.uid);
-    }
+    await getUserFromDb(user.uid, ['_id']);
   } catch (err) {
     if (err.message === 'Error. User not found.') {
       await createUserInDb(user.uid, user.providerData[0].email);
@@ -74,16 +67,12 @@ const signInGoogleUser = async () => {
 };
 
 /**
- * Sign in user and refresh access tokens if possible
+ * Sign in user
  * @param {string} email Email of user
  * @param {string} password Password of user
  */
 const signInEmailPasswordUser = async (email, password) => {
-  const user = await emailPasswordSignIn(email, password);
-  const userFromDbRes = await getUserFromDb(user.uid, ['spotify_refresh_token']);
-  if (userFromDbRes.data.spotify_refresh_token) {
-    await refreshTokens(user.uid);
-  }
+  await emailPasswordSignIn(email, password);
 };
 
 export {
