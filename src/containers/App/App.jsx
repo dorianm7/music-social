@@ -78,8 +78,11 @@ function App() {
                     />
                   )}
                 />
+                <Route
+                  path="/spotify-authorize-callback"
+                  element={<SpotifyAuthorizeCallbackPage />}
+                />
               </Route>
-              <Route path="/spotify-authorize-callback" element={<SpotifyAuthorizeCallbackPage />} />
             </Route>
             <Route
               path="*"

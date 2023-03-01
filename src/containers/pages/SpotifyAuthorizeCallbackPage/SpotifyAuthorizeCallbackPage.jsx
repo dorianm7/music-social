@@ -4,12 +4,14 @@ import {
 } from 'react';
 import {
   useNavigate,
+  useOutletContext,
   useSearchParams,
 } from 'react-router-dom';
 import { SPOTIFY_SESSION_STORAGE_KEYS } from '../../../backend/spotify/spotify-auth-helpers';
 
 function SpotifyAuthorizeCallbackPage() {
   const [searchParams] = useSearchParams();
+  const [, setHasAuthorized] = useOutletContext();
   const navigate = useNavigate();
   useEffect(() => {
     const fromPathSearchParam = searchParams.get('fromPath');
@@ -36,10 +38,10 @@ function SpotifyAuthorizeCallbackPage() {
       sessionStorage.setItem(accessToken, accessTokenParam);
       sessionStorage.setItem(expiresIn, expiresInParam);
       sessionStorage.setItem(timestamp, Date.now());
+      setHasAuthorized(true);
       redirectPath = fromPath;
     }
     navigate(redirectPath);
-    navigate(0);
   }, []);
   return <></>;
 }
