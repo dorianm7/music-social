@@ -14,14 +14,17 @@ import {
 } from '../users/users';
 import {
   createUsersSpotifyAlbums,
+  deleteUsersSpotifyAlbums,
   patchUsersSpotifyAlbums,
 } from '../users_spotify_albums/users_spotify_albums';
 import {
   createUsersSpotifyArtists,
+  deleteUsersSpotifyArtists,
   patchUsersSpotifyArtists,
 } from '../users_spotify_artists/users_spotify_artists';
 import {
   createUsersSpotifyPlaylists,
+  deleteUsersSpotifyPlaylists,
   patchUsersSpotifyPlaylists,
 } from '../users_spotify_playlists/users_spotify_playlists';
 import {
@@ -168,9 +171,55 @@ const syncLibrary = async (uid, accessToken) => Promise.all([
   syncPlaylists(uid, accessToken),
 ]);
 
+/**
+ * Deletes the user's Spotify library data
+ * @param {string} uid Id of user
+ * @returns {Promise<void>[]} Array of successful operations
+ */
+const deleteLibrary = async (uid) => {
+  const userRes = await getUser(uid, ['spotify_albums', 'spotify_artists', 'spotify_playlists']);
+  const defaultObjectId = ObjectID('000000000000000000000000');
+  const defaultDate = new Date(0);
+  return Promise.all([
+    deleteUsersSpotifyAlbums(userRes.data.spotify_albums.items_id),
+    deleteUsersSpotifyArtists(userRes.data.spotify_artists.items_id),
+    deleteUsersSpotifyPlaylists(userRes.data.spotify_playlists.items_id),
+    patchUser(uid, [
+      {
+        op: 'replace',
+        path: '/spotify_albums',
+        value: {
+          items_id: defaultObjectId.toHexString(),
+          last_updated: defaultDate.toISOString(),
+          total: 0,
+        },
+      },
+      {
+        op: 'replace',
+        path: '/spotify_artists',
+        value: {
+          items_id: defaultObjectId.toHexString(),
+          last_updated: defaultDate.toISOString(),
+          total: 0,
+        },
+      },
+      {
+        op: 'replace',
+        path: '/spotify_playlists',
+        value: {
+          items_id: defaultObjectId.toHexString(),
+          last_updated: defaultDate.toISOString(),
+          total: 0,
+        },
+      },
+    ]),
+  ]);
+};
+
 export {
   syncAlbums,
   syncPlaylists,
   syncArtists,
   syncLibrary,
+  deleteLibrary,
 };
