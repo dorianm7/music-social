@@ -8,7 +8,7 @@ import { useUserContext } from '../../../contexts/UserContext';
 import { getAuthorizeHref } from '../../../backend/spotify/spotify-auth-helpers';
 import {
   getAccessToken,
-  removeTokens,
+  removeAccessToken,
 } from '../../../backend/spotify/spotify-auth';
 import { getProfile } from '../../../backend/spotify/spotify';
 import {
@@ -26,6 +26,7 @@ import './SettingsPageContents.css';
 import BasicButton from '../../../components/basic/BasicButton/BasicButton';
 import AnchorButton from '../../../components/basic/AnchorButton/AnchorButton';
 import SignInModalContents from '../../../components/modal-contents/SignInModalContents/SignInModalContents';
+import { deleteLibrary } from '../../../backend/app/spotify';
 
 function SettingsPageContents(props) {
   const {
@@ -64,8 +65,23 @@ function SettingsPageContents(props) {
 
   const authorizeSpotifyHref = getAuthorizeHref(user.uid, '/settings');
 
-  const deauthorizeSpotifyOnClick = () => removeTokens(user.uid)
-    .then(() => setHasAuthorizedSpotify(false))
+  const deauthorizeSpotifyOnClick = () => deleteLibrary(user.uid)
+    .then(() => patchUser(user.uid, [
+      {
+        op: 'replace',
+        path: '/spotify_refresh_token',
+        value: '',
+      },
+      {
+        op: 'replace',
+        path: '/spotify_user_id',
+        value: '',
+      },
+    ]))
+    .then(() => {
+      removeAccessToken();
+      setHasAuthorizedSpotify(false);
+    })
     .catch((err) => toast(err.message, 4000));
 
   const emailPasswordDeleteAccount = (email, password) => emailPasswordSignIn(
