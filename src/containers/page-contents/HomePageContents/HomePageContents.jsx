@@ -4,16 +4,16 @@ import {
   useState,
 } from 'react';
 import PropTypes from 'prop-types';
-import { useNavigate } from 'react-router-dom';
+import {
+  useNavigate,
+  useOutletContext,
+} from 'react-router-dom';
 
 import './HomePageContents.css';
 
 import { getUser } from '../../../backend/users/users';
 import { syncLibrary } from '../../../backend/app/spotify';
-import {
-  getAccessToken,
-  isAuthorized,
-} from '../../../backend/spotify/spotify-auth';
+import { getAccessToken } from '../../../backend/spotify/spotify-auth';
 
 import BasicButton from '../../../components/basic/BasicButton/BasicButton';
 import { useUserContext } from '../../../contexts/UserContext';
@@ -30,8 +30,8 @@ function HomePageContents(props) {
   const [contentLoading, setContentLoading] = useState(true);
   const [syncing, setSyncing] = useState(false);
   const user = useUserContext();
+  const [hasAuthorizedSpotify] = useOutletContext();
   const navigate = useNavigate();
-  const authorized = isAuthorized();
 
   useEffect(async () => {
     setInAppPageTitle('Home');
@@ -66,7 +66,7 @@ function HomePageContents(props) {
     ? <></>
     : (
       <>
-        {!authorized && (
+        {!hasAuthorizedSpotify && (
           <div className="home-page-contents not-authorized center-column">
             <h2>Spotify authorization needed to use this app</h2>
             <BasicButton
@@ -76,7 +76,7 @@ function HomePageContents(props) {
             </BasicButton>
           </div>
         )}
-        {authorized && (
+        {hasAuthorizedSpotify && (
           <div className={`home-page-contents authorized ${syncedClassName} center-column`}>
             {!hasSynced && (<h2>No library info</h2>)}
             {hasSynced && (
