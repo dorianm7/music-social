@@ -4,7 +4,6 @@
  */
 
 import axios from 'axios';
-import { patchUser } from '../users/users';
 import {
   SPOTIFY_SESSION_STORAGE_KEYS,
   SPOTIFY_SESSION_STORAGE_VALUES,
@@ -59,43 +58,8 @@ const removeAccessToken = () => {
   sessionStorage.removeItem(timestamp);
 };
 
-/**
- * Remove local and remote Spotify tokens
- * @param {string} uid Id of user to remove stored refresh token
- * @returns {Promise<void>} A promise of a successful patch
- */
-const removeTokens = (uid) => {
-  removeAccessToken();
-  const patchBody = [
-    {
-      op: 'replace',
-      path: '/spotify_refresh_token',
-      value: '',
-    },
-  ];
-  return patchUser(uid, patchBody)
-    .catch((err) => {
-      if (err.response) {
-        if (err.response.status > 499) {
-          return Promise.reject(new Error('Internal error. Try again.'));
-        }
-        if (err.response.status === 400) {
-          Promise.reject(new Error(err.response.data.title));
-        }
-        if (err.response.status === 404) {
-          Promise.reject(new Error('Error. User not found'));
-        }
-      }
-      if (err.request) {
-        Promise.reject(new Error('Error from server. Try again.'));
-      }
-      return Promise.reject(new Error('Error. Try again.'));
-    });
-};
-
 export {
   refreshTokens,
   getAccessToken,
   removeAccessToken,
-  removeTokens,
 };
