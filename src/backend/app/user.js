@@ -43,10 +43,11 @@ const createUser = async (email, password) => {
 
 /**
  * Sign out user and remove any local data
+ * @returns {Promise<void>} Promise of successful operation
  */
 const signOutUser = () => {
   removeAccessToken();
-  userSignOut();
+  return userSignOut();
 };
 
 /**

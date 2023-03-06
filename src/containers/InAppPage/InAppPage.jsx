@@ -23,6 +23,7 @@ function InAppPage(props) {
     notificationsOnClick,
     hasNotification,
     pageTitle,
+    toast,
   } = props;
   const [sideMenuVisible, setSideMenuVisible] = useState(false);
   const [hasAuthorizedSpotify, setHasAuthorizedSpotify] = useState(false);
@@ -49,6 +50,8 @@ function InAppPage(props) {
     setSideMenuVisible(!sideMenuVisible);
     navigate('/home');
   };
+  const sideMenuSignOutOnClick = () => signOutUser()
+    .catch((e) => toast(e.message, 4000));
 
   return (
     <div className="in-app-page">
@@ -69,7 +72,7 @@ function InAppPage(props) {
         <SideMenu
           settingsOnClick={sideMenuSettingsOnClick}
           homeOnClick={sideMenuHomeOnClick}
-          signOutOnClick={signOutUser}
+          signOutOnClick={sideMenuSignOutOnClick}
         />
       )}
       <main>
@@ -90,6 +93,7 @@ InAppPage.propTypes = {
   notificationsOnClick: PropTypes.func,
   hasNotification: PropTypes.bool,
   pageTitle: PropTypes.string,
+  toast: PropTypes.func,
 };
 
 InAppPage.defaultProps = {
@@ -97,6 +101,7 @@ InAppPage.defaultProps = {
   notificationsOnClick: () => {},
   hasNotification: false,
   pageTitle: 'In-app Page',
+  toast: () => {},
 };
 
 export default InAppPage;

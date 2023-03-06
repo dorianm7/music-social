@@ -56,7 +56,14 @@ function App() {
               )}
             />
             <Route element={<PrivateRoute />}>
-              <Route element={<InAppPage pageTitle={inAppPageTitle} />}>
+              <Route
+                element={(
+                  <InAppPage
+                    pageTitle={inAppPageTitle}
+                    toast={toast}
+                  />
+                )}
+              >
                 <Route
                   path="/home"
                   element={(
