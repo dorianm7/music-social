@@ -89,6 +89,7 @@ function SettingsPageContents(props) {
     password,
   )
     .then(() => deleteUser(user.uid))
+    .then(() => setModalOpen(false))
     .catch((err) => {
       toast(err.message, 4000);
       return Promise.reject(err);
@@ -96,6 +97,7 @@ function SettingsPageContents(props) {
 
   const googleDeleteAccount = () => googleSignIn()
     .then(() => deleteUser(user.uid))
+    .then(() => setModalOpen(false))
     .catch((err) => {
       toast(err.message, 4000);
       return Promise.reject(err);
