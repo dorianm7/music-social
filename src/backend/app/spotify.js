@@ -180,39 +180,60 @@ const deleteLibrary = async (uid) => {
   const userRes = await getUser(uid, ['spotify_albums', 'spotify_artists', 'spotify_playlists']);
   const defaultObjectId = ObjectID('000000000000000000000000');
   const defaultDate = new Date(0);
+  const deleteLibraryPromises = [];
+  const patchUserOperations = [];
+  const userSpotifyAlbumsLastUpdated = new Date(userRes.data.spotify_albums.last_updated);
+  const userSpotifyArtistsLastUpdated = new Date(userRes.data.spotify_artists.last_updated);
+  const userSpotifyPlaylistsLastUpdated = new Date(userRes.data.spotify_playlists.last_updated);
+  const hasSyncedSpotifyAlbums = userSpotifyAlbumsLastUpdated.getTime() !== defaultDate.getTime();
+  const hasSyncedSpotifyArtists = userSpotifyArtistsLastUpdated.getTime() !== defaultDate.getTime();
+  const hasSyncedSpotifyPlaylists = (
+    userSpotifyPlaylistsLastUpdated.getTime() !== defaultDate.getTime()
+  );
+  if (hasSyncedSpotifyAlbums) {
+    deleteLibraryPromises.push(deleteUsersSpotifyAlbums(userRes.data.spotify_albums.items_id));
+    patchUserOperations.push({
+      op: 'replace',
+      path: '/spotify_albums',
+      value: {
+        items_id: defaultObjectId.toHexString(),
+        last_updated: defaultDate.toISOString(),
+        total: 0,
+      },
+    });
+  }
+  if (hasSyncedSpotifyArtists) {
+    deleteLibraryPromises.push(deleteUsersSpotifyArtists(userRes.data.spotify_artists.items_id));
+    patchUserOperations.push({
+      op: 'replace',
+      path: '/spotify_artists',
+      value: {
+        items_id: defaultObjectId.toHexString(),
+        last_updated: defaultDate.toISOString(),
+        total: 0,
+      },
+    });
+  }
+  if (hasSyncedSpotifyPlaylists) {
+    deleteLibraryPromises.push(
+      deleteUsersSpotifyPlaylists(userRes.data.spotify_playlists.items_id),
+    );
+    patchUserOperations.push({
+      op: 'replace',
+      path: '/spotify_playlists',
+      value: {
+        items_id: defaultObjectId.toHexString(),
+        last_updated: defaultDate.toISOString(),
+        total: 0,
+      },
+    });
+  }
+  const patchUserPromise = (patchUserOperations.length > 0)
+    ? [patchUser(uid, patchUserOperations)]
+    : [];
   return Promise.all([
-    deleteUsersSpotifyAlbums(userRes.data.spotify_albums.items_id),
-    deleteUsersSpotifyArtists(userRes.data.spotify_artists.items_id),
-    deleteUsersSpotifyPlaylists(userRes.data.spotify_playlists.items_id),
-    patchUser(uid, [
-      {
-        op: 'replace',
-        path: '/spotify_albums',
-        value: {
-          items_id: defaultObjectId.toHexString(),
-          last_updated: defaultDate.toISOString(),
-          total: 0,
-        },
-      },
-      {
-        op: 'replace',
-        path: '/spotify_artists',
-        value: {
-          items_id: defaultObjectId.toHexString(),
-          last_updated: defaultDate.toISOString(),
-          total: 0,
-        },
-      },
-      {
-        op: 'replace',
-        path: '/spotify_playlists',
-        value: {
-          items_id: defaultObjectId.toHexString(),
-          last_updated: defaultDate.toISOString(),
-          total: 0,
-        },
-      },
-    ]),
+    ...deleteLibraryPromises,
+    ...patchUserPromise,
   ]);
 };
 
