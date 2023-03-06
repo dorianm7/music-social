@@ -11,6 +11,7 @@ import {
   userSignUp,
 } from '../../firebase/auth-firebase';
 import { removeAccessToken } from '../spotify/spotify-auth';
+import { deleteLibrary } from './spotify';
 import {
   deleteUser as deleteUserFromDb,
   createUser as createUserInDb,
@@ -22,12 +23,11 @@ import {
  * @param {string} uid Id of user
  * @returns {Promise<void>} Promise of successful operations
  */
-const deleteUser = async (uid) => {
+const deleteUser = (uid) => {
   removeAccessToken();
-  return Promise.all([
-    deleteUserFromDb(uid),
-    deleteUserAccount(),
-  ]);
+  return deleteLibrary(uid)
+    .then(() => deleteUserFromDb(uid))
+    .then(() => deleteUserAccount());
 };
 
 /**
