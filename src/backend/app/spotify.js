@@ -50,7 +50,7 @@ const syncData = async (type, uid, accessToken) => {
     return Promise.reject(new Error('Invalid type entered.'));
   }
 
-  const [listItems, userRes] = await Promise.all([
+  const [listItems, user] = await Promise.all([
     getDataItems(type, accessToken),
     getUser(uid, [`spotify_${type}`]),
   ]);
@@ -62,19 +62,19 @@ const syncData = async (type, uid, accessToken) => {
   let createBackendDataDocument;
   let listItemsForDb;
   if (type === 'albums') {
-    userSpotifyDataObject = userRes.data.spotify_albums;
+    userSpotifyDataObject = user.spotify_albums;
     patchSpotifyDataDocument = patchUsersSpotifyAlbums;
     firstTimeSync = userSpotifyDataObject.last_updated === defaultDateIsoString;
     createBackendDataDocument = createUsersSpotifyAlbums;
     listItemsForDb = formatAlbums(listItems);
   } else if (type === 'artists') {
-    userSpotifyDataObject = userRes.data.spotify_artists;
+    userSpotifyDataObject = user.spotify_artists;
     patchSpotifyDataDocument = patchUsersSpotifyArtists;
     firstTimeSync = userSpotifyDataObject.last_updated === defaultDateIsoString;
     createBackendDataDocument = createUsersSpotifyArtists;
     listItemsForDb = formatArtists(listItems);
   } else {
-    userSpotifyDataObject = userRes.data.spotify_playlists;
+    userSpotifyDataObject = user.spotify_playlists;
     patchSpotifyDataDocument = patchUsersSpotifyPlaylists;
     firstTimeSync = userSpotifyDataObject.last_updated === defaultDateIsoString;
     createBackendDataDocument = createUsersSpotifyPlaylists;
@@ -177,21 +177,21 @@ const syncLibrary = async (uid, accessToken) => Promise.all([
  * @returns {Promise<void>[]} Array of successful operations
  */
 const deleteLibrary = async (uid) => {
-  const userRes = await getUser(uid, ['spotify_albums', 'spotify_artists', 'spotify_playlists']);
+  const user = await getUser(uid, ['spotify_albums', 'spotify_artists', 'spotify_playlists']);
   const defaultObjectId = ObjectID('000000000000000000000000');
   const defaultDate = new Date(0);
   const deleteLibraryPromises = [];
   const patchUserOperations = [];
-  const userSpotifyAlbumsLastUpdated = new Date(userRes.data.spotify_albums.last_updated);
-  const userSpotifyArtistsLastUpdated = new Date(userRes.data.spotify_artists.last_updated);
-  const userSpotifyPlaylistsLastUpdated = new Date(userRes.data.spotify_playlists.last_updated);
+  const userSpotifyAlbumsLastUpdated = new Date(user.spotify_albums.last_updated);
+  const userSpotifyArtistsLastUpdated = new Date(user.spotify_artists.last_updated);
+  const userSpotifyPlaylistsLastUpdated = new Date(user.spotify_playlists.last_updated);
   const hasSyncedSpotifyAlbums = userSpotifyAlbumsLastUpdated.getTime() !== defaultDate.getTime();
   const hasSyncedSpotifyArtists = userSpotifyArtistsLastUpdated.getTime() !== defaultDate.getTime();
   const hasSyncedSpotifyPlaylists = (
     userSpotifyPlaylistsLastUpdated.getTime() !== defaultDate.getTime()
   );
   if (hasSyncedSpotifyAlbums) {
-    deleteLibraryPromises.push(deleteUsersSpotifyAlbums(userRes.data.spotify_albums.items_id));
+    deleteLibraryPromises.push(deleteUsersSpotifyAlbums(user.spotify_albums.items_id));
     patchUserOperations.push({
       op: 'replace',
       path: '/spotify_albums',
@@ -203,7 +203,7 @@ const deleteLibrary = async (uid) => {
     });
   }
   if (hasSyncedSpotifyArtists) {
-    deleteLibraryPromises.push(deleteUsersSpotifyArtists(userRes.data.spotify_artists.items_id));
+    deleteLibraryPromises.push(deleteUsersSpotifyArtists(user.spotify_artists.items_id));
     patchUserOperations.push({
       op: 'replace',
       path: '/spotify_artists',
@@ -215,9 +215,7 @@ const deleteLibrary = async (uid) => {
     });
   }
   if (hasSyncedSpotifyPlaylists) {
-    deleteLibraryPromises.push(
-      deleteUsersSpotifyPlaylists(userRes.data.spotify_playlists.items_id),
-    );
+    deleteLibraryPromises.push(deleteUsersSpotifyPlaylists(user.spotify_playlists.items_id));
     patchUserOperations.push({
       op: 'replace',
       path: '/spotify_playlists',

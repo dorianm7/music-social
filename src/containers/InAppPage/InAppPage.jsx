@@ -32,8 +32,8 @@ function InAppPage(props) {
   useEffect(async () => {
     if (!SPOTIFY_SESSION_STORAGE_VALUES.accessToken && !hasAuthorizedSpotify) {
       setLoadingContents(true);
-      const userRes = await getUserFromDb(user.uid, ['spotify_refresh_token']);
-      if (userRes.data.spotify_refresh_token) {
+      const userFromDb = await getUserFromDb(user.uid, ['spotify_refresh_token']);
+      if (userFromDb.spotify_refresh_token) {
         await refreshTokens(user.uid);
         setHasAuthorizedSpotify(true);
       }

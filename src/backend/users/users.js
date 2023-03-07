@@ -22,6 +22,7 @@ const UsersClient = axios.create({
 const getUser = (uid, fields = []) => UsersClient.get(
   `/${uid}${fields.length > 0 ? `?${getFieldsQueryString(fields)}` : ''}`,
 )
+  .then((res) => res.data)
   .catch((err) => {
     if (err.response) {
       if (err.response.status === 404) {

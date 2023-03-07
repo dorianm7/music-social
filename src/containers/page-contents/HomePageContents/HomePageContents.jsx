@@ -36,16 +36,16 @@ function HomePageContents(props) {
   useEffect(async () => {
     setInAppPageTitle('Home');
     document.title = 'Music Social | Home';
-    const userRes = await getUser(user.uid, [
+    const userFromDb = await getUser(user.uid, [
       'spotify_albums',
       'spotify_artists',
       'spotify_playlists',
     ]);
-    setSyncDate(new Date(userRes.data.spotify_albums.last_updated));
+    setSyncDate(new Date(userFromDb.spotify_albums.last_updated));
     setLibraryTotals({
-      albums: userRes.data.spotify_albums.total,
-      artists: userRes.data.spotify_artists.total,
-      playlists: userRes.data.spotify_playlists.total,
+      albums: userFromDb.spotify_albums.total,
+      artists: userFromDb.spotify_artists.total,
+      playlists: userFromDb.spotify_playlists.total,
     });
     setContentLoading(false);
   }, [syncing]);

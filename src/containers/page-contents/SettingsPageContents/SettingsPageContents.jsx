@@ -44,9 +44,8 @@ function SettingsPageContents(props) {
     document.title = 'Music Social | Settings';
     if (hasAuthorizedSpotify) {
       try {
-        const userRes = await getUser(user.uid, ['spotify_user_id']);
-        const spotifyId = userRes.data.spotify_user_id;
-        if (!spotifyId) {
+        const userFromDb = await getUser(user.uid, ['spotify_user_id']);
+        if (!userFromDb.spotify_user_id) {
           const spotifyAccessToken = await getAccessToken(user.uid);
           const spotifyIdRes = await getProfile(spotifyAccessToken);
 
