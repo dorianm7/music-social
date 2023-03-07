@@ -9,6 +9,12 @@ import {
   getFieldsQueryString,
 } from './users-helpers';
 
+/**
+ * @typedef {Object} CreateUserSuccessResponseBody
+ * @property {string} uid Id of user created
+ * @property {string} email Email of user created
+ */
+
 const UsersClient = axios.create({
   baseURL: USERS_BACKEND_ENDPOINT,
 });
@@ -39,7 +45,7 @@ const getUser = (uid, fields = []) => UsersClient.get(
  * Create user in database
  * @param {string} uid Id of user
  * @param {string} userEmail Email of user
- * @returns {Promise<Object>} Promise of an object containing uid,email properties
+ * @returns {Promise<CreateUserSuccessResponseBody>} Promise of a successful operation
  */
 const createUser = (uid, userEmail) => UsersClient.post(
   '/',
@@ -52,20 +58,22 @@ const createUser = (uid, userEmail) => UsersClient.post(
       'Content-Type': 'application/json',
     },
   },
-).catch((err) => {
-  if (err.response) {
-    if (err.response.status > 499) {
-      return Promise.reject(new Error('Internal error. Try again.'));
+)
+  .then((res) => res.data)
+  .catch((err) => {
+    if (err.response) {
+      if (err.response.status > 499) {
+        return Promise.reject(new Error('Internal error. Try again.'));
+      }
+      if (err.response.status > 399) {
+        return Promise.reject(new Error('Error in request body. Try again.'));
+      }
     }
-    if (err.response.status > 399) {
-      return Promise.reject(new Error('Error in request body. Try again.'));
+    if (err.request) {
+      return Promise.reject(new Error('Error from server. Try again.'));
     }
-  }
-  if (err.request) {
-    return Promise.reject(new Error('Error from server. Try again.'));
-  }
-  return Promise.reject(new Error('Error. Try again.'));
-});
+    return Promise.reject(new Error('Error. Try again.'));
+  });
 
 /**
  * Deletes user from the database

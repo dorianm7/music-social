@@ -19,6 +19,10 @@ import {
 } from '../users/users';
 
 /**
+ * @typedef {import('../users/users').CreateUserSuccessResponseBody} CreateUserSuccessResponseBody
+ */
+
+/**
  * Delete user from backend,firebase and any local data
  * @param {string} uid Id of user
  * @returns {Promise<void>} Promise of successful operations
@@ -34,11 +38,11 @@ const deleteUser = (uid) => {
  * Create user in backend and firebase
  * @param {string} email Email of user
  * @param {string} password Password of user
- * @returns {Promise<void>} Promise of successful operations
+ * @returns {Promise<CreateUserSuccessResponseBody>} Promise of successful operations
  */
 const createUser = async (email, password) => {
   const user = await userSignUp(email, password);
-  await createUserInDb(user.uid, email);
+  return createUserInDb(user.uid, email);
 };
 
 /**
